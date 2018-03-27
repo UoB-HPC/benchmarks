@@ -15,9 +15,9 @@ then
     DIR="$1"
 fi
 
-if [ ! -r "$DIR/clover_leaf" ]
+if [ ! -r "$DIR/clover_leaf_skl" ]
 then
-    echo "Directory '$DIR' does not exist or does not contain clover_leaf"
+    echo "Directory '$DIR' does not exist or does not contain clover_leaf_skl"
     exit 1
 fi
 
@@ -29,4 +29,4 @@ module swap intel intel/18.0.0.128
 
 cp InputDecks/clover_bm16.in clover.in
 
-OMP_NUM_THREADS=1 aprun -n 56 -d 1 -j 1 ./clover_leaf
+OMP_NUM_THREADS=1 aprun -n 56 -d 1 -j 1 ./clover_leaf_skl
