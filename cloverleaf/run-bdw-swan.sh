@@ -7,6 +7,12 @@
 #PBS -l walltime=00:15:00
 #PBS -joe
 
+if [ -z "$PBS_O_WORKDIR" ]
+then
+    echo "Submit this script via qsub."
+    exit 1
+fi
+
 cd $PBS_O_WORKDIR
 
 DIR="$PWD/CloverLeaf_ref"
