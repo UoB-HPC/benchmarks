@@ -34,7 +34,7 @@ cat ../../benchmark.in \
     | sed 's/NPEY/8/' \
     | sed 's/NPEZ/7/' \
     | sed 's/NTHREADS/1/' \
-    | sed 's/ICHUNK/8/' \
+    | sed 's/ICHUNK/16/' \
     >skl.in
 
 module swap craype-{broadwell,x86-skylake}
