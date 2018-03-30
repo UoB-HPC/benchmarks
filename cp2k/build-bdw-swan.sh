@@ -12,20 +12,21 @@ then
     exit 1
 fi
 
-cp swan-bdw.psmp $DIR/arch
 
-module swap craype-{broadwell,x86-skylake}
 module swap PrgEnv-{cray,gnu}
 
 # Build libxsmm
 rm -rf libxsmm-bdw
 mkdir libxsmm-bdw
-cd libxsmm-bdw
+pushd libxsmm-bdw
 if ! make -f ../libxsmm-1.9/Makefile AVX=2 -j 16
 then
     echo "Building libxsmm failed"
     exit 1
 fi
+popd
+
+sed 's#__LIBXSMMROOT__#'$PWD'/libxsmm-bdw#' swan-bdw.psmp >$DIR/arch/swan-bdw.psmp
 
 # Build CP2K
 cd $DIR/makefiles

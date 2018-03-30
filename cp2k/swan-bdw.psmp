@@ -4,13 +4,12 @@ FC       = ftn
 LD       = ftn
 AR       = ar -r
 CPPFLAGS =
-LIBXSMMROOT = /home/users/p02490/isambard-benchmarks/cp2k/libxsmm-bdw
 DFLAGS   = -D__MKL -D__FFTW3 -D__parallel -D__SCALAPACK -D__LIBXSMM -D__HAS_NO_SHARED_GLIBC
 CFLAGS   = $(DFLAGS)
-FCFLAGS  = $(DFLAGS) -O3 -fopenmp -march=broadwell -mavx2 -funroll-loops -ffast-math -ftree-vectorize \
+FCFLAGS  = $(DFLAGS) -O3 -fopenmp -march=broadwell -funroll-loops -ffast-math -ftree-vectorize \
            -ffree-form -ffree-line-length-512 \
-           -I${MKLROOT}/include -I${MKLROOT}/include/fftw -I${LIBXSMMROOT}/include
-LDFLAGS  = $(FCFLAGS) -L${LIBXSMMROOT}/lib
+           -I${MKLROOT}/include -I${MKLROOT}/include/fftw -I__LIBXSMMROOT__/include
+LDFLAGS  = $(FCFLAGS) -L__LIBXSMMROOT__/lib
 MKL_LIB  = ${MKLROOT}/lib/intel64
 LIBS     = $(MKL_LIB)/libmkl_scalapack_lp64.a -Wl,--start-group \
            $(MKL_LIB)/libmkl_gf_lp64.a ${MKL_LIB}/libmkl_sequential.a \
