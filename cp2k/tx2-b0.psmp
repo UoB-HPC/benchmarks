@@ -5,8 +5,8 @@ LD       = mpifort
 AR       = ar -r
 CPPFLAGS =
 DFLAGS   = -D__FFTW3 -D__parallel -D__SCALAPACK -D__HAS_NO_SHARED_GLIBC
-CFLAGS   = $(DFLAGS) -mcpu=thunderx2t99
-FCFLAGS  = $(DFLAGS) -O3 -fopenmp -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast \
+CFLAGS   = $(DFLAGS) -Ofast -mcpu=thunderx2t99
+FCFLAGS  = $(DFLAGS) -Ofast -fopenmp -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast \
            -ftree-vectorize -ffree-form -ffree-line-length-512 \
            -I/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include
 LDFLAGS  = $(FCFLAGS)
