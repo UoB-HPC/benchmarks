@@ -21,7 +21,7 @@ cp tx2-b0.psmp $DIR/arch/tx2-b0.psmp
 # Build CP2K
 cd $DIR/makefiles
 make ARCH=tx2-b0 VERSION=psmp clean
-if ! make ARCH=tx2-b0 VERSION=psmp -j 64
+if ! make ARCH=tx2-b0 VERSION=psmp -j 256
 then
     echo "Building CP2K failed"
     exit 1
