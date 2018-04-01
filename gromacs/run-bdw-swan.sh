@@ -30,4 +30,4 @@ cd bdw
 export GMX_MAXBACKUP=-1
 aprun -n 1 -d 88 -j 2 -cc none $PWD/build/bin/gmx mdrun \
     -s ../benchmarks/benchmarks/ion_channel_vsites.bench/pme-runs/topol.tpr \
-    -noconfout -resethway -nsteps -1 -maxh 0.05 -v -quiet -nb cpu -ntmpi 42 -ntomp 2 -npme 0 -pin on -notunepme
+    -noconfout -resethway -nsteps -1 -maxh 0.05 -v -quiet -nb cpu -ntmpi 40 -ntomp 2 -npme 0 -pin on -notunepme
