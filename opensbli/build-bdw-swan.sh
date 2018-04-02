@@ -8,7 +8,7 @@ fi
 
 if [ ! -r "$DIR/Benchmark/OpenSBLI_ops.cpp" ]
 then
-    echo "Directory '$DIR' does not exist or does not contain setup.py"
+    echo "Directory '$DIR' does not exist or does not contain Benchmark/OpenSBLI_ops.cpp"
     exit 1
 fi
 
