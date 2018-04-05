@@ -15,6 +15,7 @@ fi
 cd $DIR/src
 
 cat ../../benchmark.in \
+    | sed 's/NY/16/' \
     | sed 's/NZ/16/' \
     | sed 's/NPEY/8/' \
     | sed 's/NPEZ/8/' \

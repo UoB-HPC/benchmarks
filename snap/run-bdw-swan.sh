@@ -30,9 +30,10 @@ fi
 cd $DIR/src
 
 cat ../../benchmark.in \
-    | sed 's/NZ/11/' \
-    | sed 's/NPEY/4/' \
-    | sed 's/NPEZ/11/' \
+    | sed 's/NY/22/' \
+    | sed 's/NZ/8/' \
+    | sed 's/NPEY/11/' \
+    | sed 's/NPEZ/4/' \
     | sed 's/NTHREADS/1/' \
     | sed 's/ICHUNK/16/' \
     >bdw.in
