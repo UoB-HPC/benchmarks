@@ -17,7 +17,7 @@ cd $PBS_O_WORKDIR
 
 export PATH=$PWD/fcm/bin:$PATH
 
-cd bdw-swan/build
+cd bdw-swan
 if ! aprun -n 1 -d 88 -j 2 ./build.sh
 then
     echo "Building failed"
