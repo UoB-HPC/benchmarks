@@ -18,9 +18,6 @@ cd $PBS_O_WORKDIR
 export PATH=$PWD/fcm/bin:$PATH
 
 module swap craype-{broadwell,x86-skylake}
-#module swap cce cce/8.5.8
-#module swap cray-mpich/7.7.0 cray-mpich/7.5.5
-#module swap cray-libsci cray-libsci/16.11.1
 
 cd skl-swan
 if ! aprun -n 1 -d 112 -j 2 ./build.sh
