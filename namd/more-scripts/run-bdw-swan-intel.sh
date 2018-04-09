@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#PBS -N NAMD-skl
-#PBS -o skl.out
-#PBS -q skl28
+#PBS -N NAMD-bdw
+#PBS -o bdw-intel.out
+#PBS -q large
 #PBS -l nodes=1
 #PBS -l walltime=00:10:00
 #PBS -joe
@@ -17,19 +17,20 @@ fi
 
 cd "$PBS_O_WORKDIR"
 
-# Use the GNU Compiler
+# Use the Intel Compiler
 current_env=$( module li 2>&1 | grep PrgEnv | sed -r 's/[^-]*-([a-z]+).*/\1/')
-module swap PrgEnv-$current_env PrgEnv-gnu
-
+module swap PrgEnv-$current_env PrgEnv-intel
+module swap intel intel/18.0.0.128
+module swap "craype-$CRAY_CPU_TARGET" craype-x86-skylake
 module load cray-fftw/3.3.6.3
 module load craype-hugepages8M
 
-numprocs=112
+numprocs=88
 
 ts="$(date "+%Y-%m-%d_%H-%M")"
 runlog="stmv_bdw_$ts.log"
 
-aprun ./NAMD-2.12-SKL-GCC-7.3.0-charm-6.8.2-cray-fftw-3.3.6.3/namd2 "+p$numprocs" stmv/stmv.namd +setcpuaffinity |& tee "$runlog"
+aprun ./NAMD-2.12-BDW-Intel-18-charm-6.8.2-cray-fftw-3.3.6.3/namd2 "+p$numprocs" stmv/stmv.namd +setcpuaffinity |& tee "$runlog"
 
 days_ns=$(awk '/Benchmark/ {daysns=$8} END {print daysns}' "$runlog")
 echo

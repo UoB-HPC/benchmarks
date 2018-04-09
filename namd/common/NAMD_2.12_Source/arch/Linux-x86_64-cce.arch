@@ -1,0 +1,14 @@
+NAMD_ARCH = Linux-x86_64
+CHARMARCH = multicore-linux64
+
+FLOATOPTS = 
+
+CXX = CC -h std=c++11
+CXXOPTS = $(FLOATOPTS)
+CXXNOALIASOPTS = -h alias=none $(FLOATOPTS)
+CXXCOLVAROPTS = 
+
+CC = cc
+COPTS = $(FLOATOPTS)
+
+CHARMBASE=/lus/scratch/p02387/CUG-18-bench/NAMD/NAMD-2.12-BDW-Intel-18-charm-6.8.2-cray-fftw-3.3.6.3/charm682
