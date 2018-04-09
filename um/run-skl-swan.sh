@@ -13,41 +13,38 @@ then
     exit 1
 fi
 
-cd $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR/skl-swan
 
-cd skl-swan
 rm -rf run
 mkdir run
 cd run
-cp -r $PBS_O_WORKDIR/amip/amip4x8/data/* .
-cp $PBS_O_WORKDIR/amip/amip4x8/scripts/wrapper .
+cp -r $PBS_O_WORKDIR/amip/amip/data/* .
+cp -r $PBS_O_WORKDIR/amip/common/data/* .
+cp $PBS_O_WORKDIR/amip/common/scripts/wrapper .
 
 echo "JOB SCRIPT STARTING"
 
-UMDIR="$UMDIR"
-CUMFDIR="$CYLC_TASK_WORK_PATH"
-DATAW="./"
-DATAM="./"
-INPUT_DATA="./"
-VN="10.3"
-FLUME_IOS_NPROC="0"
-UM_ATM_NPROCX="8"
-UM_ATM_NPROCY="7"
-TOTAL_MPI_TASKS="$((UM_ATM_NPROCX*UM_ATM_NPROCY + FLUME_IOS_NPROC))"
-OMP_NUM_THREADS="1"
-OMP_STACKSIZE="2g"
-STASHMSTR="./"
-CORES_PER_NODE="56"
-NUMA_REGIONS_PER_NODE="2"
-HYPERTHREADS="1"
-MPI_TASKS_PER_NODE="$((CORES_PER_NODE*HYPERTHREADS/OMP_NUM_THREADS))"
-ROSE_LAUNCHER_PREOPTS="-ss -n $TOTAL_MPI_TASKS -N $MPI_TASKS_PER_NODE -S $((MPI_TASKS_PER_NODE/NUMA_REGIONS_PER_NODE)) -d $OMP_NUM_THREADS -j $HYPERTHREADS"
-MPICH_COLL_SYNC="MPI_Gatherv"
-export UMDIR CUMFDIR DATAW DATAM INPUT_DATA ROSE_ORIG_HOST VN ROSE_TASK_APP FLUME_IOS_NPROC UM_ATM_NPROCX UM_ATM_NPROCY TOTAL_MPI_TASKS OMP_NUM_THREADS OMP_STACKSIZE CUMF CUMF_PREFIX UM_INSTALL_DIR STASHMSTR CORES_PER_NODE NUMA_REGIONS_PER_NODE HYPERTHREADS MPI_TASKS_PER_NODE ROSE_LAUNCHER_PREOPTS MPICH_COLL_SYNC KGO_XC40_N96_AMIP_EG_DIR ASTART
+export UMDIR="$UMDIR"
+export CUMFDIR="$CYLC_TASK_WORK_PATH"
+export DATAW="./"
+export DATAM="./"
+export INPUT_DATA="./"
+export FLUME_IOS_NPROC="0"
+export UM_ATM_NPROCX="8"
+export UM_ATM_NPROCY="7"
+export TOTAL_MPI_TASKS="$((UM_ATM_NPROCX*UM_ATM_NPROCY + FLUME_IOS_NPROC))"
+export OMP_NUM_THREADS="2"
+export OMP_STACKSIZE="2g"
+export STASHMASTER="./"
+export CORES_PER_NODE="56"
+export NUMA_REGIONS_PER_NODE="2"
+export HYPERTHREADS="2"
+export MPI_TASKS_PER_NODE="$((CORES_PER_NODE*HYPERTHREADS/OMP_NUM_THREADS))"
+export ROSE_LAUNCHER_PREOPTS="-ss -n $TOTAL_MPI_TASKS -N $MPI_TASKS_PER_NODE -S $((MPI_TASKS_PER_NODE/NUMA_REGIONS_PER_NODE)) -d $OMP_NUM_THREADS -j $HYPERTHREADS"
+export MPICH_COLL_SYNC="MPI_Gatherv"
+export FASTRUN=false
 
 module swap craype-{broadwell,x86-skylake}
-module swap PrgEnv-{cray,intel}
-module swap intel intel/18.0.0.128
 module list 2>&1
 
 export ATMOS_KEEP_MPP_STDOUT=true
@@ -56,7 +53,7 @@ export DR_HOOK=0
 export DR_HOOK_CATCH_SIGNALS=0
 export DR_HOOK_IGNORE_SIGNALS=0
 export DR_HOOK_OPT=wallprof,self,time
-export DR_HOOK_PROFILE=./drhook.prof.intel.%d
+export DR_HOOK_PROFILE=./drhook.prof.cray.%d
 export DR_HOOK_PROFILE_LIMIT=-10.0
 export DR_HOOK_PROFILE_PROC=-1
 export ENS_MEMBER=0
@@ -66,9 +63,9 @@ export RCF_PRINTSTATUS=PrStatus_Normal
 export RCF_TIMER=false
 export RECON_KEEP_MPP_STDOUT=true
 export RUNID=atmos
-export SPECTRAL_FILE_DIR=./ga3_0
+export SPECTRAL_FILE_DIR=./spectral
 
 export PATH=$PBS_O_WORKDIR/amip/bin/:$PATH
 
-aprun $ROSE_LAUNCHER_PREOPTS ./wrapper $PBS_O_WORKDIR/skl-swan/build/build-atmos/bin/um-atmos.exe
-
+export ATMOS_LAUNCHER="aprun $ROSE_LAUNCHER_PREOPTS"
+./wrapper $PBS_O_WORKDIR/skl-swan/build/build-atmos/bin/um-atmos.exe

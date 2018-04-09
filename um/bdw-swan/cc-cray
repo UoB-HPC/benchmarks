@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+cc $@
+LARG=${@: -1}
+FNAME=$(basename $LARG | awk -F'.' '{print $1}')
+cat ${FNAME}.i
+rm ${FNAME}.i
