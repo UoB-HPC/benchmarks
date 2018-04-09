@@ -4,10 +4,15 @@
 
 We use compilers as follows:
 
-- TX2: ???
+- TX2: Armclang is 3.46x faster than GNU!
 - BDW: GNU compiler is 6% faster than Intel
 - SKL: Intel compiler gives 5% better performance than GNU.
 - KNL: ???
+
+On TX2, we use `cray-fftw`, since armpl produces invalid results. When switching back to armpl for further test, note the following changes from [the Arm NAMD build guide](https://developer.arm.com/products/software-development-tools/hpc/resources/porting-and-tuning/building-namd-with-arm-compiler):
+
+- In `NAMD_2.12_Source/arch/Linux-ARM64.fftw3`, set `FFTLIB` to use `-larmpl -lflang -lflangrti` instead of `-lfftw3f`
+- When running the `STMV` benchmark, use the _modified_ `stmv.armpl.namd` input file
 
 On Cray, we build by invoking the compiler directly (as opposed to using Cray's wrappers) because that seems the most straight-forward approach. There are some [Cray-specific targets](http://docs.cray.com/books/S-2802-10//S-2802-10.pdf) that can use the wrappers with all the compilers, but this produce SMP-enabled Charm++ builds, which---according to [the Charm++ docs](https://charm.cs.illinois.edu/manuals/html/charm++/manual-1p.html#sec:run)---dedicate an entire core to communication. Since we only run single-node, it is probably best to use the (non-MPI) `multicore` target.
 
@@ -22,6 +27,13 @@ We use the `STMV` benchmark, which can be downloaded form the [NAMD Utilities pa
 Another popular benchmark is `ApoA1`, which is also available to download from the same page, but it is a much smaller test case, and so results are not as convincing. For reference, `STMV` takes about 100 seconds on 44 BDW cores, whereas `ApoA1` takes aroud 10.
 
 Running with more than 1 thread/core produces slightly (10-15%) better results on both TX2 and x86.
+
+On TX2:
+
+- If running an armpl build, don't forget to used the modified input file, `stmv.armpl.namd`
+- If using fewer than the maximum number of threads, you need to set the core binding manually with `+pemap`, as per [the Charm++ docs](https://charm.cs.illinois.edu/manuals/html/charm++/manual-1p.html#sec:run):
+     - For 64 (out of 256) threads: `+p64 +pemap 0-31,128-159`
+     - For 128 (out of 256) threads: `+p128 +pemap 0-63,128-191`
 
 ## More scripts
 

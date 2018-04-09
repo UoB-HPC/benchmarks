@@ -23,9 +23,6 @@ fi
 echo "Unpacking Charm++..."
 tar xf "$tgz_charm"
 
-echo "Copying modified files..."
-cp -r common/* ./
-
 echo "Downloading NAMD..."
 if [ ! -f "$tgz_namd" ]; then
     wget https://www-s.ks.uiuc.edu/Research/namd/2.12/download/832164/NAMD_2.12_Source.tar.gz
@@ -41,6 +38,9 @@ fi
 
 echo "Unpacking NAMD..."
 tar xf "$tgz_namd"
+
+echo "Copying modified files..."
+cp -r common/* ./
 
 echo "Downloading STMV test case..."
 if [ ! -f "$tgz_stmv" ]; then

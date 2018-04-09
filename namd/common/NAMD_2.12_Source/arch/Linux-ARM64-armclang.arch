@@ -1,0 +1,14 @@
+NAMD_ARCH = Linux-ARM64
+CHARMARCH = multicore-linux-aarch64
+
+WARN = -Wno-parentheses-equality -Wno-writable-strings -Wno-return-type -Wno-logical-op-parentheses -Wno-writable-strings -Wno-deprecated-register
+FLOATOPTS = -march=armv8.1-a -mcpu=thunderx2t99 -O3 -ffp-contract=fast -fsimdmath -fomit-frame-pointer $(WARN)
+
+CXX = armclang++ -std=c++11
+CXXOPTS = $(FLOATOPTS)
+CXXNOALIASOPTS = $(FLOATOPTS) -fno-strict-aliasing
+
+CC = armclang
+COPTS = $(FLOATOPTS)
+
+

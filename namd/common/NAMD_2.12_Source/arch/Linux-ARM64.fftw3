@@ -1,0 +1,7 @@
+
+FFTDIR=/lustre/projects/bristol/modules-arm/arm-hpc-compiler/18.1/opt/arm/armpl_time_limited-18.1.0_ThunderX2CN99_SUSE-12_arm-hpc-compiler_18.1_aarch64-linux
+FFTINCL=-I$(FFTDIR)/include
+FFTLIB=-L$(FFTDIR)/lib -lfftw3f
+FFTFLAGS=-DNAMD_FFTW -DNAMD_FFTW_3
+FFT=$(FFTINCL) $(FFTFLAGS)
+
