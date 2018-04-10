@@ -5,7 +5,7 @@ then
     git clone https://github.com/metomi/fcm
 fi
 
-if [ ! -r amip/amip4x8/data/vertlevs_L85_50t_35s_85km ]
+if [ ! -r amip/common/data/STASHmaster_A ]
 then
     mkdir -p amip
     echo "Unpack amip benchmark into amip/"
