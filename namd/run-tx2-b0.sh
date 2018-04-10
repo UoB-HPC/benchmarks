@@ -5,7 +5,7 @@ set -o pipefail
 
 # Use the Arm HPC Compiler
 module purge
-module load arm/hpc-compiler/18.1 cray-fftw/3.3.6.3
+module load arm/hpc-compiler/18.2 cray-fftw/3.3.6.3
 
 numprocs=256
 
@@ -21,7 +21,7 @@ fi
 ts="$(date "+%Y-%m-%d_%H-%M")"
 runlog="tx2_stmv_$ts.log"
 
-eval ./NAMD-2.12-TX2-armclang-18.1-charm-6.8.2-cray-fftw-3.3.6.3/namd2 "+p$numprocs" stmv/stmv.namd "$pemap" +setcpuaffinity |& tee "$runlog"
+eval ./NAMD-2.12-TX2-armclang-18.2-charm-6.8.2-cray-fftw-3.3.6.3/namd2 "+p$numprocs" stmv/stmv.namd "$pemap" +setcpuaffinity |& tee "$runlog"
 
 days_ns=$(awk '/Benchmark/ {daysns=$8} END {print daysns}' "$runlog")
 echo
