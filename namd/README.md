@@ -7,7 +7,7 @@ We use compilers as follows:
 - TX2: Armclang is 3.46x faster than GNU!
 - BDW: GNU compiler is 6% faster than Intel
 - SKL: Intel compiler gives 5% better performance than GNU.
-- KNL: ???
+- KNL: Intel compiler, because the KNL version uses Intel intrinsics
 
 On TX2, we use `cray-fftw`, since armpl produces invalid results. When switching back to armpl for further test, note the following changes from [the Arm NAMD build guide](https://developer.arm.com/products/software-development-tools/hpc/resources/porting-and-tuning/building-namd-with-arm-compiler):
 
@@ -26,7 +26,7 @@ We use the `STMV` benchmark, which can be downloaded form the [NAMD Utilities pa
 
 Another popular benchmark is `ApoA1`, which is also available to download from the same page, but it is a much smaller test case, and so results are not as convincing. For reference, `STMV` takes about 100 seconds on 44 BDW cores, whereas `ApoA1` takes aroud 10.
 
-Running with more than 1 thread/core produces slightly (10-15%) better results on both TX2 and x86.
+Running with more than 1 thread/core produces slightly (10-15%) better results on both TX2 and x86. On KNL, 2 threads/core is 20% better than 1, but 4 threads/core is only 17% better than 1.
 
 On TX2:
 

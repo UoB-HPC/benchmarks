@@ -1,8 +1,9 @@
 #!/bin/bash
 
-#PBS -N NAMD-skl
-#PBS -o skl-intel.out
-#PBS -q skl28
+#PBS -N NAMD-knl
+#PBS -o knl-intel-ht2.out
+#PBS -q knl64
+#PBS -l os=CLE_quad_flat
 #PBS -l nodes=1
 #PBS -l walltime=00:10:00
 #PBS -joe
@@ -21,16 +22,16 @@ cd "$PBS_O_WORKDIR"
 current_env=$( module li 2>&1 | grep PrgEnv | sed -r 's/[^-]*-([a-z]+).*/\1/')
 module swap PrgEnv-$current_env PrgEnv-intel
 module swap intel intel/18.0.0.128
-module swap "craype-$CRAY_CPU_TARGET" craype-x86-skylake
+module swap "craype-$CRAY_CPU_TARGET" craype-mic-knl
 module load cray-fftw/3.3.6.3
 module load craype-hugepages8M
 
-numprocs=112
+numprocs=128
 
-ts="$(date "+%Y-%m-%d_%H-%M")"
-runlog="stmv_skl_$ts.log"
+ts="$(date "+%Y-%m-%d_%H-%M-%S")"
+runlog="stmv_knl_$ts.log"
 
-aprun ./NAMD-2.12-SKL-Intel-18-charm-6.8.2-cray-fftw-3.3.6.3/namd2 "+p$numprocs" stmv/stmv.namd +setcpuaffinity |& tee "$runlog"
+aprun -d "$numprocs" -j 2 -cc depth numactl -m 1 ./NAMD-2.12-KNL-Intel-18-charm-6.8.2-cray-fftw-3.3.6.3/namd2 "+p$numprocs" stmv/stmv.namd +setcpuaffinity |& tee "$runlog"
 
 days_ns=$(awk '/Benchmark/ {daysns=$8} END {print daysns}' "$runlog")
 echo

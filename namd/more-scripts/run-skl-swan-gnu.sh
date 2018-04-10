@@ -27,7 +27,7 @@ module load craype-hugepages8M
 numprocs=112
 
 ts="$(date "+%Y-%m-%d_%H-%M")"
-runlog="stmv_bdw_$ts.log"
+runlog="stmv_skl_$ts.log"
 
 aprun ./NAMD-2.12-SKL-GCC-7.3.0-charm-6.8.2-cray-fftw-3.3.6.3/namd2 "+p$numprocs" stmv/stmv.namd +setcpuaffinity |& tee "$runlog"
 
