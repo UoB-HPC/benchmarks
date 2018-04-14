@@ -17,6 +17,8 @@ cd $PBS_O_WORKDIR
 
 cd NEMO_benchmarks/NEMOGCM/CONFIG/BDW/EXP00
 
+module swap cce cce/8.7.0
+
 export FORT_FMT_RECL=132
 export OMP_NUM_THREADS=1
 aprun -n 44 -d 1 -j 1 ./opa

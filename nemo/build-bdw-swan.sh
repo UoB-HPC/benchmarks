@@ -1,5 +1,6 @@
 #!/bin/bash
 
+module swap cce cce/8.7.0
 module load cray-netcdf
 
 cd NEMO_benchmarks/NEMOGCM/CONFIG
