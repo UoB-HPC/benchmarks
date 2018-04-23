@@ -47,7 +47,7 @@ cd "$namd_dir"
 namd_target="Linux-x86_64-g++"
 sed -i 's/-m64//' "arch/$namd_target.arch"
 sed -i 's/-march=[^ ]*//g' "arch/$namd_target.arch"
-sed -i '/^C\(\|XX\)OPTS.*/ s/$/ -march=skylake-avx512/' "arch/$namd_target.arch"
+sed -i '/^C\(\|XX\)OPTS.*/ s/$/ -march=core-avx2/' "arch/$namd_target.arch"
 sed -i '/CHARMBASE/d' "arch/$namd_target.arch"
 echo "CHARMBASE=$charm_install_dir" >> "arch/$namd_target.arch"
 
