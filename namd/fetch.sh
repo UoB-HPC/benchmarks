@@ -61,7 +61,7 @@ sed -i 's,^outputName.*,outputName          '"$PWD/stmv/out," stmv/stmv.namd
 sed -i 's/;#.*//' stmv/stmv.namd
 
 cp stmv/stmv.namd stmv/stmv.armpl.namd
-cat >stmv/stmv.armpl.namd <<EOF
+cat >>stmv/stmv.armpl.namd <<EOF
 
 FFTWEstimate yes
 FFTWUseWisdom no
