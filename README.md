@@ -7,6 +7,7 @@ The scripts in each directory roughly adhere to the following usage pattern:
     ./fetch.sh
     
     # If this script is present, use it to build the benchmark for the target platform.
+    # On horizon (SKL-20), where dedicated script is not present, use the swan one (SKL-28).
     ./build-<cpu>-<system>.sh
     
     # This script should always be present, and actually runs the benchmark.
