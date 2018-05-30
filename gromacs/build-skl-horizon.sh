@@ -39,6 +39,7 @@ mkdir -p $BUILD
 cd $BUILD
 if ! aprun -n 1 -d 80 -j 2 cmake $DIR -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ \
+    -DGMX_CYCLE_SUBCOUNTERS=ON \
     -DGMX_MPI=OFF -DGMX_GPU=OFF
 then
     echo "Running cmake failed"

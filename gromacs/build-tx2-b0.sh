@@ -23,6 +23,7 @@ cd $BUILD
 if ! cmake $DIR -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ \
     -DGMX_MPI=OFF -DGMX_GPU=OFF \
+    -DGMX_CYCLE_SUBCOUNTERS=ON \
     -DFFTWF_LIBRARY=/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/lib/libfftw3f.a \
     -DFFTWF_INCLUDE_DIR=/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include
 then
