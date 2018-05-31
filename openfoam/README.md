@@ -36,10 +36,11 @@ Because of how OpenFOAM decomposes test cases, we need to set up a separate dire
 
 HyperThreading results are:
 
-* ??? on TX2
+* Marginally (~3%) faster on TX2 with GCC and 4 processes/core
+    - But 2 processes/core is fastest with armclang
 * Marginally (~5%) slower on BDW and SKL
-* ~20% faster on KNL with 2 threads/core
-    - But 4 threads/core uses too much memory for flat mode, and cache mode is 10% slower vs 2 threads/core.
+* ~20% faster on KNL with 2 processes/core
+    - But 4 processes/core uses too much memory for flat mode, and cache mode is 10% slower vs 2 processes/core.
 
 
 ## More scripts
