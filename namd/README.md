@@ -4,7 +4,7 @@
 
 We use compilers as follows:
 
-- TX2: Armclang is 3.46x faster than GNU!
+- TX2: Armclang is 20% faster than GNU!
 - BDW: GNU compiler is 6% faster than Intel
 - SKL: Intel compiler gives 5% better performance than GNU.
 - KNL: Intel compiler, because the KNL version uses Intel intrinsics
