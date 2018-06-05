@@ -1,6 +1,12 @@
 #!/bin/bash
 
-DIR="$PWD/TeaLeaf_ref"
+module purge
+module load gcc/8.1.0
+module load openmpi/3.0.0/gcc-7.2
+
+EXE=tea_leaf-gcc-8.1
+
+DIR="$PWD/../TeaLeaf_ref"
 if [ $# -gt 0 ]
 then
     DIR="$1"
@@ -14,10 +20,7 @@ fi
 
 cd $DIR
 
-module purge
-module load gcc/7.2.0
-module load openmpi/3.0.0/gcc-7.2
-
+rm -f $EXE
 if ! make -B COMPILER=GNU \
     FLAGS_GNU="-Ofast -mcpu=thunderx2t99 -funroll-loops -cpp -ffree-line-length-none -ffast-math -ffp-contract=fast" \
     CFLAGS_GNU="-Ofast -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast"
@@ -26,4 +29,4 @@ then
     exit 1
 fi
 
-mv tea_leaf tea_leaf_tx2
+mv tea_leaf $EXE
