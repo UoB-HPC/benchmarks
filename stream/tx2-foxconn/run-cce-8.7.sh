@@ -1,9 +1,10 @@
 #!/bin/bash
 
-module purge
-module load arm/hpc-compiler/18.1
+module swap cce cce/8.7.0
 
-if ! armclang -std=gnu99 -fopenmp -Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 stream.c -o stream-tx2
+EXE=stream-cce-8.7.0
+
+if ! cc ../stream.c -o $EXE
 then
     echo "Build failed."
     exit 1
@@ -12,4 +13,4 @@ fi
 # Best performance observed when only running 16 cores per socket.
 export OMP_PROC_BIND=true
 export OMP_NUM_THREADS=32
-./stream-tx2
+./$EXE
