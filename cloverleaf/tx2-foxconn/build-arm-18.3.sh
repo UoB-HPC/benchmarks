@@ -1,6 +1,12 @@
 #!/bin/bash
 
-DIR="$PWD/CloverLeaf_ref"
+module purge
+module load arm/hpc-compiler/18.1
+module load openmpi/3.0.0/arm-18.1
+
+EXE=clover_leaf_arm-18.3
+
+DIR="$PWD/../CloverLeaf_ref"
 if [ $# -gt 0 ]
 then
     DIR="$1"
@@ -14,10 +20,7 @@ fi
 
 cd $DIR
 
-module purge
-module load arm/hpc-compiler/18.1
-module load openmpi/3.0.0/arm-18.1
-
+rm -f $EXE
 if ! make -B COMPILER=GNU \
     FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=native -funroll-loops" \
     CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=native -funroll-loops"
@@ -26,4 +29,4 @@ then
     exit 1
 fi
 
-mv clover_leaf clover_leaf_tx2
+mv clover_leaf $EXE
