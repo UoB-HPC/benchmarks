@@ -2,7 +2,7 @@
 
 module purge
 module load gcc/8.1.0
-module load openmpi/3.0.0/gcc-7.2 # 3.1.0 fails?
+module load openmpi/3.0.0/gcc-8.1
 
 EXE=tea_leaf-gcc-8.1
 

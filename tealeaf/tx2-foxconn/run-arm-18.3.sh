@@ -2,7 +2,7 @@
 
 module purge
 module load arm/hpc-compiler/18.3
-module load openmpi/3.0.0/arm-18.3 # 3.1.0 fails?
+module load openmpi/3.0.0/arm-18.3
 
 EXE=tea_leaf-arm-18.3
 
