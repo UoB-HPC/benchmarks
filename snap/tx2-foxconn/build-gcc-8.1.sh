@@ -2,7 +2,7 @@
 
 module purge
 module load gcc/8.1.0
-module load openmpi/3.1.0/gcc-8.1
+module load openmpi/3.0.0/gcc-8.1
 
 EXE=gsnap-gcc-8.1
 
