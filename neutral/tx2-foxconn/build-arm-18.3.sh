@@ -1,6 +1,11 @@
 #!/bin/bash
 
-DIR="$PWD/arch/neutral"
+module purge
+module load arm/hpc-compiler/18.3
+
+EXE=neutral.omp3.arm-18.3
+
+DIR="$PWD/../arch/neutral"
 if [ $# -gt 0 ]
 then
     DIR="$1"
@@ -14,16 +19,14 @@ fi
 
 cd $DIR
 
-module purge
-module load gcc/7.2.0
-
 sed -i '/defined(__powerpc__)$/s/$/ \&\& !defined(__aarch64__)/' Random123/features/gccfeatures.h
 
-if ! make -B COMPILER=GCC ARCH_COMPILER_CC=gcc ARCH_COMPILER_CPP=g++ \
+rm -f $EXE
+if ! make -B COMPILER=GCC ARCH_COMPILER_CC=armclang ARCH_COMPILER_CPP=armclang++ \
     CFLAGS_GCC="-std=gnu99 -Wall -fopenmp -Ofast -mcpu=thunderx2t99 -ffast-math -ffp-contract=fast"
 then
     echo "Build failed"
     exit 1
 fi
 
-mv neutral.omp3 neutral.omp3.tx2
+mv neutral.omp3 $EXE
