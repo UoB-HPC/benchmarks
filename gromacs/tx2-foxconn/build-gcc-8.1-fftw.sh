@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR="$PWD/gromacs-2018.1"
+DIR="$PWD/../gromacs-2018.1"
 if [ $# -gt 0 ]
 then
     DIR="$1"
@@ -13,10 +13,10 @@ then
 fi
 
 module purge
-module load gcc/7.2.0
+module load gcc/8.1.0
 module load cmake
 
-BUILD=$PWD/tx2/build
+BUILD=$PWD/gcc-8.1-fftw/build
 rm -rf $BUILD
 mkdir -p $BUILD
 cd $BUILD
