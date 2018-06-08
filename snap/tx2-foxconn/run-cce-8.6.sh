@@ -1,14 +1,18 @@
 #!/bin/bash
 
-DIR="$PWD/SNAP"
+module swap cce cce/8.6.4
+
+EXE=csnap-cce-8.6
+
+DIR="$PWD/../SNAP"
 if [ $# -gt 0 ]
 then
     DIR="$1"
 fi
 
-if [ ! -r "$DIR/src/csnap-tx2" ]
+if [ ! -r "$DIR/src/$EXE" ]
 then
-    echo "Directory '$DIR' does not exist or does not contain csnap-tx2"
+    echo "Directory '$DIR' does not exist or does not contain $EXE"
     exit 1
 fi
 
@@ -23,8 +27,6 @@ cat ../../benchmark.in \
     | sed 's/ICHUNK/16/' \
     >tx2.in
 
-module swap cce cce/8.6.4
-
 export OMP_NUM_THREADS=4
-mpirun -np 64 --bind-to core ./csnap-tx2 tx2.in tx2.out
+mpirun -np 64 --bind-to core ./$EXE tx2.in tx2.out
 cat tx2.out

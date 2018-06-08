@@ -1,6 +1,12 @@
 #!/bin/bash
 
-DIR="$PWD/SNAP"
+module purge
+module load gcc/8.1.0
+module load openmpi/3.1.0/gcc-8.1
+
+EXE=gsnap-gcc-8.1
+
+DIR="$PWD/../SNAP"
 if [ $# -gt 0 ]
 then
     DIR="$1"
@@ -14,12 +20,11 @@ fi
 
 cd $DIR/src
 
-module swap cce cce/8.6.4
-
-if ! make -B TARGET=csnap FORTRAN=ftn FFLAGS=-hfp3 PP=cpp
+rm -f $EXE
+if ! make -B TARGET=gsnap FFLAGS="-Ofast -mcpu=thunderx2t99 -ffast-math -ffp-contract=fast -fopenmp"
 then
     echo "Build failed"
     exit 1
 fi
 
-mv csnap csnap-tx2
+mv gsnap $EXE
