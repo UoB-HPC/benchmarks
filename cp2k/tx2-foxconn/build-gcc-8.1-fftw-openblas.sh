@@ -1,6 +1,8 @@
 #!/bin/bash
 
-DIR="$PWD/cp2k-5.1"
+CONFIG=gcc8-fftw-openblas
+
+DIR="$PWD/../cp2k-5.1"
 if [ $# -gt 0 ]
 then
     DIR="$1"
@@ -13,15 +15,15 @@ then
 fi
 
 module purge
-module load gcc/7.2.0
+module load gcc/8.1.0
 module load openmpi/3.0.0/gcc-7.2
 
-cp tx2-b0.psmp $DIR/arch/tx2-b0.psmp
+cp $CONFIG.psmp $DIR/arch/$CONFIG.psmp
 
 # Build CP2K
 cd $DIR/makefiles
-make ARCH=tx2-b0 VERSION=psmp clean
-if ! make ARCH=tx2-b0 VERSION=psmp -j 256
+make ARCH=$CONFIG VERSION=psmp clean
+if ! make ARCH=$CONFIG VERSION=psmp -j 256
 then
     echo "Building CP2K failed"
     exit 1

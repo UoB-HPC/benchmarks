@@ -1,0 +1,12 @@
+CC       = cc
+CPP      =
+FC       = ftn
+LD       = ftn
+AR       = ar -r
+CPPFLAGS =
+DFLAGS   = -D__FFTW3 -D__parallel -D__SCALAPACK -D__HAS_NO_SHARED_GLIBC
+CFLAGS   = $(DFLAGS)
+FCFLAGS  = $(DFLAGS) \
+         -I/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include
+LDFLAGS  = $(FCFLAGS) -L/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/lib
+LIBS     = -lfftw3 -lfftw3_threads

@@ -1,0 +1,16 @@
+CC       = mpicc
+CPP      =
+FC       = mpifort
+LD       = mpifort
+AR       = ar -r
+CPPFLAGS =
+DFLAGS   = -D__FFTW3 -D__parallel -D__SCALAPACK -D__HAS_NO_SHARED_GLIBC
+CFLAGS   = $(DFLAGS) -Ofast -mcpu=thunderx2t99
+FCFLAGS  = $(DFLAGS) -Ofast -fopenmp -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast \
+           -ftree-vectorize -ffree-form -ffree-line-length-512 \
+           -I/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include
+LDFLAGS  = $(FCFLAGS)
+LIBS     = /lustre/projects/bristol/modules-arm/scalapack/2.0.2-openblas/lib/libscalapack.a \
+           /lustre/projects/bristol/modules-arm/openblas/0.2.20-nothreads/lib/libopenblas.a \
+           /opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/lib/libfftw3.a \
+           /opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/lib/libfftw3_threads.a
