@@ -3,6 +3,8 @@
 set -eu
 set -o pipefail
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 tgz_charm="charm-6.8.2.tar.gz"
 tgz_namd="NAMD_2.12_Source.tar.gz"
 tgz_stmv="stmv.tar.gz"
@@ -40,7 +42,7 @@ echo "Unpacking NAMD..."
 tar xf "$tgz_namd"
 
 echo "Copying modified files..."
-cp -r common/* ./
+cp -r "$script_dir"/common/* ./
 
 echo "Downloading STMV test case..."
 if [ ! -f "$tgz_stmv" ]; then

@@ -11,6 +11,8 @@
 set -eu
 set -o pipefail
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 cd "$PBS_O_WORKDIR"
 
 basedir="$PWD/OpenFOAM-v1712-x86-GCC-7.3.0-cray-mpich-7.7.1.7"
@@ -41,7 +43,7 @@ tar -xf "$tgz_tp" -C "$basedir"
 # Copy modified build files
 #arch=$(basename "$0" | sed -e 's/^build-//' -e 's/\..*$//')
 #[ -d "$arch" ] && cp -r "$arch"/* "$basedir"
-cp -r common-gnu-mpich/* "$basedir"
+cp -r "$script_dir"/common-gnu-mpich/* "$basedir"
 
 pushd "$basedir/OpenFOAM-v1712"
 

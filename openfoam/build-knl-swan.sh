@@ -3,6 +3,8 @@
 set -eu
 set -o pipefail
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 basedir="$PWD/OpenFOAM-v1712-KNL-Intel-18-cray-mpich-7.7.0"
 [ $# -gt 0 ] && basedir="$1"
 
@@ -29,7 +31,7 @@ tar -xf "$tgz_tp" -C "$basedir"
 # Copy modified build files
 #arch=$(basename "$0" | sed -e 's/^build-//' -e 's/\..*$//')
 #[ -d "$arch" ] && cp -r "$arch"/* "$basedir"
-cp -r common-intel-mpich/* "$basedir"
+cp -r "$script_dir"/common-intel-mpich/* "$basedir"
 
 pushd "$basedir/OpenFOAM-v1712"
 
