@@ -1,6 +1,11 @@
 #!/bin/bash
 
-DIR="$PWD/CloverLeaf_ref"
+module swap PrgEnv-{cray,intel}
+module swap intel intel/18.0.0.128
+
+EXE=clover_leaf_intel-2018
+
+DIR="$PWD/../CloverLeaf_ref"
 if [ $# -gt 0 ]
 then
     DIR="$1"
@@ -14,9 +19,7 @@ fi
 
 cd $DIR
 
-module swap PrgEnv-{cray,intel}
-module swap intel intel/18.0.0.128
-
+rm -f $EXE
 if ! make -B COMPILER=INTEL MPI_COMPILER=ftn C_MPI_COMPILER=cc \
     FLAGS_INTEL="-O3 -no-prec-div -xCORE-AVX2" \
     CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX2"
@@ -25,4 +28,4 @@ then
     exit 1
 fi
 
-mv clover_leaf clover_leaf_bdw
+mv clover_leaf $EXE
