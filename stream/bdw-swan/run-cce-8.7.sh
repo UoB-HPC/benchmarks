@@ -15,7 +15,7 @@ fi
 
 cd $PBS_O_WORKDIR
 
-module swap cce cce/8.7
+module swap cce cce/8.7.1
 
 EXE=stream-cce-8.7
 
