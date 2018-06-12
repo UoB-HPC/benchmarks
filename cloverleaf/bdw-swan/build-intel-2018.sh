@@ -3,7 +3,7 @@
 module swap PrgEnv-{cray,intel}
 module swap intel intel/18.0.0.128
 
-EXE=clover_leaf_intel-2018
+EXE=clover_leaf_bdw_intel-2018
 
 DIR="$PWD/../CloverLeaf_ref"
 if [ $# -gt 0 ]

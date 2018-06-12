@@ -18,7 +18,7 @@ module swap intel intel/18.0.0.128
 
 TARGET=isnap
 CONFIG=intel-2018
-EXE=$TARGET-$CONFIG
+EXE=$TARGET-bdw-$CONFIG
 
 cd $PBS_O_WORKDIR
 

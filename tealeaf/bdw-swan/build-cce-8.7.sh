@@ -2,7 +2,7 @@
 
 module swap cce cce/8.7.1
 
-EXE=tea_leaf_cce-8.7
+EXE=tea_leaf_bdw_cce-8.7
 
 DIR="$PWD/../TeaLeaf_ref"
 if [ $# -gt 0 ]

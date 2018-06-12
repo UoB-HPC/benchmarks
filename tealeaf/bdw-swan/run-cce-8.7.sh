@@ -9,7 +9,7 @@
 
 module swap cce cce/8.7.1
 
-EXE=tea_leaf_cce-8.7
+EXE=tea_leaf_bdw_cce-8.7
 
 if [ -z "$PBS_O_WORKDIR" ]
 then

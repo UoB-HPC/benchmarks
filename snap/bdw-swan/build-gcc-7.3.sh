@@ -5,7 +5,7 @@ module swap gcc gcc/7.3.0
 
 TARGET=gsnap
 CONFIG=gcc-7.3
-EXE=$TARGET-$CONFIG
+EXE=$TARGET-bdw-$CONFIG
 
 DIR="$PWD/../SNAP"
 if [ $# -gt 0 ]

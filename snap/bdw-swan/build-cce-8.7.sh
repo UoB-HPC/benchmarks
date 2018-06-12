@@ -4,7 +4,7 @@ module swap cce cce/8.7.1
 
 TARGET=csnap
 CONFIG=cce-8.7
-EXE=$TARGET-$CONFIG
+EXE=$TARGET-bdw-$CONFIG
 
 DIR="$PWD/../SNAP"
 if [ $# -gt 0 ]

@@ -3,7 +3,7 @@
 module swap PrgEnv-{cray,gnu}
 module swap gcc gcc/7.3.0
 
-EXE=tea_leaf_gcc-7.3
+EXE=tea_leaf_bdw_gcc-7.3
 
 DIR="$PWD/../TeaLeaf_ref"
 if [ $# -gt 0 ]

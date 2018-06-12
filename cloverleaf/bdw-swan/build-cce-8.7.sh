@@ -2,7 +2,7 @@
 
 module swap cce cce/8.7.1
 
-EXE=clover_leaf_cce-8.7
+EXE=clover_leaf_bdw_cce-8.7
 
 DIR="$PWD/../CloverLeaf_ref"
 if [ $# -gt 0 ]

@@ -10,7 +10,7 @@
 module swap PrgEnv-{cray,intel}
 module swap intel intel/18.0.0.128
 
-EXE=tea_leaf_intel-2018
+EXE=tea_leaf_bdw_intel-2018
 
 if [ -z "$PBS_O_WORKDIR" ]
 then

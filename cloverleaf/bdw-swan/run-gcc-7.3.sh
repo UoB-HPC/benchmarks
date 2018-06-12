@@ -16,7 +16,7 @@ fi
 module swap PrgEnv-{cray,gnu}
 module swap gcc gcc/7.3.0
 
-EXE=clover_leaf_gcc-7.3
+EXE=clover_leaf_bdw_gcc-7.3
 
 cd $PBS_O_WORKDIR
 
