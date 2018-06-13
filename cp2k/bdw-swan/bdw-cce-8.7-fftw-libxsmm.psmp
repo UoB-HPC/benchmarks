@@ -1,0 +1,12 @@
+CC       = cc
+CPP      =
+FC       = ftn
+LD       = ftn
+AR       = ar -r
+CPPFLAGS =
+DFLAGS   = -D__FFTW3 -D__parallel -D__SCALAPACK -D__LIBXSMM -D__HAS_NO_SHARED_GLIBC
+CFLAGS   = $(DFLAGS)
+FCFLAGS  = $(DFLAGS) -hfp2 -e0 -ez -emf -ffree -hnocaf -hnodwarf \
+         -I/opt/cray/pe/fftw/3.3.4.11/broadwell/include -I__LIBXSMMROOT__/include
+LDFLAGS  = $(FCFLAGS) -L__LIBXSMMROOT__/lib -L/opt/cray/pe/fftw/3.3.4.11/broadwell/lib
+LIBS     = -lfftw3 -lfftw3_threads -lxsmm -lxsmmf
