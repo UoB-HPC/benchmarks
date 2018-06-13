@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #PBS -N gromacs-bdw
-#PBS -o bdw-build.out
+#PBS -o cce-8.7-fftw-build.out
 #PBS -q large
 #PBS -l nodes=1
 #PBS -l walltime=00:30:00
@@ -16,7 +16,7 @@ fi
 cd $PBS_O_WORKDIR
 
 
-DIR="$PWD/gromacs-2018.1"
+DIR="$PWD/../gromacs-2018.1"
 if [ $# -gt 0 ]
 then
     DIR="$1"
@@ -29,21 +29,28 @@ then
 fi
 
 
-module swap PrgEnv-{cray,gnu}
+module swap cce cce/8.7.1
 module load fftw
 
-BUILD=$PWD/bdw/build
+CONFIG=cce-8.7-fftw
+
+
+BUILD=$PWD/$CONFIG/build
 rm -rf $BUILD
 mkdir -p $BUILD
 cd $BUILD
 if ! aprun -n 1 -d 88 -j 2 cmake $DIR -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ \
+    -DCMAKE_C_COMPILER=cc -DCMAKE_CXX_COMPILER=CC \
     -DGMX_CYCLE_SUBCOUNTERS=ON \
     -DGMX_MPI=OFF -DGMX_GPU=OFF
 then
     echo "Running cmake failed"
     exit 1
 fi
+
+# TODO: Proper fix for this (CMake generates "-l -lm" in link flags)
+find . -name link.txt -exec sed -i 's/-l  -lm/-lm/g' {} \;
+find . -name link.txt -exec sed -i 's/-l  -lrt/-lrt/g' {} \;
 
 if ! aprun -n 1 -d 88 -j 2 make -j 88
 then
