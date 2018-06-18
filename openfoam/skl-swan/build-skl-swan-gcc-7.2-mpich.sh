@@ -1,21 +1,11 @@
 #!/bin/bash
 
-#PBS -N build-OpenFOAM-skl
-#PBS -o build-skl20.log
-#PBS -q batch
-#PBS -l nodes=1
-#PBS -l hostlist=\"[196-283]+[288-343]^\"
-#PBS -l walltime=08:00:00
-#PBS -joe
-
 set -eu
 set -o pipefail
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd "$PBS_O_WORKDIR"
-
-basedir="$PWD/OpenFOAM-v1712-x86-GCC-7.3.0-cray-mpich-7.7.1.7"
+basedir="$PWD/OpenFOAM-v1712-x86-GCC-7.3.0-cray-mpich-7.7.0"
 [ $# -gt 0 ] && basedir="$(readlink -f "$1")"
 
 if [ -d "$basedir" ]; then
@@ -23,8 +13,6 @@ if [ -d "$basedir" ]; then
     echo "$0: Stop." >&2
     exit 1
 fi
-
-mkdir "$basedir"
 
 tgz_of="OpenFOAM-v1712.tgz"
 tgz_tp="ThirdParty-v1712.tgz"
@@ -43,7 +31,7 @@ tar -xf "$tgz_tp" -C "$basedir"
 # Copy modified build files
 #arch=$(basename "$0" | sed -e 's/^build-//' -e 's/\..*$//')
 #[ -d "$arch" ] && cp -r "$arch"/* "$basedir"
-cp -r "$script_dir"/common-gnu-mpich/* "$basedir"
+cp -r "$script_dir"/../build-parts/common-gnu-mpich/* "$basedir"
 
 pushd "$basedir/OpenFOAM-v1712"
 
@@ -63,7 +51,7 @@ current_env=$( module li 2>&1 | grep PrgEnv | sed -r 's/[^-]*-([a-z]+).*/\1/')
 module swap PrgEnv-$current_env PrgEnv-gnu
 
 # Set the installtion directory path and the MPI library to cray-mpich
-sed -i 's,^FOAM_INST_DIR=.*,FOAM_INST_DIR='"$basedir," "$bashrc"
+sed -i 's,^FOAM_INST_DIR=.*,FOAM_INST_DIR='"$PWD," "$bashrc"
 sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=CRAY-MPICH,' "$bashrc"
 
 # Set the compiler flags
@@ -76,10 +64,10 @@ set +e +u
 source "$bashrc"
 
 # Additional flag changes: enable parallel compilation and remove `m64`, which Cray GCC doesn't like
-export WM_NCOMPPROCS=40
+export WM_NCOMPPROCS=8
 export WM_CFLAGS='-fPIC' WM_CXXFLAGS='-fPIC -std=c++11' WM_LDFLAGS=''
 
-aprun -b -n1 -d 40 ./Allwmake |& tee build.log
+time ./Allwmake |& tee build.log
 
 # If the build fails with 'too many open files' error, try again with a single thread
 if [ "$(grep -c 'open files' build.log)" -gt 0 ]; then
@@ -90,7 +78,7 @@ fi
 
 # Create a test case directory if the files are available (and the directory doesn't exist already)
 popd
-testdir="run/block_DrivAer_small-skl"
+testdir="run/block_DrivAer_small-bdw"
 if [ -d "$testdir" ]; then
     echo "Test directory already exists: $testdir"
 elif [ -f OpenFOAM-v1712-block_DrivAer_small.tar.gz ]; then

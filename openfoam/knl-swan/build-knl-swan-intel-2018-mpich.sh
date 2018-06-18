@@ -5,8 +5,8 @@ set -o pipefail
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-basedir="$PWD/OpenFOAM-v1712-x86-GCC-7.3.0-cray-mpich-7.7.0"
-[ $# -gt 0 ] && basedir="$(readlink -f "$1")"
+basedir="$PWD/OpenFOAM-v1712-KNL-Intel-18-cray-mpich-7.7.0"
+[ $# -gt 0 ] && basedir="$1"
 
 if [ -d "$basedir" ]; then
     echo "$0: Installation direcotry already exists: $basedir" >&2
@@ -31,14 +31,14 @@ tar -xf "$tgz_tp" -C "$basedir"
 # Copy modified build files
 #arch=$(basename "$0" | sed -e 's/^build-//' -e 's/\..*$//')
 #[ -d "$arch" ] && cp -r "$arch"/* "$basedir"
-cp -r "$script_dir"/common-gnu-mpich/* "$basedir"
+cp -r "$script_dir"/../build-parts/common-intel-mpich/* "$basedir"
 
 pushd "$basedir/OpenFOAM-v1712"
 
 bashrc="etc/bashrc"
-cflags="wmake/rules/linux64Gcc/c"
-cppflags="wmake/rules/linux64Gcc/c++"
-cppOptflags="wmake/rules/linux64Gcc/c++Opt"
+cflags="wmake/rules/linux64IccKNL/c"
+cppflags="wmake/rules/linux64IccKNL/c++"
+cppOptflags="wmake/rules/linux64IccKNL/c++Opt"
 
 if [ ! -f "$bashrc" ]; then
     echo "$0: File does not exist: $PWD/$bashrc" >&2
@@ -46,15 +46,20 @@ if [ ! -f "$bashrc" ]; then
     exit 2
 fi
 
-# Use the GNU Compiler
+# Use the Intel Compiler
 current_env=$( module li 2>&1 | grep PrgEnv | sed -r 's/[^-]*-([a-z]+).*/\1/')
-module swap PrgEnv-$current_env PrgEnv-gnu
+module swap PrgEnv-$current_env PrgEnv-intel
+module swap intel intel/18.0.0.128
 
-# Set the installtion directory path and the MPI library to cray-mpich
+# Set the installtion directory path, the compiler to Intel KNL, and the MPI library to cray-mpich
 sed -i 's,^FOAM_INST_DIR=.*,FOAM_INST_DIR='"$PWD," "$bashrc"
+sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=IccKNL,' "$bashrc"
 sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=CRAY-MPICH,' "$bashrc"
 
 # Set the compiler flags
+sed -i 's/-m64//' "$cflags"
+sed -i 's/-m64//' "$cppflags"
+sed -i '/^CC          =/ s/$/ -qopenmp/' "$cppflags"
 cat >>"$cppOptflags" <<EOF
 # Suppress some warnings for flex++ and CGAL
 c++LESSWARN = -Wno-old-style-cast -Wno-unused-local-typedefs -Wno-array-bounds -fpermissive
@@ -78,7 +83,7 @@ fi
 
 # Create a test case directory if the files are available (and the directory doesn't exist already)
 popd
-testdir="run/block_DrivAer_small-bdw"
+testdir="run/block_DrivAer_small-knl"
 if [ -d "$testdir" ]; then
     echo "Test directory already exists: $testdir"
 elif [ -f OpenFOAM-v1712-block_DrivAer_small.tar.gz ]; then

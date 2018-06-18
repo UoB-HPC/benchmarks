@@ -42,8 +42,3 @@ HyperThreading results are:
 * ~20% faster on KNL with 2 processes/core
     - But 4 processes/core uses too much memory for flat mode, and cache mode is 10% slower vs 2 processes/core.
 
-
-## More scripts
-
-These scripts are not useful for the main benchmark runs. However, they were used at some point and led to slower results, and they may be useful again in the future.
-
