@@ -35,9 +35,3 @@ On TX2:
      - For 64 (out of 256) threads: `+p64 +pemap 0-31,128-159`
      - For 128 (out of 256) threads: `+p128 +pemap 0-63,128-191`
 
-## More scripts
-
-These scripts are not useful for the main benchmark runs. However, they were used at some point and led to slower results, and they may be useful again in the future.
-
-Note that the CCE scripts do not currently produce a complete build due to compiler errors (which seem unrelated to the build parameters).
-
