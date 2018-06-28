@@ -8,7 +8,13 @@ fi
 if [ ! -r amip/common/data/STASHmaster_A ]
 then
     mkdir -p amip
-    echo "Unpack amip benchmark into amip/"
-    echo "Then run the following substitution:"
-    echo '    sed -i '"'"'s/^export ATMOS_LAUNCHER=.*/export ATMOS_LAUNCHER=${ATMOS_LAUNCHER:-}/'"'"' amip/common/scripts/wrapper'
+    echo
+    echo "Unpack AMIP benchmark into amip/"
+    echo "e.g. tar xf vn10_8_benchmark_r2_arm.tar.gz -C amip"
+    echo
+    echo "Tested with 'vn10_8_benchmark_r2_arm.tar.gz'"
+    echo "MD5: 6174fbeddd20982a62e67d192f26febb"
+    echo
+else
+    echo "AMIP benchmark files already present."
 fi

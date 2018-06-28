@@ -20,7 +20,7 @@ export FLUME_IOS_NPROC="0"
 export UM_ATM_NPROCX="8"
 export UM_ATM_NPROCY="8"
 export TOTAL_MPI_TASKS="$((UM_ATM_NPROCX*UM_ATM_NPROCY + FLUME_IOS_NPROC))"
-export OMP_NUM_THREADS="4"
+export OMP_NUM_THREADS="3"
 export OMP_STACKSIZE="2g"
 export STASHMASTER="./"
 export CORES_PER_NODE="64"
@@ -55,6 +55,5 @@ export SPECTRAL_FILE_DIR=./spectral
 export PATH=$PWD/../../amip/bin/:$PATH
 export LD_LIBRARY_PATH=$PWD/../build/shumlib/lib/:$LD_LIBRARY_PATH
 
-export OMP_NUM_THREADS=4
 export ATMOS_LAUNCHER="mpirun -np 64 --bind-to core"
  ./wrapper $PWD/../build/build-atmos/bin/um-atmos.exe
