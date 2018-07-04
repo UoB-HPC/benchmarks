@@ -22,9 +22,10 @@ if [ $# -lt 1 ]; then
     exit 1
 fi
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 action="$1"
 export COMPILER="${2:-$default_compiler}"
-
 charm_build_type=""
 
 # Set up the environment
@@ -53,7 +54,6 @@ case "$COMPILER" in
 esac
 
 export BENCHMARK_PLATFORM=bdw-swan
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 install_dir="$PWD/NAMD-2.12-BDW-$COMPILER-charm-6.8.2-cray-fftw-3.3.6.3"
 
 # Handle actions
@@ -83,7 +83,7 @@ if [ "$action" == "build" ]; then
     cd "$charm_dir"
 
     charmarch="multicore-linux64"
-    ./build charm++ "$charmarch" "$charm_build_type" --with-production --destination="$charm_install_dir/$charmarch" -j8
+    eval ./build charm++ "$charmarch" "$charm_build_type" --with-production --destination="$charm_install_dir/$charmarch" -j8
 
     echo
     echo "Building NAMD..."
@@ -127,7 +127,7 @@ if [ "$action" == "build" ]; then
 
 elif [ "$action" == "run" ]; then
     qsub "$script_dir/run.job" \
-        -o "CloverLeaf-$BENCHMARK_PLATFORM-$COMPILER.out" \
+        -o "NAMD-$BENCHMARK_PLATFORM-$COMPILER.out" \
         -V
 else
     usage

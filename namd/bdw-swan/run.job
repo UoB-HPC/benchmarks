@@ -11,7 +11,7 @@ set -o pipefail
 
 cd "$PBS_O_WORKDIR"
 
-exe="NAMD-2.12-BDW-$COMPILER-charm-6.8.2-cray-fftw-3.3.6.3/namd2"
+exe="./NAMD-2.12-BDW-$COMPILER-charm-6.8.2-cray-fftw-3.3.6.3/namd2"
 if [ ! -x "$exe" ]; then
     echo "Executable not found: $exe"
     echo "Have you run './benchmark build'?"
