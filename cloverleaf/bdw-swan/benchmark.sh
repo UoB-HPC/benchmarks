@@ -92,7 +92,7 @@ then
 
 elif [ "$ACTION" == "run" ]
 then
-    qsub $SCRIPT_DIR/run.sh \
+    qsub $SCRIPT_DIR/run.job \
         -o CloverLeaf-$BENCHMARK_PLATFORM-$COMPILER.out \
         -N cloverleaf \
         -V

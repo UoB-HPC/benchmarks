@@ -104,7 +104,7 @@ then
 
 elif [ "$ACTION" == "run" ]
 then
-    $SCRIPT_DIR/run.sh
+    $SCRIPT_DIR/run.job
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
