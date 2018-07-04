@@ -1,32 +1,37 @@
 #!/bin/bash
 
-# Process arguments
-if [ $# -lt 1 ]
-then
-    echo "Usage: ./benchmark.sh build|run|list [COMPILER]"
-    exit 1
-fi
-
-ACTION=$1
-COMPILER=${2:-cce-8.7}
-SCRIPT=`realpath $0`
-SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
-PLATFORM=tx2-foxconn
-
-EXE=clover_leaf
-SRC_DIR=$PWD/CloverLeaf_ref
-RUN_DIR=$PWD/CloverLeaf-$PLATFORM-$COMPILER
-
-
-if [ "$ACTION" == "list" ]
-then
+DEFAULT_COMPILER=cce-8.7
+function usage
+{
+    echo
+    echo "Usage: ./benchmark.sh build|run [COMPILER]"
+    echo
     echo "Valid compilers:"
     echo "  cce-8.7"
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo "  arm-18.3"
-    exit 0
+    echo
+    echo "The default configuration is '$DEFAULT_COMPILER'."
+    echo
+}
+
+# Process arguments
+if [ $# -lt 1 ]
+then
+    usage
+    exit 1
 fi
+
+ACTION=$1
+COMPILER=${2:-$DEFAULT_COMPILER}
+SCRIPT=`realpath $0`
+SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
+
+export BENCHMARK_PLATFORM=tx2-foxconn
+export BENCHMARK_EXE=clover_leaf
+export SRC_DIR=$PWD/CloverLeaf_ref
+export RUN_DIR=$PWD/CloverLeaf-$BENCHMARK_PLATFORM-$COMPILER
 
 
 # Fetch source code if necessary
@@ -73,7 +78,9 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
         ;;
     *)
-        echo "Invalid compiler '$COMPILER' (use 'list' to show available options)"
+        echo
+        echo "Invalid compiler '$COMPILER'."
+        usage
         exit 1
         ;;
 esac
@@ -83,31 +90,24 @@ esac
 if [ "$ACTION" == "build" ]
 then
     # Perform build
-    rm -f $SRC_DIR/$EXE
+    rm -f $SRC_DIR/$BENCHMARK_EXE $RUN_DIR/$BENCHMARK_EXE
     if ! eval make -C $SRC_DIR -B $MAKE_OPTS
     then
-        echo "Build failed"
+        echo
+        echo "Build failed."
+        echo
         exit 1
     fi
 
     mkdir -p $RUN_DIR
-    mv $SRC_DIR/$EXE $RUN_DIR
+    mv $SRC_DIR/$BENCHMARK_EXE $RUN_DIR
 
 elif [ "$ACTION" == "run" ]
 then
-    cd $RUN_DIR
-    if [ ! -x "$EXE" ]
-    then
-        echo "Executable '$EXE' not found"
-        exit 1
-    fi
-
-    # Run the benchmark
-    cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
-    export OMP_PROC_BIND=true
-    export OMP_NUM_THREADS=4
-    mpirun -np 64 --bind-to core ./$EXE
+    $SCRIPT_DIR/run.sh
 else
-    echo "Invalid action (use 'build' or 'run')"
+    echo
+    echo "Invalid action (use 'build' or 'run')."
+    echo
     exit 1
 fi
