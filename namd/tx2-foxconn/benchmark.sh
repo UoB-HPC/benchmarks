@@ -111,8 +111,7 @@ if [ "$action" == "build" ]; then
     sed -i '/CHARMBASE/d' "arch/$namd_target.arch"
     echo "CHARMBASE=$charm_install_dir" >> "arch/$namd_target.arch"
 
-    fftw3_dir="$(readlink -f "$FFTW_DIR/..")"
-    sed -i 's,^FFTDIR=.*,FFTDIR='"$fftw3_dir," arch/Linux-x86_64.fftw3
+    sed -i 's,^FFTDIR=.*,FFTDIR='"/opt/cray/pe/fftw/$CRAY_FFTW_VERSION/arm_thunderx2," "arch/${namd_target%-armclang}.fftw3"
 
     rm -rf "$namd_target"
     ./config "$namd_target" --with-fftw3 --without-tcl --charm-arch "$charmarch"
