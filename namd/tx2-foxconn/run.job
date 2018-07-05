@@ -1,0 +1,34 @@
+#!/bin/bash
+
+set -eu
+set -o pipefail
+
+exe="./NAMD-2.12-TX2-$COMPILER-charm-6.8.2-cray-fftw-3.3.6.3/namd2"
+if [ ! -x "$exe" ]; then
+    echo "Executable not found: $exe"
+    echo "Have you run './benchmark build'?"
+    exit 1
+fi
+
+numprocs=256
+pemap=''
+if [ "$numprocs" -eq 64 ]; then
+    pemap="+pemap 0-31,128-159"
+elif [ "$numprocs" -eq 128 ]; then
+    pemap="+pemap 0-63,128-191"
+elif [ "$numprocs" -ne 256 ]; then
+    echo "WARNING: +pemap not set automatically for $numprocs processes. Your results may be incorrect."
+fi
+
+ts="$(date "+%Y-%m-%d_%H-%M")"
+runlog="stmv_${BENCHMARK_PLATFORM}_${COMPILER}_$ts.log"
+
+eval "$exe" "+p$numprocs" stmv/stmv.namd "$pemap" +setcpuaffinity |& tee "$runlog"
+
+days_ns=$(awk '/Benchmark/ {daysns=$8} END {print daysns}' "$runlog")
+echo
+echo "Benchmark metric: $days_ns days/ns"
+echo "Full run log in: $runlog"
+
+echo "Done."
+
