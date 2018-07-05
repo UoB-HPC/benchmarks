@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if [ -e gromacs-2018.1 ]
+if [ ! -e gromacs-2018.1 ]
 then
-    echo "gromacs-2018.1 already exists"
-    exit 1
+    wget http://ftp.gromacs.org/pub/gromacs/gromacs-2018.1.tar.gz
+    tar xf gromacs-2018.1.tar.gz
 fi
 
-wget http://ftp.gromacs.org/pub/gromacs/gromacs-2018.1.tar.gz
-tar xf gromacs-2018.1.tar.gz
-
-git clone https://bitbucket.org/pszilard/isambard-bench-pack.git benchmarks
+if [ ! -e gromacs-benchmarks ]
+then
+    git clone https://bitbucket.org/pszilard/isambard-bench-pack.git gromacs-benchmarks
+fi
