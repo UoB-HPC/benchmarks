@@ -3,7 +3,7 @@
 set -eu
 set -o pipefail
 
-exe="./NAMD-2.12-TX2-$COMPILER-charm-6.8.2-cray-fftw-3.3.6.3/namd2"
+exe="./NAMD-2.12-TX2-$COMPILER-charm-6.8.2-$FFTLIB/namd2"
 if [ ! -x "$exe" ]; then
     echo "Executable not found: $exe"
     echo "Have you run './benchmark build'?"
@@ -20,10 +20,14 @@ elif [ "$numprocs" -ne 256 ]; then
     echo "WARNING: +pemap not set automatically for $numprocs processes. Your results may be incorrect."
 fi
 
-ts="$(date "+%Y-%m-%d_%H-%M")"
-runlog="stmv_${BENCHMARK_PLATFORM}_${COMPILER}_$ts.log"
+# ArmPL 18.3 doesn't support the wisdom function
+casefile=stmv/stmv.namd
+[ "$FFTLIB" = armpl-18.3 ] && casefile="${casefile/%namd/armpl.namd}"
 
-eval "$exe" "+p$numprocs" stmv/stmv.namd "$pemap" +setcpuaffinity |& tee "$runlog"
+ts="$(date "+%Y-%m-%d_%H-%M")"
+runlog="stmv_${BENCHMARK_PLATFORM}_${COMPILER}_${FFTLIB}_${ts}.log"
+
+eval "$exe" "+p$numprocs" "$casefile" "$pemap" +setcpuaffinity |& tee "$runlog"
 
 days_ns=$(awk '/Benchmark/ {daysns=$8} END {print daysns}' "$runlog")
 echo

@@ -4,16 +4,21 @@ set -eu
 set -o pipefail
 
 default_compiler=arm-18.3
+default_fftlib=cray-fftw-3.3.6.3
 function usage ()
 {
     echo
-    echo "Usage: ./benchmark.sh build|run [COMPILER]"
+    echo "Usage: ./benchmark.sh build|run [COMPILER] [FFT-LIB]"
     echo
     echo "Valid compilers:"
     echo "  arm-18.3"
     echo "  gcc-7.2"
     echo
-    echo "The default configuration is '$default_compiler'."
+    echo "Valid FFT libraries:"
+    echo "  armpl-18.3"
+    echo "  cray-fftw-3.3.6.3"
+    echo
+    echo "The default configuration is '$default_compiler $default_fftlib'."
     echo
 }
 
@@ -26,17 +31,46 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 action="$1"
 export COMPILER="${2:-$default_compiler}"
+export FFTLIB="${3:-$default_fftlib}"
 charm_build_type=""
 
 # Set up the environment
 case "$COMPILER" in
     arm-18.3)
         module purge
-        module load arm/hpc-compiler/18.3 cray-fftw/3.3.6.3
+        module load arm/hpc-compiler/18.3
+
+        case "$FFTLIB" in
+            armpl-18.3)
+                module load arm/perf-libs/18.3/arm-18.3
+                ;;
+            cray-fftw-3.3.6.3)
+                module load cray-fftw/3.3.6.3
+                ;;
+            *)
+                echo "Invalid FFT library."
+                usage
+                exit 5
+                ;;
+        esac
         ;;
     gcc-7.2)
         module purge
-        module load gcc/7.2.0 cray-fftw/3.3.6.3
+        module load gcc/7.2.0
+
+        case "$FFTLIB" in
+            armpl-18.3)
+                module load arm/perf-libs/18.3/gcc-7.1
+                ;;
+            cray-fftw-3.3.6.3)
+                module load cray-fftw/3.3.6.3
+                ;;
+            *)
+                echo "Invalid FFT library."
+                usage
+                exit 5
+                ;;
+        esac
         ;;
     *)
         echo "Invalid compiler."
@@ -45,7 +79,7 @@ case "$COMPILER" in
 esac
 
 export BENCHMARK_PLATFORM=tx2-foxconn
-install_dir="$PWD/NAMD-2.12-TX2-$COMPILER-charm-6.8.2-cray-fftw-3.3.6.3"
+install_dir="$PWD/NAMD-2.12-TX2-$COMPILER-charm-6.8.2-$FFTLIB"
 
 # Handle actions
 if [ "$action" == "build" ]; then
@@ -97,10 +131,42 @@ if [ "$action" == "build" ]; then
     case "$COMPILER" in
         arm-18.3)
             namd_target="Linux-ARM64-armclang"
+
+            case "$FFTLIB" in
+                armpl-18.3)
+                    sed -i 's,^FFTDIR=.*,FFTDIR='"$ARMPL_DIR," "arch/${namd_target%-armclang}.fftw3"
+                    sed -i '/FFTLIB/ s/-lfftw3f/-larmpl/' "arch/${namd_target%-armclang}.fftw3"
+                    ;;
+                cray-fftw-3.3.6.3)
+                    sed -i 's,^FFTDIR=.*,FFTDIR='"/opt/cray/pe/fftw/$CRAY_FFTW_VERSION/arm_thunderx2," "arch/${namd_target%-armclang}.fftw3"
+                    sed -i '/FFTLIB/ s/-larmpl/-lfftw3f/' "arch/${namd_target%-armclang}.fftw3"
+                    ;;
+                *)
+                    echo "Invalid FFT library. This is most likely a bug in the script."
+                    usage
+                    exit 5
+                    ;;
+            esac
             ;;
         gcc-7.2)
             namd_target="Linux-ARM64-g++"
             sed -i 's/^FLOATOPTS =.*/FLOATOPTS = -march=armv8.1-a -mcpu=thunderx2t99 -O3 -ffast-math -funsafe-math-optimizations -fomit-frame-pointer -ffp-contract=fast/' "arch/$namd_target.arch"
+
+            case "$FFTLIB" in
+                armpl-18.3)
+                    sed -i 's,^FFTDIR=.*,FFTDIR='"$ARMPL_DIR," "arch/${namd_target%-g++}.fftw3"
+                    sed -i '/FFTLIB/ s/-lfftw3f/-larmpl/' "arch/${namd_target%-g++}.fftw3"
+                    ;;
+                cray-fftw-3.3.6.3)
+                    sed -i 's,^FFTDIR=.*,FFTDIR='"/opt/cray/pe/fftw/$CRAY_FFTW_VERSION/arm_thunderx2," "arch/${namd_target%-g++}.fftw3"
+                    sed -i '/FFTLIB/ s/-larmpl/-lfftw3f/' "arch/${namd_target%-g++}.fftw3"
+                    ;;
+                *)
+                    echo "Invalid FFT library. This is most likely a bug in the script."
+                    usage
+                    exit 5
+                    ;;
+            esac
             ;;
         *)
             echo "Invalid compiler '$COMPILER'. This is most likely a bug in the script."
@@ -110,8 +176,6 @@ if [ "$action" == "build" ]; then
 
     sed -i '/CHARMBASE/d' "arch/$namd_target.arch"
     echo "CHARMBASE=$charm_install_dir" >> "arch/$namd_target.arch"
-
-    sed -i 's,^FFTDIR=.*,FFTDIR='"/opt/cray/pe/fftw/$CRAY_FFTW_VERSION/arm_thunderx2," "arch/${namd_target%-armclang}.fftw3"
 
     rm -rf "$namd_target"
     ./config "$namd_target" --with-fftw3 --without-tcl --charm-arch "$charmarch"
