@@ -17,9 +17,18 @@ function usage ()
     echo
 }
 
+# Exit codes
+exit_too_few_arguments=1
+exit_bad_compier=2
+exit_invalid_action=3
+exit_install_already_exists=4
+exit_missing_code=5
+exit_bad_fftlib=6
+exit_not_built=7
+
 if [ $# -lt 1 ]; then
     usage
-    exit 1
+    exit $exit_too_few_arguments
 fi
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -50,7 +59,7 @@ case "$COMPILER" in
     *)
         echo "Invalid compiler."
         usage
-        exit 2
+        exit $exit_bad_compier
 esac
 
 export BENCHMARK_PLATFORM=bdw-swan
@@ -71,7 +80,7 @@ if [ "$action" == "build" ]; then
     if [ -d "$install_dir" ]; then
         echo "Installation directory already exists: $install_dir."
         echo "Stop."
-        exit 4
+        exit $exit_install_already_exists
     fi
 
     echo "Installing into: $install_dir"
@@ -106,7 +115,7 @@ if [ "$action" == "build" ]; then
             ;;
         *)
             echo "Invalid compiler '$COMPILER'. This is most likely a bug in the script."
-            exit 2
+            exit $exit_bad_compier
         ;;
     esac
 
@@ -126,10 +135,16 @@ if [ "$action" == "build" ]; then
     echo "Build complete."
 
 elif [ "$action" == "run" ]; then
+    if [ ! -d "NAMD-2.12-BDW-$COMPILER-charm-6.8.2-cray-fftw-3.3.6.3" ]; then
+        echo "Configuration not built: $COMPILER"
+        echo "Have you run 'benchmark.sh build $COMPILER'?"
+        exit $exit_not_built
+    fi
+
     qsub "$script_dir/run.job" \
         -o "NAMD-$BENCHMARK_PLATFORM-$COMPILER.out" \
         -V
 else
     usage
-    exit 3
+    exit $exit_invalid_action
 fi
