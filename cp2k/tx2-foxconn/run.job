@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export OMP_NUM_THREADS=2
+mpirun -np 64 --bind-to core \
+    $SRC_DIR/exe/$CONFIG/cp2k.psmp \
+    -i $SRC_DIR/tests/QS/benchmark/H2O-64.inp \
+    | tee $CONFIG.out

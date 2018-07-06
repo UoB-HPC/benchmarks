@@ -1,0 +1,11 @@
+CC       = ${CC}
+CPP      =
+FC       = ${FC}
+LD       = ${LD}
+AR       = ar -r
+CPPFLAGS =
+DFLAGS   = -D__FFTW3 -D__parallel -D__SCALAPACK -D__HAS_NO_SHARED_GLIBC
+CFLAGS   = $(DFLAGS) ${CFLAGS}
+FCFLAGS  = $(DFLAGS) ${FCFLAGS}
+LDFLAGS  = $(FCFLAGS) ${LDFLAGS}
+LIBS     = ${LIBS}
