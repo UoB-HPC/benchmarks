@@ -13,6 +13,7 @@ function usage ()
     echo "Valid compilers:"
     echo "  arm-18.3"
     echo "  gcc-7.2"
+    echo "  gcc-8.1"
     echo
     echo "Valid FFT libraries:"
     echo "  armpl-18.3"
@@ -54,9 +55,21 @@ case "$COMPILER" in
                 ;;
         esac
         ;;
-    gcc-7.2)
+    gcc-*)
         module purge
-        module load gcc/7.2.0
+        case "$COMPILER" in
+            gcc-7.2)
+                module load gcc/7.2.0
+                ;;
+            gcc-8.1)
+                module load gcc/8.1.0
+                ;;
+            *)
+                echo "Invalid compiler."
+                usage
+                exit 2
+                ;;
+        esac
 
         case "$FFTLIB" in
             armpl-18.3)
@@ -76,6 +89,7 @@ case "$COMPILER" in
         echo "Invalid compiler."
         usage
         exit 2
+        ;;
 esac
 
 export BENCHMARK_PLATFORM=tx2-foxconn
@@ -111,7 +125,7 @@ if [ "$action" == "build" ]; then
         arm-18.3)
             charmarch="multicore-linux-aarch64"
             ;;
-        gcc-7.2)
+        gcc-*)
             charmarch="multicore-linux64"
             ;;
         *)
@@ -148,7 +162,7 @@ if [ "$action" == "build" ]; then
                     ;;
             esac
             ;;
-        gcc-7.2)
+        gcc-*)
             namd_target="Linux-ARM64-g++"
             sed -i 's/^FLOATOPTS =.*/FLOATOPTS = -march=armv8.1-a -mcpu=thunderx2t99 -O3 -ffast-math -funsafe-math-optimizations -fomit-frame-pointer -ffp-contract=fast/' "arch/$namd_target.arch"
 
