@@ -12,11 +12,11 @@ set -o pipefail
 cd "$PBS_O_WORKDIR"
 
 set +e +u
-source "$PWD/OpenFOAM-v1712-BDW-$COMPILER-$MPILIB/OpenFOAM-v1712/etc/bashrc"
+source "$PWD/OpenFOAM-v1712-SKL-$COMPILER-$MPILIB/OpenFOAM-v1712/etc/bashrc"
 set -eu
 
 testdir="run/block_DrivAer_small-${BENCHMARK_PLATFORM}"
-numprocs=88
+numprocs=112
 
 if [ ! -d "$testdir" ]; then
     echo "Run directory does not exist: $PWD/$testdir"
