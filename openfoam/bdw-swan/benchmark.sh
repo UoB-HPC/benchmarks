@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2034 disable=SC1090
 
 set -eu
 set -o pipefail
@@ -26,7 +27,7 @@ function usage ()
 
 # Exit codes
 exit_too_few_arguments=1
-exit_bad_compier=2
+exit_bad_compiler=2
 exit_invalid_action=3
 exit_install_already_exists=4
 exit_missing_code=5
@@ -69,7 +70,7 @@ case "$COMPILER" in
     *)
         echo "Invalid compiler."
         usage
-        exit $exit_bad_compier
+        exit $exit_bad_compiler
         ;;
 esac
 
