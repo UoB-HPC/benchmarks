@@ -75,7 +75,7 @@ esac
 
 case "$MPILIB" in
     cray-mpich-7.7.0)
-        # No action required
+        module swap cray-mpich cray-mpich/7.7.0
         ;;
     openmpi-1.10.4)
         # No action required
@@ -121,7 +121,16 @@ if [ "$action" == "build" ]; then
     fi
 
     # Copy modified build files
-    cp -r "$script_dir"/../build-parts/common-gnu-mpich/* "$install_dir"
+    if [[ "$MPILIB" =~ mpich ]]; then
+        case "$COMPILER" in
+            gcc-*)
+                cp -r "$script_dir"/../build-parts/common-gnu-mpich/* "$install_dir"
+                ;;
+            intel-*)
+                cp -r "$script_dir"/../build-parts/common-intel-mpich/* "$install_dir"
+                ;;
+        esac
+    fi
 
     pushd "$install_dir/OpenFOAM-v1712"
     bashrc="etc/bashrc"
