@@ -11,20 +11,20 @@
  DBCSR| Communication thread load                                             83
 
 
-  **** **** ******  **  PROGRAM STARTED AT               2018-07-06 18:12:27.652
+  **** **** ******  **  PROGRAM STARTED AT               2018-07-09 19:45:22.262
  ***** ** ***  *** **   PROGRAM STARTED ON                              gw4arm05
  **    ****   ******    PROGRAM STARTED BY                             br-jprice
- ***** **    ** ** **   PROGRAM PROCESS ID                                183019
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 34180
   **** **  *******  **  PROGRAM STARTED IN /home/br-jprice/foo/cp2k-tx2-foxconn-
-                                           gcc-8.1
+                                           gcc-8.1-cray-fftw-3.3.6
 
  CP2K| version string:                                          CP2K version 5.1
  CP2K| source code revision number:                                    svn:18091
  CP2K| cp2kflags: omp fftw3 parallel mpi3 scalapack has_no_shared_glibc         
  CP2K| is freely available from                            https://www.cp2k.org/
- CP2K| Program compiled at                          Fri  6 Jul 16:25:20 GMT 2018
+ CP2K| Program compiled at                          Mon  9 Jul 16:35:33 GMT 2018
  CP2K| Program compiled on                                              gw4arm05
- CP2K| Program compiled for                                  tx2-foxconn-gcc-8.1
+ CP2K| Program compiled for                  tx2-foxconn-gcc-8.1-cray-fftw-3.3.6
  CP2K| Data directory path                     /home/br-jprice/foo/cp2k-5.1/data
  CP2K| Input file name        /home/br-jprice/foo/cp2k-5.1/tests/QS/benchmark/H2
 
@@ -49,12 +49,12 @@
  MEMORY| system memory details [Kb]
  MEMORY|                        rank 0           min           max       average
  MEMORY| MemTotal            267889984     267889984     267889984     267889984
- MEMORY| MemFree             243989696     243989696     243989696     243989696
- MEMORY| Buffers                418368        418368        418368        418368
- MEMORY| Cached               16304384      16304384      16304384      16304384
- MEMORY| Slab                  2664448       2664448       2664448       2664448
- MEMORY| SReclaimable           916288        916288        916288        916288
- MEMORY| MemLikelyFree       261628736     261628736     261628736     261628736
+ MEMORY| MemFree             235460480     235460480     235460480     235460480
+ MEMORY| Buffers                430016        430016        430016        430016
+ MEMORY| Cached               24345856      24345856      24345856      24345856
+ MEMORY| Slab                  3138816       3138816       3138816       3138816
+ MEMORY| SReclaimable          1248896       1248896       1248896       1248896
+ MEMORY| MemLikelyFree       261485248     261485248     261485248     261485248
 
 
  GENERATE|  Preliminary Number of Bonds generated:                             0
@@ -163,19 +163,19 @@
      2 OT DIIS     0.15E+00    0.5     0.00868183     -1073.0837973670 -1.37E+01
      3 OT DIIS     0.15E+00    0.4     0.00608177     -1082.3329449393 -9.25E+00
      4 OT DIIS     0.15E+00    0.4     0.00420419     -1088.9991944739 -6.67E+00
-     5 OT DIIS     0.15E+00    0.5     0.00319228     -1092.5975694249 -3.60E+00
+     5 OT DIIS     0.15E+00    0.4     0.00319228     -1092.5975694249 -3.60E+00
      6 OT DIIS     0.15E+00    0.4     0.00242089     -1095.2728736089 -2.68E+00
      7 OT DIIS     0.15E+00    0.4     0.00180823     -1097.1827110187 -1.91E+00
      8 OT DIIS     0.15E+00    0.4     0.00136563     -1098.4047633188 -1.22E+00
-     9 OT DIIS     0.15E+00    0.4     0.00107154     -1099.0957253931 -6.91E-01
+     9 OT DIIS     0.15E+00    0.5     0.00107154     -1099.0957253931 -6.91E-01
     10 OT DIIS     0.15E+00    0.4     0.00085958     -1099.5568478897 -4.61E-01
-    11 OT DIIS     0.15E+00    0.5     0.00070902     -1099.8674344588 -3.11E-01
+    11 OT DIIS     0.15E+00    0.4     0.00070902     -1099.8674344588 -3.11E-01
     12 OT DIIS     0.15E+00    0.4     0.00059349     -1100.0778291172 -2.10E-01
     13 OT DIIS     0.15E+00    0.4     0.00050949     -1100.2324062136 -1.55E-01
     14 OT DIIS     0.15E+00    0.4     0.00044833     -1100.3361495732 -1.04E-01
-    15 OT DIIS     0.15E+00    0.5     0.00039690     -1100.4341573205 -9.80E-02
+    15 OT DIIS     0.15E+00    0.4     0.00039690     -1100.4341573205 -9.80E-02
     16 OT DIIS     0.15E+00    0.5     0.00035862     -1100.5038829257 -6.97E-02
-    17 OT DIIS     0.15E+00    0.5     0.00034534     -1100.5572959989 -5.34E-02
+    17 OT DIIS     0.15E+00    0.4     0.00034534     -1100.5572959989 -5.34E-02
     18 OT DIIS     0.15E+00    0.4     0.00034139     -1100.5793052943 -2.20E-02
     19 OT DIIS     0.15E+00    0.4     0.00033463     -1100.5947747725 -1.55E-02
     20 OT SD       0.15E+00    0.4     0.00033658     -1100.6056260666 -1.09E-02
@@ -188,27 +188,27 @@
     27 OT DIIS     0.15E+00    0.4     0.00028894     -1100.6591662825 -4.73E-03
     28 OT SD       0.15E+00    0.4     0.00028473     -1100.6665469324 -7.38E-03
     29 OT SD       0.15E+00    0.4     0.00028442     -1100.6745080801 -7.96E-03
-    30 OT SD       0.15E+00    0.4     0.00028480     -1100.6824637367 -7.96E-03
+    30 OT SD       0.15E+00    0.4     0.00028480     -1100.6824637366 -7.96E-03
     31 OT SD       0.15E+00    0.4     0.00028544     -1100.6904451527 -7.98E-03
     32 OT DIIS     0.15E+00    0.4     0.00028617     -1100.6984643086 -8.02E-03
-    33 OT SD       0.15E+00    0.4     0.00033212     -1100.7435639636 -4.51E-02
-    34 OT SD       0.15E+00    0.4     0.00031463     -1100.7540641968 -1.05E-02
-    35 OT SD       0.15E+00    0.4     0.00030588     -1100.7636402127 -9.58E-03
-    36 OT SD       0.15E+00    0.4     0.00030057     -1100.7727489684 -9.11E-03
-    37 OT SD       0.15E+00    0.4     0.00029679     -1100.7815697670 -8.82E-03
-    38 OT SD       0.15E+00    0.4     0.00029367     -1100.7901809978 -8.61E-03
-    39 OT DIIS     0.15E+00    0.4     0.00029082     -1100.7986166934 -8.44E-03
-    40 OT SD       0.15E+00    0.4     0.00016832     -1100.9875398769 -1.89E-01
-    41 OT DIIS     0.15E+00    0.4     0.00014749     -1100.9901042391 -2.56E-03
-    42 OT DIIS     0.15E+00    0.4     0.00023359     -1100.9860270238  4.08E-03
-    43 OT DIIS     0.15E+00    0.4     0.00017591     -1100.9988969373 -1.29E-02
-    44 OT DIIS     0.15E+00    0.4     0.00022226     -1101.0010831348 -2.19E-03
-    45 OT DIIS     0.15E+00    0.4     0.00015342     -1101.0160500110 -1.50E-02
+    33 OT SD       0.15E+00    0.4     0.00033212     -1100.7435639637 -4.51E-02
+    34 OT SD       0.15E+00    0.4     0.00031463     -1100.7540641969 -1.05E-02
+    35 OT SD       0.15E+00    0.4     0.00030588     -1100.7636402128 -9.58E-03
+    36 OT SD       0.15E+00    0.4     0.00030057     -1100.7727489685 -9.11E-03
+    37 OT SD       0.15E+00    0.4     0.00029679     -1100.7815697671 -8.82E-03
+    38 OT SD       0.15E+00    0.4     0.00029367     -1100.7901809979 -8.61E-03
+    39 OT DIIS     0.15E+00    0.4     0.00029082     -1100.7986166935 -8.44E-03
+    40 OT SD       0.15E+00    0.4     0.00016832     -1100.9875398765 -1.89E-01
+    41 OT DIIS     0.15E+00    0.4     0.00014749     -1100.9901042387 -2.56E-03
+    42 OT DIIS     0.15E+00    0.4     0.00023359     -1100.9860270230  4.08E-03
+    43 OT DIIS     0.15E+00    0.4     0.00017591     -1100.9988969367 -1.29E-02
+    44 OT DIIS     0.15E+00    0.4     0.00022226     -1101.0010831347 -2.19E-03
+    45 OT DIIS     0.15E+00    0.4     0.00015342     -1101.0160500108 -1.50E-02
     46 OT DIIS     0.15E+00    0.4     0.00005874     -1101.0255699554 -9.52E-03
-    47 OT DIIS     0.15E+00    0.4     0.00007360     -1101.0255460655  2.39E-05
-    48 OT DIIS     0.15E+00    0.4     0.00005773     -1101.0267774770 -1.23E-03
-    49 OT DIIS     0.15E+00    0.4     0.00005383     -1101.0275719804 -7.95E-04
-    50 OT DIIS     0.15E+00    0.4     0.00004287     -1101.0287889094 -1.22E-03
+    47 OT DIIS     0.15E+00    0.4     0.00007360     -1101.0255460654  2.39E-05
+    48 OT DIIS     0.15E+00    0.4     0.00005773     -1101.0267774769 -1.23E-03
+    49 OT DIIS     0.15E+00    0.4     0.00005383     -1101.0275719805 -7.95E-04
+    50 OT DIIS     0.15E+00    0.4     0.00004287     -1101.0287889096 -1.22E-03
 
   Leaving inner SCF loop after reaching    50 steps.
 
@@ -220,16 +220,16 @@
 
   Overlap energy of the core charge distribution:               0.00000562599749
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    825.29378519564716
-  Hartree energy:                                            1145.26167274344971
-  Exchange-correlation energy:                               -266.27925753599038
+  Core Hamiltonian energy:                                    825.29378519490047
+  Hartree energy:                                            1145.26167274403679
+  Exchange-correlation energy:                               -266.27925753596071
 
-  Total energy:                                             -1101.02878890944567
+  Total energy:                                             -1101.02878890957572
 
  *** WARNING in qs_scf.F:539 :: SCF run NOT converged ***
 
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.031006970542194
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.031006970591079
 
 
  MD_ENERGIES| Initialization proceeding
@@ -269,8 +269,8 @@
 
   Step     Update method      Time    Convergence         Total energy    Change
   ------------------------------------------------------------------------------
-     1 OT DIIS     0.15E+00    0.4     0.00024949     -1101.0278031974 -1.10E+03
-     2 OT DIIS     0.15E+00    0.4     0.00016075     -1101.0327091507 -4.91E-03
+     1 OT DIIS     0.15E+00    0.4     0.00024949     -1101.0278031975 -1.10E+03
+     2 OT DIIS     0.15E+00    0.4     0.00016075     -1101.0327091508 -4.91E-03
      3 OT DIIS     0.15E+00    0.4     0.00009050     -1101.0362863174 -3.58E-03
      4 OT DIIS     0.15E+00    0.4     0.00006199     -1101.0377277257 -1.44E-03
      5 OT DIIS     0.15E+00    0.4     0.00003797     -1101.0386877894 -9.60E-04
@@ -288,13 +288,13 @@
 
   Overlap energy of the core charge distribution:               0.00000554074590
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    824.99709670363495
-  Hartree energy:                                            1145.47089243723440
-  Exchange-correlation energy:                               -266.20227652568121
+  Core Hamiltonian energy:                                    824.99709670365633
+  Hartree energy:                                            1145.47089243721939
+  Exchange-correlation energy:                               -266.20227652568514
 
-  Total energy:                                             -1101.03927678261562
+  Total energy:                                             -1101.03927678261311
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.039289563988859
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.039289563985903
 
 
  *******************************************************************************
@@ -304,8 +304,8 @@
  CONSERVED QUANTITY [hartree] =                              -0.110076554067E+04
 
                                               INSTANTANEOUS             AVERAGES
- CPU TIME [s]                 =                       25.42                25.42
- ENERGY DRIFT PER ATOM [K]    =         -0.110545479058E+02   0.000000000000E+00
+ CPU TIME [s]                 =                       25.36                25.36
+ ENERGY DRIFT PER ATOM [K]    =         -0.110545478209E+02   0.000000000000E+00
  POTENTIAL ENERGY[hartree]    =         -0.110103928956E+04  -0.110103928956E+04
  KINETIC ENERGY [hartree]     =          0.273748891513E+00   0.273748891513E+00
  TEMPERATURE [K]              =                     301.721              301.721
@@ -337,10 +337,10 @@
 
   Step     Update method      Time    Convergence         Total energy    Change
   ------------------------------------------------------------------------------
-     1 OT DIIS     0.15E+00    0.4     0.00018187     -1101.0453213820 -1.10E+03
-     2 OT DIIS     0.15E+00    0.4     0.00012503     -1101.0480054190 -2.68E-03
-     3 OT DIIS     0.15E+00    0.4     0.00007517     -1101.0503828144 -2.38E-03
-     4 OT DIIS     0.15E+00    0.4     0.00005150     -1101.0514777105 -1.09E-03
+     1 OT DIIS     0.15E+00    0.4     0.00018187     -1101.0453213821 -1.10E+03
+     2 OT DIIS     0.15E+00    0.4     0.00012503     -1101.0480054191 -2.68E-03
+     3 OT DIIS     0.15E+00    0.4     0.00007517     -1101.0503828145 -2.38E-03
+     4 OT DIIS     0.15E+00    0.4     0.00005150     -1101.0514777106 -1.09E-03
      5 OT DIIS     0.15E+00    0.4     0.00002882     -1101.0522243706 -7.47E-04
      6 OT DIIS     0.15E+00    0.4     0.00001712     -1101.0524515284 -2.27E-04
      7 OT DIIS     0.15E+00    0.4     0.00000972     -1101.0525297372 -7.82E-05
@@ -355,13 +355,13 @@
 
   Overlap energy of the core charge distribution:               0.00000508717620
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    823.99099498800706
-  Hartree energy:                                            1146.19319011614061
-  Exchange-correlation energy:                               -265.93172499001514
+  Core Hamiltonian energy:                                    823.99099498802570
+  Hartree energy:                                            1146.19319011612720
+  Exchange-correlation energy:                               -265.93172499001923
 
-  Total energy:                                             -1101.05252973724055
+  Total energy:                                             -1101.05252973723964
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.052553905905370
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.052553905903778
 
 
  *******************************************************************************
@@ -371,10 +371,10 @@
  CONSERVED QUANTITY [hartree] =                              -0.110076574941E+04
 
                                               INSTANTANEOUS             AVERAGES
- CPU TIME [s]                 =                        3.31                14.37
- ENERGY DRIFT PER ATOM [K]    =         -0.113978551472E+02  -0.569892757361E+01
+ CPU TIME [s]                 =                        3.31                14.33
+ ENERGY DRIFT PER ATOM [K]    =         -0.113978550653E+02  -0.569892753266E+01
  POTENTIAL ENERGY[hartree]    =         -0.110105255391E+04  -0.110104592173E+04
- KINETIC ENERGY [hartree]     =          0.286804492827E+00   0.280276692170E+00
+ KINETIC ENERGY [hartree]     =          0.286804492826E+00   0.280276692170E+00
  TEMPERATURE [K]              =                     316.110              308.915
  *******************************************************************************
 
@@ -404,8 +404,8 @@
 
   Step     Update method      Time    Convergence         Total energy    Change
   ------------------------------------------------------------------------------
-     1 OT DIIS     0.15E+00    0.4     0.00016599     -1101.0673401807 -1.10E+03
-     2 OT DIIS     0.15E+00    0.4     0.00011755     -1101.0696106473 -2.27E-03
+     1 OT DIIS     0.15E+00    0.4     0.00016599     -1101.0673401808 -1.10E+03
+     2 OT DIIS     0.15E+00    0.4     0.00011755     -1101.0696106474 -2.27E-03
      3 OT DIIS     0.15E+00    0.4     0.00007010     -1101.0718403937 -2.23E-03
      4 OT DIIS     0.15E+00    0.4     0.00004686     -1101.0728159792 -9.76E-04
      5 OT DIIS     0.15E+00    0.4     0.00002506     -1101.0734352745 -6.19E-04
@@ -422,13 +422,13 @@
 
   Overlap energy of the core charge distribution:               0.00000421676059
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    822.43891721573436
-  Hartree energy:                                            1147.30180931059249
-  Exchange-correlation energy:                               -265.50939028485595
+  Core Hamiltonian energy:                                    822.43891721577154
+  Hartree energy:                                            1147.30180931056384
+  Exchange-correlation energy:                               -265.50939028486363
 
-  Total energy:                                             -1101.07365448031783
+  Total energy:                                             -1101.07365448031692
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.073673404310966
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.073673404308465
 
 
  *******************************************************************************
@@ -438,10 +438,10 @@
  CONSERVED QUANTITY [hartree] =                              -0.110076623801E+04
 
                                               INSTANTANEOUS             AVERAGES
- CPU TIME [s]                 =                        3.32                10.68
- ENERGY DRIFT PER ATOM [K]    =         -0.122014237471E+02  -0.786642629812E+01
+ CPU TIME [s]                 =                        3.30                10.66
+ ENERGY DRIFT PER ATOM [K]    =         -0.122014236634E+02  -0.786642624290E+01
  POTENTIAL ENERGY[hartree]    =         -0.110107367340E+04  -0.110105517229E+04
- KINETIC ENERGY [hartree]     =          0.307435398585E+00   0.289329594309E+00
+ KINETIC ENERGY [hartree]     =          0.307435398585E+00   0.289329594308E+00
  TEMPERATURE [K]              =                     338.849              318.893
  *******************************************************************************
 
@@ -471,9 +471,9 @@
 
   Step     Update method      Time    Convergence         Total energy    Change
   ------------------------------------------------------------------------------
-     1 OT DIIS     0.15E+00    0.4     0.00016900     -1101.0882815790 -1.10E+03
+     1 OT DIIS     0.15E+00    0.4     0.00016900     -1101.0882815791 -1.10E+03
      2 OT DIIS     0.15E+00    0.4     0.00012004     -1101.0906392119 -2.36E-03
-     3 OT DIIS     0.15E+00    0.4     0.00006991     -1101.0929761670 -2.34E-03
+     3 OT DIIS     0.15E+00    0.4     0.00006991     -1101.0929761671 -2.34E-03
      4 OT DIIS     0.15E+00    0.4     0.00004370     -1101.0939498196 -9.74E-04
      5 OT DIIS     0.15E+00    0.4     0.00002172     -1101.0944515377 -5.02E-04
      6 OT DIIS     0.15E+00    0.4     0.00001364     -1101.0945537971 -1.02E-04
@@ -489,13 +489,13 @@
 
   Overlap energy of the core charge distribution:               0.00000308048338
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    820.48664268915206
-  Hartree energy:                                            1148.70443612235499
-  Exchange-correlation energy:                               -264.98068743720262
+  Core Hamiltonian energy:                                    820.48664268915513
+  Hartree energy:                                            1148.70443612235363
+  Exchange-correlation energy:                               -264.98068743720370
 
-  Total energy:                                             -1101.09460048376150
+  Total energy:                                             -1101.09460048376081
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.094614859849344
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.094614859847979
 
 
  *******************************************************************************
@@ -505,10 +505,10 @@
  CONSERVED QUANTITY [hartree] =                              -0.110076681835E+04
 
                                               INSTANTANEOUS             AVERAGES
- CPU TIME [s]                 =                        3.38                 8.86
- ENERGY DRIFT PER ATOM [K]    =         -0.131558944528E+02  -0.918879333680E+01
+ CPU TIME [s]                 =                        3.39                 8.84
+ ENERGY DRIFT PER ATOM [K]    =         -0.131558943709E+02  -0.918879327491E+01
  POTENTIAL ENERGY[hartree]    =         -0.110109461486E+04  -0.110106503293E+04
- KINETIC ENERGY [hartree]     =          0.327796508688E+00   0.298946322904E+00
+ KINETIC ENERGY [hartree]     =          0.327796508688E+00   0.298946322903E+00
  TEMPERATURE [K]              =                     361.291              329.493
  *******************************************************************************
 
@@ -538,7 +538,7 @@
 
   Step     Update method      Time    Convergence         Total energy    Change
   ------------------------------------------------------------------------------
-     1 OT DIIS     0.15E+00    0.4     0.00006426     -1101.1044110236 -1.10E+03
+     1 OT DIIS     0.15E+00    0.4     0.00006426     -1101.1044110237 -1.10E+03
      2 OT DIIS     0.15E+00    0.4     0.00005315     -1101.1047787984 -3.68E-04
      3 OT DIIS     0.15E+00    0.4     0.00003232     -1101.1054483798 -6.70E-04
      4 OT DIIS     0.15E+00    0.4     0.00002194     -1101.1057147872 -2.66E-04
@@ -555,13 +555,13 @@
 
   Overlap energy of the core charge distribution:               0.00000200945111
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    818.39013739169127
-  Hartree energy:                                            1150.21806252094916
-  Exchange-correlation energy:                               -264.40912058080517
+  Core Hamiltonian energy:                                    818.39013739171310
+  Hartree energy:                                            1150.21806252093324
+  Exchange-correlation energy:                               -264.40912058080983
 
-  Total energy:                                             -1101.10591359726300
+  Total energy:                                             -1101.10591359726186
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.105932128854647
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.105932128853738
 
 
  *******************************************************************************
@@ -571,8 +571,8 @@
  CONSERVED QUANTITY [hartree] =                              -0.110076715532E+04
 
                                               INSTANTANEOUS             AVERAGES
- CPU TIME [s]                 =                        2.94                 7.67
- ENERGY DRIFT PER ATOM [K]    =         -0.137100853701E+02  -0.100930517435E+02
+ CPU TIME [s]                 =                        2.96                 7.66
+ ENERGY DRIFT PER ATOM [K]    =         -0.137100852882E+02  -0.100930516776E+02
  POTENTIAL ENERGY[hartree]    =         -0.110110593213E+04  -0.110107321277E+04
  KINETIC ENERGY [hartree]     =          0.338776813796E+00   0.306912421082E+00
  TEMPERATURE [K]              =                     373.393              338.273
@@ -620,13 +620,13 @@
 
   Overlap energy of the core charge distribution:               0.00000123724779
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    816.35636953440462
-  Hartree energy:                                            1151.70037309182567
-  Exchange-correlation energy:                               -263.85355126309537
+  Core Hamiltonian energy:                                    816.35636953443441
+  Hartree energy:                                            1151.70037309180270
+  Exchange-correlation energy:                               -263.85355126310219
 
   Total energy:                                             -1101.10180233816664
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.101815178020161
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.101815178019933
 
 
  *******************************************************************************
@@ -636,8 +636,8 @@
  CONSERVED QUANTITY [hartree] =                              -0.110076702437E+04
 
                                               INSTANTANEOUS             AVERAGES
- CPU TIME [s]                 =                        2.55                 6.82
- ENERGY DRIFT PER ATOM [K]    =         -0.134947245406E+02  -0.106599972096E+02
+ CPU TIME [s]                 =                        2.53                 6.81
+ ENERGY DRIFT PER ATOM [K]    =         -0.134947244595E+02  -0.106599971412E+02
  POTENTIAL ENERGY[hartree]    =         -0.110110181518E+04  -0.110107797984E+04
  KINETIC ENERGY [hartree]     =          0.334790808494E+00   0.311558818984E+00
  TEMPERATURE [K]              =                     369.000              343.394
@@ -684,13 +684,13 @@
 
   Overlap energy of the core charge distribution:               0.00000077877949
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    814.58618751195945
-  Hartree energy:                                            1153.00177219571196
-  Exchange-correlation energy:                               -263.36637265588342
+  Core Hamiltonian energy:                                    814.58618751198628
+  Hartree energy:                                            1153.00177219569059
+  Exchange-correlation energy:                               -263.36637265588962
 
-  Total energy:                                             -1101.08340710798211
+  Total energy:                                             -1101.08340710798279
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.083423184810272
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.083423184810727
 
 
  *******************************************************************************
@@ -700,8 +700,8 @@
  CONSERVED QUANTITY [hartree] =                              -0.110076647588E+04
 
                                               INSTANTANEOUS             AVERAGES
- CPU TIME [s]                 =                        2.21                 6.16
- ENERGY DRIFT PER ATOM [K]    =         -0.125926399097E+02  -0.109360890239E+02
+ CPU TIME [s]                 =                        2.24                 6.16
+ ENERGY DRIFT PER ATOM [K]    =         -0.125926398296E+02  -0.109360889538E+02
  POTENTIAL ENERGY[hartree]    =         -0.110108342318E+04  -0.110107875746E+04
  KINETIC ENERGY [hartree]     =          0.316947308490E+00   0.312328603199E+00
  TEMPERATURE [K]              =                     349.333              344.242
@@ -748,13 +748,13 @@
 
   Overlap energy of the core charge distribution:               0.00000054143077
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    813.21035139299943
-  Hartree energy:                                            1154.02258427295374
-  Exchange-correlation energy:                               -262.98599210403211
+  Core Hamiltonian energy:                                    813.21035139300466
+  Hartree energy:                                            1154.02258427294760
+  Exchange-correlation energy:                               -262.98599210403205
 
-  Total energy:                                             -1101.05805083519772
+  Total energy:                                             -1101.05805083519840
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.058072647108702
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.058072647108247
 
 
  *******************************************************************************
@@ -765,7 +765,7 @@
 
                                               INSTANTANEOUS             AVERAGES
  CPU TIME [s]                 =                        2.19                 5.66
- ENERGY DRIFT PER ATOM [K]    =         -0.114888014682E+02  -0.110051780795E+02
+ ENERGY DRIFT PER ATOM [K]    =         -0.114888013863E+02  -0.110051780079E+02
  POTENTIAL ENERGY[hartree]    =         -0.110105807265E+04  -0.110107617186E+04
  KINETIC ENERGY [hartree]     =          0.292267936071E+00   0.309821019808E+00
  TEMPERATURE [K]              =                     322.132              341.479
@@ -813,13 +813,13 @@
 
   Overlap energy of the core charge distribution:               0.00000043858940
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    812.31303126916850
-  Hartree energy:                                            1154.69416749628590
-  Exchange-correlation energy:                               -262.73759233825479
+  Core Hamiltonian energy:                                    812.31303126914463
+  Hartree energy:                                            1154.69416749630250
+  Exchange-correlation energy:                               -262.73759233824865
 
-  Total energy:                                             -1101.03538807276072
+  Total energy:                                             -1101.03538807276163
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.035410333148775
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.035410333149684
 
 
  *******************************************************************************
@@ -830,7 +830,7 @@
 
                                               INSTANTANEOUS             AVERAGES
  CPU TIME [s]                 =                        2.57                 5.32
- ENERGY DRIFT PER ATOM [K]    =         -0.106491654379E+02  -0.109656211193E+02
+ ENERGY DRIFT PER ATOM [K]    =         -0.106491653586E+02  -0.109656210469E+02
  POTENTIAL ENERGY[hartree]    =         -0.110103541033E+04  -0.110107164280E+04
  KINETIC ENERGY [hartree]     =          0.270116144786E+00   0.305409367028E+00
  TEMPERATURE [K]              =                     297.717              336.616
@@ -878,13 +878,13 @@
 
   Overlap energy of the core charge distribution:               0.00000042270337
   Self energy of the core charge distribution:              -2805.30499493854950
-  Core Hamiltonian energy:                                    811.91272338363206
-  Hartree energy:                                            1154.99784951714355
-  Exchange-correlation energy:                               -262.62892075411617
+  Core Hamiltonian energy:                                    811.91272338366730
+  Hartree energy:                                            1154.99784951711399
+  Exchange-correlation energy:                               -262.62892075412225
 
-  Total energy:                                             -1101.02334236918659
+  Total energy:                                             -1101.02334236918682
 
- ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.023374986883255
+ ENERGY| Total FORCE_EVAL ( QS ) energy (a.u.):            -1101.023374986883482
 
 
  *******************************************************************************
@@ -895,9 +895,9 @@
 
                                               INSTANTANEOUS             AVERAGES
  CPU TIME [s]                 =                        2.55                 5.04
- ENERGY DRIFT PER ATOM [K]    =         -0.102571585218E+02  -0.108947748595E+02
+ ENERGY DRIFT PER ATOM [K]    =         -0.102571584414E+02  -0.108947747863E+02
  POTENTIAL ENERGY[hartree]    =         -0.110102337499E+04  -0.110106681602E+04
- KINETIC ENERGY [hartree]     =          0.258319149915E+00   0.300700345317E+00
+ KINETIC ENERGY [hartree]     =          0.258319149916E+00   0.300700345317E+00
  TEMPERATURE [K]              =                     284.714              331.426
  *******************************************************************************
 
@@ -944,7 +944,7 @@
  marketing flops                     2.107587E+12
  -------------------------------------------------------------------------------
  # multiplications                           2286
- max memory usage/rank             123.469824E+06
+ max memory usage/rank             123.731968E+06
  # max total images/rank                        1
  # max 3D layers                                1
  # MPI messages exchanged                 2048256
@@ -976,7 +976,7 @@
  MP_Bcast             3660                  62776.
  MP_Allreduce        15252                    188.
  MP_Sync                54
- MP_Alltoall         10748                  69909.
+ MP_Alltoall         10748                 360358.
  MP_ISendRecv        29988                   8080.
  MP_Wait            227958
  MP_comm_split          50
@@ -1066,452 +1066,452 @@
  -------------------------------------------------------------------------------
  SUBROUTINE                       CALLS  ASD         SELF TIME        TOTAL TIME
                                 MAXIMUM       AVERAGE  MAXIMUM  AVERAGE  MAXIMUM
- CP2K                                 1  1.0    0.010    0.013   50.636   50.638
- qs_mol_dyn_low                       1  2.0    0.005    0.005   50.441   50.449
- qs_forces                           11  3.9    0.002    0.003   50.388   50.388
- qs_energies                         11  4.9    0.002    0.002   47.654   47.658
- scf_env_do_scf                      11  5.9    0.001    0.001   44.126   44.126
- scf_env_do_scf_inner_loop          108  6.5    0.005    0.016   41.209   41.210
- velocity_verlet                     10  3.0    0.003    0.004   28.696   28.697
- rebuild_ks_matrix                  119  8.3    0.001    0.001   16.836   16.879
- qs_ks_build_kohn_sham_matrix       119  9.3    0.018    0.021   16.835   16.878
- qs_rho_update_rho                  119  7.7    0.001    0.001   16.661   16.674
- calculate_rho_elec                 119  8.7   12.683   13.101   16.660   16.673
- qs_ks_update_qs_env                119  7.6    0.002    0.002   15.065   15.102
- dbcsr_multiply_generic            2286 12.5    0.137    0.142   13.497   13.605
- sum_up_and_integrate               119 10.3    0.022    0.025   13.344   13.354
- integrate_v_rspace                 119 11.3    9.465    9.692   13.322   13.332
- qs_scf_new_mos                     108  7.5    0.001    0.002   12.460   12.519
- qs_scf_loop_do_ot                  108  8.5    0.001    0.001   12.459   12.518
- ot_scf_mini                        108  9.5    0.007    0.007   11.573   11.609
- multiply_cannon                   2286 13.5    0.525    0.541    9.645    9.924
- multiply_cannon_multrec          18288 14.5    6.976    7.316    6.992    7.334
- ot_mini                            108 10.5    0.001    0.001    6.121    6.170
- rs_pw_transfer                     974 11.9    0.017    0.020    3.929    4.555
- qs_ot_get_derivative               108 11.5    0.001    0.001    3.886    3.927
- density_rs2pw                      119  9.7    0.006    0.007    3.234    3.872
- init_scf_loop                       11  6.9    0.000    0.000    2.899    2.900
- potential_pw2rs                    119 12.3    0.010    0.012    2.850    2.861
- pw_transfer                       1439 11.6    0.277    0.307    2.823    2.861
- mp_waitall_1                    215574 15.6    1.559    2.758    1.559    2.758
- qs_ot_get_p                        119 10.4    0.001    0.002    2.676    2.751
- init_scf_run                        11  5.9    0.000    0.002    2.581    2.581
- scf_env_initial_rho_setup           11  6.9    0.001    0.001    2.580    2.580
- fft_wrap_pw1pw2                   1201 12.6    0.013    0.015    2.519    2.569
- make_m2s                          4572 13.5    0.112    0.117    2.484    2.528
- wfi_extrapolate                     11  7.9    0.001    0.001    2.334    2.334
- ot_diis_step                       108 11.5    0.005    0.006    2.221    2.221
- apply_preconditioner_dbcsr         119 12.6    0.000    0.000    2.138    2.220
- apply_single                       119 13.6    0.000    0.000    2.137    2.220
- fft3d_ps                          1201 14.6    0.887    0.933    2.122    2.178
- mp_waitany                       12384 13.9    1.434    2.036    1.434    2.036
- fft_wrap_pw1pw2_140                487 13.2    0.121    0.132    1.968    2.014
- make_images                       4572 14.5    0.298    0.348    1.908    1.953
- qs_ks_update_qs_env_forces          11  4.9    0.000    0.000    1.861    1.865
- multiply_cannon_metrocomm1       18288 14.5    0.079    0.090    0.504    1.696
- qs_ot_p2m_diag                      50 11.0    0.008    0.012    1.651    1.659
- rs_distribute_matrix               249 10.9    0.199    0.259    1.329    1.604
- rs_pw_transfer_RS2PW_140           130 11.5    0.305    0.342    0.973    1.587
- cp_dbcsr_syevd                      50 12.0    0.012    0.015    1.440    1.441
- qs_ot_get_derivative_diag           49 12.0    0.001    0.002    1.381    1.403
- mp_alltoall_d11v                  2141 13.8    1.052    1.397    1.052    1.397
- cp_fm_syevd                         50 13.0    1.185    1.346    1.359    1.361
- cp_fm_syevd_base                    50 14.0    0.159    1.273    0.159    1.273
- qs_ot_get_derivative_taylor         59 13.0    0.002    0.002    1.227    1.245
- prepare_preconditioner              11  7.9    0.000    0.000    1.149    1.154
- make_preconditioner                 11  8.9    0.000    0.000    1.149    1.153
- make_full_inverse_cholesky          11  9.9    0.000    0.000    1.084    1.093
- mp_alltoall_z22v                  1201 16.6    0.839    1.067    0.839    1.067
- rs_pw_transfer_PW2RS_140           130 13.9    0.582    0.602    1.017    1.063
- calculate_dm_sparse                119  9.5    0.001    0.001    0.990    1.044
- build_core_hamiltonian_matrix_      11  4.9    0.000    0.001    0.771    0.850
- cp_dbcsr_sm_fm_multiply             37  9.5    0.001    0.001    0.779    0.782
- qs_ot_get_orbitals                 108 10.5    0.001    0.001    0.748    0.764
- dbcsr_finalize                    5856 13.6    0.053    0.059    0.580    0.757
- qs_energies_init_hamiltonians       11  5.9    0.001    0.001    0.750    0.751
- rs_pw_transfer_PW2RS_50            119 14.3    0.309    0.321    0.688    0.735
- multiply_cannon_metrocomm4       16002 14.5    0.071    0.078    0.365    0.729
- mp_sum_l                          4040 13.7    0.512    0.721    0.512    0.721
- mp_sum_d                          4133 11.9    0.434    0.721    0.434    0.721
- make_images_data                  4572 15.5    0.073    0.091    0.649    0.699
- cp_dbcsr_sm_fm_multiply_core        37 10.5    0.000    0.000    0.667    0.677
- dbcsr_merge_all                   5242 14.8    0.236    0.303    0.488    0.665
- yz_to_x                            368 15.5    0.065    0.071    0.511    0.662
- mp_irecv_dv                      44786 15.4    0.327    0.657    0.327    0.657
- cp_fm_cholesky_invert               11 10.9    0.611    0.614    0.611    0.614
- rs_pw_transfer_RS2PW_50            119 11.7    0.279    0.294    0.537    0.576
- hybrid_alltoall_any               4725 16.4    0.098    0.363    0.510    0.564
- build_core_ppl_forces               11  5.9    0.381    0.500    0.381    0.500
- x_to_yz                            357 15.4    0.110    0.117    0.473    0.496
- multiply_cannon_metrocomm3       18288 14.5    0.065    0.073    0.313    0.495
- make_images_sizes                 4572 15.5    0.008    0.009    0.443    0.480
- mp_alltoall_i44                   4572 16.5    0.435    0.472    0.435    0.472
- qs_env_update_s_mstruct             11  6.9    0.000    0.000    0.385    0.407
- dbcsr_create_new                 25907 14.8    0.210    0.215    0.391    0.401
- dbcsr_make_images_dense           3978 14.8    0.050    0.051    0.362    0.373
- build_core_hamiltonian_matrix       11  6.9    0.001    0.001    0.334    0.362
- qs_vxc_create                      119 10.3    0.002    0.003    0.274    0.353
- multiply_cannon_metrocomm2       16002 14.5    0.083    0.088    0.242    0.352
- xc_vxc_pw_create                   119 11.3    0.020    0.021    0.272    0.350
- rs_grid_zero                       736 11.5    0.328    0.344    0.328    0.344
- cp_fm_cholesky_decompose            22 10.9    0.334    0.341    0.334    0.341
- dbcsr_make_dense_low              5837 15.5    0.059    0.061    0.328    0.341
- dbcsr_complete_redistribute        329 12.2    0.074    0.078    0.318    0.338
- arnoldi_extremal                   119 11.4    0.002    0.002    0.321    0.338
- arnoldi_normal_ev                  119 12.4    0.003    0.004    0.319    0.336
- dbcsr_trace_a_b_d                 1205 11.9    0.088    0.098    0.274    0.333
- copy_dbcsr_to_fm                   153 11.3    0.004    0.009    0.293    0.315
- fft_wrap_pw1pw2_50                 238 14.0    0.012    0.015    0.287    0.308
- make_basis_sm                       11  9.8    0.001    0.001    0.287    0.291
- make_images_pack                  4572 15.5    0.209    0.264    0.230    0.284
- rs_pw_transfer_PW2RS_20            119 14.3    0.052    0.057    0.262    0.274
- reorthogonalize_vectors             10  9.0    0.000    0.000    0.260    0.264
- rs_pw_transfer_RS2PW_20            119 11.7    0.089    0.094    0.247    0.258
- mp_allgather_i34                  2286 14.5    0.191    0.255    0.191    0.255
- pw_poisson_solve                   119 10.3    0.114    0.123    0.244    0.246
- buffer_matrices_ensure_size       4572 14.5    0.216    0.229    0.232    0.245
- ot_scf_init                         11  7.9    0.001    0.001    0.243    0.245
- make_dense_data                   5837 16.5    0.177    0.193    0.232    0.241
- qs_create_task_list                 11  7.9    0.000    0.000    0.235    0.237
- generate_qs_task_list               11  8.9    0.108    0.133    0.235    0.237
- xc_rho_set_and_dset_create         119 12.3    0.003    0.004    0.221    0.230
- cp_dbcsr_plus_fm_fm_t_native        22  8.9    0.001    0.001    0.217    0.228
- build_subspace                     119 13.4    0.010    0.010    0.225    0.226
- build_core_ppl                      11  7.9    0.181    0.220    0.181    0.220
- build_core_ppnl_forces              11  5.9    0.196    0.212    0.196    0.212
- xc_functional_eval                 119 13.3    0.200    0.209    0.200    0.209
- tree_to_linear_d                  1073 14.6    0.105    0.197    0.105    0.197
- mp_alltoall_i22                    627 13.8    0.130    0.185    0.130    0.185
- qs_energies_compute_matrix_w        11  5.9    0.000    0.000    0.180    0.184
- calculate_w_matrix_ot               11  6.9    0.001    0.001    0.180    0.183
- copy_fm_to_dbcsr                   176 11.2    0.001    0.001    0.160    0.180
- cp_gemm                             81  9.0    0.000    0.000    0.169    0.176
- cp_gemm_fm_gemm                     81 10.0    0.000    0.000    0.169    0.176
- cp_fm_gemm                          81 11.0    0.168    0.175    0.168    0.175
- dbcsr_matrix_vector_mult          1669 14.0    0.016    0.017    0.159    0.169
- calculate_rho_core                  11  7.9    0.010    0.015    0.145    0.168
- qs_ot_p2m_taylor                    69 11.7    0.001    0.002    0.156    0.160
- fft_wrap_pw1pw2_20                 238 14.0    0.004    0.004    0.150    0.158
- mp_alltoall_z11v                   476 17.0    0.143    0.158    0.143    0.158
- dbcsr_copy                        2232 11.8    0.018    0.020    0.147    0.155
- pw_gather_p                        606 14.1    0.124    0.149    0.124    0.149
- build_overlap_matrix                22  6.9    0.092    0.099    0.138    0.146
- dbcsr_data_new                   82145 15.5    0.092    0.097    0.139    0.145
- calculate_ecore_overlap             22  5.9    0.000    0.000    0.082    0.143
- dbcsr_destroy                    24818 14.1    0.061    0.063    0.132    0.142
- dbcsr_data_release              145906 16.0    0.110    0.120    0.130    0.140
- distribute_tasks                    11  9.9    0.018    0.019    0.127    0.138
- build_kinetic_matrix                22  6.9    0.125    0.132    0.130    0.137
+ CP2K                                 1  1.0    0.009    0.012   50.552   50.553
+ qs_mol_dyn_low                       1  2.0    0.004    0.005   50.409   50.417
+ qs_forces                           11  3.9    0.002    0.002   50.355   50.355
+ qs_energies                         11  4.9    0.002    0.002   47.619   47.622
+ scf_env_do_scf                      11  5.9    0.001    0.001   44.093   44.094
+ scf_env_do_scf_inner_loop          108  6.5    0.005    0.016   41.172   41.173
+ velocity_verlet                     10  3.0    0.003    0.003   28.754   28.755
+ rebuild_ks_matrix                  119  8.3    0.001    0.001   16.804   16.855
+ qs_ks_build_kohn_sham_matrix       119  9.3    0.018    0.021   16.803   16.854
+ qs_rho_update_rho                  119  7.7    0.001    0.001   16.659   16.671
+ calculate_rho_elec                 119  8.7   12.677   12.968   16.659   16.670
+ qs_ks_update_qs_env                119  7.6    0.002    0.002   15.017   15.065
+ dbcsr_multiply_generic            2286 12.5    0.137    0.140   13.485   13.571
+ sum_up_and_integrate               119 10.3    0.023    0.025   13.324   13.332
+ integrate_v_rspace                 119 11.3    9.465    9.685   13.301   13.312
+ qs_scf_new_mos                     108  7.5    0.001    0.002   12.486   12.541
+ qs_scf_loop_do_ot                  108  8.5    0.001    0.001   12.485   12.540
+ ot_scf_mini                        108  9.5    0.007    0.010   11.597   11.628
+ multiply_cannon                   2286 13.5    0.528    0.542    9.701    9.931
+ multiply_cannon_multrec          18288 14.5    6.953    7.269    6.969    7.286
+ ot_mini                            108 10.5    0.001    0.001    6.164    6.202
+ rs_pw_transfer                     974 11.9    0.017    0.020    3.941    4.583
+ density_rs2pw                      119  9.7    0.006    0.007    3.243    3.894
+ qs_ot_get_derivative               108 11.5    0.001    0.001    3.832    3.861
+ init_scf_loop                       11  6.9    0.000    0.000    2.904    2.905
+ potential_pw2rs                    119 12.3    0.010    0.011    2.855    2.867
+ pw_transfer                       1439 11.6    0.276    0.315    2.810    2.835
+ mp_waitall_1                    215574 15.6    1.605    2.779    1.605    2.779
+ qs_ot_get_p                        119 10.4    0.001    0.001    2.676    2.734
+ init_scf_run                        11  5.9    0.000    0.002    2.593    2.593
+ scf_env_initial_rho_setup           11  6.9    0.000    0.001    2.593    2.593
+ fft_wrap_pw1pw2                   1201 12.6    0.013    0.014    2.509    2.552
+ make_m2s                          4572 13.5    0.112    0.115    2.448    2.496
+ wfi_extrapolate                     11  7.9    0.001    0.001    2.349    2.349
+ ot_diis_step                       108 11.5    0.005    0.005    2.315    2.315
+ apply_preconditioner_dbcsr         119 12.6    0.000    0.000    2.191    2.261
+ apply_single                       119 13.6    0.000    0.001    2.191    2.261
+ fft3d_ps                          1201 14.6    0.886    0.931    2.115    2.168
+ mp_waitany                       12384 13.9    1.434    2.035    1.434    2.035
+ fft_wrap_pw1pw2_140                487 13.2    0.121    0.133    1.972    2.003
+ make_images                       4572 14.5    0.298    0.347    1.868    1.918
+ qs_ks_update_qs_env_forces          11  4.9    0.000    0.000    1.864    1.867
+ multiply_cannon_metrocomm1       18288 14.5    0.078    0.089    0.517    1.706
+ qs_ot_p2m_diag                      50 11.0    0.007    0.012    1.649    1.657
+ rs_pw_transfer_RS2PW_140           130 11.5    0.322    0.359    0.956    1.601
+ rs_distribute_matrix               249 10.9    0.199    0.258    1.289    1.588
+ cp_dbcsr_syevd                      50 12.0    0.012    0.014    1.425    1.430
+ mp_alltoall_d11v                  2141 13.8    1.013    1.384    1.013    1.384
+ qs_ot_get_derivative_diag           49 12.0    0.001    0.002    1.338    1.359
+ cp_fm_syevd                         50 13.0    1.176    1.336    1.346    1.348
+ cp_fm_syevd_base                    50 14.0    0.158    1.262    0.158    1.262
+ qs_ot_get_derivative_taylor         59 13.0    0.002    0.002    1.209    1.226
+ prepare_preconditioner              11  7.9    0.000    0.000    1.148    1.155
+ make_preconditioner                 11  8.9    0.000    0.000    1.148    1.155
+ make_full_inverse_cholesky          11  9.9    0.000    0.000    1.085    1.095
+ rs_pw_transfer_PW2RS_140           130 13.9    0.580    0.610    1.014    1.053
+ mp_alltoall_z22v                  1201 16.6    0.833    1.049    0.833    1.049
+ calculate_dm_sparse                119  9.5    0.001    0.001    0.989    1.033
+ build_core_hamiltonian_matrix_      11  4.9    0.000    0.001    0.770    0.852
+ cp_dbcsr_sm_fm_multiply             37  9.5    0.001    0.001    0.789    0.792
+ mp_sum_d                          4133 11.9    0.482    0.774    0.482    0.774
+ rs_pw_transfer_PW2RS_50            119 14.3    0.307    0.317    0.706    0.770
+ dbcsr_finalize                    5856 13.6    0.053    0.061    0.581    0.756
+ qs_energies_init_hamiltonians       11  5.9    0.001    0.001    0.751    0.752
+ qs_ot_get_orbitals                 108 10.5    0.001    0.001    0.726    0.738
+ multiply_cannon_metrocomm4       16002 14.5    0.071    0.075    0.368    0.728
+ make_images_data                  4572 15.5    0.073    0.089    0.647    0.700
+ cp_dbcsr_sm_fm_multiply_core        37 10.5    0.000    0.000    0.673    0.691
+ yz_to_x                            368 15.5    0.064    0.073    0.528    0.678
+ mp_irecv_dv                      44786 15.4    0.330    0.676    0.330    0.676
+ dbcsr_merge_all                   5242 14.8    0.238    0.294    0.489    0.665
+ mp_sum_l                          4040 13.7    0.487    0.656    0.487    0.656
+ rs_pw_transfer_RS2PW_50            119 11.7    0.284    0.301    0.559    0.627
+ cp_fm_cholesky_invert               11 10.9    0.617    0.620    0.617    0.620
+ hybrid_alltoall_any               4725 16.4    0.097    0.363    0.508    0.558
+ build_core_ppl_forces               11  5.9    0.380    0.500    0.380    0.500
+ x_to_yz                            357 15.4    0.111    0.116    0.450    0.471
+ multiply_cannon_metrocomm3       18288 14.5    0.065    0.068    0.355    0.455
+ make_images_sizes                 4572 15.5    0.009    0.009    0.405    0.440
+ mp_alltoall_i44                   4572 16.5    0.396    0.431    0.396    0.431
+ qs_env_update_s_mstruct             11  6.9    0.000    0.000    0.386    0.408
+ dbcsr_create_new                 25907 14.8    0.212    0.222    0.392    0.400
+ dbcsr_make_images_dense           3978 14.8    0.051    0.052    0.365    0.373
+ rs_grid_zero                       736 11.5    0.328    0.368    0.328    0.368
+ dbcsr_trace_a_b_d                 1205 11.9    0.088    0.093    0.310    0.365
+ build_core_hamiltonian_matrix       11  6.9    0.001    0.001    0.334    0.364
+ qs_vxc_create                      119 10.3    0.002    0.003    0.280    0.357
+ multiply_cannon_metrocomm2       16002 14.5    0.082    0.088    0.242    0.355
+ xc_vxc_pw_create                   119 11.3    0.020    0.021    0.278    0.354
+ dbcsr_make_dense_low              5837 15.5    0.059    0.067    0.329    0.338
+ cp_fm_cholesky_decompose            22 10.9    0.328    0.335    0.328    0.335
+ arnoldi_extremal                   119 11.4    0.002    0.002    0.318    0.331
+ arnoldi_normal_ev                  119 12.4    0.003    0.003    0.316    0.329
+ dbcsr_complete_redistribute        329 12.2    0.073    0.077    0.309    0.326
+ copy_dbcsr_to_fm                   153 11.3    0.004    0.004    0.299    0.322
+ make_basis_sm                       11  9.8    0.001    0.001    0.298    0.302
+ fft_wrap_pw1pw2_50                 238 14.0    0.012    0.015    0.272    0.291
+ make_images_pack                  4572 15.5    0.211    0.259    0.231    0.279
+ reorthogonalize_vectors             10  9.0    0.000    0.000    0.272    0.276
+ mp_allgather_i34                  2286 14.5    0.206    0.272    0.206    0.272
+ rs_pw_transfer_RS2PW_20            119 11.7    0.089    0.094    0.251    0.261
+ rs_pw_transfer_PW2RS_20            119 14.3    0.052    0.055    0.245    0.256
+ pw_poisson_solve                   119 10.3    0.113    0.122    0.251    0.251
+ ot_scf_init                         11  7.9    0.001    0.002    0.246    0.247
+ buffer_matrices_ensure_size       4572 14.5    0.219    0.230    0.234    0.245
+ make_dense_data                   5837 16.5    0.177    0.192    0.233    0.243
+ qs_create_task_list                 11  7.9    0.000    0.000    0.236    0.237
+ generate_qs_task_list               11  8.9    0.108    0.133    0.236    0.237
+ xc_rho_set_and_dset_create         119 12.3    0.003    0.004    0.222    0.232
+ build_subspace                     119 13.4    0.010    0.010    0.220    0.222
+ build_core_ppl                      11  7.9    0.182    0.222    0.182    0.222
+ cp_dbcsr_plus_fm_fm_t_native        22  8.9    0.001    0.001    0.204    0.213
+ build_core_ppnl_forces              11  5.9    0.195    0.212    0.195    0.212
+ xc_functional_eval                 119 13.3    0.201    0.211    0.201    0.211
+ tree_to_linear_d                  1073 14.6    0.105    0.195    0.105    0.195
+ mp_alltoall_i22                    627 13.8    0.130    0.170    0.130    0.170
+ calculate_rho_core                  11  7.9    0.010    0.015    0.146    0.168
+ copy_fm_to_dbcsr                   176 11.2    0.001    0.002    0.153    0.168
+ cp_gemm                             81  9.0    0.000    0.000    0.163    0.168
+ cp_gemm_fm_gemm                     81 10.0    0.000    0.000    0.163    0.167
+ qs_energies_compute_matrix_w        11  5.9    0.000    0.000    0.164    0.167
+ calculate_w_matrix_ot               11  6.9    0.001    0.001    0.164    0.167
+ cp_fm_gemm                          81 11.0    0.163    0.167    0.163    0.167
+ dbcsr_matrix_vector_mult          1669 14.0    0.015    0.017    0.157    0.165
+ qs_ot_p2m_taylor                    69 11.7    0.001    0.001    0.157    0.161
+ mp_alltoall_z11v                   476 17.0    0.144    0.158    0.144    0.158
+ fft_wrap_pw1pw2_20                 238 14.0    0.004    0.004    0.145    0.155
+ dbcsr_copy                        2232 11.8    0.018    0.020    0.148    0.154
+ build_overlap_matrix                22  6.9    0.091    0.098    0.138    0.146
+ dbcsr_data_release              145906 16.0    0.109    0.123    0.129    0.143
+ calculate_ecore_overlap             22  5.9    0.000    0.000    0.084    0.143
+ dbcsr_data_new                   82145 15.5    0.093    0.095    0.139    0.142
+ distribute_tasks                    11  9.9    0.018    0.019    0.128    0.140
+ dbcsr_destroy                    24818 14.1    0.060    0.062    0.130    0.139
+ pw_gather_p                        606 14.1    0.121    0.139    0.121    0.139
+ build_kinetic_matrix                22  6.9    0.125    0.133    0.130    0.137
  setup_buffer_matrices             4572 14.5    0.034    0.035    0.131    0.136
- dbcsr_make_dense                  1859 13.9    0.013    0.014    0.128    0.135
- dbcsr_add_d                       1881 12.8    0.003    0.003    0.127    0.131
- dbcsr_special_finalize            4572 15.5    0.015    0.016    0.126    0.129
- dbcsr_add_anytype                 1881 13.8    0.035    0.040    0.124    0.128
- pw_scatter_p                       595 15.2    0.120    0.126    0.120    0.126
- mp_isend_dv                      44786 15.4    0.111    0.123    0.111    0.123
- transfer_dbcsr_to_fm                11 10.9    0.000    0.000    0.109    0.122
- dbcsr_new_transposed               954 13.3    0.015    0.016    0.096    0.119
- dbcsr_data_copy_aa2               3142 14.9    0.074    0.119    0.074    0.119
- dbcsr_make_index_exist           25907 15.8    0.093    0.097    0.114    0.118
- qs_init_subsys                       1  2.0    0.002    0.002    0.117    0.117
- qs_env_setup                         1  3.0    0.001    0.001    0.112    0.112
- fft_wrap_pw1pw2_10                 238 14.0    0.002    0.003    0.101    0.112
- qs_env_rebuild_pw_env               23  5.3    0.000    0.000    0.111    0.111
- pw_copy                            952 12.7    0.108    0.111    0.108    0.111
- pw_env_rebuild                       1  5.0    0.001    0.001    0.110    0.110
+ dbcsr_make_dense                  1859 13.9    0.013    0.014    0.127    0.132
+ dbcsr_add_d                       1881 12.8    0.003    0.003    0.126    0.131
+ dbcsr_special_finalize            4572 15.5    0.015    0.016    0.125    0.130
+ dbcsr_add_anytype                 1881 13.8    0.034    0.037    0.123    0.128
+ transfer_dbcsr_to_fm                11 10.9    0.000    0.000    0.110    0.123
+ pw_scatter_p                       595 15.2    0.120    0.123    0.120    0.123
+ mp_isend_dv                      44786 15.4    0.112    0.122    0.112    0.122
+ dbcsr_make_index_exist           25907 15.8    0.092    0.098    0.113    0.120
+ dbcsr_data_copy_aa2               3142 14.9    0.074    0.120    0.074    0.120
+ fft_wrap_pw1pw2_10                 238 14.0    0.002    0.003    0.107    0.117
+ dbcsr_new_transposed               954 13.3    0.015    0.016    0.096    0.115
+ rs_pw_transfer_RS2PW_10            119 11.7    0.039    0.043    0.108    0.112
+ pw_copy                            952 12.7    0.108    0.112    0.108    0.112
  quick_finalize                    4870 16.4    0.038    0.042    0.106    0.110
- mp_isendrecv_dv                  29988 14.0    0.091    0.106    0.091    0.106
+ mp_isendrecv_dv                  29988 14.0    0.090    0.106    0.090    0.106
  dbcsr_make_undense                1859 13.9    0.057    0.061    0.101    0.106
- rs_pw_transfer_RS2PW_10            119 11.7    0.037    0.040    0.101    0.103
- mp_sum_dv                         6497 15.2    0.093    0.103    0.093    0.103
- dbcsr_data_copyall                7934  9.6    0.092    0.101    0.092    0.101
- integrate_v_core_rspace             11  7.9    0.010    0.013    0.095    0.099
- dbcsr_iterator_start             32539 15.9    0.070    0.075    0.092    0.098
- evaluate_core_matrix_traces        119  8.3    0.001    0.001    0.088    0.096
- calculate_ptrace_kp                238  9.3    0.000    0.001    0.087    0.095
- yz_to_xz                           238 17.3    0.010    0.011    0.083    0.094
- calculate_first_density_matrix       1  7.0    0.000    0.000    0.091    0.092
- rs_pw_transfer_PW2RS_10            119 14.3    0.024    0.026    0.086    0.089
- dbcsr_desymmetrize_deep            153 12.3    0.013    0.013    0.073    0.089
- load_balance_distributed            22 10.9    0.000    0.000    0.075    0.086
- mp_bcast_b                        1737 13.6    0.041    0.086    0.041    0.086
- mp_sum_b                          4011 13.8    0.077    0.084    0.077    0.084
- mp_cart_create                     158 13.2    0.083    0.084    0.083    0.084
- mp_isend_iv                      41104 15.6    0.057    0.082    0.057    0.082
- xz_to_yz                           238 14.7    0.007    0.012    0.078    0.080
- dbcsr_redistribute                 145 14.7    0.008    0.010    0.054    0.077
- mp_irecv_dm3                      4416 13.9    0.040    0.075    0.040    0.075
- dbcsr_iterator_stop              32539 15.9    0.058    0.063    0.070    0.075
- pw_grid_setup                        4  6.0    0.000    0.000    0.074    0.074
- pw_grid_setup_internal               4  7.0    0.000    0.000    0.074    0.074
- dbcsr_mm_multrec_init             2286 14.5    0.004    0.005    0.071    0.074
- compute_load_list                   44 11.9    0.031    0.037    0.065    0.074
- transfer_fm_to_dbcsr                11  9.9    0.000    0.000    0.061    0.073
- pw_axpy                            595 10.6    0.069    0.073    0.069    0.073
- dbcsr_make_untransposed_blocks    2729 13.4    0.045    0.056    0.059    0.071
- dbcsr_mm_csr_init                 2286 15.5    0.054    0.055    0.067    0.069
- external_control                   118  7.2    0.001    0.001    0.022    0.069
- merge_index                       5242 15.8    0.059    0.067    0.059    0.067
- mp_allocate_d                    26352 16.7    0.062    0.065    0.062    0.065
- mp_irecv_iv                      41104 15.6    0.043    0.063    0.043    0.063
- get_current_loads                  132 11.9    0.008    0.009    0.048    0.062
+ integrate_v_core_rspace             11  7.9    0.010    0.014    0.095    0.104
+ mp_sum_dv                         6497 15.2    0.091    0.101    0.091    0.101
+ dbcsr_data_copyall                7934  9.6    0.093    0.101    0.093    0.101
+ dbcsr_iterator_start             32539 15.9    0.070    0.077    0.091    0.099
+ dbcsr_desymmetrize_deep            153 12.3    0.013    0.014    0.080    0.098
+ yz_to_xz                           238 17.3    0.010    0.011    0.082    0.092
+ calculate_first_density_matrix       1  7.0    0.000    0.000    0.090    0.090
+ load_balance_distributed            22 10.9    0.000    0.000    0.077    0.088
+ rs_pw_transfer_PW2RS_10            119 14.3    0.025    0.026    0.086    0.088
+ mp_isend_iv                      41104 15.6    0.057    0.083    0.057    0.083
+ xz_to_yz                           238 14.7    0.007    0.012    0.079    0.083
+ mp_bcast_b                        1737 13.6    0.039    0.081    0.039    0.081
+ dbcsr_iterator_stop              32539 15.9    0.058    0.065    0.070    0.077
+ mp_sum_b                          4011 13.8    0.071    0.076    0.071    0.076
+ compute_load_list                   44 11.9    0.030    0.037    0.066    0.076
+ evaluate_core_matrix_traces        119  8.3    0.001    0.001    0.075    0.075
+ calculate_ptrace_kp                238  9.3    0.001    0.001    0.074    0.075
+ pw_axpy                            595 10.6    0.070    0.074    0.070    0.074
+ dbcsr_mm_multrec_init             2286 14.5    0.004    0.005    0.071    0.073
+ dbcsr_redistribute                 145 14.7    0.008    0.009    0.053    0.072
+ transfer_fm_to_dbcsr                11  9.9    0.000    0.000    0.059    0.071
+ dbcsr_mm_csr_init                 2286 15.5    0.053    0.055    0.067    0.069
+ mp_irecv_dm3                      4416 13.9    0.041    0.068    0.041    0.068
+ merge_index                       5242 15.8    0.059    0.066    0.059    0.066
+ dbcsr_col_vec_to_rep_row          1669 15.0    0.010    0.012    0.059    0.065
+ qs_init_subsys                       1  2.0    0.001    0.001    0.064    0.065
+ mp_sum_dm                          438  4.9    0.057    0.064    0.057    0.064
+ mp_allocate_d                    26352 16.7    0.062    0.063    0.062    0.063
+ get_current_loads                  132 11.9    0.008    0.009    0.049    0.063
+ external_control                   118  7.2    0.001    0.001    0.020    0.062
  build_core_ppnl                     11  7.9    0.055    0.062    0.055    0.062
- mp_sum_dm                          438  4.9    0.055    0.062    0.055    0.062
- dbcsr_sort_indices               10049 16.2    0.058    0.061    0.058    0.061
- arnoldi_init                       119 13.4    0.002    0.002    0.041    0.058
- pw_grid_distribute                   4  8.0    0.001    0.001    0.057    0.057
- dbcsr_make_dists_dense            1989 13.8    0.043    0.045    0.052    0.055
+ dbcsr_sort_indices               10049 16.2    0.059    0.061    0.059    0.061
+ qs_env_setup                         1  3.0    0.001    0.001    0.061    0.061
+ dbcsr_make_untransposed_blocks    2729 13.4    0.045    0.047    0.058    0.061
+ mp_irecv_iv                      41104 15.6    0.044    0.060    0.044    0.060
+ qs_env_rebuild_pw_env               23  5.3    0.000    0.000    0.060    0.060
+ pw_env_rebuild                       1  5.0    0.001    0.001    0.060    0.060
+ arnoldi_init                       119 13.4    0.002    0.002    0.044    0.057
+ dbcsr_make_dists_dense            1989 13.8    0.044    0.046    0.053    0.056
  mp_alltoall_l                      143 12.8    0.039    0.054    0.039    0.054
- dbcsr_col_vec_to_rep_row          1669 15.0    0.010    0.012    0.047    0.053
  cp_fm_upper_to_full                 22 12.4    0.038    0.052    0.038    0.052
- dbcsr_add_wm_from_matrix           443 12.9    0.005    0.016    0.037    0.047
- create_qs_kind_set                   1  2.0    0.000    0.000    0.045    0.046
- read_qs_kind                         2  3.0    0.023    0.025    0.045    0.046
- dbcsr_switch_data_area           14229 16.3    0.017    0.024    0.039    0.046
- overlap_ab                       14786  7.9    0.041    0.045    0.041    0.045
- md_output                           10  3.0    0.000    0.000    0.005    0.043
- setup_rec_index_2d                4572 14.5    0.040    0.043    0.040    0.043
- md_write_output                     11  3.9    0.001    0.030    0.003    0.041
- dbcsr_work_create                10112 14.6    0.027    0.027    0.039    0.040
- update_particle_set                 20  4.0    0.000    0.000    0.037    0.037
- dbcsr_work_destroy_all           10112 15.6    0.023    0.024    0.035    0.036
- mp_cart_sub                        310 13.3    0.035    0.036    0.035    0.036
- mp_rank_compare                   1201 15.6    0.032    0.034    0.032    0.034
- cube_transpose_2                   238 14.7    0.002    0.002    0.023    0.033
+ create_qs_kind_set                   1  2.0    0.000    0.000    0.047    0.048
+ read_qs_kind                         2  3.0    0.021    0.025    0.047    0.048
+ dbcsr_switch_data_area           14229 16.3    0.017    0.025    0.039    0.046
+ dbcsr_add_wm_from_matrix           443 12.9    0.005    0.016    0.037    0.046
+ md_output                           10  3.0    0.000    0.000    0.005    0.045
+ overlap_ab                       14755  7.9    0.041    0.045    0.041    0.045
+ dbcsr_work_destroy_all           10112 15.6    0.023    0.026    0.035    0.044
+ md_write_output                     11  3.9    0.001    0.031    0.003    0.042
+ setup_rec_index_2d                4572 14.5    0.041    0.042    0.041    0.042
+ update_particle_set                 20  4.0    0.000    0.000    0.039    0.040
+ dbcsr_work_create                10112 14.6    0.026    0.028    0.038    0.040
+ cube_transpose_2                   238 14.7    0.002    0.002    0.023    0.036
+ dbcsr_make_index_list             4572 14.5    0.029    0.035    0.029    0.035
  mp_deallocate_d                  26352 16.7    0.032    0.033    0.032    0.033
+ mp_rank_compare                   1201 15.6    0.032    0.033    0.032    0.033
+ mp_cart_sub                        310 13.3    0.033    0.033    0.033    0.033
+ cp_dbcsr_cholesky_decompose         11 12.9    0.010    0.010    0.031    0.033
  compute_evals                      119 13.4    0.031    0.033    0.031    0.033
- dbcsr_distribution_new           12473 14.0    0.027    0.032    0.027    0.032
+ mp_cart_create                     158 13.2    0.031    0.032    0.031    0.032
  dbcsr_fill_wm_from_matrix          443 13.9    0.027    0.030    0.029    0.032
+ parser_read_line                  2733  4.0    0.002    0.002    0.026    0.032
  compute_max_radius                   1  6.0    0.031    0.031    0.031    0.031
+ parser_read_line_low                 5  5.0    0.003    0.010    0.025    0.030
+ mp_isend_dm3                      4416 13.9    0.028    0.030    0.028    0.030
  build_qs_neighbor_lists             11  6.9    0.001    0.001    0.029    0.030
  dbcsr_set                         4172 14.9    0.006    0.006    0.028    0.030
- mp_isend_dm3                      4416 13.9    0.027    0.030    0.027    0.030
- dbcsr_make_index_list             4572 14.5    0.028    0.029    0.028    0.029
- dbcsr_cholesky_invert               11 12.9    0.014    0.016    0.029    0.029
- cp_dbcsr_cholesky_decompose         11 12.9    0.010    0.010    0.026    0.028
- mp_allocate_i                    19638 16.9    0.024    0.026    0.024    0.026
- DGKS_ortho_d                      1550 14.0    0.002    0.005    0.015    0.025
- dbcsr_zero                        4270 15.8    0.022    0.025    0.022    0.025
- copy_fm_to_dbcsr_bc                176 12.2    0.010    0.011    0.023    0.025
- Gram_Schmidt_ortho_d              1550 14.0    0.003    0.007    0.018    0.024
- parser_read_line                  2733  4.0    0.002    0.002    0.022    0.024
- mp_sum_iv                          362 11.5    0.018    0.023    0.018    0.023
- parser_read_line_low                 5  5.0    0.003    0.013    0.021    0.023
- dbcsr_iterator_seek              32539 16.9    0.021    0.023    0.021    0.023
- mp_deallocate_i                  19638 16.6    0.021    0.022    0.021    0.022
+ mp_bcast_dv                       1719 16.0    0.016    0.028    0.016    0.028
+ dbcsr_cholesky_invert               11 12.9    0.014    0.016    0.028    0.028
+ dbcsr_distribution_new           12473 14.0    0.027    0.028    0.027    0.028
+ Gram_Schmidt_ortho_d              1550 14.0    0.003    0.006    0.022    0.027
+ mp_sum_iv                          362 11.5    0.019    0.026    0.019    0.026
+ broadcast_input_information          5  6.0    0.000    0.000    0.021    0.026
+ mp_allocate_i                    19638 16.9    0.024    0.025    0.024    0.025
+ dbcsr_zero                        4270 15.8    0.022    0.024    0.022    0.024
+ copy_fm_to_dbcsr_bc                176 12.2    0.009    0.010    0.023    0.024
+ pw_grid_setup                        4  6.0    0.000    0.000    0.023    0.023
+ pw_grid_setup_internal               4  7.0    0.000    0.000    0.023    0.023
+ mp_deallocate_i                  19638 16.6    0.022    0.023    0.022    0.023
+ dbcsr_iterator_seek              32539 16.9    0.021    0.022    0.021    0.022
  cp_fm_triangular_multiply           11 10.8    0.019    0.022    0.019    0.022
- dbcsr_reserve_blocks               740 14.3    0.016    0.017    0.020    0.022
- dbcsr_mm_multrec_finalize         2286 15.5    0.014    0.016    0.017    0.020
+ dbcsr_reserve_blocks               740 14.3    0.016    0.017    0.020    0.021
  dbcsr_copy_into_existing            22  7.9    0.007    0.007    0.018    0.019
- broadcast_input_information          5  6.0    0.000    0.000    0.017    0.019
+ create_local_tasks                  11 10.9    0.005    0.006    0.019    0.019
+ dbcsr_mm_multrec_finalize         2286 15.5    0.014    0.016    0.016    0.019
  cp_dbcsr_alloc_block_from_nbl       88  7.7    0.006    0.007    0.018    0.018
- create_local_tasks                  11 10.9    0.005    0.006    0.018    0.018
- mp_bcast_dv                       1719 16.0    0.014    0.018    0.014    0.018
- create_fast_row_vec_access        1669 15.0    0.002    0.003    0.016    0.016
+ mp_bcast_i                         105  3.0    0.014    0.018    0.014    0.018
+ create_fast_row_vec_access        1669 15.0    0.002    0.003    0.016    0.018
+ DGKS_ortho_d                      1550 14.0    0.002    0.005    0.014    0.017
+ mp_alltoall_i11v                  1575 13.9    0.015    0.017    0.015    0.017
+ dbcsr_matrix_vector_mult_local    1669 15.0    0.006    0.006    0.012    0.017
  copy_dbcsr_to_fm_bc                153 12.3    0.011    0.015    0.012    0.016
- mp_alltoall_i11v                  1575 13.9    0.014    0.015    0.014    0.015
- mp_comm_compare                   1204 15.6    0.014    0.015    0.014    0.015
- pw_scale                           119 10.3    0.014    0.015    0.014    0.015
+ create_fast_col_vec_access        1669 15.0    0.002    0.002    0.014    0.015
+ create_fast_row_vec_access_d      1669 16.0    0.008    0.010    0.014    0.015
  dbcsr_make_dbcsr_index           12066 16.3    0.014    0.015    0.014    0.015
- create_fast_col_vec_access        1669 15.0    0.002    0.003    0.014    0.015
+ optimize_load_list                  22 11.9    0.000    0.000    0.010    0.015
+ mp_comm_compare                   1204 15.6    0.014    0.015    0.014    0.015
+ pw_scale                           119 10.3    0.014    0.014    0.014    0.014
  cp_fm_create                       325 11.9    0.009    0.014    0.009    0.014
- optimize_load_list                  22 11.9    0.000    0.000    0.010    0.014
- create_fast_row_vec_access_d      1669 16.0    0.008    0.008    0.013    0.014
- pw_zero                            119 10.7    0.012    0.014    0.012    0.014
+ pw_zero                            119 10.7    0.013    0.014    0.013    0.014
+ create_fast_col_vec_access_d      1669 16.0    0.006    0.008    0.012    0.013
  cube_transpose_1                   238 17.3    0.003    0.003    0.011    0.013
- dbcsr_matrix_vector_mult_local    1669 15.0    0.006    0.006    0.012    0.012
- create_fast_col_vec_access_d      1669 16.0    0.007    0.007    0.012    0.012
- mp_comm_split                       50 14.0    0.010    0.012    0.010    0.012
  dbcsr_reserve_all_blocks           652 14.1    0.002    0.002    0.010    0.012
+ mp_maxloc_dv                      1121  1.0    0.011    0.012    0.011    0.012
  pw_grid_sort                         4  8.0    0.006    0.006    0.011    0.012
- mp_bcast_i                         105  3.0    0.010    0.012    0.010    0.012
- mp_maxloc_dv                      1121  1.0    0.011    0.011    0.011    0.011
- write_trajectory                    44  4.9    0.001    0.002    0.001    0.011
  build_neighbor_lists_sac_ppl        11  7.9    0.011    0.011    0.011    0.011
- mp_bcast_im                        120 14.3    0.009    0.010    0.009    0.010
- create_col_vec_from_matrix         238 13.4    0.001    0.001    0.008    0.010
- dbcsr_get_local_rows              4145 14.1    0.009    0.010    0.009    0.010
- mp_bcast_av                        560  1.0    0.003    0.003    0.008    0.009
- dbcsr_finalize_lib                   1  2.0    0.000    0.001    0.009    0.009
- mp_max_i                           368  1.6    0.005    0.009    0.005    0.009
- dbcsr_get_data_size_used          5540 14.8    0.009    0.009    0.009    0.009
+ mp_bcast_im                        120 14.3    0.009    0.011    0.009    0.011
+ write_trajectory                    44  4.9    0.001    0.002    0.001    0.011
+ mp_comm_split                       50 14.0    0.009    0.010    0.009    0.010
+ dbcsr_scale_by_vector_anytype      208 11.2    0.006    0.008    0.007    0.010
+ dbcsr_get_local_rows              4145 14.1    0.010    0.010    0.010    0.010
+ dbcsr_finalize_lib                   1  2.0    0.000    0.001    0.009    0.010
+ mp_max_i                           368  1.6    0.006    0.009    0.006    0.009
+ create_col_vec_from_matrix         238 13.4    0.001    0.001    0.008    0.009
  write_particle_coordinates          11  5.9    0.000    0.009    0.000    0.009
- fill_hash_tables                  2286 16.5    0.008    0.009    0.008    0.009
  mp_bcast_am                          5  7.0    0.007    0.008    0.009    0.009
+ dbcsr_get_data_size_used          5540 14.8    0.008    0.009    0.008    0.009
  mp_max_l                            22  2.0    0.009    0.009    0.009    0.009
- dbcsr_get_local_cols              4145 14.1    0.009    0.009    0.009    0.009
+ mp_bcast_av                        560  1.0    0.003    0.003    0.007    0.009
+ dbcsr_make_index_local_row        4572 14.5    0.008    0.009    0.008    0.009
+ fill_hash_tables                  2286 16.5    0.008    0.009    0.008    0.009
  dbcsr_index_prune_deleted         3978 15.8    0.008    0.009    0.008    0.009
+ dbcsr_get_local_cols              4145 14.1    0.008    0.009    0.008    0.009
  dbcsr_scale_anytype               2109 14.8    0.005    0.006    0.007    0.008
- transpose_index_local              954 14.3    0.004    0.004    0.007    0.008
  mp_alltoall_l11v                    11 11.9    0.008    0.008    0.008    0.008
- dbcsr_make_index_local_row        4572 14.5    0.007    0.008    0.007    0.008
- dbcsr_scale_d                      228 13.5    0.000    0.001    0.006    0.008
- dbcsr_scale_by_vector_anytype      208 11.2    0.006    0.006    0.007    0.007
+ transpose_index_local              954 14.3    0.004    0.004    0.007    0.008
+ dbcsr_scale_d                      228 13.5    0.001    0.001    0.006    0.008
  cp_fm_init_random                    1  8.0    0.007    0.007    0.007    0.007
- build_neighbor_lists_sap_ppnl       11  7.9    0.006    0.007    0.006    0.007
  mp_bcast_i3                         22 12.9    0.005    0.007    0.005    0.007
  mp_sum_partial_im                   22 12.9    0.003    0.007    0.003    0.007
- load_balance_replicated             11 10.9    0.001    0.001    0.006    0.007
+ write_restart                       10  4.0    0.000    0.005    0.002    0.007
+ build_neighbor_lists_sap_ppnl       11  7.9    0.006    0.007    0.006    0.007
  dbcsr_gershgorin_norm               48 11.0    0.001    0.001    0.006    0.006
- topology_control                     1  2.0    0.001    0.001    0.006    0.006
- write_restart                       10  4.0    0.000    0.004    0.003    0.006
+ load_balance_replicated             11 10.9    0.001    0.001    0.006    0.006
  mp_comm_free                       526 13.0    0.006    0.006    0.006    0.006
+ get_fft_scratch                   1202 15.6    0.005    0.005    0.006    0.006
+ pw_grid_distribute                   4  8.0    0.001    0.002    0.006    0.006
  sort_shells                          4  9.0    0.005    0.006    0.005    0.006
- dbcsr_add_on_diag                  138 12.7    0.001    0.001    0.005    0.006
- get_fft_scratch                   1202 15.6    0.005    0.005    0.005    0.006
- build_neighbor_lists_sab_all        11  7.9    0.005    0.005    0.005    0.005
+ dbcsr_add_on_diag                  138 12.7    0.001    0.001    0.005    0.005
+ topology_control                     1  2.0    0.000    0.000    0.005    0.005
  dbcsr_mm_sched_init               2286 16.5    0.004    0.004    0.005    0.005
- cleanup_scf_loop                    11  7.9    0.000    0.001    0.002    0.005
- create_replicated_row_vec_from     119 13.4    0.001    0.001    0.003    0.005
- calculate_atomic_block_dm            1  8.0    0.001    0.001    0.005    0.005
- write_mo_set_to_restart            108  7.5    0.002    0.005    0.002    0.005
- qs_env_rebuild_rho                  11  7.9    0.000    0.000    0.004    0.005
- qs_rho_rebuild                      11  8.9    0.000    0.000    0.004    0.005
- build_neighbor_lists_sab_orb        11  7.9    0.004    0.004    0.004    0.004
- mp_sum_root_iv                      22 12.9    0.001    0.004    0.001    0.004
- mp_environ_l                      1733 14.3    0.004    0.004    0.004    0.004
- scf_env_release                      3  4.0    0.000    0.000    0.001    0.004
- destroy_preconditioner               1  3.0    0.000    0.000    0.001    0.004
- make_full_kinetic                   11  9.9    0.000    0.000    0.004    0.004
+ build_neighbor_lists_sab_all        11  7.9    0.005    0.005    0.005    0.005
+ build_neighbor_lists_sab_orb        11  7.9    0.004    0.005    0.004    0.005
+ mp_environ_l                      1733 14.3    0.004    0.005    0.004    0.005
+ qs_env_rebuild_rho                  11  7.9    0.000    0.000    0.004    0.004
+ qs_rho_rebuild                      11  8.9    0.000    0.000    0.004    0.004
  wfs_update                          11  5.9    0.000    0.000    0.004    0.004
- dbcsr_mm_sched_finalize           2286 16.5    0.002    0.004    0.002    0.004
- pw_pool_create_pw                 2416 11.8    0.003    0.003    0.003    0.004
+ write_mo_set_to_restart            108  7.5    0.002    0.004    0.002    0.004
+ mp_sum_root_iv                      22 12.9    0.001    0.004    0.001    0.004
+ make_full_kinetic                   11  9.9    0.000    0.000    0.004    0.004
+ scf_env_release                      3  4.0    0.000    0.000    0.001    0.004
+ calculate_atomic_block_dm            1  8.0    0.001    0.001    0.004    0.004
+ destroy_preconditioner               1  3.0    0.000    0.000    0.001    0.004
  create_replicated_col_vec_from     119 13.4    0.001    0.001    0.003    0.004
  dbcsr_hadamard_product              98 13.0    0.002    0.002    0.003    0.004
- dbcsr_mempool_clear                458 13.4    0.001    0.002    0.003    0.003
+ mp_allgather_l                     143 12.8    0.003    0.003    0.003    0.003
+ create_replicated_row_vec_from     119 13.4    0.001    0.001    0.003    0.003
  cp_fm_release                      330 11.5    0.001    0.003    0.001    0.003
- pw_pool_give_back_pw              2867 12.0    0.003    0.003    0.003    0.003
- scf_post_calculation_gpw            11  5.9    0.001    0.001    0.003    0.003
- dbcsr_get_global_row_map          2286 13.5    0.002    0.003    0.002    0.003
- ot_scf_read_input                   11  7.9    0.000    0.000    0.001    0.003
- connectivity_control                 1  3.0    0.000    0.000    0.003    0.003
- pw_grid_remap                        4  8.0    0.000    0.001    0.003    0.003
+ pw_pool_create_pw                 2416 11.8    0.002    0.003    0.003    0.003
+ cleanup_scf_loop                    11  7.9    0.000    0.001    0.002    0.003
+ dbcsr_mempool_clear                458 13.4    0.001    0.002    0.003    0.003
+ dbcsr_mm_sched_finalize           2286 16.5    0.002    0.003    0.002    0.003
+ mp_comm_dup                          8  6.5    0.003    0.003    0.003    0.003
  mp_environ_c                      1203 15.6    0.002    0.003    0.002    0.003
- mp_allgather_l                     143 12.8    0.002    0.003    0.002    0.003
+ ot_scf_read_input                   11  7.9    0.000    0.000    0.001    0.003
+ pw_pool_give_back_pw              2867 12.0    0.003    0.003    0.003    0.003
+ scf_post_calculation_gpw            11  5.9    0.000    0.000    0.003    0.003
  ot_readwrite_input                  11  8.9    0.000    0.003    0.000    0.003
- update_input                         1  5.0    0.000    0.001    0.002    0.002
- qs_scf_loop_print                  108  7.5    0.002    0.002    0.002    0.002
- mp_sum_im3                           4  9.0    0.002    0.002    0.002    0.002
- mp_bcast_iv                         37  4.2    0.002    0.002    0.002    0.002
- calculate_atom                       2  9.0    0.000    0.000    0.002    0.002
- calculate_atom_restricted            2 10.0    0.002    0.002    0.002    0.002
- topology_generate_bond               1  4.0    0.000    0.000    0.002    0.002
+ pw_grid_remap                        4  8.0    0.000    0.000    0.002    0.003
+ mp_bcast_iv                         37  4.2    0.002    0.003    0.002    0.003
+ dbcsr_get_global_row_map          2286 13.5    0.002    0.003    0.002    0.003
+ qs_scf_loop_print                  108  7.5    0.002    0.003    0.002    0.003
+ connectivity_control                 1  3.0    0.000    0.000    0.002    0.002
+ update_input                         1  5.0    0.000    0.000    0.002    0.002
  coordinate_control                   1  3.0    0.000    0.000    0.002    0.002
+ mp_sync                             54 11.3    0.001    0.002    0.001    0.002
  coordinate_control_READ_COORDI       1  4.0    0.000    0.000    0.002    0.002
- mp_comm_dup                          8  6.5    0.002    0.002    0.002    0.002
- dbcsr_get_global_col_map          2286 13.5    0.002    0.002    0.002    0.002
- update_subsys                        1  6.0    0.000    0.000    0.002    0.002
- build_neighbor_lists_sab_core       11  7.9    0.002    0.002    0.002    0.002
- section_coord_val_set                1  7.0    0.002    0.002    0.002    0.002
  read_atoms_input                     1  5.0    0.002    0.002    0.002    0.002
+ mp_sum_im3                           4  9.0    0.002    0.002    0.002    0.002
+ dbcsr_get_global_col_map          2286 13.5    0.002    0.002    0.002    0.002
+ build_neighbor_lists_sab_core       11  7.9    0.002    0.002    0.002    0.002
+ topology_generate_bond               1  4.0    0.000    0.000    0.002    0.002
+ update_subsys                        1  6.0    0.000    0.000    0.002    0.002
+ section_coord_val_set                1  7.0    0.002    0.002    0.002    0.002
+ write_available_results             11  6.9    0.000    0.000    0.002    0.002
+ calculate_atom                       2  9.0    0.000    0.000    0.002    0.002
+ calculate_atom_restricted            2 10.0    0.001    0.001    0.002    0.002
+ rs_grid_create_descriptor            4  6.0    0.000    0.001    0.001    0.002
  restraint_control                   11  3.9    0.000    0.000    0.001    0.002
  qs_scf_ensure_work_matrices         11  5.9    0.000    0.000    0.001    0.002
- release_fast_vec_access           3338 15.0    0.002    0.002    0.002    0.002
- write_available_results             11  6.9    0.000    0.000    0.002    0.002
- scf_c_write_parameters               1  3.0    0.000    0.002    0.000    0.002
- pw_grid_assign                       4  8.0    0.001    0.001    0.002    0.002
- balance_global_list                 22 12.9    0.000    0.002    0.000    0.002
  qs_efield_local_operator           119 10.3    0.001    0.002    0.001    0.002
- topology_generate_bond_3             1  5.0    0.000    0.000    0.001    0.002
+ pw_grid_assign                       4  8.0    0.001    0.001    0.002    0.002
+ init_cube_info                       4  6.0    0.001    0.002    0.001    0.002
  qs_scf_print_scf_summary            11  7.9    0.000    0.002    0.000    0.002
- mp_sum_i                            14  6.1    0.001    0.001    0.001    0.001
- init_cube_info                       4  6.0    0.001    0.001    0.001    0.001
+ scf_c_write_parameters               1  3.0    0.000    0.002    0.000    0.002
+ balance_global_list                 22 12.9    0.000    0.002    0.000    0.002
+ release_fast_vec_access           3338 15.0    0.001    0.002    0.001    0.002
  mp_sum_im                           55 10.8    0.001    0.001    0.001    0.001
- build_fist_neighbor_lists            1  6.0    0.000    0.000    0.001    0.001
- build_neighbor_lists                 1  7.0    0.001    0.001    0.001    0.001
- mp_sync                             54 11.3    0.001    0.001    0.001    0.001
+ mp_sum_i                            14  6.1    0.001    0.001    0.001    0.001
+ topology_generate_bond_3             1  5.0    0.000    0.000    0.001    0.001
  read_qs_section                      1  3.0    0.001    0.001    0.001    0.001
+ build_fist_neighbor_lists            1  6.0    0.000    0.000    0.001    0.001
  dbcsr_mm_hostdrv_init             2286 17.5    0.001    0.001    0.001    0.001
+ build_neighbor_lists                 1  7.0    0.001    0.001    0.001    0.001
  write_mo_free_results               11  7.9    0.001    0.001    0.001    0.001
  write_qs_control                     1  3.0    0.001    0.001    0.001    0.001
- rs_grid_create_descriptor            4  6.0    0.000    0.000    0.001    0.001
  create_destination_list             22 11.9    0.001    0.001    0.001    0.001
- rot_ana                              1  3.0    0.000    0.000    0.001    0.001
  pw_create                          382 12.9    0.001    0.001    0.001    0.001
- qs_efield_berry_phase              119 10.3    0.000    0.001    0.000    0.001
- atom_int_setup                       2  9.0    0.001    0.001    0.001    0.001
- diamat_all                           1  4.0    0.000    0.001    0.000    0.001
+ qs_efield_berry_phase              119 10.3    0.001    0.001    0.001    0.001
  cp_fm_to_fm_matrix                  21  7.9    0.001    0.001    0.001    0.001
- topology_connectivity_pack           1  3.0    0.000    0.000    0.000    0.001
  dump_info_core_hamiltonian          22  6.9    0.001    0.001    0.001    0.001
  write_mo_dependent_results          11  7.9    0.000    0.001    0.001    0.001
+ fft3d_s                              1  2.0    0.000    0.000    0.001    0.001
  calculate_atom_vxc_lda              12 11.0    0.001    0.001    0.001    0.001
- mpools_rebuild_fm_pools              1  4.0    0.000    0.000    0.000    0.001
- init_qs_kind_set                     1  3.0    0.000    0.000    0.000    0.001
- init_qs_kind                         2  4.0    0.000    0.000    0.000    0.001
- fft3d_s                              1  2.0    0.000    0.000    0.000    0.001
- init_orb_basis_set                   2  5.0    0.000    0.000    0.000    0.001
- fix_atom_control                    11  3.9    0.000    0.001    0.000    0.001
+ topology_generate_bond_4             1  5.0    0.000    0.001    0.000    0.001
  mp_sum_lv                           32  3.6    0.000    0.001    0.000    0.001
- topology_generate_bond_4             1  5.0    0.000    0.000    0.000    0.001
- init_cphi_and_sphi                   2  6.0    0.000    0.001    0.000    0.001
- init_interaction_radii               1  3.0    0.000    0.000    0.000    0.000
+ fix_atom_control                    11  3.9    0.000    0.000    0.000    0.000
+ topology_connectivity_pack           1  3.0    0.000    0.000    0.000    0.000
+ mpools_rebuild_fm_pools              1  4.0    0.000    0.000    0.000    0.000
+ set_mo_occupation_1                120  9.4    0.000    0.000    0.000    0.000
  mp_max_r                             1  3.0    0.000    0.000    0.000    0.000
- connectivity_control_check_ele       1  4.0    0.000    0.000    0.000    0.000
- atom_ppint_setup                     2  9.0    0.000    0.000    0.000    0.000
- topology_coordinate_pack             1  3.0    0.000    0.000    0.000    0.000
  pw_poisson_rebuild                 119 11.3    0.000    0.000    0.000    0.000
  mp_alltoall_i                        2 15.0    0.000    0.000    0.000    0.000
- temperature_control                 10  3.0    0.000    0.000    0.000    0.000
+ rot_ana                              1  3.0    0.000    0.000    0.000    0.000
  create_local_fixd_list              11  4.9    0.000    0.000    0.000    0.000
- set_mo_occupation_1                120  9.4    0.000    0.000    0.000    0.000
- topology_connectivity_pack_13        1  4.0    0.000    0.000    0.000    0.000
- cp_fm_scale_and_add                 24  9.0    0.000    0.000    0.000    0.000
- setup_velocities                     1  3.0    0.000    0.000    0.000    0.000
- qs_ks_did_change                   130  7.7    0.000    0.000    0.000    0.000
- initialize_velocities                1  4.0    0.000    0.000    0.000    0.000
- calculate_ecore_self                22  5.9    0.000    0.000    0.000    0.000
- qs_scf_post_charges                 11  6.9    0.000    0.000    0.000    0.000
  write_structure_data                12  4.8    0.000    0.000    0.000    0.000
- topology_generate_bond_2             1  5.0    0.000    0.000    0.000    0.000
- rs_grid_create                      26  9.3    0.000    0.000    0.000    0.000
+ setup_velocities                     1  3.0    0.000    0.000    0.000    0.000
+ cp_fm_scale_and_add                 24  9.0    0.000    0.000    0.000    0.000
+ calculate_ecore_self                22  5.9    0.000    0.000    0.000    0.000
+ qs_ks_did_change                   130  7.7    0.000    0.000    0.000    0.000
+ temperature_control                 10  3.0    0.000    0.000    0.000    0.000
  qs_energies_properties              11  5.9    0.000    0.000    0.000    0.000
- topology_coordinate_pack_7a          1  4.0    0.000    0.000    0.000    0.000
- create_grid_atom                     2  9.0    0.000    0.000    0.000    0.000
+ initialize_velocities                1  4.0    0.000    0.000    0.000    0.000
+ distribute_molecules_1d              1  3.0    0.000    0.000    0.000    0.000
+ rs_grid_create                      26  9.3    0.000    0.000    0.000    0.000
+ init_interaction_radii               1  3.0    0.000    0.000    0.000    0.000
  qs_scf_ensure_mos                   11  5.9    0.000    0.000    0.000    0.000
+ create_grid_atom                     2  9.0    0.000    0.000    0.000    0.000
+ topology_coordinate_pack             1  3.0    0.000    0.000    0.000    0.000
+ qs_scf_post_charges                 11  6.9    0.000    0.000    0.000    0.000
+ atom_ppint_setup                     2  9.0    0.000    0.000    0.000    0.000
+ atom_int_setup                       2  9.0    0.000    0.000    0.000    0.000
  qs_scf_post_ps_implicit             11  8.9    0.000    0.000    0.000    0.000
+ dbcsr_filter_anytype               163  9.7    0.000    0.000    0.000    0.000
  distribute_molecules_2d              1  4.0    0.000    0.000    0.000    0.000
+ init_qs_kind_set                     1  3.0    0.000    0.000    0.000    0.000
+ init_qs_kind                         2  4.0    0.000    0.000    0.000    0.000
  atom2d_build                        11  7.9    0.000    0.000    0.000    0.000
  mp_cart_coords                     384 11.0    0.000    0.000    0.000    0.000
- pw_grid_allocate                     4  8.0    0.000    0.000    0.000    0.000
  dbcsr_verify_matrix                 22  9.9    0.000    0.000    0.000    0.000
- scf_env_create                       1  5.0    0.000    0.000    0.000    0.000
- dbcsr_filter_anytype               163  9.7    0.000    0.000    0.000    0.000
+ init_orb_basis_set                   2  5.0    0.000    0.000    0.000    0.000
+ connectivity_control_check_ele       1  4.0    0.000    0.000    0.000    0.000
+ pw_grid_allocate                     4  8.0    0.000    0.000    0.000    0.000
  qs_scf_post_transport               11  8.9    0.000    0.000    0.000    0.000
  remove_restart_info                  1  2.0    0.000    0.000    0.000    0.000
- comvel_control                      10  3.0    0.000    0.000    0.000    0.000
- topology_generate_bond_1             1  5.0    0.000    0.000    0.000    0.000
- distribute_molecules_1d              1  3.0    0.000    0.000    0.000    0.000
- topology_generate_onfo               1  4.0    0.000    0.000    0.000    0.000
- mp_cart_rank                       150 14.8    0.000    0.000    0.000    0.000
- cp_ddapc_init                       11  7.9    0.000    0.000    0.000    0.000
  cp_fm_scale                         10  9.0    0.000    0.000    0.000    0.000
- resp_fit                            11  7.9    0.000    0.000    0.000    0.000
- topology_generate_molecule           1  4.0    0.000    0.000    0.000    0.000
+ topology_generate_bond_1             1  5.0    0.000    0.000    0.000    0.000
+ mp_max_lv                            4  8.0    0.000    0.000    0.000    0.000
+ qs_scf_post_epr                     11  6.9    0.000    0.000    0.000    0.000
+ cp_ddapc_init                       11  7.9    0.000    0.000    0.000    0.000
+ topology_generate_onfo               1  4.0    0.000    0.000    0.000    0.000
  transport_current                   11  9.9    0.000    0.000    0.000    0.000
- topology_connectivity_pack_4         1  4.0    0.000    0.000    0.000    0.000
  check_generate_mol                   1  6.0    0.000    0.000    0.000    0.000
- compute_averages                    10  5.0    0.000    0.000    0.000    0.000
+ diamat_all                           1  4.0    0.000    0.000    0.000    0.000
+ comvel_control                      10  3.0    0.000    0.000    0.000    0.000
+ resp_fit                            11  7.9    0.000    0.000    0.000    0.000
  linres_calculation_low              11  6.9    0.000    0.000    0.000    0.000
- write_s_matrix_csr                  11  8.9    0.000    0.000    0.000    0.000
- topology_connectivity_pack_2         1  4.0    0.000    0.000    0.000    0.000
- write_ks_matrix_csr                 11  8.9    0.000    0.000    0.000    0.000
- write_mos_molden                    11  8.9    0.000    0.000    0.000    0.000
- calculate_ecore_efield              22  5.9    0.000    0.000    0.000    0.000
- topology_coordinate_pack_11          1  4.0    0.000    0.000    0.000    0.000
- qs_scf_post_xray                    11  6.9    0.000    0.000    0.000    0.000
  qs_scf_post_efg                     11  6.9    0.000    0.000    0.000    0.000
+ init_cphi_and_sphi                   2  6.0    0.000    0.000    0.000    0.000
+ compute_averages                    10  5.0    0.000    0.000    0.000    0.000
+ mp_cart_rank                       150 14.8    0.000    0.000    0.000    0.000
+ topology_connectivity_pack_2         1  4.0    0.000    0.000    0.000    0.000
+ topology_coordinate_pack_7a          1  4.0    0.000    0.000    0.000    0.000
+ write_s_matrix_csr                  11  8.9    0.000    0.000    0.000    0.000
+ mp_min_lv                            4  8.0    0.000    0.000    0.000    0.000
+ write_ks_matrix_csr                 11  8.9    0.000    0.000    0.000    0.000
+ section_velocity_val_set             1  7.0    0.000    0.000    0.000    0.000
+ topology_connectivity_pack_4         1  4.0    0.000    0.000    0.000    0.000
  topology_connectivity_pack_14        1  4.0    0.000    0.000    0.000    0.000
- write_dm_binary_restart             11  8.9    0.000    0.000    0.000    0.000
+ topology_coordinate_pack_11          1  4.0    0.000    0.000    0.000    0.000
+ topology_generate_molecule           1  4.0    0.000    0.000    0.000    0.000
+ lgrid_allocate_grid                  1  9.0    0.000    0.000    0.000    0.000
  sort_neighbor_lists                  1  7.0    0.000    0.000    0.000    0.000
+ write_mos_molden                    11  8.9    0.000    0.000    0.000    0.000
+ qs_scf_post_xray                    11  6.9    0.000    0.000    0.000    0.000
  -------------------------------------------------------------------------------
 
  The number of warnings for this run is : 1
  
  -------------------------------------------------------------------------------
-  **** **** ******  **  PROGRAM ENDED AT                 2018-07-06 18:13:18.641
+  **** **** ******  **  PROGRAM ENDED AT                 2018-07-09 19:46:13.163
  ***** ** ***  *** **   PROGRAM RAN ON                                  gw4arm05
  **    ****   ******    PROGRAM RAN BY                                 br-jprice
- ***** **    ** ** **   PROGRAM PROCESS ID                                183019
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 34180
   **** **  *******  **  PROGRAM STOPPED IN /home/br-jprice/foo/cp2k-tx2-foxconn-
-                                           gcc-8.1
+                                           gcc-8.1-cray-fftw-3.3.6
