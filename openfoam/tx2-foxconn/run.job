@@ -30,7 +30,7 @@ if [ "$procdirs" -ne "$numprocs" ]; then
 fi
 
 export OMP_NUM_THREADS=1
-mpirun --map-by socket --report-bindings --bind-to core -np "$numprocs" simpleFoam -parallel |& tee "$runlog"
+mpirun --map-by socket --report-bindings --bind-to hwthread -np "$numprocs" simpleFoam -parallel |& tee "$runlog"
 
 time_first=$(grep ExecutionTime "$runlog" | head -1 | awk '{print $3}')
 time_last=$(grep ExecutionTime "$runlog" | tail -1 | awk '{print $3}')
