@@ -154,6 +154,7 @@ then
         exit 1
     fi
     module load arm/perf-libs/18.3/$ARMPL_VARIANT
+    module unload arm/gcc
     export FCFLAGS="$FCFLAGS -I$ARMPL_DIR/include"
     export LIBS="$LIBS -larmpl"
 fi
