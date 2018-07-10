@@ -128,6 +128,8 @@ esac
 
 case "$FFTLIB" in
     armpl-18.3)
+        module load arm/perf-libs/18.3/$ARMPL_VARIANT
+        module unload arm/gcc
         USE_ARMPL=1
         ;;
     cray-fftw-3.3.6)
@@ -153,8 +155,6 @@ then
         echo
         exit 1
     fi
-    module load arm/perf-libs/18.3/$ARMPL_VARIANT
-    module unload arm/gcc
     export FCFLAGS="$FCFLAGS -I$ARMPL_DIR/include"
     export LIBS="$LIBS -larmpl"
 fi
