@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# TODO: OpenBLAS vs CRAY-LIBSCI vs ARMPL
-# TODO: libsmm?
+# TODO: Option for <blas>+libsmm?
 
 DEFAULT_COMPILER=gcc-7.2
 DEFAULT_BLASLIB=openblas-0.2
