@@ -4,22 +4,28 @@
 # TODO: libsmm?
 
 DEFAULT_COMPILER=gcc-7.2
+DEFAULT_BLASLIB=openblas-0.2
 DEFAULT_FFTLIB=cray-fftw-3.3.6
 function usage
 {
     echo
-    echo "Usage: ./benchmark.sh build|run [COMPILER] [FFT-LIB]"
+    echo "Usage: ./benchmark.sh build|run [COMPILER] [BLAS-LIB] [FFT-LIB]"
     echo
     echo "Valid compilers:"
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo "  arm-18.3"
     echo
+    echo "Valid BLAS libraries:"
+    echo "  openblas-0.2"
+    echo "  armpl-18.3"
+    echo "  libsci-17.09"
+    echo
     echo "Valid FFT libraries:"
     echo "  armpl-18.3"
     echo "  cray-fftw-3.3.6"
     echo
-    echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_FFTLIB'."
+    echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_BLASLIB $DEFAULT_FFTLIB'."
     echo
 }
 
@@ -32,12 +38,13 @@ fi
 
 ACTION=$1
 COMPILER=${2:-$DEFAULT_COMPILER}
-FFTLIB=${3:-$DEFAULT_FFTLIB}
+BLASLIB=${3:-$DEFAULT_BLASLIB}
+FFTLIB=${4:-$DEFAULT_FFTLIB}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 export BENCHMARK_PLATFORM=tx2-foxconn
-export CONFIG=$BENCHMARK_PLATFORM-$COMPILER-$FFTLIB
+export CONFIG="tx2"_"$COMPILER"_"$BLASLIB"_"$FFTLIB"
 export SRC_DIR=$PWD/cp2k-5.1
 export RUN_DIR=$PWD/cp2k-$CONFIG
 
@@ -53,8 +60,6 @@ case "$COMPILER" in
         export CFLAGS="-Ofast -mcpu=thunderx2t99"
         export FCFLAGS="-Ofast -fopenmp -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast"
         export FCFLAGS="$FCFLAGS -ftree-vectorize -ffree-form -ffree-line-length-512"
-        export LIBS="/lustre/projects/bristol/modules-arm/scalapack/2.0.2-openblas/lib/libscalapack.a"
-        export LIBS="$LIBS /lustre/projects/bristol/modules-arm/openblas/0.2.20-nothreads/lib/libopenblas.a"
         ARMPL_VARIANT=gcc-7.1
         ;;
     gcc-8.1)
@@ -67,8 +72,6 @@ case "$COMPILER" in
         export CFLAGS="-Ofast -mcpu=thunderx2t99"
         export FCFLAGS="-Ofast -fopenmp -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast"
         export FCFLAGS="$FCFLAGS -ftree-vectorize -ffree-form -ffree-line-length-512"
-        export LIBS="/lustre/projects/bristol/modules-arm/scalapack/2.0.2-openblas/lib/libscalapack.a"
-        export LIBS="$LIBS /lustre/projects/bristol/modules-arm/openblas/0.2.20-nothreads/lib/libopenblas.a"
         ;;
     arm-18.3)
         module purge
@@ -80,8 +83,6 @@ case "$COMPILER" in
         export CFLAGS="-Ofast -mcpu=thunderx2t99"
         export FCFLAGS="-Ofast -fopenmp -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast"
         export FCFLAGS="$FCFLAGS -ftree-vectorize -ffree-form"
-        export LIBS="/lustre/projects/bristol/modules-arm/scalapack/2.0.2-openblas/lib/libscalapack.a"
-        export LIBS="$LIBS /lustre/projects/bristol/modules-arm/openblas/0.2.20-nothreads/lib/libopenblas.a"
         ARMPL_VARIANT=arm-18.3
         ;;
     cce-8.7)
@@ -99,18 +100,36 @@ case "$COMPILER" in
         ;;
 esac
 
-case "$FFTLIB" in
+case "$BLASLIB" in
+    openblas-0.2)
+        export LIBS="$LIBS /lustre/projects/bristol/modules-arm/scalapack/2.0.2-openblas/lib/libscalapack.a"
+        export LIBS="$LIBS /lustre/projects/bristol/modules-arm/openblas/0.2.20-nothreads/lib/libopenblas.a"
+        ;;
     armpl-18.3)
-        if [ -z "$ARMPL_VARIANT" ]
+        export LIBS="$LIBS /lustre/projects/bristol/modules-arm/scalapack/2.0.2-armpl/lib/libscalapack.a"
+        USE_ARMPL=1
+        ;;
+    libsci-17.09)
+        if [ "$FC" != "ftn" ]
         then
             echo
-            echo "Using armpl is not supported for $COMPILER."
+            echo "Using libsci requires CCE on this platform."
             echo
             exit 1
         fi
-        module load arm/perf-libs/18.3/$ARMPL_VARIANT
-        export FCFLAGS="$FCFLAGS -I$ARMPL_DIR/include"
-        export LIBS="$LIBS -larmpl"
+        module swap cray-libsci cray-libsci/17.09.1.2
+        ;;
+    *)
+        echo
+        echo "Invalid BLAS library '$BLASLIB'."
+        usage
+        exit 1
+        ;;
+esac
+
+case "$FFTLIB" in
+    armpl-18.3)
+        USE_ARMPL=1
         ;;
     cray-fftw-3.3.6)
         export FCFLAGS="$FCFLAGS -I/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include"
@@ -124,6 +143,21 @@ case "$FFTLIB" in
         exit 1
         ;;
 esac
+
+# Add ARMPL flags last if used
+if [ "$USE_ARMPL" == "1" ]
+then
+    if [ -z "$ARMPL_VARIANT" ]
+    then
+        echo
+        echo "Using armpl is not supported for $COMPILER."
+        echo
+        exit 1
+    fi
+    module load arm/perf-libs/18.3/$ARMPL_VARIANT
+    export FCFLAGS="$FCFLAGS -I$ARMPL_DIR/include"
+    export LIBS="$LIBS -larmpl"
+fi
 
 
 
