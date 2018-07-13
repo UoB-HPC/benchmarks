@@ -4,7 +4,7 @@ These scripts build and run [OpenFOAM v1712](https://www.openfoam.com/download/)
 
 ## Build notes
 
-Due to the way OpenFOAM is "installed", we create a separate installation directory for each platform. Thus, `fetch.sh` will only download the packages, which will be unarchived in `build-*.sh`.
+Due to the way OpenFOAM is "installed", we create a separate installation directory for each platform. Thus, `fetch.sh` will only download the packages, which will be unarchived at build time.
 
 We use the GNU compiler on x86 and ARM because it has the best performance. We use the Intel compiler on KNL because we _assume_ it won't do worse than GNU.
 
