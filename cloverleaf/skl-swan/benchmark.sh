@@ -98,7 +98,7 @@ then
     fi
 
     qsub $SCRIPT_DIR/run.job \
-        -d $RUN_DIR
+        -d $RUN_DIR \
         -o CloverLeaf-$CONFIG.out \
         -N cloverleaf \
         -V
