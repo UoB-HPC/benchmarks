@@ -1,3 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/UK-MAC/CloverLeaf_ref
+if [ ! -e CloverLeaf_ref/clover.f90 ]
+then
+    git clone https://github.com/UK-MAC/CloverLeaf_ref
+fi

@@ -28,23 +28,10 @@ COMPILER=${2:-$DEFAULT_COMPILER}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
-export BENCHMARK_PLATFORM=tx2-foxconn
 export BENCHMARK_EXE=clover_leaf
+export CONFIG="tx2"_"$COMPILER"
 export SRC_DIR=$PWD/CloverLeaf_ref
-export RUN_DIR=$PWD/CloverLeaf-$BENCHMARK_PLATFORM-$COMPILER
-
-
-# Fetch source code if necessary
-if [ ! -r "$SRC_DIR/clover.f90" ]
-then
-    if ! "$SCRIPT_DIR/../fetch.sh"
-    then
-        echo
-        echo "Failed to fetch source code."
-        echo
-        exit 1
-    fi
-fi
+export RUN_DIR=$PWD/CloverLeaf-$CONFIG
 
 
 # Set up the environment
@@ -89,6 +76,15 @@ esac
 # Handle actions
 if [ "$ACTION" == "build" ]
 then
+    # Fetch source code
+    if ! "$SCRIPT_DIR/../fetch.sh"
+    then
+        echo
+        echo "Failed to fetch source code."
+        echo
+        exit 1
+    fi
+
     # Perform build
     rm -f $SRC_DIR/$BENCHMARK_EXE $RUN_DIR/$BENCHMARK_EXE
     if ! eval make -C $SRC_DIR -B $MAKE_OPTS
@@ -104,6 +100,14 @@ then
 
 elif [ "$ACTION" == "run" ]
 then
+    if [ ! -x "$RUN_DIR/$BENCHMARK_EXE" ]
+    then
+        echo "Executable '$RUN_DIR/$BENCHMARK_EXE' not found."
+        echo "Use the 'build' action first."
+        exit 1
+    fi
+
+    cd $RUN_DIR
     bash $SCRIPT_DIR/run.job
 else
     echo
