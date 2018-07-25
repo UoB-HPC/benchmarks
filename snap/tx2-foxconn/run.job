@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cat $BENCHMARK_TEMPLATE \
+    | sed 's/NY/16/' \
+    | sed 's/NZ/16/' \
+    | sed 's/NPEY/8/' \
+    | sed 's/NPEZ/8/' \
+    | sed 's/NTHREADS/4/' \
+    | sed 's/ICHUNK/16/' \
+    >$CONFIG.in
+
+export OMP_NUM_THREADS=4
+mpirun -np 64 --bind-to core ./$BENCHMARK_EXE $CONFIG.in $CONFIG.out

@@ -1,3 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/lanl/SNAP
+if [ ! -e SNAP/src/snap_main.f90 ]
+then
+    git clone https://github.com/lanl/SNAP
+fi
