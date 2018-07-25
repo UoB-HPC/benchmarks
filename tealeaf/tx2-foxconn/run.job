@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cp $SRC_DIR/Benchmarks/tea_bm_5.in tea.in
+
+export OMP_PROC_BIND=true
+export OMP_NUM_THREADS=2
+mpirun -np 64 --bind-to core ./$BENCHMARK_EXE
