@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "ss 256 500 1 False" >input
+
+export OMP_NUM_THREADS=1
+mpirun -np 64 --bind-to core ./$BENCHMARK_EXE | tee $CONFIG.out
