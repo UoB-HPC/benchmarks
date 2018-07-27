@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if [ ! -r NEMO_benchmarks/NEMOGCM/CONFIG/GYRE_PISCES_ARM_test/cpp_GYRE_PISCES_ARM_test.fcm ]
+if [ ! -e NEMOGCM/cfgs/GYRE_PISCES ]
 then
-    echo "Unpack/clone NEMO_benchmarks source"
+    # TODO: Update to release branch when 4.0 is released
+    svn co http://forge.ipsl.jussieu.fr/nemo/svn/NEMO/trunk NEMOGCM
 fi

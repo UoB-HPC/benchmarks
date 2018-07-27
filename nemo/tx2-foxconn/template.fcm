@@ -1,0 +1,26 @@
+%NCDF_HOME           ${NETCDF_DIR}
+%HDF5_HOME           ${HDF5_DIR}
+%XIOS_HOME
+
+%NCDF_INC            -I%NCDF_HOME/include -I%HDF5_HOME/include
+%NCDF_LIB            -L%HDF5_HOME/lib -L%NCDF_HOME/lib -lnetcdff -lnetcdf -lhdf5_hl -lhdf5 -lz
+%XIOS_INC
+%XIOS_LIB
+
+%CPP                 ${CPP}
+%FC                  ${FC}
+
+%FCFLAGS             ${FCFLAGS}
+%FFLAGS              ${FFLAGS}
+%LD                  ${LD}
+%FPPFLAGS            ${FPPFLAGS}
+%LDFLAGS             ${LDFLAGS}
+%AR                  ar
+%ARFLAGS             -r
+%MK                  gmake
+
+%USER_INC            %NCDF_INC %XIOS_INC
+%USER_LIB            %NCDF_LIB %XIOS_LIB
+
+%CC                  ${CC}
+%CFLAGS              ${CFLAGS}
