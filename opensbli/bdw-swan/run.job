@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -q large
+#PBS -l nodes=1
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+echo "ss 256 500 1 False" >input
+
+export OMP_NUM_THREADS=1
+aprun -n 44 -d 1 -j 1 ./$BENCHMARK_EXE
