@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -q large
+#PBS -l nodes=1
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+cp $SCRIPT_DIR/../namelist_cfg .
+
+rm -f mesh_mask_*.nc
+
+export FORT_FMT_RECL=132
+export OMP_NUM_THREADS=1
+aprun -n 44 -d 1 -j 1 ./nemo
+grep "Average " timing.output

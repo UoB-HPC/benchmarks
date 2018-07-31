@@ -25,7 +25,7 @@ COMPILER=${2:-$DEFAULT_COMPILER}
 SCRIPT=`realpath $0`
 export SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
-export CONFIG="tx2"_"$COMPILER"
+export CONFIG="bdw"_"$COMPILER"
 export SRC_DIR=$PWD/NEMOGCM
 export RUN_DIR=$PWD/NEMOGCM/cfgs/$CONFIG/EXP00
 
@@ -33,7 +33,8 @@ export RUN_DIR=$PWD/NEMOGCM/cfgs/$CONFIG/EXP00
 # Set up the environment
 case "$COMPILER" in
     cce-8.7)
-        module swap cce cce/8.7.0.5323
+        module swap cce cce/8.7.1
+        module load cray-netcdf
         export CPP=cpp
         export FC=ftn
         export LD=ftn
@@ -43,9 +44,6 @@ case "$COMPILER" in
         export FPPFLAGS="-P -E -traditional-cpp"
         export LDFLAGS="-hbyteswapio"
         export CFLAGS="-O0"
-        export NETCDF_DIR=/lustre/projects/cray/lanton/cce_8.7nightly-180214
-        export HDF5_DIR=$NETCDF_DIR
-        export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${NETCDF_DIR}/lib
         ;;
     *)
         echo
@@ -89,8 +87,11 @@ then
         exit 1
     fi
 
-    cd $RUN_DIR
-    bash $SCRIPT_DIR/run.job
+    qsub $SCRIPT_DIR/run.job \
+        -d $RUN_DIR \
+        -o $PWD/nemo-$CONFIG.out \
+        -N nemo \
+        -V
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
