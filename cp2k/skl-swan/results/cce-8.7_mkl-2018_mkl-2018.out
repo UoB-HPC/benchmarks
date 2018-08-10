@@ -1,0 +1,282 @@
+ DBCSR| Multiplication driver                                               BLAS
+ DBCSR| Multrec recursion limit                                              512
+ DBCSR| Multiplication stack size                                           1000
+ DBCSR| Maximum elements for images                                    UNLIMITED
+ DBCSR| Multiplicative factor virtual images                                   1
+ DBCSR| Multiplication size stacks                                             3
+ DBCSR| Number of 3D layers                                               SINGLE
+ DBCSR| Use MPI memory allocation                                              T
+ DBCSR| Use RMA algorithm                                                      F
+ DBCSR| Use Communication thread                                               T
+ DBCSR| Communication thread load                                             87
+
+
+  **** **** ******  **  PROGRAM STARTED AT               2018-08-09 12:46:29.723
+ ***** ** ***  *** **   PROGRAM STARTED ON                              nid00502
+ **    ****   ******    PROGRAM STARTED BY                                p02490
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 24288
+  **** **  *******  **  PROGRAM STARTED IN /lus/scratch/p02490/rundir/cp2k-skl_c
+                                           ce-8.7_mkl-2018_mkl-2018
+
+ CP2K| version string:                                          CP2K version 5.1
+ CP2K| source code revision number:                                    svn:18091
+ CP2K| cp2kflags: omp fftw3 parallel mpi3 scalapack has_no_shared_glibc         
+ CP2K| is freely available from                            https://www.cp2k.org/
+ CP2K| Program compiled at                          Thu  9 Aug 12:07:22 CDT 2018
+ CP2K| Program compiled on                                                  swan
+ CP2K| Program compiled for                        skl_cce-8.7_mkl-2018_mkl-2018
+ CP2K| Data directory path              /lus/scratch/p02490/rundir/cp2k-5.1/data
+ CP2K| Input file name        /lus/scratch/p02490/rundir/cp2k-5.1/tests/QS/bench
+ 
+ GLOBAL| Force Environment number                                              1
+ GLOBAL| Basis set file name                                      GTH_BASIS_SETS
+ GLOBAL| Potential file name                                           POTENTIAL
+ GLOBAL| MM Potential file name                                     MM_POTENTIAL
+ GLOBAL| Coordinate file name                                      __STD_INPUT__
+ GLOBAL| Method name                                                        CP2K
+ GLOBAL| Project name                                                     H2O-64
+ GLOBAL| Preferred FFT library                                             FFTW3
+ GLOBAL| Preferred diagonalization lib.                                       SL
+ GLOBAL| Run type                                                             MD
+ GLOBAL| All-to-all communication in single precision                          F
+ GLOBAL| FFTs using library dependent lengths                                  F
+ GLOBAL| Global print level                                                  LOW
+ GLOBAL| Total number of message passing processes                            56
+ GLOBAL| Number of threads for this process                                    1
+ GLOBAL| This output is from process                                           0
+ GLOBAL| CPU model name :  Intel(R) Xeon(R) Platinum 8176 CPU @ 2.10GHz
+
+ MEMORY| system memory details [Kb]
+ MEMORY|                        rank 0           min           max       average
+ MEMORY| MemTotal            196696272     196696272     196696272     196696272
+ MEMORY| MemFree             192180164     192180164     192180164     192180164
+ MEMORY| Buffers                  1660          1660          1660          1660
+ MEMORY| Cached                 314376        314376        314376        314376
+ MEMORY| Slab                   201620        201620        201620        201620
+ MEMORY| SReclaimable            20660         20660         20660         20660
+ MEMORY| MemLikelyFree       192516860     192516860     192516860     192516860
+
+ 
+ GENERATE|  Preliminary Number of Bonds generated:                             0
+ GENERATE|  Achieved consistency in connectivity generation.
+
+ *******************************************************************************
+ *******************************************************************************
+ **                                                                           **
+ **     #####                         ##              ##                      **
+ **    ##   ##            ##          ##              ##                      **
+ **   ##     ##                       ##            ######                    **
+ **   ##     ##  ##   ##  ##   #####  ##  ##   ####   ##    #####    #####    **
+ **   ##     ##  ##   ##  ##  ##      ## ##   ##      ##   ##   ##  ##   ##   **
+ **   ##  ## ##  ##   ##  ##  ##      ####     ###    ##   ######   ######    **
+ **    ##  ###   ##   ##  ##  ##      ## ##      ##   ##   ##       ##        **
+ **     #######   #####   ##   #####  ##  ##  ####    ##    #####   ##        **
+ **           ##                                                    ##        **
+ **                                                                           **
+ **                                                ... make the atoms dance   **
+ **                                                                           **
+ **            Copyright (C) by CP2K developers group (2000 - 2017)           **
+ **                                                                           **
+ *******************************************************************************
+
+
+ SCF PARAMETERS         Density guess:                                    ATOMIC
+                        --------------------------------------------------------
+                        max_scf:                                              50
+                        max_scf_history:                                       0
+                        max_diis:                                              4
+                        --------------------------------------------------------
+                        eps_scf:                                        1.00E-05
+                        eps_scf_history:                                0.00E+00
+                        eps_diis:                                       1.00E-01
+                        eps_eigval:                                     1.00E-05
+                        --------------------------------------------------------
+                        level_shift [a.u.]:                                 0.00
+                        --------------------------------------------------------
+                        No outer SCF
+ 
+ MD| Molecular Dynamics Protocol 
+ MD| Ensemble Type                                                           NVE
+ MD| Number of Time Steps                                                     10
+ MD| Time Step [fs]                                                         0.50
+ MD| Temperature [K]                                                      300.00
+ MD| Temperature tolerance [K]                                              0.00
+ MD| Print MD information every                                        1 step(s)
+ MD| File type     Print frequency[steps]                             File names
+ MD| Coordinates            1                                   H2O-64-pos-1.xyz
+ MD| Velocities             1                                   H2O-64-vel-1.xyz
+ MD| Energies               1                                      H2O-64-1.ener
+ MD| Dump                  20                                   H2O-64-1.restart
+ 
+ ROT| Rotational Analysis Info 
+ ROT| Principal axes and moments of inertia in atomic units:
+ ROT|                                1                 2                 3
+ ROT| EIGENVALUES            0.174175353E+09   0.187507692E+09   0.199545123E+09
+ ROT|      X                    -0.734964520       0.242599134       0.633224142
+ ROT|      Y                    -0.044883650       0.914361712      -0.402402930
+ ROT|      Z                    -0.676618513      -0.324173287      -0.661134682
+ ROT| Numer of Rotovibrational vectors:     6
+
+ Calculation of degrees of freedom
+                                                      Number of atoms:       192
+                                 Number of Intramolecular constraints:         0
+                                 Number of Intermolecular constraints:         0
+                                  Invariants(translation + rotations):         3
+                                                   Degrees of freedom:       573
+
+
+ Restraints Information
+                                  Number of Intramolecular restraints:         0
+                                  Number of Intermolecular restraints:         0
+ ************************** Velocities initialization **************************
+ Initial Temperature                                                    300.00 K
+ COM velocity:           -0.000000000000     -0.000000000000     -0.000000000000
+ *******************************************************************************
+
+
+ Number of electrons:                                                        512
+ Number of occupied orbitals:                                                256
+ Number of molecular orbitals:                                               256
+
+ Number of orbital functions:                                               2560
+ Number of independent orbital functions:                                   2560
+
+ Extrapolation method: initial_guess
+
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  \___/    Cholesky decompose failed: the matrix is not positive definite or *
+ *    |                              ill-conditioned.                          *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * / \                                                  fm/cp_fm_cholesky.F:95 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 cp_fm_cholesky_decompose
+            8 make_basis_sm
+            7 calculate_first_density_matrix
+            6 scf_env_initial_rho_setup
+            5 init_scf_run
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 0 [Thu Aug  9 12:46:30 2018] [c0-1c1s13n2] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+
+ *  \___/    Cholesky decompose failed: the matrix is not positive definite or *
+ *    |                              ill-conditioned.                          *
+ *******************************************************************************
+ *  O/|                                                                        *
+ *   ___                                                                       *
+ * /| |                                                                        *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ * / \                                                  fm/cp_fm_cholesky.F:95 *
+ *******************************************************************************
+ *  \___/    Cholesky decompose failed: the matrix is not positive definite or *
+
+ *    |                              ill-conditioned.                          *
+
+ ===== Routine Calling Stack ===== 
+ *  O/|                                                                        *
+
+ * /| |                                                                        *
+            9 cp_fm_cholesky_decompose
+ * / \                                                  fm/cp_fm_cholesky.F:95 *
+ *******************************************************************************
+            8 make_basis_sm
+
+
+            7 calculate_first_density_matrix
+            6 scf_env_initial_rho_setup
+            5 init_scf_run
+
+ ===== Routine Calling Stack ===== 
+
+ *******************************************************************************
+            9 cp_fm_cholesky_decompose
+            4 qs_energies
+ *   ___                                                                       *
+            8 make_basis_sm
+ *  /   \                                                                      *
+            3 qs_forces
+ * [ABORT]                                                                     *
+            7 calculate_first_density_matrix
+            2 qs_mol_dyn_low
+            6 scf_env_initial_rho_setup
+            1 CP2K
+            5 init_scf_run
+ *  \___/    Cholesky decompose failed: the matrix is not positive definite or *
+            4 qs_energies
+            3 qs_forces
+ *    |                              ill-conditioned.                          *
+            2 qs_mol_dyn_low
+ *  O/|                                                                        *
+            1 CP2K
+ * /| |                                                                        *
+ * / \                                                  fm/cp_fm_cholesky.F:95 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 cp_fm_cholesky_decompose
+            8 make_basis_sm
+            7 calculate_first_density_matrix
+            6 scf_env_initial_rho_setup
+            5 init_scf_run
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 3 [Thu Aug  9 12:46:31 2018] [c0-1c1s13n2] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 3
+Rank 2 [Thu Aug  9 12:46:31 2018] [c0-1c1s13n2] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 2
+Rank 1 [Thu Aug  9 12:46:31 2018] [c0-1c1s13n2] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 1
+Application 2155610 is crashing. ATP analysis proceeding...
+
+ATP Stack walkback for Rank 0 starting:
+  [empty]@0xffffffffffffffff
+  __libc_start_main@0x2aaab7f686e4
+  main@cp2k.F90:41
+  run_input$cp2k_runs_@cp2k_runs.F90:1070
+  cp2k_run$cp2k_runs_@cp2k_runs.F90:354
+  qs_mol_dyn$md_run_@md_run.F90:153
+  qs_mol_dyn_low$md_run_@md_run.F90:372
+  force_env_calc_energy_force$force_env_methods_@force_env_methods.F90:240
+  qs_calc_energy_force$qs_force_@qs_force.F90:116
+  qs_forces$qs_force_@qs_force.F90:215
+  qs_energies$qs_energy_@qs_energy.F90:86
+  scf$qs_scf_@qs_scf.F90:214
+  qs_scf_env_initialize$qs_scf_initialization_@qs_scf_initialization.F90:183
+  init_scf_run$qs_scf_initialization_@qs_scf_initialization.F90:1089
+  scf_env_initial_rho_setup$qs_scf_initialization_@qs_scf_initialization.F90:1192
+  calculate_first_density_matrix$qs_initial_guess_@qs_initial_guess.F90:562
+  make_basis_sm$qs_mo_methods_@qs_mo_methods.F90:118
+  cp_fm_cholesky_decompose$cp_fm_cholesky_@cp_fm_cholesky.F90:45
+  cp_abort$base_hooks_@base_hooks.F90:65
+  cp_abort_handler$cp_error_handling_@cp_error_handling.F90:70
+  mp_abort$message_passing_@message_passing.F90:1059
+  MPI_ABORT@0x2aaaaf43da8c
+  PMPI_Abort@0x2aaaaf3f7708
+  MPID_Abort@0x2aaaaf4e4cb5
+  abort@0x2aaab7f7dca9
+  __GI_raise@0x2aaab7f7c8d7
+ATP Stack walkback for Rank 0 done
+Process died with signal 6: 'Aborted'
+View application merged backtrace tree with: stat-view atpMergedBT.dot
+You may need to: module load stat
+
+_pmiu_daemon(SIGCHLD): [NID 00502] [c0-1c1s13n2] [Thu Aug  9 12:46:36 2018] PE RANK 51 exit signal Killed
+[NID 00502] 2018-08-09 12:46:36 Apid 2155610: initiated application termination
+Application 2155610 exit codes: 137
+Application 2155610 resources: utime ~7s, stime ~4s, Rss ~122868, inblocks ~324, outblocks ~0

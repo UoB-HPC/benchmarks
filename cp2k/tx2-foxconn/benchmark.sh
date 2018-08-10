@@ -42,7 +42,6 @@ FFTLIB=${4:-$DEFAULT_FFTLIB}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
-export BENCHMARK_PLATFORM=tx2-foxconn
 export CONFIG="tx2"_"$COMPILER"_"$BLASLIB"_"$FFTLIB"
 export SRC_DIR=$PWD/cp2k-5.1
 export RUN_DIR=$PWD/cp2k-$CONFIG
@@ -174,7 +173,7 @@ then
     fi
 
     # Generate arch config file
-    envsubst <$SCRIPT_DIR/template.psmp >$SRC_DIR/arch/$CONFIG.psmp
+    envsubst <$SCRIPT_DIR/../template.psmp >$SRC_DIR/arch/$CONFIG.psmp
 
     # Perform build
     cd $SRC_DIR/makefiles

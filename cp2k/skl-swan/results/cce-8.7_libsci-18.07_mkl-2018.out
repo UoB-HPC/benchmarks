@@ -1,0 +1,1599 @@
+ DBCSR| Multiplication driver                                               BLAS
+ DBCSR| Multrec recursion limit                                              512
+ DBCSR| Multiplication stack size                                           1000
+ DBCSR| Maximum elements for images                                    UNLIMITED
+ DBCSR| Multiplicative factor virtual images                                   1
+ DBCSR| Multiplication size stacks                                             3
+ DBCSR| Number of 3D layers                                               SINGLE
+ DBCSR| Use MPI memory allocation                                              T
+ DBCSR| Use RMA algorithm                                                      F
+ DBCSR| Use Communication thread                                               T
+ DBCSR| Communication thread load                                             87
+
+
+  **** **** ******  **  PROGRAM STARTED AT               2018-08-09 11:41:13.726
+ ***** ** ***  *** **   PROGRAM STARTED ON                              nid00441
+ **    ****   ******    PROGRAM STARTED BY                                p02490
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 60420
+  **** **  *******  **  PROGRAM STARTED IN /lus/scratch/p02490/rundir/cp2k-skl_c
+                                           ce-8.7_libsci-18.07_mkl-2018
+
+ CP2K| version string:                                          CP2K version 5.1
+ CP2K| source code revision number:                                    svn:18091
+ CP2K| cp2kflags: omp fftw3 parallel mpi3 scalapack has_no_shared_glibc         
+ CP2K| is freely available from                            https://www.cp2k.org/
+ CP2K| Program compiled at                          Thu  9 Aug 11:14:42 CDT 2018
+ CP2K| Program compiled on                                                  swan
+ CP2K| Program compiled for                    skl_cce-8.7_libsci-18.07_mkl-2018
+ CP2K| Data directory path              /lus/scratch/p02490/rundir/cp2k-5.1/data
+ CP2K| Input file name        /lus/scratch/p02490/rundir/cp2k-5.1/tests/QS/bench
+ 
+ GLOBAL| Force Environment number                                              1
+ GLOBAL| Basis set file name                                      GTH_BASIS_SETS
+ GLOBAL| Potential file name                                           POTENTIAL
+ GLOBAL| MM Potential file name                                     MM_POTENTIAL
+ GLOBAL| Coordinate file name                                      __STD_INPUT__
+ GLOBAL| Method name                                                        CP2K
+ GLOBAL| Project name                                                     H2O-64
+ GLOBAL| Preferred FFT library                                             FFTW3
+ GLOBAL| Preferred diagonalization lib.                                       SL
+ GLOBAL| Run type                                                             MD
+ GLOBAL| All-to-all communication in single precision                          F
+ GLOBAL| FFTs using library dependent lengths                                  F
+ GLOBAL| Global print level                                                  LOW
+ GLOBAL| Total number of message passing processes                            56
+ GLOBAL| Number of threads for this process                                    1
+ GLOBAL| This output is from process                                           0
+ GLOBAL| CPU model name :  Intel(R) Xeon(R) Platinum 8176 CPU @ 2.10GHz
+
+ MEMORY| system memory details [Kb]
+ MEMORY|                        rank 0           min           max       average
+ MEMORY| MemTotal            196696272     196696272     196696272     196696272
+ MEMORY| MemFree             192151528     192150288     192151528     192151317
+ MEMORY| Buffers                  1960          1960          1960          1960
+ MEMORY| Cached                 316780        316780        316780        316780
+ MEMORY| Slab                   200988        200988        200988        200988
+ MEMORY| SReclaimable            19700         19700         19700         19700
+ MEMORY| MemLikelyFree       192489968     192488728     192489968     192489757
+
+ 
+ GENERATE|  Preliminary Number of Bonds generated:                             0
+ GENERATE|  Achieved consistency in connectivity generation.
+
+ *******************************************************************************
+ *******************************************************************************
+ **                                                                           **
+ **     #####                         ##              ##                      **
+ **    ##   ##            ##          ##              ##                      **
+ **   ##     ##                       ##            ######                    **
+ **   ##     ##  ##   ##  ##   #####  ##  ##   ####   ##    #####    #####    **
+ **   ##     ##  ##   ##  ##  ##      ## ##   ##      ##   ##   ##  ##   ##   **
+ **   ##  ## ##  ##   ##  ##  ##      ####     ###    ##   ######   ######    **
+ **    ##  ###   ##   ##  ##  ##      ## ##      ##   ##   ##       ##        **
+ **     #######   #####   ##   #####  ##  ##  ####    ##    #####   ##        **
+ **           ##                                                    ##        **
+ **                                                                           **
+ **                                                ... make the atoms dance   **
+ **                                                                           **
+ **            Copyright (C) by CP2K developers group (2000 - 2017)           **
+ **                                                                           **
+ *******************************************************************************
+
+
+ SCF PARAMETERS         Density guess:                                    ATOMIC
+                        --------------------------------------------------------
+                        max_scf:                                              50
+                        max_scf_history:                                       0
+                        max_diis:                                              4
+                        --------------------------------------------------------
+                        eps_scf:                                        1.00E-05
+                        eps_scf_history:                                0.00E+00
+                        eps_diis:                                       1.00E-01
+                        eps_eigval:                                     1.00E-05
+                        --------------------------------------------------------
+                        level_shift [a.u.]:                                 0.00
+                        --------------------------------------------------------
+                        No outer SCF
+ 
+ MD| Molecular Dynamics Protocol 
+ MD| Ensemble Type                                                           NVE
+ MD| Number of Time Steps                                                     10
+ MD| Time Step [fs]                                                         0.50
+ MD| Temperature [K]                                                      300.00
+ MD| Temperature tolerance [K]                                              0.00
+ MD| Print MD information every                                        1 step(s)
+ MD| File type     Print frequency[steps]                             File names
+ MD| Coordinates            1                                   H2O-64-pos-1.xyz
+ MD| Velocities             1                                   H2O-64-vel-1.xyz
+ MD| Energies               1                                      H2O-64-1.ener
+ MD| Dump                  20                                   H2O-64-1.restart
+ 
+ ROT| Rotational Analysis Info 
+ ROT| Principal axes and moments of inertia in atomic units:
+ ROT|                                1                 2                 3
+ ROT| EIGENVALUES            0.174175353E+09   0.187507692E+09   0.199545123E+09
+ ROT|      X                    -0.734964520       0.242599134       0.633224142
+ ROT|      Y                    -0.044883650       0.914361712      -0.402402930
+ ROT|      Z                    -0.676618513      -0.324173287      -0.661134682
+ ROT| Numer of Rotovibrational vectors:     6
+
+ Calculation of degrees of freedom
+                                                      Number of atoms:       192
+                                 Number of Intramolecular constraints:         0
+                                 Number of Intermolecular constraints:         0
+                                  Invariants(translation + rotations):         3
+                                                   Degrees of freedom:       573
+
+
+ Restraints Information
+                                  Number of Intramolecular restraints:         0
+                                  Number of Intermolecular restraints:         0
+ ************************** Velocities initialization **************************
+ Initial Temperature                                                    300.00 K
+ COM velocity:           -0.000000000000     -0.000000000000     -0.000000000000
+ *******************************************************************************
+
+
+ Number of electrons:                                                        512
+ Number of occupied orbitals:                                                256
+ Number of molecular orbitals:                                               256
+
+ Number of orbital functions:                                               2560
+ Number of independent orbital functions:                                   2560
+
+ Extrapolation method: initial_guess
+
+
+ SCF WAVEFUNCTION OPTIMIZATION
+
+  ----------------------------------- OT ---------------------------------------
+  Minimizer      : DIIS                : direct inversion
+                                         in the iterative subspace
+                                         using   7 DIIS vectors
+                                         safer DIIS on
+  Preconditioner : FULL_KINETIC        : inversion of T + eS
+  Precond_solver : DEFAULT
+  stepsize       :    0.15000000                  energy_gap     :    0.20000000
+  eps_taylor     :   0.10000E-15                  max_taylor     :             4
+  ----------------------------------- OT ---------------------------------------
+
+  Step     Update method      Time    Convergence         Total energy    Change
+  ------------------------------------------------------------------------------
+
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 0 [Thu Aug  9 11:41:14 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 25 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 25
+
+
+ *******************************************************************************
+ *******************************************************************************
+ *   ___                                                                       *
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+
+ * [ABORT]                                                                     *
+ *******************************************************************************
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *   ___                                                                       *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ *  /   \                                                                      *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * [ABORT]                                                                     *
+ * /| |                                                                        *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ * / \                                                     qs_ks_methods.F:842 *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+ *******************************************************************************
+
+
+ *    |                                                                        *
+
+ ===== Routine Calling Stack ===== 
+
+
+ ===== Routine Calling Stack ===== 
+
+ *  O/|                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+ * /| |                                                                        *
+            7 qs_ks_update_qs_env
+            8 rebuild_ks_matrix
+ * / \                                                     qs_ks_methods.F:842 *
+            6 init_scf_loop
+            7 qs_ks_update_qs_env
+ *******************************************************************************
+            5 scf_env_do_scf
+
+            6 init_scf_loop
+            4 qs_energies
+
+ ===== Routine Calling Stack ===== 
+
+            5 scf_env_do_scf
+            3 qs_forces
+            9 qs_ks_build_kohn_sham_matrix
+            4 qs_energies
+            2 qs_mol_dyn_low
+            8 rebuild_ks_matrix
+            3 qs_forces
+            1 CP2K
+            7 qs_ks_update_qs_env
+            2 qs_mol_dyn_low
+            6 init_scf_loop
+            1 CP2K
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+
+ *******************************************************************************
+
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *******************************************************************************
+ *   ___                                                                       *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  /   \                                                                      *
+ *    |                                                                        *
+ * [ABORT]                                                                     *
+ *  O/|                                                                        *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ * /| |                                                                        *
+ *    |                                                                        *
+
+ * / \                                                     qs_ks_methods.F:842 *
+ *  O/|                                                                        *
+ *******************************************************************************
+Rank 53 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 53
+Rank 38 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 38
+Rank 39 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 39
+ * /| |                                                                        *
+ *******************************************************************************
+ * / \                                                     qs_ks_methods.F:842 *
+
+ *   ___                                                                       *
+ *******************************************************************************
+
+ ===== Routine Calling Stack ===== 
+
+ *  /   \                                                                      *
+
+            9 qs_ks_build_kohn_sham_matrix
+ * [ABORT]                                                                     *
+
+ ===== Routine Calling Stack ===== 
+
+            8 rebuild_ks_matrix
+            9 qs_ks_build_kohn_sham_matrix
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            7 qs_ks_update_qs_env
+ *    |                                                                        *
+            6 init_scf_loop
+            6 init_scf_loop
+            5 scf_env_do_scf
+ *  O/|                                                                        *
+            5 scf_env_do_scf
+            4 qs_energies
+ * /| |                                                                        *
+            4 qs_energies
+            3 qs_forces
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+
+            2 qs_mol_dyn_low
+ *******************************************************************************
+
+ *   ___                                                                       *
+ ===== Routine Calling Stack ===== 
+
+            1 CP2K
+
+ *  /   \                                                                      *
+ *******************************************************************************
+            9 qs_ks_build_kohn_sham_matrix
+ *   ___                                                                       *
+ * [ABORT]                                                                     *
+            8 rebuild_ks_matrix
+ *  /   \                                                                      *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            7 qs_ks_update_qs_env
+ * [ABORT]                                                                     *
+ *    |                                                                        *
+            6 init_scf_loop
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *  O/|                                                                        *
+            5 scf_env_do_scf
+ *  O/|                                                                        *
+ * /| |                                                                        *
+Rank 24 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 24
+            4 qs_energies
+ * / \                                                     qs_ks_methods.F:842 *
+ * /| |                                                                        *
+            3 qs_forces
+ *******************************************************************************
+            2 qs_mol_dyn_low
+ * / \                                                     qs_ks_methods.F:842 *
+
+Rank 11 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 11
+            1 CP2K
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+
+ ===== Routine Calling Stack ===== 
+            9 qs_ks_build_kohn_sham_matrix
+
+            8 rebuild_ks_matrix
+            9 qs_ks_build_kohn_sham_matrix
+            7 qs_ks_update_qs_env
+            8 rebuild_ks_matrix
+            6 init_scf_loop
+            7 qs_ks_update_qs_env
+            5 scf_env_do_scf
+            6 init_scf_loop
+            4 qs_energies
+            5 scf_env_do_scf
+            3 qs_forces
+            4 qs_energies
+            2 qs_mol_dyn_low
+            3 qs_forces
+            1 CP2K
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 52 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 52
+Rank 12 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 12
+Rank 26 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 26
+
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+
+ *    |                                                                        *
+ *  O/|                                                                        *
+ *******************************************************************************
+ * /| |                                                                        *
+ *   ___                                                                       *
+ * / \                                                     qs_ks_methods.F:842 *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *******************************************************************************
+
+
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ ===== Routine Calling Stack ===== 
+
+ *    |                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+ *  O/|                                                                        *
+            8 rebuild_ks_matrix
+ * /| |                                                                        *
+            7 qs_ks_update_qs_env
+ * / \                                                     qs_ks_methods.F:842 *
+            6 init_scf_loop
+            5 scf_env_do_scf
+ *******************************************************************************
+            4 qs_energies
+
+            3 qs_forces
+
+            2 qs_mol_dyn_low
+ ===== Routine Calling Stack ===== 
+
+            1 CP2K
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+Rank 40 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 40
+Rank 54 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 54
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+
+Rank 10 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 10
+ *******************************************************************************
+ *   ___                                                                       *
+
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *******************************************************************************
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *   ___                                                                       *
+ *    |                                                                        *
+ *  /   \                                                                      *
+ *  O/|                                                                        *
+ * [ABORT]                                                                     *
+ * /| |                                                                        *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ * / \                                                     qs_ks_methods.F:842 *
+ *    |                                                                        *
+ *******************************************************************************
+
+
+ *  O/|                                                                        *
+ ===== Routine Calling Stack ===== 
+
+ * /| |                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+            4 qs_energies
+ *   ___                                                                       *
+ *******************************************************************************
+            3 qs_forces
+
+ *  /   \                                                                      *
+            2 qs_mol_dyn_low
+ * [ABORT]                                                                     *
+            1 CP2K
+
+ ===== Routine Calling Stack ===== 
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+
+ *    |                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+
+            8 rebuild_ks_matrix
+ *  O/|                                                                        *
+            7 qs_ks_update_qs_env
+ *******************************************************************************
+            6 init_scf_loop
+ * /| |                                                                        *
+ *   ___                                                                       *
+ * / \                                                     qs_ks_methods.F:842 *
+ *  /   \                                                                      *
+            5 scf_env_do_scf
+ *******************************************************************************
+
+ * [ABORT]                                                                     *
+            4 qs_energies
+
+Rank 23 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 23
+
+ ===== Routine Calling Stack ===== 
+
+ *******************************************************************************
+            3 qs_forces
+ *   ___                                                                       *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            9 qs_ks_build_kohn_sham_matrix
+            2 qs_mol_dyn_low
+ *  /   \                                                                      *
+ *    |                                                                        *
+            8 rebuild_ks_matrix
+            1 CP2K
+ * [ABORT]                                                                     *
+ *  O/|                                                                        *
+            7 qs_ks_update_qs_env
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            6 init_scf_loop
+ *    |                                                                        *
+ * /| |                                                                        *
+            5 scf_env_do_scf
+ *  O/|                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ * /| |                                                                        *
+ *******************************************************************************
+ * / \                                                     qs_ks_methods.F:842 *
+
+
+ ===== Routine Calling Stack ===== 
+
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 37 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 37
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            6 init_scf_loop
+            5 scf_env_do_scf
+            5 scf_env_do_scf
+            4 qs_energies
+            4 qs_energies
+            3 qs_forces
+            3 qs_forces
+            2 qs_mol_dyn_low
+            2 qs_mol_dyn_low
+            1 CP2K
+            1 CP2K
+Rank 51 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 51
+Rank 13 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 13
+Rank 27 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 27
+
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+ *******************************************************************************
+            5 scf_env_do_scf
+            4 qs_energies
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 41 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 41
+Rank 55 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 55
+
+
+ *******************************************************************************
+ *******************************************************************************
+
+ *   ___                                                                       *
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ *  /   \                                                                      *
+ *******************************************************************************
+ * [ABORT]                                                                     *
+ *   ___                                                                       *
+ * [ABORT]                                                                     *
+ *  /   \                                                                      *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ *  O/|                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ * /| |                                                                        *
+ * /| |                                                                        *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ * / \                                                     qs_ks_methods.F:842 *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+ *******************************************************************************
+            7 qs_ks_update_qs_env
+ *   ___                                                                       *
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            6 init_scf_loop
+ *  /   \                                                                      *
+            7 qs_ks_update_qs_env
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+            5 scf_env_do_scf
+ * [ABORT]                                                                     *
+            6 init_scf_loop
+            4 qs_energies
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            3 qs_forces
+ *    |                                                                        *
+            2 qs_mol_dyn_low
+ *  O/|                                                                        *
+            1 CP2K
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+Rank 36 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 36
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 9 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 9
+Rank 22 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 22
+Rank 50 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 50
+
+
+ *******************************************************************************
+ *******************************************************************************
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ *   ___                                                                       *
+ * [ABORT]                                                                     *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+
+ *    |                                                                        *
+ *    |                                                                        *
+ *******************************************************************************
+ *  O/|                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * /| |                                                                        *
+ *   ___                                                                       *
+ * / \                                                     qs_ks_methods.F:842 *
+ * / \                                                     qs_ks_methods.F:842 *
+ *  /   \                                                                      *
+ *******************************************************************************
+ *******************************************************************************
+ * [ABORT]                                                                     *
+
+
+ ===== Routine Calling Stack ===== 
+
+
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            9 qs_ks_build_kohn_sham_matrix
+ *    |                                                                        *
+
+            8 rebuild_ks_matrix
+ ===== Routine Calling Stack ===== 
+
+ *  O/|                                                                        *
+            7 qs_ks_update_qs_env
+ * /| |                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+            6 init_scf_loop
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+ * / \                                                     qs_ks_methods.F:842 *
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            4 qs_energies
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            1 CP2K
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+
+
+Rank 14 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 14
+ *******************************************************************************
+ *******************************************************************************
+ *   ___                                                                       *
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ *  /   \                                                                      *
+Rank 33 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 33
+ * [ABORT]                                                                     *
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ *  O/|                                                                        *
+Rank 8 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 8
+ * /| |                                                                        *
+
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ * / \                                                     qs_ks_methods.F:842 *
+
+ *******************************************************************************
+ *******************************************************************************
+ *   ___                                                                       *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ *******************************************************************************
+
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+            9 qs_ks_build_kohn_sham_matrix
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+
+ *    |                                                                        *
+ *  /   \                                                                      *
+
+            8 rebuild_ks_matrix
+ *******************************************************************************
+ ===== Routine Calling Stack ===== 
+ *   ___                                                                       *
+ *  O/|                                                                        *
+ * [ABORT]                                                                     *
+ * /| |                                                                        *
+
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            7 qs_ks_update_qs_env
+
+ *  /   \                                                                      *
+            9 qs_ks_build_kohn_sham_matrix
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ *******************************************************************************
+ *    |                                                                        *
+ *   ___                                                                       *
+            6 init_scf_loop
+            5 scf_env_do_scf
+ * [ABORT]                                                                     *
+            8 rebuild_ks_matrix
+            9 qs_ks_build_kohn_sham_matrix
+ *  O/|                                                                        *
+ *  /   \                                                                      *
+ * /| |                                                                        *
+            4 qs_energies
+ * / \                                                     qs_ks_methods.F:842 *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            7 qs_ks_update_qs_env
+ *    |                                                                        *
+            8 rebuild_ks_matrix
+ *  O/|                                                                        *
+ * [ABORT]                                                                     *
+ * /| |                                                                        *
+ *******************************************************************************
+ * / \                                                     qs_ks_methods.F:842 *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            3 qs_forces
+
+            6 init_scf_loop
+
+ *******************************************************************************
+            7 qs_ks_update_qs_env
+
+
+ ===== Routine Calling Stack ===== 
+
+
+ *    |                                                                        *
+ *******************************************************************************
+ *  O/|                                                                        *
+
+ *   ___                                                                       *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+            9 qs_ks_build_kohn_sham_matrix
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+
+            2 qs_mol_dyn_low
+ *******************************************************************************
+
+            5 scf_env_do_scf
+ *******************************************************************************
+ *   ___                                                                       *
+ *   ___                                                                       *
+            6 init_scf_loop
+
+            9 qs_ks_build_kohn_sham_matrix
+
+ * /| |                                                                        *
+ *******************************************************************************
+            8 rebuild_ks_matrix
+ *   ___                                                                       *
+ *    |                                                                        *
+            1 CP2K
+ *******************************************************************************
+ *   ___                                                                       *
+ *   ___                                                                       *
+            4 qs_energies
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  /   \                                                                      *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            5 scf_env_do_scf
+ *    |                                                                        *
+ *  O/|                                                                        *
+ *******************************************************************************
+            8 rebuild_ks_matrix
+ *   ___                                                                       *
+ *******************************************************************************
+ * / \                                                     qs_ks_methods.F:842 *
+ *   ___                                                                       *
+            7 qs_ks_update_qs_env
+ *  /   \                                                                      *
+
+Rank 20 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 20
+ *  O/|                                                                        *
+
+ *  /   \                                                                      *
+ *******************************************************************************
+ *  /   \                                                                      *
+            3 qs_forces
+ * [ABORT]                                                                     *
+            4 qs_energies
+ * /| |                                                                        *
+            7 qs_ks_update_qs_env
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ *  /   \                                                                      *
+ *******************************************************************************
+
+
+
+ *  /   \                                                                      *
+            6 init_scf_loop
+            5 scf_env_do_scf
+ * [ABORT]                                                                     *
+
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *******************************************************************************
+ *    |                                                                        *
+ *******************************************************************************
+ *   ___                                                                       *
+ *   ___                                                                       *
+ * /| |                                                                        *
+ * [ABORT]                                                                     *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+
+ * [ABORT]                                                                     *
+ *   ___                                                                       *
+ *******************************************************************************
+            2 qs_mol_dyn_low
+ *   ___                                                                       *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            3 qs_forces
+            6 init_scf_loop
+            9 qs_ks_build_kohn_sham_matrix
+ * [ABORT]                                                                     *
+ ===== Routine Calling Stack ===== 
+ * [ABORT]                                                                     *
+ *******************************************************************************
+            4 qs_energies
+ *   ___                                                                       *
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+ *  O/|                                                                        *
+ *  /   \                                                                      *
+ * /| |                                                                        *
+ * [ABORT]                                                                     *
+ * / \                                                     qs_ks_methods.F:842 *
+ *  /   \                                                                      *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *    |                                                                        *
+ *  O/|                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+ * / \                                                     qs_ks_methods.F:842 *
+            8 rebuild_ks_matrix
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ *  /   \                                                                      *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  /   \                                                                      *
+ *    |                                                                        *
+            1 CP2K
+ *  O/|                                                                        *
+Rank 34 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 34
+ *    |                                                                        *
+            2 qs_mol_dyn_low
+            5 scf_env_do_scf
+
+            8 rebuild_ks_matrix
+
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  /   \                                                                      *
+ *    |                                                                        *
+ * [ABORT]                                                                     *
+ *******************************************************************************
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ * [ABORT]                                                                     *
+ * /| |                                                                        *
+            7 qs_ks_update_qs_env
+ * / \                                                     qs_ks_methods.F:842 *
+            9 qs_ks_build_kohn_sham_matrix
+ * [ABORT]                                                                     *
+ * [ABORT]                                                                     *
+ * /| |                                                                        *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+Rank 28 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 28
+ *  O/|                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+ * / \                                                     qs_ks_methods.F:842 *
+
+            1 CP2K
+            4 qs_energies
+            7 qs_ks_update_qs_env
+ *******************************************************************************
+            9 qs_ks_build_kohn_sham_matrix
+ *   ___                                                                       *
+ *    |                                                                        *
+ *  O/|                                                                        *
+
+
+ *    |                                                                        *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  O/|                                                                        *
+            6 init_scf_loop
+ *    |                                                                        *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+
+Rank 29 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 29
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+ *    |                                                                        *
+ *   ___                                                                       *
+
+ *******************************************************************************
+ *******************************************************************************
+            9 qs_ks_build_kohn_sham_matrix
+
+            3 qs_forces
+ *******************************************************************************
+            6 init_scf_loop
+ *   ___                                                                       *
+            8 rebuild_ks_matrix
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  O/|                                                                        *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ * /| |                                                                        *
+
+ ===== Routine Calling Stack ===== 
+
+
+ *******************************************************************************
+ *******************************************************************************
+ *   ___                                                                       *
+ * /| |                                                                        *
+ *   ___                                                                       *
+ * / \                                                     qs_ks_methods.F:842 *
+            5 scf_env_do_scf
+ *  O/|                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+            3 qs_forces
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *  O/|                                                                        *
+
+ * /| |                                                                        *
+ *   ___                                                                       *
+            8 rebuild_ks_matrix
+            2 qs_mol_dyn_low
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+ *  /   \                                                                      *
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+ * /| |                                                                        *
+ *    |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+ *  /   \                                                                      *
+ *  /   \                                                                      *
+ * [ABORT]                                                                     *
+ *******************************************************************************
+Rank 32 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 32
+
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+
+ * /| |                                                                        *
+ *******************************************************************************
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+ *   ___                                                                       *
+            8 rebuild_ks_matrix
+            2 qs_mol_dyn_low
+            9 qs_ks_build_kohn_sham_matrix
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+
+ *    |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ *  /   \                                                                      *
+            7 qs_ks_update_qs_env
+            1 CP2K
+Rank 6 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 6
+ * [ABORT]                                                                     *
+            4 qs_energies
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+ *  O/|                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+            4 qs_energies
+ * [ABORT]                                                                     *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *    |                                                                        *
+
+ *  O/|                                                                        *
+
+ *  /   \                                                                      *
+Rank 42 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 42
+ * [ABORT]                                                                     *
+            7 qs_ks_update_qs_env
+            1 CP2K
+            8 rebuild_ks_matrix
+ ===== Routine Calling Stack ===== 
+
+ *  O/|                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+ * [ABORT]                                                                     *
+            6 init_scf_loop
+            5 scf_env_do_scf
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+ *    |                                                                        *
+ *  O/|                                                                        *
+ * /| |                                                                        *
+            6 init_scf_loop
+ * / \                                                     qs_ks_methods.F:842 *
+ * /| |                                                                        *
+            8 rebuild_ks_matrix
+ * / \                                                     qs_ks_methods.F:842 *
+            3 qs_forces
+Rank 1 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 1
+            2 qs_mol_dyn_low
+            1 CP2K
+ *  O/|                                                                        *
+ ===== Routine Calling Stack ===== 
+
+
+ * /| |                                                                        *
+ *******************************************************************************
+ * / \                                                     qs_ks_methods.F:842 *
+
+ *   ___                                                                       *
+
+Rank 43 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 43
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *******************************************************************************
+ *    |                                                                        *
+ *   ___                                                                       *
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+            7 qs_ks_update_qs_env
+            9 qs_ks_build_kohn_sham_matrix
+Rank 21 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 21
+ * /| |                                                                        *
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+            4 qs_energies
+ *    |                                                                        *
+            5 scf_env_do_scf
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            7 qs_ks_update_qs_env
+ *******************************************************************************
+
+Rank 19 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 19
+ * /| |                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ *  /   \                                                                      *
+
+ *  /   \                                                                      *
+ *******************************************************************************
+ *  O/|                                                                        *
+ *   ___                                                                       *
+ * /| |                                                                        *
+ *  /   \                                                                      *
+ * / \                                                     qs_ks_methods.F:842 *
+            6 init_scf_loop
+            5 scf_env_do_scf
+            8 rebuild_ks_matrix
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            3 qs_forces
+            3 qs_forces
+ *  O/|                                                                        *
+            4 qs_energies
+            8 rebuild_ks_matrix
+            6 init_scf_loop
+
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            8 rebuild_ks_matrix
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+ * [ABORT]                                                                     *
+ * [ABORT]                                                                     *
+ * [ABORT]                                                                     *
+ *******************************************************************************
+
+            4 qs_energies
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            9 qs_ks_build_kohn_sham_matrix
+            2 qs_mol_dyn_low
+            2 qs_mol_dyn_low
+ * /| |                                                                        *
+            3 qs_forces
+ * / \                                                     qs_ks_methods.F:842 *
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            5 scf_env_do_scf
+ ===== Routine Calling Stack ===== 
+
+            9 qs_ks_build_kohn_sham_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *    |                                                                        *
+ *  \___/                KS energy is an abnormal value (NaN/Inf).             *
+ *  O/|                                                                        *
+
+            3 qs_forces
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+            8 rebuild_ks_matrix
+            1 CP2K
+            1 CP2K
+            2 qs_mol_dyn_low
+            9 qs_ks_build_kohn_sham_matrix
+            4 qs_energies
+            4 qs_energies
+            9 qs_ks_build_kohn_sham_matrix
+            8 rebuild_ks_matrix
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+Rank 47 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 47
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            7 qs_ks_update_qs_env
+ *    |                                                                        *
+ * /| |                                                                        *
+ *  O/|                                                                        *
+ *    |                                                                        *
+ * /| |                                                                        *
+ * / \                                                     qs_ks_methods.F:842 *
+ ===== Routine Calling Stack ===== 
+
+            2 qs_mol_dyn_low
+Rank 44 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 44
+            1 CP2K
+            7 qs_ks_update_qs_env
+            1 CP2K
+            8 rebuild_ks_matrix
+            3 qs_forces
+            2 qs_mol_dyn_low
+Rank 15 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 15
+Rank 49 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 49
+            1 CP2K
+            3 qs_forces
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            1 CP2K
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+ *******************************************************************************
+
+ * / \                                                     qs_ks_methods.F:842 *
+ *  O/|                                                                        *
+            9 qs_ks_build_kohn_sham_matrix
+            6 init_scf_loop
+            7 qs_ks_update_qs_env
+            2 qs_mol_dyn_low
+Rank 30 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 30
+Rank 7 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 7
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            2 qs_mol_dyn_low
+            1 CP2K
+
+ ===== Routine Calling Stack ===== 
+Rank 2 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 2
+
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+ * /| |                                                                        *
+Rank 16 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 16
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            5 scf_env_do_scf
+            6 init_scf_loop
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+            1 CP2K
+            6 init_scf_loop
+            5 scf_env_do_scf
+            9 qs_ks_build_kohn_sham_matrix
+            9 qs_ks_build_kohn_sham_matrix
+ * / \                                                     qs_ks_methods.F:842 *
+Rank 48 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 48
+ *******************************************************************************
+
+
+ ===== Routine Calling Stack ===== 
+
+            4 qs_energies
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+            5 scf_env_do_scf
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+            8 rebuild_ks_matrix
+            8 rebuild_ks_matrix
+            9 qs_ks_build_kohn_sham_matrix
+Rank 18 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 18
+            3 qs_forces
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 35 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 35
+            7 qs_ks_update_qs_env
+            7 qs_ks_update_qs_env
+            8 rebuild_ks_matrix
+            7 qs_ks_update_qs_env
+            6 init_scf_loop
+            5 scf_env_do_scf
+            2 qs_mol_dyn_low
+            6 init_scf_loop
+Rank 5 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 5
+            6 init_scf_loop
+            4 qs_energies
+            3 qs_forces
+            2 qs_mol_dyn_low
+            1 CP2K
+Rank 45 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 45
+            1 CP2K
+            5 scf_env_do_scf
+            5 scf_env_do_scf
+            4 qs_energies
+            4 qs_energies
+            3 qs_forces
+            3 qs_forces
+            2 qs_mol_dyn_low
+            2 qs_mol_dyn_low
+            1 CP2K
+            1 CP2K
+Rank 31 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 31
+Rank 3 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 3
+Rank 46 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 46
+Rank 17 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 17
+Rank 4 [Thu Aug  9 11:41:15 2018] [c0-1c0s14n1] application called MPI_Abort(MPI_COMM_WORLD, 1) - process 4
+Application 2155595 is crashing. ATP analysis proceeding...
+
+ATP Stack walkback for Rank 0 starting:
+  __libc_csu_init@0x3ba743f
+  __libc_start_main@0x2aaab8bd56e4
+  main@cp2k.F90:41
+  run_input$cp2k_runs_@cp2k_runs.F90:1070
+  cp2k_run$cp2k_runs_@cp2k_runs.F90:354
+  qs_mol_dyn$md_run_@md_run.F90:153
+  qs_mol_dyn_low$md_run_@md_run.F90:372
+  force_env_calc_energy_force$force_env_methods_@force_env_methods.F90:240
+  qs_calc_energy_force$qs_force_@qs_force.F90:116
+  qs_forces$qs_force_@qs_force.F90:215
+  qs_energies$qs_energy_@qs_energy.F90:86
+  scf$qs_scf_@qs_scf.F90:231
+  scf_env_do_scf$qs_scf_@qs_scf.F90:419
+  init_scf_loop$qs_scf_@qs_scf.F90:745
+  qs_ks_update_qs_env$qs_ks_methods_@qs_ks_methods.F90:1089
+  rebuild_ks_matrix$qs_ks_methods_@qs_ks_methods.F90:1180
+  qs_ks_build_kohn_sham_matrix$qs_ks_methods_@qs_ks_methods.F90:200
+  cp__b$base_hooks_@base_hooks.F90:151
+  cp_abort$base_hooks_@base_hooks.F90:65
+  cp_abort_handler$cp_error_handling_@cp_error_handling.F90:70
+  mp_abort$message_passing_@message_passing.F90:1059
+  MPI_ABORT@0x2aaab64afa8c
+  PMPI_Abort@0x2aaab6469708
+  MPID_Abort@0x2aaab6556cb5
+  abort@0x2aaab8beaca9
+  __GI_raise@0x2aaab8be98d7
+ATP Stack walkback for Rank 0 done
+Process died with signal 6: 'Aborted'
+View application merged backtrace tree with: stat-view atpMergedBT.dot
+You may need to: module load stat
+
+_pmiu_daemon(SIGCHLD): [NID 00441] [c0-1c0s14n1] [Thu Aug  9 11:41:21 2018] PE RANK 50 exit signal Killed
+[NID 00441] 2018-08-09 11:41:21 Apid 2155595: initiated application termination
+Application 2155595 exit codes: 137
+Application 2155595 resources: utime ~3s, stime ~3s, Rss ~133736, inblocks ~248, outblocks ~0

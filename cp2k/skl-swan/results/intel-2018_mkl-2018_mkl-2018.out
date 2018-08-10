@@ -1,0 +1,1483 @@
+ DBCSR| Multiplication driver                                               BLAS
+ DBCSR| Multrec recursion limit                                              512
+ DBCSR| Multiplication stack size                                           1000
+ DBCSR| Maximum elements for images                                    UNLIMITED
+ DBCSR| Multiplicative factor virtual images                                   1
+ DBCSR| Multiplication size stacks                                             3
+ DBCSR| Number of 3D layers                                               SINGLE
+ DBCSR| Use MPI memory allocation                                              T
+ DBCSR| Use RMA algorithm                                                      F
+ DBCSR| Use Communication thread                                               T
+ DBCSR| Communication thread load                                             87
+
+
+  **** **** ******  **  PROGRAM STARTED AT               2018-08-09 13:57:51.415
+ ***** ** ***  *** **   PROGRAM STARTED ON                              nid00408
+ **    ****   ******    PROGRAM STARTED BY                                p02490
+ ***** **    ** ** **   PROGRAM PROCESS ID                                 77985
+  **** **  *******  **  PROGRAM STARTED IN /lus/scratch/p02490/rundir/cp2k-skl_i
+                                           ntel-2018_mkl-2018_mkl-2018
+
+ CP2K| version string:                                          CP2K version 5.1
+ CP2K| source code revision number:                                    svn:18091
+ CP2K| cp2kflags: omp fftw3 parallel mpi3 scalapack has_no_shared_glibc         
+ CP2K| is freely available from                            https://www.cp2k.org/
+ CP2K| Program compiled at                          Thu  9 Aug 13:42:56 CDT 2018
+ CP2K| Program compiled on                                                  swan
+ CP2K| Program compiled for                     skl_intel-2018_mkl-2018_mkl-2018
+ CP2K| Data directory path              /lus/scratch/p02490/rundir/cp2k-5.1/data
+ CP2K| Input file name        /lus/scratch/p02490/rundir/cp2k-5.1/tests/QS/bench
+ 
+ GLOBAL| Force Environment number                                              1
+ GLOBAL| Basis set file name                                      GTH_BASIS_SETS
+ GLOBAL| Potential file name                                           POTENTIAL
+ GLOBAL| MM Potential file name                                     MM_POTENTIAL
+ GLOBAL| Coordinate file name                                      __STD_INPUT__
+ GLOBAL| Method name                                                        CP2K
+ GLOBAL| Project name                                                     H2O-64
+ GLOBAL| Preferred FFT library                                             FFTW3
+ GLOBAL| Preferred diagonalization lib.                                       SL
+ GLOBAL| Run type                                                             MD
+ GLOBAL| All-to-all communication in single precision                          F
+ GLOBAL| FFTs using library dependent lengths                                  F
+ GLOBAL| Global print level                                                  LOW
+ GLOBAL| Total number of message passing processes                            56
+ GLOBAL| Number of threads for this process                                    1
+ GLOBAL| This output is from process                                           0
+ GLOBAL| CPU model name :  Intel(R) Xeon(R) Platinum 8176 CPU @ 2.10GHz
+
+ MEMORY| system memory details [Kb]
+ MEMORY|                        rank 0           min           max       average
+ MEMORY| MemTotal            196696272     196696272     196696272     196696272
+ MEMORY| MemFree             193038332     193038332     193038952     193038376
+ MEMORY| Buffers                  1932          1932          1932          1932
+ MEMORY| Cached                 239768        239768        239768        239768
+ MEMORY| Slab                   218272        218272        218272        218272
+ MEMORY| SReclaimable            19416         19416         19416         19416
+ MEMORY| MemLikelyFree       193299448     193299448     193300068     193299492
+
+ 
+ GENERATE|  Preliminary Number of Bonds generated:                             0
+ GENERATE|  Achieved consistency in connectivity generation.
+
+ *******************************************************************************
+ *******************************************************************************
+ **                                                                           **
+ **     #####                         ##              ##                      **
+ **    ##   ##            ##          ##              ##                      **
+ **   ##     ##                       ##            ######                    **
+ **   ##     ##  ##   ##  ##   #####  ##  ##   ####   ##    #####    #####    **
+ **   ##     ##  ##   ##  ##  ##      ## ##   ##      ##   ##   ##  ##   ##   **
+ **   ##  ## ##  ##   ##  ##  ##      ####     ###    ##   ######   ######    **
+ **    ##  ###   ##   ##  ##  ##      ## ##      ##   ##   ##       ##        **
+ **     #######   #####   ##   #####  ##  ##  ####    ##    #####   ##        **
+ **           ##                                                    ##        **
+ **                                                                           **
+ **                                                ... make the atoms dance   **
+ **                                                                           **
+ **            Copyright (C) by CP2K developers group (2000 - 2017)           **
+ **                                                                           **
+ *******************************************************************************
+
+
+ SCF PARAMETERS         Density guess:                                    ATOMIC
+                        --------------------------------------------------------
+                        max_scf:                                              50
+                        max_scf_history:                                       0
+                        max_diis:                                              4
+                        --------------------------------------------------------
+                        eps_scf:                                        1.00E-05
+                        eps_scf_history:                                0.00E+00
+                        eps_diis:                                       1.00E-01
+                        eps_eigval:                                     1.00E-05
+                        --------------------------------------------------------
+                        level_shift [a.u.]:                                 0.00
+                        --------------------------------------------------------
+                        No outer SCF
+ 
+ MD| Molecular Dynamics Protocol 
+ MD| Ensemble Type                                                           NVE
+ MD| Number of Time Steps                                                     10
+ MD| Time Step [fs]                                                         0.50
+ MD| Temperature [K]                                                      300.00
+ MD| Temperature tolerance [K]                                              0.00
+ MD| Print MD information every                                        1 step(s)
+ MD| File type     Print frequency[steps]                             File names
+ MD| Coordinates            1                                   H2O-64-pos-1.xyz
+ MD| Velocities             1                                   H2O-64-vel-1.xyz
+ MD| Energies               1                                      H2O-64-1.ener
+ MD| Dump                  20                                   H2O-64-1.restart
+ 
+ ROT| Rotational Analysis Info 
+ ROT| Principal axes and moments of inertia in atomic units:
+ ROT|                                1                 2                 3
+ ROT| EIGENVALUES            0.174175353E+09   0.187507692E+09   0.199545123E+09
+ ROT|      X                    -0.734964520       0.242599134       0.633224142
+ ROT|      Y                    -0.044883650       0.914361712      -0.402402930
+ ROT|      Z                    -0.676618513      -0.324173287      -0.661134682
+ ROT| Numer of Rotovibrational vectors:     6
+
+ Calculation of degrees of freedom
+                                                      Number of atoms:       192
+                                 Number of Intramolecular constraints:         0
+                                 Number of Intermolecular constraints:         0
+                                  Invariants(translation + rotations):         3
+                                                   Degrees of freedom:       573
+
+
+ Restraints Information
+                                  Number of Intramolecular restraints:         0
+                                  Number of Intermolecular restraints:         0
+ ************************** Velocities initialization **************************
+ Initial Temperature                                                    300.00 K
+ COM velocity:           -0.000000000000     -0.000000000000     -0.000000000000
+ *******************************************************************************
+
+=>> PBS: job killed: walltime 331 exceeded limit 300
+aprun: Apid 2155640: Caught signal Terminated, sending to application
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65AC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B3  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C1  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B9  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B659B  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65A7  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B659B  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65A7  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65A3  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B9  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65AC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B6  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65AC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B3  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B6  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B9  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B659B  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65A0  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65A0  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C1  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B6  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B659B  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C8  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65B6  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C1  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C8  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C1  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C1  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C8  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C1  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C8  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B659B  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65AC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65AC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65C8  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65AC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B659B  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B659B  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65CC  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+cp2k.psmp          0000000002E5FD2E  for__signal_handl     Unknown  Unknown
+libpthread-2.22.s  00002AAAAFE54B10  Unknown               Unknown  Unknown
+cp2k.psmp          00000000029B65A7  Unknown               Unknown  Unknown
+libiomp5.so        00002AAAB0413AC3  __kmp_invoke_micr     Unknown  Unknown
+libiomp5.so        00002AAAB03E26ED  __kmp_fork_call       Unknown  Unknown
+libiomp5.so        00002AAAB03BA7DE  __kmpc_fork_call      Unknown  Unknown
+cp2k.psmp          00000000029B671B  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009C7A7F  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000A3EF16  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000833363  Unknown               Unknown  Unknown
+cp2k.psmp          000000000083555B  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000DAEFAC  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C65BC4  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000C640D1  Unknown               Unknown  Unknown
+cp2k.psmp          00000000009DE8EE  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057F38A  Unknown               Unknown  Unknown
+cp2k.psmp          000000000057E794  Unknown               Unknown  Unknown
+cp2k.psmp          000000000042D20A  Unknown               Unknown  Unknown
+cp2k.psmp          0000000000414632  Unknown               Unknown  Unknown
+cp2k.psmp          0000000002ECE052  Unknown               Unknown  Unknown
+libc-2.22.so       00002AAAB07226E5  __libc_start_main     Unknown  Unknown
+cp2k.psmp          0000000000413B69  Unknown               Unknown  Unknown
+Application 2155640 exit codes: 1
+Application 2155640 resources: utime ~329s, stime ~2s, Rss ~81464, inblocks ~260, outblocks ~0
