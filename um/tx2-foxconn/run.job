@@ -1,13 +1,11 @@
 #!/bin/bash
 
-cd tx2-b0
-
 rm -rf run
 mkdir run
 cd run
-cp -r $PWD/../../amip/amip/data/* .
-cp -r $PWD/../..//amip/common/data/* .
-cp $PWD/../../amip/common/scripts/wrapper .
+cp -r $SRC_DIR/amip/data/* .
+cp -r $SRC_DIR/common/data/* .
+cp $SRC_DIR/common/scripts/wrapper .
 
 echo "JOB SCRIPT STARTING"
 
@@ -31,7 +29,6 @@ export ROSE_LAUNCHER_PREOPTS="-ss -n $TOTAL_MPI_TASKS -N $MPI_TASKS_PER_NODE -S 
 export MPICH_COLL_SYNC="MPI_Gatherv"
 export FASTRUN=false
 
-module swap cce cce/8.6.4
 module list 2>&1
 
 export ATMOS_KEEP_MPP_STDOUT=true
@@ -52,8 +49,8 @@ export RECON_KEEP_MPP_STDOUT=true
 export RUNID=atmos
 export SPECTRAL_FILE_DIR=./spectral
 
-export PATH=$PWD/../../amip/bin/:$PATH
-export LD_LIBRARY_PATH=$PWD/../build/shumlib/lib/:$LD_LIBRARY_PATH
+export PATH=$SRC_DIR/bin/:$PATH
+export LD_LIBRARY_PATH=$BUILD_DIR/shumlib/lib/:$LD_LIBRARY_PATH
 
 export ATMOS_LAUNCHER="mpirun -np 64 --bind-to core"
- ./wrapper $PWD/../build/build-atmos/bin/um-atmos.exe
+ ./wrapper $BUILD_DIR/build-atmos/bin/um-atmos.exe
