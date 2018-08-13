@@ -62,7 +62,7 @@ AR=ar -rc
 
 # Set the name of this platform; this will be included as the name of the
 # top-level directory in the build
-PLATFORM=tx2_cce-8.7
+PLATFORM=tx2-cce
 
 # Proceed to include the rest of the common makefile
 include ${DIR_ROOT}/Makefile
