@@ -26,13 +26,14 @@ COMPILER=${2:-$DEFAULT_COMPILER}
 SCRIPT=`realpath $0`
 export SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
-export CONFIG="bdw"_"$COMPILER"
+export CONFIG="skl"_"$COMPILER"
 export SRC_DIR=$PWD/um-amip
 export CFG_DIR=$PWD/um-$CONFIG
 export BUILD_DIR=$CFG_DIR/build
 
 
 # Set up the environment
+module swap craype-{broadwell,x86-skylake}
 case "$COMPILER" in
     cce-8.5)
         module swap cce cce/8.5.8
@@ -41,7 +42,7 @@ case "$COMPILER" in
         TOOLCHAIN=cce
         ;;
     cce-8.7)
-        module swap cce cce/8.7.1
+        module swap cce cce/8.7.0
         TOOLCHAIN=cce
         ;;
     *)

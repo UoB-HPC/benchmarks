@@ -1,26 +1,15 @@
 #!/bin/bash
-
-#PBS -N um-skl
-#PBS -o skl.out
-#PBS -e skl.err
 #PBS -q skl28
-#PBS -l walltime=01:00:00
 #PBS -l nodes=1
-
-if [ -z "$PBS_O_WORKDIR" ]
-then
-    echo "Submit this script via qsub."
-    exit 1
-fi
-
-cd $PBS_O_WORKDIR/skl-swan
+#PBS -l walltime=00:30:00
+#PBS -joe
 
 rm -rf run
 mkdir run
 cd run
-cp -r $PBS_O_WORKDIR/amip/amip/data/* .
-cp -r $PBS_O_WORKDIR/amip/common/data/* .
-cp $PBS_O_WORKDIR/amip/common/scripts/wrapper .
+cp -r $SRC_DIR/amip/data/* .
+cp -r $SRC_DIR/common/data/* .
+cp $SRC_DIR/common/scripts/wrapper .
 
 echo "JOB SCRIPT STARTING"
 
@@ -44,7 +33,6 @@ export ROSE_LAUNCHER_PREOPTS="-ss -n $TOTAL_MPI_TASKS -N $MPI_TASKS_PER_NODE -S 
 export MPICH_COLL_SYNC="MPI_Gatherv"
 export FASTRUN=false
 
-module swap craype-{broadwell,x86-skylake}
 module list 2>&1
 
 export ATMOS_KEEP_MPP_STDOUT=true
@@ -65,7 +53,8 @@ export RECON_KEEP_MPP_STDOUT=true
 export RUNID=atmos
 export SPECTRAL_FILE_DIR=./spectral
 
-export PATH=$PBS_O_WORKDIR/amip/bin/:$PATH
+export PATH=$SRC_DIR/bin/:$PATH
+export LD_LIBRARY_PATH=$BUILD_DIR/shumlib/lib/:$LD_LIBRARY_PATH
 
 export ATMOS_LAUNCHER="aprun $ROSE_LAUNCHER_PREOPTS"
-./wrapper $PBS_O_WORKDIR/skl-swan/build/build-atmos/bin/um-atmos.exe
+./wrapper $BUILD_DIR/build-atmos/bin/um-atmos.exe
