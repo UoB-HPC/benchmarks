@@ -48,18 +48,3 @@ $REPO/openfoam/tx2-foxconn/benchmark.sh build arm-18.3 openmpi-1.10.4
 $REPO/openfoam/tx2-foxconn/benchmark.sh run arm-18.3 openmpi-1.10.4
 ```
 
-## Legacy usage
-
-A previous version of this repository roughly adhered to the following usage pattern:
-
-    # If this script is present, use it to get the sources and test data for the benchmark.
-    ./fetch.sh
-    
-    # If this script is present, use it to build the benchmark for the target platform.
-    # On horizon (SKL-20), where dedicated script is not present, use the swan one (SKL-28).
-    ./build-<cpu>-<system>.sh
-    
-    # This script should always be present, and actually runs the benchmark.
-    # On most systems, this will probably be a job script, so use `qsub/sbatch` etc.
-    qsub run-<cpu>-<system>.sh
-
