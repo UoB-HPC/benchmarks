@@ -6,7 +6,7 @@ This is primarily for benchmarking ThunderX2 in Isambard, and other systems that
 ## Structure
 
 Each top-level directory contains scripts for a (mini-)application.
-Inside it, there is a direcotry for each target platform, which contains the main benchmark script for the application-platform combo.
+Inside it, there is a directory for each target platform, which contains the main benchmark script for the application-platform combination.
 Depending on the application and platform, there may be additional files required for building and running the benchmark, which are also included in the above directories.
 
 ## Usage
@@ -26,7 +26,7 @@ mkdir benchmarks && cd benchmarks
 $REPO/cloverleaf/tx2-foxconn/benchmark.sh build
 ```
 
-3. Use the `run` action to start the benchmark. On systems with a queueing, a job will be submitted. Otherwise, the benchmark will start running on the current node.
+3. Use the `run` action to start the benchmark. On systems with a queue, a job will be submitted. Otherwise, the benchmark will start running on the current node.
 ```bash
 # Example for CloverLeaf on TX2, assuming you have previously run 'build'
 $REPO/cloverleaf/tx2-foxconn/benchmark.sh run
