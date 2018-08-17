@@ -2,7 +2,7 @@ import sys
 from benchmarks import *
 
 if len(sys.argv) != 2:
-    print 'Usage: python best-results.py PLATFORM'
+    print 'Usage: python valid-configs.py PLATFORM'
     exit(1)
 
 platform = sys.argv[1]
