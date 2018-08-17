@@ -123,20 +123,21 @@ def get_last_line(lines, pattern):
         if pattern in line:
             return line
 
-# Compares two results for a benchmark and returns whichever is the best.
+# Compares two benchmark results, returns -1 if a is better than b, otherwise 1.
 def compare_results(benchmark, a, b):
     if not b or not b[1]:
-        return a
+        return -1
     if not a or not a[1]:
-        return b
+        return 1
     if a[1] > b[1] if benchmark.higher_better else a[1] < b[1]:
-        return a
+        return -1
     else:
-        return b
+        return 1
 
 # Returns the best result in a list of results for a specific benchmark.
 def get_best(benchmark, results):
-    return reduce(lambda x, y: compare_results(benchmark, x, y), results, None)
+    return reduce(lambda x,y: x if compare_results(benchmark,x,y) < 0 else y, \
+                  results, None)
 
 # Gather all available benchmark results for each platform in `platforms`.
 def gather_results(platforms):
