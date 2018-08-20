@@ -103,9 +103,10 @@ class openfoam:
     higher_better = False
     def get_runtime(self, filename):
         with open(filename, 'r') as file:
-            lines = file.readlines()
-            line = get_last_line(lines, 'ExecutionTime')
-            return float(line.split()[2])
+            lines           = file.readlines()
+            final_time      = float(get_last_line(lines, 'ExecutionTime').split()[2])
+            first_step_time = float(get_first_line(lines, 'ExecutionTime').split()[2])
+            return final_time - first_step_time
 
 class opensbli:
     name = 'opensbli'
@@ -129,6 +130,12 @@ class um:
             line = get_last_line(lines, 'Elapsed Wallclock Time')
 
             return float(line.split()[4])
+
+# Returns the first line in a list which contains a string.
+def get_first_line(lines, pattern):
+    for line in lines:
+        if pattern in line:
+            return line
 
 # Returns the last line in a list which contains a string.
 def get_last_line(lines, pattern):
