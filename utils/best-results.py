@@ -13,7 +13,7 @@ output.writeheader()
 results = gather_results(platforms)
 for benchmark in benchmarks:
     entry = dict()
-    entry['benchmark'] = benchmark.name
+    entry['benchmark'] = benchmark.fullname
     entry['units'] = benchmark.units
     for platform in platforms:
         best = get_best(benchmark, results[benchmark.name][platform])

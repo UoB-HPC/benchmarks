@@ -17,7 +17,7 @@ for benchmark in benchmarks:
         if not best_result:
             continue
 
-        output.append([benchmark.name, \
+        output.append([benchmark.fullname, \
                        '%.3g %s' % (best_result[1],benchmark.units),
                        best_result[0]])
 

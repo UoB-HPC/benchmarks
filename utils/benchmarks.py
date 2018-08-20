@@ -1,7 +1,8 @@
 import os
 
 class stream:
-    name = 'STREAM'
+    name = 'stream'
+    fullname = 'STREAM'
     units = 'GB/s'
     higher_better = True
     def get_runtime(self, filename):
@@ -10,7 +11,8 @@ class stream:
             return float(line.split()[1]) / 1000
 
 class cloverleaf:
-    name = 'CloverLeaf'
+    name = 'cloverleaf'
+    fullname = 'CloverLeaf'
     units = 'seconds'
     higher_better = False
     def get_runtime(self, filename):
@@ -19,7 +21,8 @@ class cloverleaf:
             return float(line.split()[2])
 
 class tealeaf:
-    name = 'TeaLeaf'
+    name = 'tealeaf'
+    fullname = 'TeaLeaf'
     units = 'seconds'
     higher_better = False
     def get_runtime(self, filename):
@@ -28,7 +31,8 @@ class tealeaf:
             return float(line.split()[2])
 
 class snap:
-    name = 'SNAP'
+    name = 'snap'
+    fullname = 'SNAP'
     units = 'grind time'
     higher_better = False
     def get_runtime(self, filename):
@@ -37,7 +41,8 @@ class snap:
             return float(line.split()[3])
 
 class neutral:
-    name = 'Neutral'
+    name = 'neutral'
+    fullname = 'Neutral'
     units = 'seconds'
     higher_better = False
     def get_runtime(self, filename):
@@ -46,7 +51,8 @@ class neutral:
             return float(line.split()[2][:-1])
 
 class cp2k:
-    name = 'CP2K'
+    name = 'cp2k'
+    fullname = 'CP2K'
     units = 'seconds'
     higher_better = False
     def get_runtime(self, filename):
@@ -58,7 +64,8 @@ class cp2k:
             return float(line.split()[5])
 
 class gromacs:
-    name = 'GROMACS'
+    name = 'gromacs'
+    fullname = 'GROMACS'
     units = 'ns/day'
     higher_better = True
     def get_runtime(self, filename):
@@ -68,7 +75,8 @@ class gromacs:
             return float(line.split()[1])
 
 class namd:
-    name = 'NAMD'
+    name = 'namd'
+    fullname = 'NAMD'
     units = 'days/ns'
     higher_better = False
     def get_runtime(self, filename):
@@ -78,7 +86,8 @@ class namd:
             return float(line.split()[7])
 
 class nemo:
-    name = 'NEMO'
+    name = 'nemo'
+    fullname = 'NEMO'
     units = 'seconds'
     higher_better = False
     def get_runtime(self, filename):
@@ -88,7 +97,8 @@ class nemo:
             return float(line.split()[2])
 
 class openfoam:
-    name = 'OpenFOAM'
+    name = 'openfoam'
+    fullname = 'OpenFOAM'
     units = 'seconds'
     higher_better = False
     def get_runtime(self, filename):
@@ -98,7 +108,8 @@ class openfoam:
             return float(line.split()[2])
 
 class opensbli:
-    name = 'OpenSBLI'
+    name = 'opensbli'
+    fullname = 'OpenSBLI'
     units = 'seconds'
     higher_better = False
     def get_runtime(self, filename):
@@ -108,13 +119,15 @@ class opensbli:
             return float(line.split()[11])
 
 class um:
-    name = 'Unified Model'
+    name = 'um'
+    fullname = 'Unified Model'
     units = 'seconds'
     higher_better = False
     def get_runtime(self, filename):
         with open(filename, 'r') as file:
             lines = file.readlines()
             line = get_last_line(lines, 'Elapsed Wallclock Time')
+
             return float(line.split()[4])
 
 # Returns the last line in a list which contains a string.

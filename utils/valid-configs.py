@@ -9,7 +9,7 @@ platform = sys.argv[1]
 
 results = gather_results([platform])
 for benchmark in benchmarks:
-    print benchmark.name
+    print benchmark.fullname
     for result in results[benchmark.name][platform]:
         if result[1]:
             print '-',result[0]
