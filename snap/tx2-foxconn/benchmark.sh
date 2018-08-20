@@ -1,12 +1,13 @@
 #!/bin/bash
 
-DEFAULT_COMPILER=cce-8.7
+DEFAULT_COMPILER=cce-8.6
 function usage
 {
     echo
     echo "Usage: ./benchmark.sh build|run [COMPILER]"
     echo
     echo "Valid compilers:"
+    echo "  cce-8.6"
     echo "  cce-8.7"
     echo "  gcc-7.2"
     echo "  gcc-8.1"
@@ -36,6 +37,11 @@ export RUN_DIR=$PWD/SNAP-$CONFIG
 
 # Set up the environment
 case "$COMPILER" in
+    cce-8.6)
+        module swap cce cce/8.6.4
+        export BENCHMARK_EXE=csnap
+        MAKE_OPTS='TARGET=csnap FORTRAN=ftn FFLAGS=-hfp3 PP=cpp'
+        ;;
     cce-8.7)
         module swap cce cce/8.7.0
         export BENCHMARK_EXE=csnap
