@@ -1,0 +1,8 @@
+mpifort -ffree-form -ffree-line-length-none -w -O2 -I/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include -c wave.f90
+wave.f90:1208:15:
+
+     W1%CPTWFP=>W%CPTWFP(:,:,:,ISPIN)
+               1
+Error: Assignment to contiguous pointer from non-contiguous target at (1)
+
+(and several more like this)

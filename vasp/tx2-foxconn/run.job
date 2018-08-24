@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Set NCORE (take from environment if specified)
+if [ -z "$NCORE" ]
+then
+    NCORE=4
+fi
+sed -i 's/NCORE = .*/NCORE = '$NCORE'/g' INCAR
+
+# Run benchmark
+export OMP_NUM_THREADS=1
+mpirun -np 64 --bind-to core \
+    $SRC_DIR/bin/vasp_std \
+    | tee $CFG_DIR/$CONFIG.out
+
+# Output energy and runtime
+echo
+export PATH=$PWD/../../utils:$PATH
+./output.sh && cat output.yaml
+echo
+echo "Expected `head -n 1 test.yaml`"
+echo
