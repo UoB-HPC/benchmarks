@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DEFAULT_COMPILER=gcc-7.3
+DEFAULT_COMPILER=intel-2018
 DEFAULT_BLASLIB=mkl-2018
-DEFAULT_FFTLIB=cray-fftw-3.3.6
+DEFAULT_FFTLIB=mkl-2018
 function usage
 {
     echo
