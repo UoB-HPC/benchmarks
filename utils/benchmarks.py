@@ -131,6 +131,17 @@ class um:
 
             return float(line.split()[4])
 
+class vasp:
+    name = 'vasp'
+    fullname = 'VASP'
+    units = 'seconds'
+    higher_better = False
+    def get_runtime(self, filename):
+        with open(filename, 'r') as file:
+            lines = file.readlines()
+            line = get_last_line(lines, 'LOOP+')
+            return float(line.split()[6])
+
 # Returns the first line in a list which contains a string.
 def get_first_line(lines, pattern):
     for line in lines:
@@ -203,5 +214,6 @@ applications.append(nemo())
 applications.append(openfoam())
 applications.append(opensbli())
 applications.append(um())
+applications.append(vasp())
 
 benchmarks = miniapps + applications
