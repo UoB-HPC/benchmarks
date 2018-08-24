@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -q batch
+#PBS -l nodes=1
+#PBS -l hostlist=\"[196-283]+[288-343]^\"
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+NY=16 \
+NZ=10 \
+NPEY=8 \
+NPEZ=5 \
+NTHREADS=1 \
+ICHUNK=16 \
+envsubst <$BENCHMARK_TEMPLATE >$CONFIG.in
+
+export OMP_NUM_THREADS=1
+aprun -n 40 -d 1 -j 1 ./$BENCHMARK_EXE $CONFIG.in $CONFIG.out
