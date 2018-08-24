@@ -1,0 +1,12 @@
+ftn -ffree -dC -rmo -emEb -F noupcase -F backslash -O1 -I/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include -c fftw3d.f90
+
+            CR(GRID%NINDPWCONJG(M))=CONJG(C(GRID%IND_IN_SPHERE(M)))*GRID%FFTSCA(GRID%IND_IN_SPHERE(M),2)
+                               ^                                                                         
+ftn-319 crayftn: ERROR FFTWAV, File = fftw3d.f90, Line = 296, Column = 32 
+  A subscript must be a scalar integer expression.
+                                                              ^                                          
+ftn-319 crayftn: ERROR FFTWAV, File = fftw3d.f90, Line = 296, Column = 63 
+  A subscript must be a scalar integer expression.
+                                                                                                  ^      
+ftn-319 crayftn: ERROR FFTWAV, File = fftw3d.f90, Line = 296, Column = 99 
+  A subscript must be a scalar integer expression.
