@@ -56,6 +56,20 @@ case "$COMPILER" in
         export FCM_MPICC=${FCM_MPICC:-mpicc}
         export FCM_MPIFTN=${FCM_MPIFTN:-mpifort}
         ;;
+    arm-18.3)
+        module purge
+        module load arm/hpc-compiler/18.3
+        module load openmpi/3.0.0/arm-18.3
+        TOOLCHAIN=arm
+
+        export FCM_CPP=${FCM_CPP:-armclang}
+        export FCM_FPP=${FCM_FPP:-cpp}
+        export FCM_CC=${FCM_CC:-armclang}
+        export FCM_FTN=${FCM_FTN:-mpifort}
+        export FCM_MPICC=${FCM_MPICC:-mpicc}
+        export FCM_MPIFTN=${FCM_MPIFTN:-mpifort}
+        ;;
+
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
