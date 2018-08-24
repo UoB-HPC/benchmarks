@@ -6,7 +6,7 @@ if len(sys.argv) != 1:
     print 'Usage: python best-results.py'
     exit(1)
 
-platforms = ['tx2-foxconn', 'bdw-swan', 'skl-swan']
+platforms = ['tx2-foxconn', 'bdw-swan', 'skl-horizon', 'skl-swan']
 output = csv.DictWriter(sys.stdout, ['benchmark', 'units'] + platforms)
 output.writeheader()
 
