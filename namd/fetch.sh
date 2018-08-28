@@ -27,7 +27,7 @@ tar xf "$tgz_charm"
 
 echo "Downloading NAMD..."
 if [ ! -f "$tgz_namd" ]; then
-    wget https://www-s.ks.uiuc.edu/Research/namd/2.12/download/832164/NAMD_2.12_Source.tar.gz
+    wget --no-check-certificate https://www-s.ks.uiuc.edu/Research/namd/2.12/download/832164/NAMD_2.12_Source.tar.gz
 else
     echo "File already exists: $tgz_namd" >&2
     echo "Skipping download." >&2
@@ -46,7 +46,7 @@ cp -r "$script_dir"/common/* ./
 
 echo "Downloading STMV test case..."
 if [ ! -f "$tgz_stmv" ]; then
-    wget https://www-s.ks.uiuc.edu/Research/namd/utilities/stmv.tar.gz
+    wget --no-check-certificate https://www-s.ks.uiuc.edu/Research/namd/utilities/stmv.tar.gz
 else
     echo "File already exists: $tgz_stmv" >&2
     echo "Skipping download." >&2
