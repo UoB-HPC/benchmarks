@@ -35,10 +35,8 @@ export BUILD_DIR=$CFG_DIR/build
 # Set up the environment
 module swap craype-{broadwell,x86-skylake}
 case "$COMPILER" in
-    cce-8.5)
-        module swap cce cce/8.5.8
-        module swap cray-mpich cray-mpich/7.5.5
-        module swap cray-libsci cray-libsci/16.11.1
+    cce-8.6)
+        module swap cce cce/8.6.5
         TOOLCHAIN=cce
         ;;
     cce-8.7)
@@ -109,7 +107,7 @@ then
         exit 1
     fi
 
-    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/fcm-make.cfg -v -j 16
+    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/fcm-make.cfg -v -j 1
     then
         echo
         echo "Build amip failed."
