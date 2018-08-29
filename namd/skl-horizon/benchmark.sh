@@ -74,7 +74,7 @@ case "$COMPILER" in
         exit $exit_bad_compier
 esac
 
-export BENCHMARK_PLATFORM=skl-swan
+export BENCHMARK_PLATFORM=skl-horizon
 install_dir="$PWD/NAMD-2.12-SKL-$COMPILER-charm-6.8.2-cray-fftw-3.3.6.3"
 
 # Handle actions
