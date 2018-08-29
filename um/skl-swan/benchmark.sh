@@ -1,13 +1,13 @@
 #!/bin/bash
 
-DEFAULT_COMPILER=cce-8.5
+DEFAULT_COMPILER=cce-8.6
 function usage
 {
     echo
     echo "Usage: ./benchmark.sh build|run [COMPILER]"
     echo
     echo "Valid compilers:"
-    echo "  cce-8.5"
+    echo "  cce-8.6"
     echo "  cce-8.7"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
@@ -30,6 +30,7 @@ export CONFIG="skl"_"$COMPILER"
 export SRC_DIR=$PWD/um-amip
 export CFG_DIR=$PWD/um-$CONFIG
 export BUILD_DIR=$CFG_DIR/build
+BUILD_JOBS=16
 
 
 # Set up the environment
@@ -38,6 +39,7 @@ case "$COMPILER" in
     cce-8.6)
         module swap cce cce/8.6.5
         TOOLCHAIN=cce
+        BUILD_JOBS=1
         ;;
     cce-8.7)
         module swap cce cce/8.7.0
@@ -91,7 +93,7 @@ then
     make -f $SCRIPT_DIR/$TOOLCHAIN/shumlib.mk clean
     make -f $SCRIPT_DIR/$TOOLCHAIN/shumlib.mk shum_wgdos_packing shum_string_conv
 
-    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/drhook.cfg -v -j 16
+    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/drhook.cfg -v -j $BUILD_JOBS
     then
         echo
         echo "Building drhook failed."
@@ -99,7 +101,7 @@ then
         exit 1
     fi
 
-    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/gcom.cfg -v -j 16
+    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/gcom.cfg -v -j $BUILD_JOBS
     then
         echo
         echo "Building gcom failed."
@@ -107,7 +109,7 @@ then
         exit 1
     fi
 
-    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/fcm-make.cfg -v -j 1
+    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/fcm-make.cfg -v -j $BUILD_JOBS
     then
         echo
         echo "Build amip failed."
