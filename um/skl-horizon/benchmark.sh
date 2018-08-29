@@ -34,6 +34,10 @@ export BUILD_DIR=$CFG_DIR/build
 # Set up the environment
 module load craype-x86-skylake
 case "$COMPILER" in
+    cce-8.6)
+        module swap cce cce/8.6.5
+        TOOLCHAIN=cce
+        ;;
     cce-8.7)
         module swap cce cce/8.7.0
         TOOLCHAIN=cce
@@ -102,7 +106,7 @@ then
         exit 1
     fi
 
-    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/fcm-make.cfg -v -j 16
+    if ! fcm make -f $SCRIPT_DIR/$TOOLCHAIN/fcm-make.cfg -v -j 1
     then
         echo
         echo "Build amip failed."
