@@ -28,7 +28,7 @@ COMPILER=${2:-$DEFAULT_COMPILER}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
-export BENCHMARK_PLATFORM=skl-swan
+export BENCHMARK_PLATFORM=skl-horizon
 export BENCHMARK_DIR=$PWD/gromacs-benchmarks
 export SRC_DIR=$PWD/gromacs-2018.1
 export RUN_DIR=$PWD/gromacs-$BENCHMARK_PLATFORM-$COMPILER
