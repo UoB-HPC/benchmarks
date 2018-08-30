@@ -10,6 +10,8 @@ function usage
     echo "  cce-8.6"
     echo "  cce-8.7"
     echo "  gcc-7.2"
+    echo "  arm-18.3"
+    echo "  arm-18.4"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo
@@ -69,7 +71,19 @@ case "$COMPILER" in
         export FCM_MPICC=${FCM_MPICC:-mpicc}
         export FCM_MPIFTN=${FCM_MPIFTN:-mpifort}
         ;;
+    arm-18.4)
+        module purge
+        module load arm/hpc-compiler/18.4
+        module load openmpi/3.0.0/arm-18.4
+        TOOLCHAIN=arm
 
+        export FCM_CPP=${FCM_CPP:-armclang}
+        export FCM_FPP=${FCM_FPP:-cpp}
+        export FCM_CC=${FCM_CC:-armclang}
+        export FCM_FTN=${FCM_FTN:-mpifort}
+        export FCM_MPICC=${FCM_MPICC:-mpicc}
+        export FCM_MPIFTN=${FCM_MPIFTN:-mpifort}
+        ;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
