@@ -12,6 +12,7 @@ function usage
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo "  arm-18.3"
+    echo "  arm-18.4"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo
@@ -65,6 +66,13 @@ case "$COMPILER" in
         module purge
         module load arm/hpc-compiler/18.3
         module load openmpi/3.0.0/arm-18.3
+        export BENCHMARK_EXE=gsnap
+        MAKE_OPTS='TARGET=gsnap FFLAGS="-Ofast -mcpu=thunderx2t99 -ffast-math -ffp-contract=fast -fopenmp"'
+        ;;
+    arm-18.4)
+        module purge
+        module load arm/hpc-compiler/18.4
+        module load openmpi/3.0.0/arm-18.4
         export BENCHMARK_EXE=gsnap
         MAKE_OPTS='TARGET=gsnap FFLAGS="-Ofast -mcpu=thunderx2t99 -ffast-math -ffp-contract=fast -fopenmp"'
         ;;
