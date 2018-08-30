@@ -11,6 +11,7 @@ function usage
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo "  arm-18.3"
+    echo "  arm-18.4"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo
@@ -55,6 +56,12 @@ case "$COMPILER" in
     arm-18.3)
         module purge
         module load arm/hpc-compiler/18.3
+        MAKE_OPTS='COMPILER=GCC ARCH_COMPILER_CC=armclang ARCH_COMPILER_CPP=armclang++'
+        MAKE_OPTS="$MAKE_OPTS"' CFLAGS_GCC="-std=gnu99 -Wall -fopenmp -Ofast -mcpu=thunderx2t99 -ffast-math -ffp-contract=fast"'
+        ;;
+    arm-18.4)
+        module purge
+        module load arm/hpc-compiler/18.4
         MAKE_OPTS='COMPILER=GCC ARCH_COMPILER_CC=armclang ARCH_COMPILER_CPP=armclang++'
         MAKE_OPTS="$MAKE_OPTS"' CFLAGS_GCC="-std=gnu99 -Wall -fopenmp -Ofast -mcpu=thunderx2t99 -ffast-math -ffp-contract=fast"'
         ;;
