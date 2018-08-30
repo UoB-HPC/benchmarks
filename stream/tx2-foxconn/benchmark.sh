@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEFAULT_COMPILER=gcc-8.1
+DEFAULT_COMPILER=arm-18.4
 function usage
 {
     echo
@@ -11,6 +11,7 @@ function usage
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo "  arm-18.3"
+    echo "  arm-18.4"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo
@@ -58,6 +59,13 @@ case "$COMPILER" in
     arm-18.3)
         module purge
         module load arm/hpc-compiler/18.3
+        CC=armclang
+        FLAGS="-std=gnu99 -fopenmp -Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99"
+        export OMP_PROC_BIND=true
+        ;;
+    arm-18.4)
+        module purge
+        module load arm/hpc-compiler/18.4
         CC=armclang
         FLAGS="-std=gnu99 -fopenmp -Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99"
         export OMP_PROC_BIND=true
