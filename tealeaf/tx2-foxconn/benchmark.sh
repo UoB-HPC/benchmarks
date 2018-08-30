@@ -11,6 +11,7 @@ function usage
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo "  arm-18.3"
+    echo "  arm-18.4"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo
@@ -60,6 +61,14 @@ case "$COMPILER" in
         module purge
         module load arm/hpc-compiler/18.3
         module load openmpi/3.0.0/arm-18.3
+        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpifort C_MPI_COMPILER=mpicc'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops -cpp -ffree-line-length-none"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
+        ;;
+    arm-18.4)
+        module purge
+        module load arm/hpc-compiler/18.4
+        module load openmpi/3.0.0/arm-18.4
         MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpifort C_MPI_COMPILER=mpicc'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops -cpp -ffree-line-length-none"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
