@@ -48,3 +48,20 @@ $REPO/openfoam/tx2-foxconn/benchmark.sh build arm-18.3 openmpi-1.10.4
 $REPO/openfoam/tx2-foxconn/benchmark.sh run arm-18.3 openmpi-1.10.4
 ```
 
+## Platforms
+
+**tx2-foxconn:**
+Early-access Cavium ThunderX2 systems available as part of the Isambard project.
+Dual-socket Cavium ThunderX2 (B0) 32-core @ 2.2 GHz, with 256 GB of DDR4-2666 memory (with memory clock running at 2200 MHz).
+
+**bdw-swan:**
+Cray Marketing Partner Network system.
+Dual-socket Intel Xeon E5-2699 v4 (Broadwell) 22-core @ 2.2 GHz, with 128 GB of DDR4-2400 memory.
+
+**skl-swan:**
+Cray Marketing Partner Network system.
+Dual-socket Intel Xeon Platinum 8176 (Skylake) 28-core @ 2.1 GHz, with 192 GB of DDR4-2666 memory.
+
+**skl-horizon:**
+Internal system provided by Cray.
+Dual-socket Intel Xeon Gold 6148 (Skylake) 20-core @ 2.4 GHz, with 192 GB of DDR4-2666 memory.
