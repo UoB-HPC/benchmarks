@@ -38,6 +38,7 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 action="$1"
 export COMPILER="${2:-$default_compiler}"
 charm_build_type=""
+charm_build_options=""
 
 # Set up the environment
 case "$COMPILER" in
@@ -67,6 +68,7 @@ case "$COMPILER" in
         module load craype-hugepages8M
 
         charm_build_type="iccstatic"
+        charm_build_options="-O3 -ip"
         ;;
     *)
         echo "Invalid compiler."
@@ -104,7 +106,7 @@ if [ "$action" == "build" ]; then
     cd "$charm_dir"
 
     charmarch="multicore-linux64"
-    eval ./build charm++ "$charmarch" "$charm_build_type" --with-production --destination="$charm_install_dir/$charmarch" -j8
+    eval ./build charm++ "$charmarch" "$charm_build_type" --with-production --destination="$charm_install_dir/$charmarch" -j8 "$charm_build_options"
 
     echo
     echo "Building NAMD..."
@@ -124,9 +126,7 @@ if [ "$action" == "build" ]; then
             ;;
         intel-2018)
             namd_target="Linux-x86_64-icc"
-            sed -i 's/-O2/-O3/g' "arch/$namd_target.arch"
             sed -r -i '/^FLOATOPTS/ s/-a?x[^ ]+/-xCORE-AVX512/' "arch/$namd_target.arch"
-            sed -i 's,^CHARMARCH =.*,CHARMARCH = '"$charmarch," "arch/$namd_target.arch"
             ;;
         *)
             echo "Invalid compiler '$COMPILER'. This is most likely a bug in the script."

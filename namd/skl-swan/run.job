@@ -23,7 +23,7 @@ numprocs=112
 ts="$(date "+%Y-%m-%d_%H-%M")"
 runlog="stmv_${BENCHMARK_PLATFORM}_${COMPILER}_$ts.log"
 
-aprun "$exe" "+p$numprocs" stmv/stmv.namd +setcpuaffinity |& tee "$runlog"
+aprun -cc none "$exe" "+p$numprocs" stmv/stmv.namd +setcpuaffinity |& tee "$runlog"
 
 days_ns=$(awk '/Benchmark/ {daysns=$8} END {print daysns}' "$runlog")
 echo

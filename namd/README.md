@@ -5,9 +5,9 @@
 We use compilers as follows:
 
 - TX2: Arm is 20% faster than GNU!
-- BDW: GNU is 6% faster than Intel
+- BDW: GNU and Intel are similarly fast.
 - SKL: Intel gives 5% better performance than GNU.
-- KNL: Intel, because the KNL version uses Intel intrinsics
+- KNL: Intel, because the KNL version uses Intel intrinsics.
 
 On TX2, we use `cray-fftw`, since ArmPL produces invalid results. When switching back to ArmPL for further test, note the following changes from [the Arm NAMD build guide](https://developer.arm.com/products/software-development-tools/hpc/resources/porting-and-tuning/building-namd-with-arm-compiler):
 
