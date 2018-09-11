@@ -22,7 +22,7 @@ fi
 
 # ArmPL 18.3 doesn't support the wisdom function
 casefile=stmv/stmv.namd
-[ "$FFTLIB" = armpl-18.3 ] && casefile="${casefile/%namd/armpl.namd}"
+[[ "$FFTLIB" == armpl-* ]] && casefile="${casefile/%namd/armpl.namd}"
 
 ts="$(date "+%Y-%m-%d_%H-%M")"
 runlog="stmv_${BENCHMARK_PLATFORM}_${COMPILER}_${FFTLIB}_${ts}.log"

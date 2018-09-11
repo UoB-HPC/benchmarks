@@ -13,11 +13,12 @@ function usage ()
     echo
     echo "Valid compilers:"
     echo "  arm-18.3"
+    echo "  arm-18.4"
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo
     echo "Valid FFT libraries:"
-    echo "  armpl-18.3"
+    echo "  armpl-18.4"
     echo "  cray-fftw-3.3.6.3"
     echo
     echo "The default configuration is '$default_compiler $default_fftlib'."
@@ -47,13 +48,28 @@ charm_build_type=""
 
 # Set up the environment
 case "$COMPILER" in
-    arm-18.3)
+    arm-*)
         module purge
-        module load arm/hpc-compiler/18.3
+        case "$COMPILER" in
+            arm-18.3)
+                module load arm/hpc-compiler/18.3
+                ;;
+            arm-18.4)
+                module load arm/hpc-compiler/18.4
+                ;;
+            *)
+                echo "Invalid compiler."
+                usage
+                exit $exit_bad_compier
+                ;;
+        esac
 
         case "$FFTLIB" in
             armpl-18.3)
                 module load arm/perf-libs/18.3/arm-18.3
+                ;;
+            armpl-18.4)
+                module load arm/perf-libs/18.4/arm-18.4
                 ;;
             cray-fftw-3.3.6.3)
                 module load cray-fftw/3.3.6.3
@@ -84,6 +100,9 @@ case "$COMPILER" in
         case "$FFTLIB" in
             armpl-18.3)
                 module load arm/perf-libs/18.3/gcc-7.1
+                ;;
+            armpl-18.4)
+                module load arm/perf-libs/18.4/gcc-7.1
                 ;;
             cray-fftw-3.3.6.3)
                 module load cray-fftw/3.3.6.3
@@ -132,7 +151,7 @@ if [ "$action" == "build" ]; then
     cd "$charm_dir"
 
     case "$COMPILER" in
-        arm-18.3)
+        arm-*)
             charmarch="multicore-linux-aarch64"
             ;;
         gcc-*)
@@ -153,11 +172,11 @@ if [ "$action" == "build" ]; then
 
     # Set compiler-specific options for the architecture
     case "$COMPILER" in
-        arm-18.3)
+        arm-*)
             namd_target="Linux-ARM64-armclang"
 
             case "$FFTLIB" in
-                armpl-18.3)
+                armpl-*)
                     sed -i 's,^FFTDIR=.*,FFTDIR='"$ARMPL_DIR," "arch/${namd_target%-armclang}.fftw3"
                     sed -i '/FFTLIB/ s/-lfftw3f/-larmpl/' "arch/${namd_target%-armclang}.fftw3"
                     ;;
@@ -177,7 +196,7 @@ if [ "$action" == "build" ]; then
             sed -i 's/^FLOATOPTS =.*/FLOATOPTS = -march=armv8.1-a -mcpu=thunderx2t99 -O3 -ffast-math -funsafe-math-optimizations -fomit-frame-pointer -ffp-contract=fast/' "arch/$namd_target.arch"
 
             case "$FFTLIB" in
-                armpl-18.3)
+                armpl-*)
                     sed -i 's,^FFTDIR=.*,FFTDIR='"$ARMPL_DIR," "arch/${namd_target%-g++}.fftw3"
                     sed -i '/FFTLIB/ s/-lfftw3f/-larmpl/' "arch/${namd_target%-g++}.fftw3"
                     ;;
