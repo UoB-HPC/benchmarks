@@ -22,7 +22,7 @@ Charm++ is not built with any optimisation flags, but this does not seem to impa
 
 ## Run notes
 
-We use the `STMV` benchmark, which can be downloaded form the [NAMD Utilities page](https://www-s.ks.uiuc.edu/Research/namd/utilities/). According to that page, this benchmark is "useful for demonstrating scaling to thousands of processors". It is also (likely) the one that was used for the 2nd Isambard Hackathon.
+We use the `STMV` benchmark, which can be downloaded form the [NAMD Utilities page](https://www.ks.uiuc.edu/Research/namd/utilities/). According to that page, this benchmark is "useful for demonstrating scaling to thousands of processors". It is also (likely) the one that was used for the 2nd Isambard Hackathon.
 
 Another popular benchmark is `ApoA1`, which is also available to download from the same page, but it is a much smaller test case, and so results are not as convincing. For reference, `STMV` takes about 100 seconds on 44 BDW cores, whereas `ApoA1` takes aroud 10 seconds.
 
