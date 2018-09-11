@@ -1,0 +1,17 @@
+Fails to build:
+
+In file included from lnInclude/Reaction.H:331,
+                 from reaction/reactions/makeReaction.H:35,
+                 from reaction/reactions/makeLangmuirHinshelwoodReactions.C:26:
+lnInclude/ReactionI.H: In member function ‘Foam::word& Foam::Reaction<ReactionThermo>::name()’:
+lnInclude/ReactionI.H:38:12: error: binding reference of type ‘Foam::word&’ to ‘const Foam::word’ discards qualifiers
+     return name_;
+            ^~~~~
+In file included from lnInclude/Reaction.H:331,
+                 from lnInclude/reactionTypes.H:36,
+                 from reaction/reactions/makeReactions.C:26:
+lnInclude/ReactionI.H: In member function ‘Foam::word& Foam::Reaction<ReactionThermo>::name()’:
+lnInclude/ReactionI.H:38:12: error: binding reference of type ‘Foam::word&’ to ‘const Foam::word’ discards qualifiers
+     return name_;
+            ^~~~~
+
