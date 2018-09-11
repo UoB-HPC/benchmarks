@@ -142,7 +142,7 @@ if [ "$action" == "build" ]; then
     bashrc="etc/bashrc"
     cflags="wmake/rules/$of_platform/c"
     cppflags="wmake/rules/$of_platform/c++"
-    cOptflags="wmake/rules/$of_platform/c++Opt"
+    cOptflags="wmake/rules/$of_platform/cOpt"
     cppOptflags="wmake/rules/$of_platform/c++Opt"
 
     # Set the installtion directory path and the MPI library
@@ -174,6 +174,7 @@ if [ "$action" == "build" ]; then
             sed -i 's/^CC          =.*/CC          = armclang++ -std=c++11/' "$cppflags"
             sed -i 's/^export WM_COMPILER=.*/export WM_COMPILER=Arm/' "$bashrc"
             sed -i 's/^cOPT        =.*/cOPT        = -mcpu=thunderx2t99 -O3 -ffast-math/' "$cOptflags"
+            sed -i 's/^c++OPT      =.*/c++OPT      = -mcpu=thunderx2t99 -O3 -ffast-math/' "$cppOptflags"
 
             # Apply required source changes: https://gitlab.com/arm-hpc/packages/wikis/packages/openfoamplus
             ( cd src/finiteVolume/finiteVolume/ddtSchemes/CrankNicolsonDdtScheme/;
