@@ -101,7 +101,11 @@ case "$BLASLIB" in
         ;;
     armpl-18.3)
         export LLIBS="$LLIBS /lustre/projects/bristol/modules-arm/scalapack/2.0.2-armpl/lib/libscalapack.a"
-        USE_ARMPL=1
+        ARMPL_VERSION=18.3
+        ;;
+    armpl-18.4)
+        export LLIBS="$LLIBS /lustre/projects/bristol/modules-arm/scalapack/2.0.2-armpl/lib/libscalapack.a"
+        ARMPL_VERSION=18.4
         ;;
     libsci-17.09)
         if [ "$FC" != "ftn" ]
@@ -123,7 +127,20 @@ esac
 
 case "$FFTLIB" in
     armpl-18.3)
-        USE_ARMPL=1
+        if [ -n "$ARMPL_VERSION" -a "$ARMPL_VERSION" != "18.3" ]
+        then
+            echo "Arm PL version mismatch"
+            exit 1
+        fi
+        ARMPL_VERSION=18.3
+        ;;
+    armpl-18.4)
+        if [ -n "$ARMPL_VERSION" -a "$ARMPL_VERSION" != "18.4" ]
+        then
+            echo "Arm PL version mismatch"
+            exit 1
+        fi
+        ARMPL_VERSION=18.4
         ;;
     cray-fftw-3.3.6)
         export INCS="$INCS -I/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include"
@@ -138,7 +155,7 @@ case "$FFTLIB" in
 esac
 
 # Add ARMPL flags last if used
-if [ "$USE_ARMPL" == "1" ]
+if [ -n "$ARMPL_VERSION" ]
 then
     if [ -z "$ARMPL_VARIANT" ]
     then
@@ -147,8 +164,9 @@ then
         echo
         exit 1
     fi
-    module load arm/perf-libs/18.3/$ARMPL_VARIANT
+    module load arm/perf-libs/$ARMPL_VERSION/$ARMPL_VARIANT
     module unload arm/gcc
+
     export INCS="$INCS -I$ARMPL_DIR/include"
     export LLIBS="$LLIBS -L$ARMPL_DIR/lib -larmpl"
 fi
