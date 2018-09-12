@@ -13,9 +13,11 @@ function usage
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo "  arm-18.3"
+    echo "  arm-18.4"
     echo
     echo "Valid FFT libraries:"
     echo "  armpl-18.3"
+    echo "  armpl-18.4"
     echo "  cray-fftw-3.3.6"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_FFTLIB'."
@@ -62,6 +64,12 @@ case "$COMPILER" in
         CMAKE_OPTS="-DCMAKE_C_COMPILER=armclang -DCMAKE_CXX_COMPILER=armclang++"
         ARMPL_VARIANT=arm-18.3
         ;;
+    arm-18.4)
+        module purge
+        module load arm/hpc-compiler/18.4
+        CMAKE_OPTS="-DCMAKE_C_COMPILER=armclang -DCMAKE_CXX_COMPILER=armclang++"
+        ARMPL_VARIANT=arm-18.4
+        ;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
@@ -81,6 +89,19 @@ case "$FFTLIB" in
             exit 1
         fi
         module load arm/perf-libs/18.3/$ARMPL_VARIANT
+        module unload arm/gcc
+        CMAKE_OPTS="$CMAKE_OPTS -DFFTWF_LIBRARY=${ARMPL_DIR}/lib/libarmpl.so"
+        CMAKE_OPTS="$CMAKE_OPTS -DFFTWF_INCLUDE_DIR=${ARMPL_DIR}/include"
+        ;;
+    armpl-18.4)
+        if [ -z "$ARMPL_VARIANT" ]
+        then
+            echo
+            echo "Using armpl is not supported for $COMPILER."
+            echo
+            exit 1
+        fi
+        module load arm/perf-libs/18.4/$ARMPL_VARIANT
         module unload arm/gcc
         CMAKE_OPTS="$CMAKE_OPTS -DFFTWF_LIBRARY=${ARMPL_DIR}/lib/libarmpl.so"
         CMAKE_OPTS="$CMAKE_OPTS -DFFTWF_INCLUDE_DIR=${ARMPL_DIR}/include"
@@ -153,3 +174,4 @@ else
     echo
     exit 1
 fi
+
