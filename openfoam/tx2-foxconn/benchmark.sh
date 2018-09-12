@@ -7,7 +7,7 @@ set -o pipefail
 # TODO: hypethreading parameter
 
 default_compiler=gcc-7.2
-default_mpilib=openmpi-3.1.0
+default_mpilib=openmpi-3.0.0
 function usage ()
 {
     echo
@@ -15,11 +15,13 @@ function usage ()
     echo
     echo "Valid compilers:"
     echo "  arm-18.3"
+    echo "  arm-18.4"
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo
     echo "Valid MPI libraries:"
     echo "  openmpi-1.10.4"
+    echo "  openmpi-3.0.0"
     echo "  openmpi-3.1.0"
     echo
     echo "The default configuration is '$default_compiler $default_mpilib'."
@@ -65,6 +67,11 @@ case "$COMPILER" in
 
         of_platform=linuxARM64Arm
         ;;
+    arm-18.4)
+        module load arm/hpc-compiler/18.4
+
+        of_platform=linuxARM64Arm
+        ;;
     *)
         echo "Invalid compiler."
         usage
@@ -76,15 +83,32 @@ case "$MPILIB" in
     openmpi-1.10.4)
         # No action required
         ;;
-    openmpi-3.1.0)
+    openmpi-3.0.0)
         case "$COMPILER" in
-            arm-*)
-                module load openmpi/3.1.0/arm-18.3
+            arm-18.3)
+                module load openmpi/3.0.0/arm-18.3
+                ;;
+            arm-18.4)
+                module load openmpi/3.0.0/arm-18.4
                 ;;
             gcc-7.2)
                 module load openmpi/3.0.0/gcc-7.2
                 ;;
             gcc-8.1)
+                module load openmpi/3.0.0/gcc-8.1
+                ;;
+            *)
+                echo "Invalid compiler '$COMPILER'. This is most likely a bug in the script."
+                exit $exit_bad_compiler
+                ;;
+        esac
+        ;;
+    openmpi-3.1.0)
+        case "$COMPILER" in
+            arm-*)
+                module load openmpi/3.1.0/arm-18.3
+                ;;
+            gcc-*)
                 module load openmpi/3.1.0/gcc-8.1
                 ;;
             *)
