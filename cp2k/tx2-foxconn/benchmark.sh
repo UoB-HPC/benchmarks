@@ -14,14 +14,17 @@ function usage
     echo "  gcc-7.2"
     echo "  gcc-8.1"
     echo "  arm-18.3"
+    echo "  arm-18.4"
     echo
     echo "Valid BLAS libraries:"
     echo "  openblas-0.2"
     echo "  armpl-18.3"
+    echo "  armpl-18.4"
     echo "  libsci-17.09"
     echo
     echo "Valid FFT libraries:"
     echo "  armpl-18.3"
+    echo "  armpl-18.4"
     echo "  cray-fftw-3.3.6"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_BLASLIB $DEFAULT_FFTLIB'."
@@ -83,6 +86,18 @@ case "$COMPILER" in
         export FCFLAGS="$FCFLAGS -ftree-vectorize -ffree-form"
         ARMPL_VARIANT=arm-18.3
         ;;
+    arm-18.4)
+        module purge
+        module load arm/hpc-compiler/18.4
+        module load openmpi/3.0.0/arm-18.4
+        export CC=mpicc
+        export FC=mpifort
+        export LD=mpifort
+        export CFLAGS="-Ofast -mcpu=thunderx2t99"
+        export FCFLAGS="-Ofast -fopenmp -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast"
+        export FCFLAGS="$FCFLAGS -ftree-vectorize -ffree-form"
+        ARMPL_VARIANT=arm-18.4
+        ;;
     cce-8.7)
         module swap cce cce/8.7.0
         export CC=cc
@@ -105,7 +120,11 @@ case "$BLASLIB" in
         ;;
     armpl-18.3)
         export LIBS="$LIBS /lustre/projects/bristol/modules-arm/scalapack/2.0.2-armpl/lib/libscalapack.a"
-        USE_ARMPL=1
+        ARMPL_VERSION=18.3
+        ;;
+    armpl-18.4)
+        export LIBS="$LIBS /lustre/projects/bristol/modules-arm/scalapack/2.0.2-armpl/lib/libscalapack.a"
+        ARMPL_VERSION=18.4
         ;;
     libsci-17.09)
         if [ "$FC" != "ftn" ]
@@ -127,9 +146,20 @@ esac
 
 case "$FFTLIB" in
     armpl-18.3)
-        module load arm/perf-libs/18.3/$ARMPL_VARIANT
-        module unload arm/gcc
-        USE_ARMPL=1
+        if [ -n "$ARMPL_VERSION" -a "$ARMPL_VERSION" != "18.3" ]
+        then
+            echo "Arm PL version mismatch"
+            exit 1
+        fi
+        ARMPL_VERSION=18.3
+        ;;
+    armpl-18.4)
+        if [ -n "$ARMPL_VERSION" -a "$ARMPL_VERSION" != "18.4" ]
+        then
+            echo "Arm PL version mismatch"
+            exit 1
+        fi
+        ARMPL_VERSION=18.4
         ;;
     cray-fftw-3.3.6)
         export FCFLAGS="$FCFLAGS -I/opt/cray/pe/fftw/3.3.6.3/arm_thunderx2/include"
@@ -145,7 +175,7 @@ case "$FFTLIB" in
 esac
 
 # Add ARMPL flags last if used
-if [ "$USE_ARMPL" == "1" ]
+if [ -n "$ARMPL_VERSION" ]
 then
     if [ -z "$ARMPL_VARIANT" ]
     then
@@ -154,6 +184,8 @@ then
         echo
         exit 1
     fi
+    module load arm/perf-libs/$ARMPL_VERSION/$ARMPL_VARIANT
+    module unload arm/gcc
     export FCFLAGS="$FCFLAGS -I$ARMPL_DIR/include"
     export LIBS="$LIBS -larmpl"
 fi
