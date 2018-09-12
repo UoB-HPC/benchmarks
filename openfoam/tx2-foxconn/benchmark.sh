@@ -146,7 +146,7 @@ if [ "$action" == "build" ]; then
     cppOptflags="wmake/rules/$of_platform/c++Opt"
 
     # Set the installtion directory path and the MPI library
-    sed -i 's,^FOAM_INST_DIR=.*,FOAM_INST_DIR='"$PWD," "$bashrc"
+    sed -i '/^FOAM_INST_DIR=.*/a FOAM_INST_DIR='"$(dirname "$PWD")" "$bashrc"
     case "$MPILIB" in
         cray-mpich-*)
             sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=CRAY-MPICH,' "$bashrc"
