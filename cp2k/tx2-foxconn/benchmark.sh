@@ -73,6 +73,7 @@ case "$COMPILER" in
         export CFLAGS="-Ofast -mcpu=thunderx2t99"
         export FCFLAGS="-Ofast -fopenmp -mcpu=thunderx2t99 -funroll-loops -ffast-math -ffp-contract=fast"
         export FCFLAGS="$FCFLAGS -ftree-vectorize -ffree-form -ffree-line-length-512"
+        ARMPL_VARIANT=gcc-7.1
         ;;
     arm-18.3)
         module purge
