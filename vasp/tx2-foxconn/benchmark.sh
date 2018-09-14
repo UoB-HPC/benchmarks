@@ -75,6 +75,20 @@ case "$COMPILER" in
         export FFLAGS="-w"
         export FREE="-ffree-form -ffree-line-length-none"
         ;;
+    arm-18.4)
+        module purge
+        module load arm/hpc-compiler/18.4
+        module load openmpi/3.0.0/arm-18.4
+        export FC=mpifort
+        export FCL=mpifort
+        export CC=armclang
+        export CXX=armclang++
+        export CPP="gcc -E -P -C -w"
+        export OFLAG="-O3 -mcpu=thunderx2t99 -ffp-contract=fast -ffast-math"
+        export FFLAGS="-w"
+        export FREE="-ffree-form -ffree-line-length-none"
+        ARMPL_VARIANT=arm-18.4
+        ;;
     cce-8.7)
         module swap cce cce/8.7.0
         export FC=ftn
