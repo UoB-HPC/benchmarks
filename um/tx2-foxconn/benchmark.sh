@@ -10,6 +10,7 @@ function usage
     echo "  cce-8.6"
     echo "  cce-8.7"
     echo "  gcc-7.2"
+    echo "  gcc-8.1"
     echo "  arm-18.3"
     echo "  arm-18.4"
     echo
@@ -49,6 +50,19 @@ case "$COMPILER" in
         module purge
         module load gcc/7.2.0
         module load mpich/3.2/gcc-7.2
+        TOOLCHAIN=gnu
+
+        export FCM_CPP=${FCM_CPP:-gcc}
+        export FCM_FPP=${FCM_FPP:-gcc}
+        export FCM_CC=${FCM_CC:-gcc}
+        export FCM_FTN=${FCM_FTN:-gfortran}
+        export FCM_MPICC=${FCM_MPICC:-mpicc}
+        export FCM_MPIFTN=${FCM_MPIFTN:-mpifort}
+        ;;
+    gcc-8.1)
+        module purge
+        module load gcc/8.1.0
+        module load mpich/3.2/gcc-8.1
         TOOLCHAIN=gnu
 
         export FCM_CPP=${FCM_CPP:-gcc}
