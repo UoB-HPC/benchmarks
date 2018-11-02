@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l select=1
+#PBS -l walltime=00:01:00
+#PBS -joe
+
+cd $PBS_O_WORKDIR
+
+# For GCC, best performance observed when only running 16 threads per socket.
+if [ "$PE_ENV" == "GNU" ]
+then
+    export OMP_NUM_THREADS=32
+    export OMP_PROC_BIND=spread
+else
+    export OMP_NUM_THREADS=64
+    export OMP_PROC_BIND=true
+fi
+
+aprun -n 1 -d 64 -j 1 -cc none ./$BENCHMARK_EXE
