@@ -9,8 +9,7 @@ function usage
     echo
     echo "Valid compilers:"
     echo "  cce-8.7"
-    echo "  gcc-7.2"
-    echo "  gcc-8.1"
+    echo "  gcc-8.2"
     echo
     echo "Valid models:"
     echo "  omp"
@@ -45,15 +44,9 @@ case "$COMPILER" in
         module swap cce cce/8.7.7
         MAKE_OPTS="COMPILER=CRAY TARGET=CPU"
         ;;
-    gcc-7.2)
-        module purge
-        module load gcc/7.2.0
-        MAKE_OPTS="COMPILER=GNU TARGET=CPU"
-        export OMP_PROC_BIND=spread
-        ;;
-    gcc-8.1)
-        module purge
-        module load gcc/8.1.0
+    gcc-8.2)
+        module swap PrgEnv-cray PrgEnv-gnu
+        module swap gcc gcc/8.2.0
         MAKE_OPTS="COMPILER=GNU TARGET=CPU"
         export OMP_PROC_BIND=spread
         ;;
@@ -77,6 +70,7 @@ then
       omp)
         MAKE_FILE="OpenMP.make"
         BINARY="omp-stream"
+        ;;
     esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
