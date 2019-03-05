@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l select=1:ncpus=64
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+cd $RUN_DIR
+
+# Best performance observed when only running 16 cores per socket.
+export OMP_NUM_THREADS=32
+aprun -n 1 -d 64 ./$BENCHMARK_EXE
