@@ -1,0 +1,64 @@
+BabelStream
+Version: 3.3
+Implementation: Kokkos
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        210184.256  0.00255     0.00259     0.00258     
+Mul         209263.893  0.00257     0.00265     0.00259     
+Add         214848.456  0.00375     0.00413     0.00380     
+Triad       215835.369  0.00373     0.00412     0.00381     
+Dot         145359.182  0.00369     0.00379     0.00371     
+Application 1080209 resources: utime ~54s, stime ~26s, Rss ~1576120, inblocks ~0, outblocks ~0
+============================= PBS epilogue =============================
+
+End of Job Report
+Run at 2019-03-05 13:12:51 for job 6106.xci00
+Submitted              : 2019-03-05 13:12:36
+Queued                 : 2019-03-05 13:12:36
+Started                : 2019-03-05 13:12:36
+Completed              : 2019-03-05 13:12:51
+Queued Time            : 0:00:00 (0 seconds)
+Elapsed Time           : 0:00:10 (10 seconds, 1% of limit)
+Parallel Time          : 0:00:06 (6 seconds, 59% of elapsed time)
+Walltime Limit         : 0:15:00 (900 seconds)
+Node Time Limit        : 0:15:00 (900 seconds)
+Node Time              : 0:00:10 (10 seconds, 1% of limit)
+Job Name               : babelstream
+Queue                  : arm
+Owner                  : br-tdeakin
+Group                  : -default-
+Project                : bristol
+Subproject             : 
+Funding                : 
+Trustzone              : 
+STDOUT                 : /home/br-tdeakin/codes/benchmarks/babelstream/tx2-isambard/BabelStream-tx2_gcc-8.2_kokkos.out
+STDERR                 : /home/br-tdeakin/codes/benchmarks/babelstream/tx2-isambard/babelstream.e6106
+Job Directory          : /home/br-tdeakin/pbs.6106.xci00.x8z
+Job Arch               : XT
+CPU Core Type          : arm
+Total Nodes            : 1
+Total Tasks            : 64
+Parent Node            : xcimom
+Parent Node Memory     : 
+Parent Node CPU Time   : 
+Compute Nodes          : 118
+Electrical Groups      : 1
+Run Version            : 1
+
+                                        Wallclock  Wallclock     Memory     Memory
+Executable             APID      Nodes       Used  Requested       Used  Requested   CPU Time    Read IO   Write IO     Energy
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+stream-tx2_gcc-8.2_kokkos    1080209          1       97.2        11%       1.1G         1%       77.7       7.0k        0.0       1.4k
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+total                   all          1       97.2        11%       1.1G         1%       77.7       7.0k        0.0       1.4k
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+
+Lustre
+device         read  written     open    close   create  getattr  setattr    perms    mkdir    rmdir  readdir     link   unlink   rename
+========== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ========
+/lustre           0        0        0        0        0        1        0      104        0        0        0        0        0        0
+
+For more information see https://gw4-isambard.github.io/docs/

@@ -13,6 +13,7 @@ function usage
     echo
     echo "Valid models:"
     echo "  omp"
+    echo "  kokkos"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -71,6 +72,10 @@ then
         MAKE_FILE="OpenMP.make"
         BINARY="omp-stream"
         ;;
+      kokkos)
+        module load kokkos/2.8.00
+        MAKE_FILE="Kokkos.make"
+        BINARY="kokkos-stream"
     esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
