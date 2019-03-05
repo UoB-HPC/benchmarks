@@ -1,0 +1,64 @@
+BabelStream
+Version: 3.3
+Implementation: OpenMP
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        165751.136  0.00324     0.00362     0.00334     
+Mul         163115.666  0.00329     0.00405     0.00338     
+Add         181809.973  0.00443     0.00501     0.00469     
+Triad       180507.328  0.00446     0.00478     0.00457     
+Dot         215163.717  0.00250     0.00329     0.00254     
+Application 1080197 resources: utime ~70s, stime ~23s, Rss ~1574900, inblocks ~0, outblocks ~0
+============================= PBS epilogue =============================
+
+End of Job Report
+Run at 2019-03-05 11:43:01 for job 6100.xci00
+Submitted              : 2019-03-05 11:42:47
+Queued                 : 2019-03-05 11:42:47
+Started                : 2019-03-05 11:42:47
+Completed              : 2019-03-05 11:43:01
+Queued Time            : 0:00:00 (0 seconds)
+Elapsed Time           : 0:00:09 (9 seconds, 1% of limit)
+Parallel Time          : 0:00:06 (6 seconds, 66% of elapsed time)
+Walltime Limit         : 0:15:00 (900 seconds)
+Node Time Limit        : 0:15:00 (900 seconds)
+Node Time              : 0:00:09 (9 seconds, 1% of limit)
+Job Name               : babelstream
+Queue                  : arm
+Owner                  : br-tdeakin
+Group                  : -default-
+Project                : bristol
+Subproject             : 
+Funding                : 
+Trustzone              : 
+STDOUT                 : /home/br-tdeakin/codes/benchmarks/babelstream/tx2-isambard/BabelStream-tx2_cce-8.7_omp.out
+STDERR                 : /home/br-tdeakin/codes/benchmarks/babelstream/tx2-isambard/babelstream.e6100
+Job Directory          : /home/br-tdeakin/pbs.6100.xci00.x8z
+Job Arch               : XT
+CPU Core Type          : arm
+Total Nodes            : 1
+Total Tasks            : 64
+Parent Node            : xcimom
+Parent Node Memory     : 
+Parent Node CPU Time   : 
+Compute Nodes          : 0
+Electrical Groups      : 1
+Run Version            : 1
+
+                                        Wallclock  Wallclock     Memory     Memory
+Executable             APID      Nodes       Used  Requested       Used  Requested   CPU Time    Read IO   Write IO     Energy
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+stream-tx2_cce-8.7_omp    1080197          1       94.4        10%       1.3G         1%       91.1      36.0k        0.0       1.4k
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+total                   all          1       94.4        10%       1.3G         1%       91.1      36.0k        0.0       1.4k
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+
+Lustre
+device         read  written     open    close   create  getattr  setattr    perms    mkdir    rmdir  readdir     link   unlink   rename
+========== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ========
+/lustre           0        0        0        0        0        0        0        7        0        0        0        0        0        0
+
+For more information see https://gw4-isambard.github.io/docs/
