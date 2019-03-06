@@ -8,7 +8,6 @@ cd $RUN_DIR
 
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 
-#export OMP_NUM_THREADS=64
-export OMP_NUM_THREADS=256
-aprun -n 1 -d 256 -j 4 -cc depth ./$BENCHMARK_EXE
+export OMP_NUM_THREADS=64
+aprun -n 1 -d 64 -cc depth ./$BENCHMARK_EXE
 
