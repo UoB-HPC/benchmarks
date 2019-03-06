@@ -14,13 +14,6 @@ function usage
     echo
 }
 
-# Process arguments
-if [ $# -lt 1 ]
-then
-    usage
-    exit 1
-fi
-
 MODEL=${1:-$DEFAULT_MODEL}
 
 case "$MODEL" in
