@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEFAULT_COMPILER=cce-8.7
+DEFAULT_COMPILER=gcc-8.2
 DEFAULT_MODEL=omp
 function usage
 {
@@ -9,10 +9,7 @@ function usage
     echo
     echo "Valid compilers:"
     echo "  cce-8.7"
-    echo "  gcc-7.2"
-    echo "  gcc-8.1"
-    echo "  arm-18.3"
-    echo "  arm-18.4"
+    echo "  gcc-8.2"
     echo
     echo "Valid models:"
     echo "  omp"
@@ -31,15 +28,14 @@ then
 fi
 
 ACTION=$1
-COMPILER=${2:-$DEFAULT_COMPILER}
+export COMPILER=${2:-$DEFAULT_COMPILER}
 MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 export BENCHMARK_EXE=tea_leaf
-export CONFIG="tx2_$COMPILER_$MODEL"
-export RUN_DIR=$PWD/TeaLeaf-$CONFIG
-
+export CONFIG="tx2_${COMPILER}_${MODEL}"
+export RUN_DIR="$PWD/TeaLeaf-$CONFIG"
 
 # Set up the environment
 case "$COMPILER" in
@@ -48,35 +44,10 @@ case "$COMPILER" in
         module swap cce cce/8.7.7
         MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
         ;;
-    gcc-7.2)
-        module purge
-        module load gcc/7.2.0
-        module load openmpi/3.0.0/gcc-7.2
-        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpifort C_MPI_COMPILER=mpicc'
-        MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops -cpp -ffree-line-length-none"'
-        MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
-        ;;
-    gcc-8.1)
-        module purge
-        module load gcc/8.1.0
-        module load openmpi/3.0.0/gcc-8.1
-        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpifort C_MPI_COMPILER=mpicc'
-        MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops -cpp -ffree-line-length-none"'
-        MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
-        ;;
-    arm-18.3)
-        module purge
-        module load arm/hpc-compiler/18.3
-        module load openmpi/3.0.0/arm-18.3
-        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpifort C_MPI_COMPILER=mpicc'
-        MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops -cpp -ffree-line-length-none"'
-        MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
-        ;;
-    arm-18.4)
-        module purge
-        module load arm/hpc-compiler/18.4
-        module load openmpi/3.0.0/arm-18.4
-        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpifort C_MPI_COMPILER=mpicc'
+    gcc-8.2)
+        [ "$PE_ENV" != GNU ] && module swap "PrgEnv-$(tr '[:upper:]' '[:lower:]' <<<"$PE_ENV")" PrgEnv-gnu
+        module swap gcc gcc/8.2.0
+        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=ftn C_MPI_COMPILER=cc'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops -cpp -ffree-line-length-none"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
         ;;

@@ -12,7 +12,7 @@ cd "$RUN_DIR"
 
 cp "$SRC_DIR/Benchmarks/tea_bm_5.in" tea.in
 
-export OMP_PROC_BIND=true
-export OMP_NUM_THREADS=2
+export OMP_NUM_THREADS=64
 
-aprun -n 64 -d 2 -j 2 -cc depth "./$BENCHMARK_EXE"
+aprun -n 1 -d 64 -cc cpu "./$BENCHMARK_EXE"
+
