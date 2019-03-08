@@ -33,7 +33,6 @@ MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
-export BENCHMARK_EXE=tea_leaf
 export CONFIG="tx2_${COMPILER}_${MODEL}"
 export RUN_DIR="$PWD/TeaLeaf-$CONFIG"
 
@@ -62,9 +61,12 @@ esac
 case "$MODEL" in
     omp)
         export SRC_DIR=$PWD/TeaLeaf_ref
+        export BENCHMARK_EXE=tea_leaf
         ;;
     kokkos)
-        export SRC_DIR=$PWD/TeaLeaf
+        export SRC_DIR=$PWD/TeaLeaf/2d
+        export BENCHMARK_EXE=tealeaf
+        MAKE_OPTS='KERNELS=kokkos OPTIONS=-DNO_MPI'
         ;;
     *)
         echo

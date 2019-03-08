@@ -35,12 +35,12 @@ case "$MODEL" in
     fi
     ;;
   kokkos|omp-target|oacc|raja)
-    if [ ! -e TeaLeaf/3d/main.c ]
+    if [ ! -e TeaLeaf/2d/main.c ]
     then
       git clone https://github.com/UoB-HPC/TeaLeaf
-      mkdir -p TeaLeaf/Benchmarks
+      mkdir -p TeaLeaf/2d/Benchmarks
       wget https://raw.githubusercontent.com/UK-MAC/TeaLeaf_ref/master/Benchmarks/tea_bm_5.in
-      mv tea_bm_5.in TeaLeaf/Benchmarks
+      mv tea_bm_5.in TeaLeaf/2d/Benchmarks
     fi
     ;;
   cuda)
