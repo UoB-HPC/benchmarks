@@ -38,6 +38,9 @@ case "$MODEL" in
     if [ ! -e TeaLeaf/3d/main.c ]
     then
       git clone https://github.com/UoB-HPC/TeaLeaf
+      mkdir -p TeaLeaf/Benchmarks
+      wget https://raw.githubusercontent.com/UK-MAC/TeaLeaf_ref/master/Benchmarks/tea_bm_5.in
+      mv tea_bm_5.in TeaLeaf/Benchmarks
     fi
     ;;
   cuda)
