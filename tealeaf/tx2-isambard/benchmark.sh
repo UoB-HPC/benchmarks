@@ -64,6 +64,8 @@ case "$MODEL" in
         export BENCHMARK_EXE=tea_leaf
         ;;
     kokkos)
+        module use /lustre/projects/bristol/modules-arm-phase2/modulefiles
+        module load kokkos/2.8.00
         export SRC_DIR=$PWD/TeaLeaf/2d
         export BENCHMARK_EXE=tealeaf
         MAKE_OPTS='KERNELS=kokkos OPTIONS=-DNO_MPI'
@@ -110,6 +112,9 @@ then
         echo "Use the 'build' action first."
         exit 1
     fi
+
+    cp $SRC_DIR/tea.problems $RUN_DIR
+    echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
 
     cd $RUN_DIR
     qsub -N "TeaLeaf-$MODEL" -o "TeaLeaf-$CONFIG.out" -V "$SCRIPT_DIR/run.job"
