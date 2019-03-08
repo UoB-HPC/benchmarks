@@ -31,7 +31,7 @@ case "$MODEL" in
   omp)
     if [ ! -e TeaLeaf_ref/tea.f90 ]
     then
-      git clone https://github.com/lanl/SNAP
+      git clone https://github.com/UK-MAC/TeaLeaf_ref
     fi
     ;;
   kokkos|omp-target|oacc|raja)
