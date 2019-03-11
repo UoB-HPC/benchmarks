@@ -1,0 +1,175 @@
+   Tea Version    1.403
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:    64
+
+
+   Tea Version    1.403
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:    64
+
+ Output file tea.out opened. All output will go there.
+ Step       1 time   0.0000000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       13
+ Wall clock    4.4939517974853516E-003
+ Average time per cell    7.0217996835708618E-005
+ Step time per cell       7.0217996835708618E-005
+ Step       2 time   0.0040000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       13
+ Wall clock    8.9600086212158203E-003
+ Average time per cell    7.0000067353248596E-005
+ Step time per cell       6.8891793489456177E-005
+ Step       3 time   0.0080000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       13
+ Wall clock    1.3399839401245117E-002
+ Average time per cell    6.9790830214818314E-005
+ Step time per cell       6.8765133619308472E-005
+ Step       4 time   0.0120000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       13
+ Wall clock    1.7827987670898438E-002
+ Average time per cell    6.9640576839447021E-005
+ Step time per cell       6.8735331296920776E-005
+ Step       5 time   0.0160000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       13
+ Wall clock    2.2269010543823242E-002
+ Average time per cell    6.9590657949447626E-005
+ Step time per cell       6.8925321102142334E-005
+ Step       6 time   0.0200000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       12
+ Wall clock    2.6404857635498047E-002
+ Average time per cell    6.8762650092442826E-005
+ Step time per cell       6.4171850681304932E-005
+ Step       7 time   0.0240000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       13
+ Wall clock    3.0823945999145508E-002
+ Average time per cell    6.8803450890949792E-005
+ Step time per cell       6.8608671426773071E-005
+ Step       8 time   0.0280000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       13
+ Wall clock    3.5233974456787109E-002
+ Average time per cell    6.8816356360912323E-005
+ Step time per cell       6.8422406911849976E-005
+ Step       9 time   0.0320000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       13
+ Wall clock    3.9639949798583984E-002
+ Average time per cell    6.8819357289208303E-005
+ Step time per cell       6.8202614784240723E-005
+ Step      10 time   0.0360000 timestep   4.00E-03
+Conduction error  0.0000000E+00
+Iteration count       12
+ Wall clock    4.4173002243041992E-002
+ Average time per cell    6.9020316004753113E-005
+ Step time per cell       7.0378184318542480E-005
+Test problem   1 is within   0.2715640E+02% of the expected solution
+ This test is considered NOT PASSED
+ First step overhead   8.5115432739257812E-005
+ Wall clock    4.4571876525878906E-002
+Application 1080621 resources: utime ~3s, stime ~2s, Rss ~6036, inblocks ~0, outblocks ~40
+br-apoenaru@xcimom:~/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_omp> less tea.in
+br-apoenaru@xcimom:~/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_omp> ls ../TeaLeaf-tx2_gcc-7.2_omp/tea.in
+../TeaLeaf-tx2_gcc-7.2_omp/tea.in
+br-apoenaru@xcimom:~/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_omp> less ../TeaLeaf-tx2_gcc-7.2_omp/tea.in
+br-apoenaru@xcimom:~/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_omp> cp ../TeaLeaf-tx2_gcc-7.2_omp/tea.in ./
+br-apoenaru@xcimom:~/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_omp> OMP_NUM_THREADS=64 OMP_PROC_BIND=true OMP_PLACES=cores aprun -n1 -d64 -cc none ./tea_leaf
+
+   Tea Version    1.403
+       MPI Version
+    OpenMP Version
+   Task Count      1
+
+   Tea Version    1.403
+       MPI Version
+    OpenMP Version
+ Thread Count:    64
+
+   Task Count      1
+ Thread Count:    64
+
+ Output file tea.out opened. All output will go there.
+ Step       1 time   0.0000000 timestep   4.00E-03
+Conduction error  0.9975393E-15
+Iteration count     3381
+      Solve Time   33.0140609741    Its   3382     Time Per It    0.0097616975
+ Wall clock    33.014530897140503
+ Average time per cell   0.51585204526782036
+ Step time per cell      0.51585203036665916
+ Step       2 time   0.0040000 timestep   4.00E-03
+Conduction error  0.9859481E-15
+Iteration count     4096
+      Solve Time   39.9571270943    Its   4097     Time Per It    0.0097527769
+ Wall clock    72.971916913986206
+ Average time per cell   0.57009310089051723
+ Step time per cell      0.62433360889554024
+ Step       3 time   0.0080000 timestep   4.00E-03
+Conduction error  0.9843725E-15
+Iteration count     4060
+      Solve Time   39.6379270554    Its   4061     Time Per It    0.0097606321
+ Wall clock    112.61010885238647
+ Average time per cell   0.58651098360617959
+ Step time per cell      0.61934617161750793
+ Step       4 time   0.0120000 timestep   4.00E-03
+Conduction error  0.9859976E-15
+Iteration count     3950
+      Solve Time   38.5748920441    Its   3951     Time Per It    0.0097633237
+ Wall clock    151.18527007102966
+ Average time per cell   0.59056746121495962
+ Step time per cell      0.60273628309369087
+ Step       5 time   0.0160000 timestep   4.00E-03
+Conduction error  0.9961710E-15
+Iteration count     3832
+      Solve Time   37.4301619530    Its   3833     Time Per It    0.0097652392
+ Wall clock    188.61570000648499
+ Average time per cell   0.58942406252026558
+ Step time per cell      0.58484990522265434
+ Step       6 time   0.0200000 timestep   4.00E-03
+Conduction error  0.9990771E-15
+Iteration count     3710
+      Solve Time   36.2090480328    Its   3711     Time Per It    0.0097572212
+ Wall clock    224.82501697540283
+ Average time per cell   0.58548181504011154
+ Step time per cell      0.56576997041702271
+ Step       7 time   0.0240000 timestep   4.00E-03
+Conduction error  0.9949548E-15
+Iteration count     3603
+      Solve Time   35.1838669777    Its   3604     Time Per It    0.0097624492
+ Wall clock    260.00915098190308
+ Average time per cell   0.58037756915603367
+ Step time per cell      0.54975159466266632
+ Step       8 time   0.0280000 timestep   4.00E-03
+Conduction error  0.9911508E-15
+Iteration count     3503
+      Solve Time   34.2075841427    Its   3504     Time Per It    0.0097624384
+ Wall clock    294.21700096130371
+ Average time per cell   0.57464258000254631
+ Step time per cell      0.53449710831046104
+ Step       9 time   0.0320000 timestep   4.00E-03
+Conduction error  0.9984263E-15
+Iteration count     3410
+      Solve Time   33.3154058456    Its   3411     Time Per It    0.0097670495
+ Wall clock    327.53266692161560
+ Average time per cell   0.56863310229447150
+ Step time per cell      0.52055678144097328
+ Step      10 time   0.0360000 timestep   4.00E-03
+Conduction error  0.9979693E-15
+Iteration count     3335
+      Solve Time   32.6001780033    Its   3336     Time Per It    0.0097722356
+ Wall clock    360.13659906387329
+ Average time per cell   0.56271343603730206
+ Step time per cell      0.50943584367632866
+Test problem   5 is within   0.1185810E-08% of the expected solution
+ This test is considered PASSED
+ First step overhead  -6.9428210258483887
+ Wall clock    360.13960695266724
+Application 1080622 resources: utime ~19993s, stime ~257s, Rss ~2913724, inblocks ~0, outblocks ~56
