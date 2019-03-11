@@ -8,6 +8,7 @@ function usage
     echo
     echo "Valid models:"
     echo "  omp"
+    echo "  kokkos"
     echo
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
@@ -21,6 +22,12 @@ case "$MODEL" in
     if [ ! -e CloverLeaf_ref/clover.f90 ]
     then
         git clone https://github.com/UK-MAC/CloverLeaf_ref
+    fi
+    ;;
+  kokkos)
+    if [ ! -e CloverLeaf/src/kokkosdefs.h ]
+    then
+      git clone https://github.com/UoB-HPC/CloverLeaf
     fi
     ;;
   *)

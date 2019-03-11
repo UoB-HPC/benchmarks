@@ -10,9 +10,13 @@ function usage
     echo "Valid compilers:"
     echo "  cce-8.7"
     echo "  gcc-7.2"
-    echo "  gcc-8.1"
+    echo "  gcc-8.2"
     echo "  arm-18.3"
     echo "  arm-18.4"
+    echo
+    echo "Valid models:"
+    echo " omp"
+    echo " kokkos"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -36,12 +40,6 @@ export BENCHMARK_EXE=clover_leaf
 export CONFIG="tx2"_"$COMPILER"_"$MODEL"
 export RUN_DIR=$PWD/CloverLeaf-$CONFIG
 
-case "$MODEL" in
-  omp)
-    export SRC_DIR=$PWD/CloverLeaf_ref
-    ;;
-esac
-
 # Set up the environment
 case "$COMPILER" in
     cce-8.7)
@@ -56,13 +54,13 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
         ;;
-    gcc-8.1)
-        module purge
-        module load gcc/8.1.0
-        module load openmpi/3.0.0/gcc-8.1
-        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpifort C_MPI_COMPILER=mpicc'
+    gcc-8.2)
+        module swap PrgEnv-cray PrgEnv-gnu
+        module swap gcc gcc/8.2.0
+        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=ftn C_MPI_COMPILER=cc'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
+        # export OMP_PROC_BIND=spread DON'T BIND ON A CRAY
         ;;
     arm-18.3)
         module purge
@@ -86,6 +84,22 @@ case "$COMPILER" in
         usage
         exit 1
         ;;
+esac
+
+case "$MODEL" in
+  omp)
+    export SRC_DIR=$PWD/CloverLeaf_ref
+    ;;
+  kokkos)
+    module load kokkos/2.8.00
+    export SRC_DIR=$PWD/CloverLeaf
+    mkdir -p $SRC_DIR/{obj,mpiobj}
+    case "$COMPILER" in
+      gcc-8.2)
+        MAKE_OPTS="COMPILER=GNU USE_KOKKOS=1 MPI_CC_GNU=CC"
+        ;;
+    esac
+    ;;
 esac
 
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -q arm
 #PBS -l select=1:ncpus=64
-#PBS -l walltime=00:15:00
+#PBS -l walltime=00:45:00
 #PBS -joe
 
 cd $RUN_DIR
@@ -9,5 +9,6 @@ cd $RUN_DIR
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 
 export OMP_NUM_THREADS=64
-aprun -n 1 -d 64 -cc depth ./$BENCHMARK_EXE
+export CRAY_OMP_NUM_CHECK_AFFINITY=TRUE
+aprun -n 1 -d 64 ./$BENCHMARK_EXE
 
