@@ -1,0 +1,110 @@
+CUDA in rank 0 using Tesla V100-SXM2-16GB
+Solver to use: Conjugate gradient
+Preconditioner to use: None (no preconditioner specified in tea.in)
+@@@@@ PROFILING @@@@@
+
+   Tea Version    1.400
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:   160
+
+ Step       1 time   0.0000000 timestep   4.00E-03
+Conduction error  0.9975393E-15
+Iteration count     3381
+      Solve Time    7.4447200298    Its   3382     Time Per It    0.0022012774
+ Wall clock    7.4447791576385498     
+ Average time per cell    4.6529869735240938E-007
+ Step time per cell       4.6529869735240938E-007
+ Step       2 time   0.0040000 timestep   4.00E-03
+Conduction error  0.9859479E-15
+Iteration count     4096
+      Solve Time    8.9929280281    Its   4097     Time Per It    0.0021950032
+ Wall clock    16.437761068344116     
+ Average time per cell    5.1368003338575367E-007
+ Step time per cell       5.6206050515174868E-007
+ Step       3 time   0.0080000 timestep   4.00E-03
+Conduction error  0.9843777E-15
+Iteration count     4060
+      Solve Time    8.9106159210    Its   4061     Time Per It    0.0021941925
+ Wall clock    25.348417043685913     
+ Average time per cell    5.2809202174345653E-007
+ Step time per cell       5.5691500008106233E-007
+ Step       4 time   0.0120000 timestep   4.00E-03
+Conduction error  0.9863986E-15
+Iteration count     3950
+      Solve Time    8.6713349819    Its   3951     Time Per It    0.0021947191
+ Wall clock    34.019791126251221     
+ Average time per cell    5.3155923634767533E-007
+ Step time per cell       5.4196000099182128E-007
+ Step       5 time   0.0160000 timestep   4.00E-03
+Conduction error  0.9967578E-15
+Iteration count     3832
+      Solve Time    8.4102518559    Its   3833     Time Per It    0.0021941695
+ Wall clock    42.430083036422729     
+ Average time per cell    5.3037603795528411E-007
+ Step time per cell       5.2564230561256410E-007
+ Step       6 time   0.0200000 timestep   4.00E-03
+Conduction error  0.9968242E-15
+Iteration count     3710
+      Solve Time    8.1447029114    Its   3711     Time Per It    0.0021947461
+ Wall clock    50.574827194213867     
+ Average time per cell    5.2682111660639441E-007
+ Step time per cell       5.0904557108879091E-007
+ Step       7 time   0.0240000 timestep   4.00E-03
+Conduction error  0.9985422E-15
+Iteration count     3601
+      Solve Time    7.9037261009    Its   3602     Time Per It    0.0021942604
+ Wall clock    58.478592157363892     
+ Average time per cell    5.2213028711932049E-007
+ Step time per cell       4.9398431181907652E-007
+ Step       8 time   0.0280000 timestep   4.00E-03
+Conduction error  0.9814203E-15
+Iteration count     3501
+      Solve Time    7.6842589378    Its   3502     Time Per It    0.0021942487
+ Wall clock    66.162890195846558     
+ Average time per cell    5.1689757965505122E-007
+ Step time per cell       4.8026762902736666E-007
+ Step       9 time   0.0320000 timestep   4.00E-03
+Conduction error  0.9819812E-15
+Iteration count     3406
+      Solve Time    7.4761600494    Its   3407     Time Per It    0.0021943528
+ Wall clock    73.639087200164795     
+ Average time per cell    5.1138255000114445E-007
+ Step time per cell       4.6726144850254060E-007
+ Step      10 time   0.0360000 timestep   4.00E-03
+Conduction error  0.9930161E-15
+Iteration count     3330
+      Solve Time    7.3097829819    Its   3331     Time Per It    0.0021944710
+ Wall clock    80.949748039245605     
+ Average time per cell    5.0593592524528505E-007
+ Step time per cell       4.5691530406475070E-007
+ First step overhead  -1.5481889247894287     
+ Wall clock    80.950605154037476     
+
+   Tea Version    1.400
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:   160
+
+ Output file tea.out opened. All output will go there.
+Test problem   5 is within   0.1101526E-08% of the expected solution
+ This test is considered PASSED
+@@@@@ PROFILING @@@@@
+      "device_field_summary_kernel" : 1.882
+       "device_generate_chunk_init" : 0.450
+     "device_generate_chunk_init_u" : 7.793
+     "device_generate_chunk_kernel" : 0.873
+   "device_initialise_chunk_kernel" : 0.605
+"device_initialise_chunk_kernel_vertex" : 0.220
+          "device_set_field_kernel" : 0.357
+       "device_tea_leaf_calc_2norm" : 1.926
+    "device_tea_leaf_calc_residual" : 8.102
+  "device_tea_leaf_cg_solve_calc_p" : 17200.461
+ "device_tea_leaf_cg_solve_calc_ur" : 34392.416
+  "device_tea_leaf_cg_solve_calc_w" : 23799.265
+  "device_tea_leaf_cg_solve_init_p" : 3.586
+         "device_tea_leaf_finalise" : 4.888
+      "device_tea_leaf_init_common" : 5.406
+  "device_tea_leaf_zero_boundaries" : 1.900
