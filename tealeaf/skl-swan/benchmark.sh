@@ -1,17 +1,23 @@
 #!/bin/bash
 
 DEFAULT_COMPILER=intel-2018
+DEFAULT_MODEL=omp
 function usage
 {
     echo
-    echo "Usage: ./benchmark.sh build|run [COMPILER]"
+    echo "Usage: ./benchmark.sh build|run [COMPILER] [MODEL]"
     echo
     echo "Valid compilers:"
     echo "  cce-8.7"
     echo "  gcc-7.3"
     echo "  intel-2018"
     echo
-    echo "The default configuration is '$DEFAULT_COMPILER'."
+    echo "Valid models:"
+    echo "  omp"
+    echo "  kokkos"
+    echo
+    echo "The default compiler is '$DEFAULT_COMPILER'."
+    echo "The default programming model is '$DEFAULT_MODEL'."
     echo
 }
 
@@ -24,11 +30,12 @@ fi
 
 ACTION=$1
 COMPILER=${2:-$DEFAULT_COMPILER}
+MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
-SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
+SCRIPT_DIR=`realpath "$(dirname $SCRIPT)"`
 
 export BENCHMARK_EXE=tea_leaf
-export CONFIG="skl"_"$COMPILER"
+export CONFIG="skl_${COMPILER}_${MODEL}"
 export SRC_DIR=$PWD/TeaLeaf_ref
 export RUN_DIR=$PWD/TeaLeaf-$CONFIG
 
@@ -62,12 +69,34 @@ case "$COMPILER" in
         ;;
 esac
 
+case "$MODEL" in
+    omp)
+        export SRC_DIR=$PWD/TeaLeaf_ref
+        export BENCHMARK_EXE=tea_leaf
+        ;;
+    kokkos)
+	echo "Kokkos module not available"
+	exit 99
+        # module use /lustre/projects/bristol/modules-arm-phase2/modulefiles
+        # module load kokkos/2.8.00
+        export SRC_DIR=$PWD/TeaLeaf/2d
+        export BENCHMARK_EXE=tealeaf
+        MAKE_OPTS='KERNELS=kokkos OPTIONS=-DNO_MPI'
+        ;;
+    *)
+        echo
+        echo "Invalid model '$MODEL'."
+        usage
+        exit 2
+        ;;
+esac
+
 
 # Handle actions
 if [ "$ACTION" == "build" ]
 then
     # Fetch source code
-    if ! "$SCRIPT_DIR/../fetch.sh"
+    if ! "$SCRIPT_DIR/../fetch.sh" "$MODEL"
     then
         echo
         echo "Failed to fetch source code."
@@ -97,10 +126,15 @@ then
         exit 1
     fi
 
+    if [ "$MODEL" = kokkos ]; then
+        cp $SRC_DIR/tea.problems $RUN_DIR
+        echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
+    fi
+
     qsub $SCRIPT_DIR/run.job \
         -d $RUN_DIR \
         -o TeaLeaf-$CONFIG.out \
-        -N tealeaf \
+        -N "tealeaf-$MODEL" \
         -V
 else
     echo
