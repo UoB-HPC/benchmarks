@@ -31,7 +31,7 @@ ACTION=$1
 export COMPILER=${2:-$DEFAULT_COMPILER}
 MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
-SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
+SCRIPT_DIR=`realpath "$(dirname $SCRIPT)"`
 
 export CONFIG="tx2_${COMPILER}_${MODEL}"
 export RUN_DIR="$PWD/TeaLeaf-$CONFIG"
@@ -113,10 +113,12 @@ then
         exit 1
     fi
 
-    cp $SRC_DIR/tea.problems $RUN_DIR
-    echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
+    if [ "$MODEL" = kokkos ]; then
+        cp $SRC_DIR/tea.problems $RUN_DIR
+        echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
+    fi
 
-    cd $RUN_DIR
+    cd $RUN_DIR || exit 1
     qsub -N "TeaLeaf-$MODEL" -o "TeaLeaf-$CONFIG.out" -V "$SCRIPT_DIR/run.job"
 else
     echo
