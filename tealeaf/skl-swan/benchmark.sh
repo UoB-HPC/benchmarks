@@ -75,13 +75,12 @@ case "$MODEL" in
         export BENCHMARK_EXE=tea_leaf
         ;;
     kokkos)
-	echo "Kokkos module not available"
-	exit 99
-        # module use /lustre/projects/bristol/modules-arm-phase2/modulefiles
-        # module load kokkos/2.8.00
+        module use /lus/scratch/p02555/modules/modulefiles
+        module load kokkos/skylake
         export SRC_DIR=$PWD/TeaLeaf/2d
         export BENCHMARK_EXE=tealeaf
-        MAKE_OPTS='KERNELS=kokkos OPTIONS=-DNO_MPI'
+        MAKE_OPTS='KERNELS=kokkos COMPILER=INTEL CC=icc CPP=icpc OPTIONS=-DNO_MPI'
+        sed -i 's/-xhost/-xCORE-AVX512/' "$SRC_DIR/make.flags"
         ;;
     *)
         echo
@@ -106,7 +105,7 @@ then
 
     # Perform build
     rm -f $SRC_DIR/$BENCHMARK_EXE $RUN_DIR/$BENCHMARK_EXE
-    if ! eval make -C $SRC_DIR -B $MAKE_OPTS
+    if ! eval make -j 8 -C $SRC_DIR -B $MAKE_OPTS
     then
         echo
         echo "Build failed."
