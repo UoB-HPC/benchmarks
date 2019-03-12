@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -q knl64
+#PBS -l os=CLE_quad_flat
+#PBS -l nodes=1
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+cp "$SRC_DIR/Benchmarks/tea_bm_5.in" tea.in
+
+export OMP_NUM_THREADS=64
+aprun -n 1 -d 64 -j 1 -cc depth numatcl -m 2 "./$BENCHMARK_EXE"
