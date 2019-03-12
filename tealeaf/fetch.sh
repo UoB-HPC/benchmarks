@@ -46,13 +46,13 @@ case "$MODEL" in
   cuda)
     if [ ! -e TeaLeaf_CUDA/tea.f90 ]
     then
-      https://github.com/UK-MAC/TeaLeaf_CUDA 
+      git clone https://github.com/UK-MAC/TeaLeaf_CUDA 
     fi
     ;;
   opencl)
     if [ ! -e TeaLeaf_OpenCL/tea.f90 ]
     then
-      https://github.com/UK-MAC/TeaLeaf_OpenCL
+      git clone https://github.com/UK-MAC/TeaLeaf_OpenCL
     fi
     ;;
   *)

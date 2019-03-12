@@ -1,0 +1,113 @@
+craype-broadwell(69):ERROR:150: Module 'craype-broadwell' conflicts with the currently loaded module(s) 'craype-mic-knl'
+craype-broadwell(69):ERROR:102: Tcl command execution failed: conflict craype-mic-knl
+
+CUDA in rank 0 using Tesla P100-PCIE-16GB
+Solver to use: Conjugate gradient
+Preconditioner to use: None (no preconditioner specified in tea.in)
+@@@@@ PROFILING @@@@@
+
+   Tea Version    1.400
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:    36
+
+ Step       1 time   0.0000000 timestep   4.00E-03
+Conduction error  0.9975393E-15
+Iteration count     3381
+      Solve Time   11.2284901142    Its   3382     Time Per It    0.0033200740
+ Wall clock    11.228646993637085     
+ Average time per cell    7.0179043710231780E-007
+ Step time per cell       7.0179043710231780E-007
+ Step       2 time   0.0040000 timestep   4.00E-03
+Conduction error  0.9859479E-15
+Iteration count     4096
+      Solve Time   13.5926680565    Its   4097     Time Per It    0.0033177125
+ Wall clock    24.821360111236572     
+ Average time per cell    7.7566750347614285E-007
+ Step time per cell       8.4954386949539185E-007
+ Step       3 time   0.0080000 timestep   4.00E-03
+Conduction error  0.9843777E-15
+Iteration count     4060
+      Solve Time   13.4739251137    Its   4061     Time Per It    0.0033178836
+ Wall clock    38.295316219329834     
+ Average time per cell    7.9781908790270483E-007
+ Step time per cell       8.4212169051170347E-007
+ Step       4 time   0.0120000 timestep   4.00E-03
+Conduction error  0.9863986E-15
+Iteration count     3950
+      Solve Time   13.1083378792    Its   3951     Time Per It    0.0033177266
+ Wall clock    51.403689146041870     
+ Average time per cell    8.0318264290690423E-007
+ Step time per cell       8.1927275657653805E-007
+ Step       5 time   0.0160000 timestep   4.00E-03
+Conduction error  0.9967578E-15
+Iteration count     3832
+      Solve Time   12.7156720161    Its   3833     Time Per It    0.0033174203
+ Wall clock    64.119394063949585     
+ Average time per cell    8.0149242579936979E-007
+ Step time per cell       7.9473099112510684E-007
+ Step       6 time   0.0200000 timestep   4.00E-03
+Conduction error  0.9968242E-15
+Iteration count     3710
+      Solve Time   12.3110389709    Its   3711     Time Per It    0.0033174452
+ Wall clock    76.430467128753662     
+ Average time per cell    7.9615069925785069E-007
+ Step time per cell       7.6944150030612943E-007
+ Step       7 time   0.0240000 timestep   4.00E-03
+Conduction error  0.9985422E-15
+Iteration count     3601
+      Solve Time   11.9513101578    Its   3602     Time Per It    0.0033179651
+ Wall clock    88.381803035736084     
+ Average time per cell    7.8912324139050074E-007
+ Step time per cell       7.4695800244808193E-007
+ Step       8 time   0.0280000 timestep   4.00E-03
+Conduction error  0.9814203E-15
+Iteration count     3501
+      Solve Time   11.6192300320    Its   3502     Time Per It    0.0033178841
+ Wall clock    100.00106215476990     
+ Average time per cell    7.8125829808413987E-007
+ Step time per cell       7.2620312869548800E-007
+ Step       9 time   0.0320000 timestep   4.00E-03
+Conduction error  0.9819812E-15
+Iteration count     3406
+      Solve Time   11.3032939434    Its   3407     Time Per It    0.0033176677
+ Wall clock    111.30438899993896     
+ Average time per cell    7.7294714583290948E-007
+ Step time per cell       7.0645736157894135E-007
+ Step      10 time   0.0360000 timestep   4.00E-03
+Conduction error  0.9930161E-15
+Iteration count     3330
+      Solve Time   11.0507860184    Its   3331     Time Per It    0.0033175581
+ Wall clock    122.35629200935364     
+ Average time per cell    7.6472682505846027E-007
+ Step time per cell       6.9074343144893647E-007
+ First step overhead  -2.3640539646148682     
+ Wall clock    122.35736608505249     
+
+   Tea Version    1.400
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:    36
+
+ Output file tea.out opened. All output will go there.
+Test problem   5 is within   0.1101526E-08% of the expected solution
+ This test is considered PASSED
+@@@@@ PROFILING @@@@@
+      "device_field_summary_kernel" : 2.722
+       "device_generate_chunk_init" : 0.537
+     "device_generate_chunk_init_u" : 11.007
+     "device_generate_chunk_kernel" : 1.423
+   "device_initialise_chunk_kernel" : 0.775
+"device_initialise_chunk_kernel_vertex" : 0.252
+          "device_set_field_kernel" : 0.495
+       "device_tea_leaf_calc_2norm" : 2.987
+    "device_tea_leaf_calc_residual" : 12.930
+  "device_tea_leaf_cg_solve_calc_p" : 25897.355
+ "device_tea_leaf_cg_solve_calc_ur" : 55127.990
+  "device_tea_leaf_cg_solve_calc_w" : 38488.988
+  "device_tea_leaf_cg_solve_init_p" : 4.996
+         "device_tea_leaf_finalise" : 7.030
+      "device_tea_leaf_init_common" : 7.479
+  "device_tea_leaf_zero_boundaries" : 2.228
