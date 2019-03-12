@@ -32,9 +32,11 @@ case "$MODEL" in
   omp-target)
     module use /lustre/projects/bristol/modules-power/modulefiles
     module load llvm/trunk
+    export MAKEFLAGS='-j36'
     MAKE_OPTS='\
       CC=clang \
-      CFLAGS="-DDIFFUSE_OVERLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70" \
+      CFLAGS="-O3 -DDIFFUSE_OVERLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70" \
+      TL_LDFLAGS="-fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70 -lm -lrt" \
       KERNELS="omp4_clang" \
       OPTIONS="-DNO_MPI"'
     export COMPILER=clang
