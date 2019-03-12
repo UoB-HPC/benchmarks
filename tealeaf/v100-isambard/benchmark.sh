@@ -30,11 +30,11 @@ SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 case "$MODEL" in
   omp-target)
-    module use /lustre/projects/bristol/modules/modulefiles
+    module use /lustre/projects/bristol/modules-power/modulefiles
     module load llvm/trunk
     MAKE_OPTS='\
       CC=clang \
-      CFLAGS="-DDIFFUSE_OVERLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_60" \
+      CFLAGS="-DDIFFUSE_OVERLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70" \
       KERNELS="omp4_clang" \
       OPTIONS="-DNO_MPI"'
     export COMPILER=clang
@@ -42,6 +42,7 @@ case "$MODEL" in
     export BENCHMARK_EXE="tealeaf.omp4_clang"
     ;;
   cuda)
+    module use /lustre/projects/bristol/modules-power/modulefiles
     module load cuda/10.0
     module load mpi/openmpi-ppc64le
     export COMPILER=NVCC
@@ -51,6 +52,22 @@ case "$MODEL" in
       COMPILER=GNU \
       CUDA_HOME="/usr/local/cuda-10.0/" \
       NV_ARCH="VOLTA"'
+    ;;
+  kokkos)
+    module use /lustre/projects/bristol/modules-power/modulefiles
+    module load kokkos/volta
+    KOKKOS_CXXFLAGS=$(grep KOKKOS_CXXFLAGS $KOKKOS_PATH/Makefile.kokkos | cut -d '=' -f 2- )
+    export SRC_DIR="$PWD/TeaLeaf/2d"
+    export BENCHMARK_EXE="tealeaf.kokkos"
+    NVCC_WRAPPER="$KOKKOS_PATH/bin/nvcc_wrapper"
+    KERNELS_PATH="$SRC_DIR/c_kernels/kokkos"
+    export MAKEFLAGS="-j40"
+    export COMPILER=NVCC
+    MAKE_OPTS='\
+      CC="$NVCC_WRAPPER" \
+      CPP="$NVCC_WRAPPER"  \
+      KERNEL_FLAGS="$KOKKOS_CXXFLAGS -DNO_MPI -DCUDA -I$KERNELS_PATH" \
+      KERNELS=kokkos' \
     ;;
   *)
     echo
@@ -78,7 +95,10 @@ then
     exit 1
   fi
 
-  sed -i 's/-march=native/-mcpu=powerpc64le -mtune=powerpc64le/' "$SRC_DIR/Makefile"
+  #sed -i 's/-march=native/-mcpu=powerpc64le -mtune=powerpc64le/' "$SRC_DIR/Makefile"
+  if [ "$MODEL" == "kokkos" ]; then
+    sed -i 's/$(TL_LINK) $(TL_FLAGS) $(OBJS) $(KERNEL_OBJS) $(TL_LDFLAGS) -o tealeaf.$(KERNELS)/$(TL_LINK) $(OBJS) $(KERNEL_OBJS) $(TL_LDFLAGS) -o tealeaf.$(KERNELS)/' "$SRC_DIR/Makefile"
+  fi
 
   # Perform build
   rm -f $SRC_DIR/$BENCHMARK_EXE $RUN_DIR/$BENCHMARK_EXE
