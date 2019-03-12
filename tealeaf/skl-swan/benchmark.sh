@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEFAULT_COMPILER=intel-2018
+DEFAULT_COMPILER=intel-2019
 DEFAULT_MODEL=omp
 function usage
 {
@@ -11,6 +11,7 @@ function usage
     echo "  cce-8.7"
     echo "  gcc-7.3"
     echo "  intel-2018"
+    echo "  intel-2019"
     echo
     echo "Valid models:"
     echo "  omp"
@@ -57,6 +58,13 @@ case "$COMPILER" in
     intel-2018)
         module swap PrgEnv-{cray,intel}
         module swap intel intel/18.0.0.128
+        MAKE_OPTS='COMPILER=INTEL MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -fpp -align array64byte -xCORE-AVX512"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX512"'
+        ;;
+    intel-2019)
+        module swap PrgEnv-{cray,intel}
+        module swap intel intel/19.0.0.117
         MAKE_OPTS='COMPILER=INTEL MPI_COMPILER=ftn C_MPI_COMPILER=cc'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -fpp -align array64byte -xCORE-AVX512"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX512"'

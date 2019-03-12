@@ -1,0 +1,72 @@
+Opening tea.out as log file.
+Performing this solve with the Kokkos  solver
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+Timestep 1
+CG: 			4873 iterations
+Wallclock: 		43.399s
+Avg. time per cell: 	2.712452e-06
+Error: 			9.746356e-31
+
+Timestep 2
+CG: 			4717 iterations
+Wallclock: 		85.415s
+Avg. time per cell: 	5.338461e-06
+Error: 			9.982442e-31
+
+Timestep 3
+CG: 			4560 iterations
+Wallclock: 		126.051s
+Avg. time per cell: 	7.878178e-06
+Error: 			9.646906e-31
+
+Timestep 4
+CG: 			4406 iterations
+Wallclock: 		165.317s
+Avg. time per cell: 	1.033230e-05
+Error: 			9.859728e-31
+
+Timestep 5
+CG: 			4261 iterations
+Wallclock: 		203.288s
+Avg. time per cell: 	1.270548e-05
+Error: 			9.843961e-31
+
+Timestep 6
+CG: 			4122 iterations
+Wallclock: 		240.021s
+Avg. time per cell: 	1.500129e-05
+Error: 			9.947510e-31
+
+Timestep 7
+CG: 			4000 iterations
+Wallclock: 		275.668s
+Avg. time per cell: 	1.722922e-05
+Error: 			9.994429e-31
+
+Timestep 8
+CG: 			3884 iterations
+Wallclock: 		310.284s
+Avg. time per cell: 	1.939277e-05
+Error: 			9.908057e-31
+
+Timestep 9
+CG: 			3779 iterations
+Wallclock: 		343.970s
+Avg. time per cell: 	2.149815e-05
+Error: 			9.900036e-31
+
+Timestep 10
+CG: 			3678 iterations
+Wallclock: 		376.748s
+Avg. time per cell: 	2.354674e-05
+Error: 			9.802676e-31
+
+Checking results...
+Expected 9.546235158221428e+01
+Actual   9.546235158217699e+01
+This run [32mPASSED[0m (Difference is within 0.00000000%)
+Application 3595531 resources: utime ~21058s, stime ~49s, Rss ~2013140, inblocks ~1584, outblocks ~0
