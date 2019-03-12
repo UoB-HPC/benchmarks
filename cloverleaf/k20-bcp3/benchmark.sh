@@ -28,8 +28,8 @@ fi
 ACTION=$1
 COMPILER=${2:-$DEFAULT_COMPILER}
 MODEL=${3:-$DEFAULT_MODEL}
-SCRIPT=`readlink -f $0`
-SCRIPT_DIR=`readlink -f $(dirname $SCRIPT)`
+SCRIPT=`basename $0`
+SCRIPT_DIR=`dirname $0`
 
 export BENCHMARK_EXE=clover_leaf
 export CONFIG="k20"_"$COMPILER"
@@ -56,7 +56,7 @@ esac
 if [ "$ACTION" == "build" ]
 then
     # Fetch source code
-    if ! "$SCRIPT_DIR/../fetch.sh $MODEL"
+    if ! eval "$SCRIPT_DIR/../fetch.sh $MODEL"
     then
         echo
         echo "Failed to fetch source code."
