@@ -1,0 +1,85 @@
+craype-broadwell(69):ERROR:150: Module 'craype-broadwell' conflicts with the currently loaded module(s) 'craype-mic-knl'
+craype-broadwell(69):ERROR:102: Tcl command execution failed: conflict craype-mic-knl
+
+Opening tea.out as log file.
+Performing this solve with the Kokkos  solver
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+Timestep 1
+CG: 			4873 iterations
+Wallclock: 		21.600s
+Avg. time per cell: 	1.350027e-06
+Error: 			9.746356e-31
+
+Timestep 2
+CG: 			4717 iterations
+Wallclock: 		42.498s
+Avg. time per cell: 	2.656149e-06
+Error: 			9.982565e-31
+
+Timestep 3
+CG: 			4560 iterations
+Wallclock: 		62.702s
+Avg. time per cell: 	3.918887e-06
+Error: 			9.646550e-31
+
+Timestep 4
+CG: 			4406 iterations
+Wallclock: 		82.223s
+Avg. time per cell: 	5.138963e-06
+Error: 			9.864278e-31
+
+Timestep 5
+CG: 			4261 iterations
+Wallclock: 		101.103s
+Avg. time per cell: 	6.318965e-06
+Error: 			9.885390e-31
+
+Timestep 6
+CG: 			4122 iterations
+Wallclock: 		119.367s
+Avg. time per cell: 	7.460454e-06
+Error: 			9.950088e-31
+
+Timestep 7
+CG: 			4001 iterations
+Wallclock: 		137.096s
+Avg. time per cell: 	8.568485e-06
+Error: 			9.873470e-31
+
+Timestep 8
+CG: 			3884 iterations
+Wallclock: 		154.310s
+Avg. time per cell: 	9.644358e-06
+Error: 			9.907516e-31
+
+Timestep 9
+CG: 			3780 iterations
+Wallclock: 		171.061s
+Avg. time per cell: 	1.069133e-05
+Error: 			9.790365e-31
+
+Timestep 10
+CG: 			3680 iterations
+Wallclock: 		187.368s
+Avg. time per cell: 	1.171050e-05
+Error: 			9.838624e-31
+
+Checking results...
+Expected 9.546235158221428e+01
+Actual   9.546235158231138e+01
+This run [32mPASSED[0m (Difference is within 0.00000000%)
+
+-------------------------------------------------------------
+
+Profiling Results:
+
+Kernel Name                      Calls         Runtime (s)
+
+Total elapsed time: 0.000s, entries * are excluded.
+
+-------------------------------------------------------------
+

@@ -30,18 +30,28 @@ SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 case "$MODEL" in
   omp-target)
-    module unload cudatoolkit/8.0.44
-    module load cudatoolkit/9.1.85
-    module use /lustre/projects/bristol/modules/modulefiles
-    module load llvm/trunk
+    module load cudatoolkit/8.0.44
+    module load craype-accel-nvidia60
+    module load craype-broadwell
     MAKE_OPTS='\
-      CC=clang \
-      CFLAGS="-DDIFFUSE_OVERLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_60" \
-      KERNELS="omp4_clang" \
-      OPTIONS="-DNO_MPI"'
-    export COMPILER=clang
+      CC=cc \
+      COMPILER=CRAY \
+      OPTIONS=-DNO_MPI \
+      KERNELS=omp4'
+    export COMPILER=CRAY
+    export BENCHMARK_EXE="tealeaf.omp4"
     export SRC_DIR="$PWD/TeaLeaf/2d"
-    export BENCHMARK_EXE="tealeaf.omp4_clang"
+    #module unload cudatoolkit/8.0.44
+    #module use /lustre/projects/bristol/modules/modulefiles
+    #module load llvm/trunk
+    #MAKE_OPTS='\
+    #  CC=clang \
+    #  CFLAGS="-DDIFFUSE_OVERLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_60" \
+    #  KERNELS="omp4_clang" \
+    #  OPTIONS="-DNO_MPI"'
+    #export COMPILER=clang
+    #export SRC_DIR="$PWD/TeaLeaf/2d"
+    #export BENCHMARK_EXE="tealeaf.omp4_clang"
     ;;
   cuda)
     module load cudatoolkit/9.1.85
@@ -52,6 +62,22 @@ case "$MODEL" in
       COMPILER=GNU \
       CUDA_HOME="/global/opt/nvidia/cudatoolkit/9.1.85/" \
       NV_ARCH="PASCAL"'
+    ;;
+  kokkos)
+    module use /lustre/projects/bristol/modules/modulefiles
+    module load kokkos/pascal
+    KOKKOS_CXXFLAGS=$(grep KOKKOS_CXXFLAGS $KOKKOS_PATH/Makefile.kokkos | cut -d '=' -f 2- )
+    export SRC_DIR="$PWD/TeaLeaf/2d"
+    export BENCHMARK_EXE="tealeaf.kokkos"
+    NVCC_WRAPPER="$KOKKOS_PATH/bin/nvcc_wrapper"
+    KERNELS_PATH="$SRC_DIR/c_kernels/kokkos"
+    export MAKEFLAGS="-j36"
+    export COMPILER=NVCC
+    MAKE_OPTS='\
+      CC="$NVCC_WRAPPER" \
+      CPP="$NVCC_WRAPPER"  \
+      KERNEL_FLAGS="$KOKKOS_CXXFLAGS -DNO_MPI -DCUDA -I$KERNELS_PATH" \
+      KERNELS=kokkos' \
     ;;
   *)
     echo
@@ -77,6 +103,10 @@ then
     echo "Failed to fetch source code."
     echo
     exit 1
+  fi
+
+  if [ "$MODEL" == "kokkos" ]; then
+    sed -i 's/$(TL_LINK) $(TL_FLAGS) $(OBJS) $(KERNEL_OBJS) $(TL_LDFLAGS) -o tealeaf.$(KERNELS)/$(TL_LINK) $(OBJS) $(KERNEL_OBJS) $(TL_LDFLAGS) -o tealeaf.$(KERNELS)/' "$SRC_DIR/Makefile"
   fi
 
   # Perform build
