@@ -67,14 +67,19 @@ case "$MODEL" in
         export BENCHMARK_EXE=tealeaf
         ;;
     kokkos)
-        echo "Kokkos module not available"
-        exit 99
-        # module use /lus/scratch/p02555/modules/modulefiles
-        # module load kokkos/skylake
-        # export SRC_DIR=$PWD/TeaLeaf/2d
-        # export BENCHMARK_EXE=tealeaf
-        # MAKE_OPTS='KERNELS=kokkos COMPILER=INTEL CC=icc CPP=icpc OPTIONS=-DNO_MPI'
-        # sed -i 's/-xhost/-xCORE-AVX512/' "$SRC_DIR/make.flags"
+        case "$COMPILER" in
+            gcc-8.1)
+                module load kokkos/power9/gcc-8.1
+                ;;
+            *)
+                echo "Kokkos not available with compiler $COMPILER"
+                exit 1
+                ;;
+        esac
+        export SRC_DIR=$PWD/TeaLeaf/2d
+        export BENCHMARK_EXE=tealeaf
+        MAKE_OPTS='KERNELS=kokkos OPTIONS=-DNO_MPI'
+        sed -i 's/-march=native/-mcpu=power9/' "$SRC_DIR/make.flags"
         ;;
     *)
         echo
