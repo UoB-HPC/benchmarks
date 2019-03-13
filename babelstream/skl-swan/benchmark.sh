@@ -16,6 +16,7 @@ function usage
     echo "Valid models:"
     echo "  omp"
     echo "  kokkos"
+    echo "  acc"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -46,22 +47,22 @@ module swap craype-{broadwell,x86-skylake}
 case "$COMPILER" in
     cce-8.7)
         module swap cce cce/8.7.1
-        MAKE_OPTS='COMPILER=CRAY TARGET=CPU'
+        MAKE_OPTS='COMPILER=CRAY'
         ;;
     gcc-7.3)
         module swap PrgEnv-{cray,gnu}
         module swap gcc gcc/7.3.0
-        MAKE_OPTS='COMPILER=GNU TARET=CPU EXTRA_FLAGS="-march=skylake-avx512"'
+        MAKE_OPTS='COMPILER=GNU EXTRA_FLAGS="-march=skylake-avx512"'
         ;;
     intel-2018)
         module swap PrgEnv-{cray,intel}
         module swap intel intel/18.0.0.128
-        MAKE_OPTS='COMPILER=INTEL TARGET=CPU EXTRA_FLAGS=-xCORE-AVX512'
+        MAKE_OPTS='COMPILER=INTEL EXTRA_FLAGS=-xCORE-AVX512'
         ;;
     pgi-18.10)
         module swap PrgEnv-{cray,pgi}
         module swap pgi pgi/18.10.0
-	MAKE_OPTS='COMPILER=PGI TARGET=CPU EXTRA_FLAGS="-ta=multicore -tp=skylake"'
+	MAKE_OPTS='COMPILER=PGI EXTRA_FLAGS="-ta=multicore -tp=skylake"'
         ;;
     *)
         echo
@@ -89,6 +90,7 @@ then
       omp)
         MAKE_FILE="OpenMP.make"
         BINARY="omp-stream"
+        MAKE_OPTS+=" TARGET=CPU"
         ;;
       kokkos)
         module use /lus/scratch/p02555/modules/modulefiles
@@ -103,6 +105,18 @@ then
           exit 1
         fi
         ;;
+      acc)
+        MAKE_FILE="OpenACC.make"
+        BINARY="acc-stream"
+        MAKE_OPTS+=' TARGET=SKL'
+        if [ "$COMPILER" != "pgi-18.10" ]
+        then
+          echo
+          echo " Must use PGI with OpenACC"
+          echo
+          exit 1
+        fi
+      ;;
     esac
 
     # Perform build
