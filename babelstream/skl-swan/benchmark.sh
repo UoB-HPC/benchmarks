@@ -17,6 +17,7 @@ function usage
     echo "  omp"
     echo "  kokkos"
     echo "  acc"
+    echo "  ocl"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -72,6 +73,48 @@ case "$COMPILER" in
         ;;
 esac
 
+# Select Makefile to use, and model specific information
+case "$MODEL" in
+  omp)
+    MAKE_FILE="OpenMP.make"
+    BINARY="omp-stream"
+    MAKE_OPTS+=" TARGET=CPU"
+    ;;
+  kokkos)
+    module use /lus/scratch/p02555/modules/modulefiles
+    module load kokkos/skylake
+    MAKE_FILE="Kokkos.make"
+    BINARY="kokkos-stream"
+    if [ "$COMPILER" != "intel-2018" ]
+    then
+      echo
+      echo " Must use Intel with Kokkos module"
+      echo
+      exit 1
+    fi
+    ;;
+  acc)
+    MAKE_FILE="OpenACC.make"
+    BINARY="acc-stream"
+    MAKE_OPTS+=' TARGET=SKL'
+    if [ "$COMPILER" != "pgi-18.10" ]
+    then
+      echo
+      echo " Must use PGI with OpenACC"
+      echo
+      exit 1
+    fi
+  ;;
+  ocl)
+    module use /lus/scratch/p02555/modules/modulefiles
+    module load opencl/intel
+    MAKE_FILE="OpenCL.make"
+    BINARY="ocl-stream"
+    export LD_PRELOAD=/lus/scratch/p02555/modules/intel-opencl/lib/libintelocl.so
+    #export LD_PRELOAD=/lus/scratch/p02100/l_opencl_p_18.1.0.013/opt/intel/opencl_compilers_and_libraries_18.1.0.013/linux/compiler/lib/intel64_lin/libintelocl.so
+  ;;
+esac
+
 
 # Handle actions
 if [ "$ACTION" == "build" ]
@@ -85,39 +128,6 @@ then
         exit 1
     fi
 
-    # Select Makefile to use
-    case "$MODEL" in
-      omp)
-        MAKE_FILE="OpenMP.make"
-        BINARY="omp-stream"
-        MAKE_OPTS+=" TARGET=CPU"
-        ;;
-      kokkos)
-        module use /lus/scratch/p02555/modules/modulefiles
-        module load kokkos/skylake
-        MAKE_FILE="Kokkos.make"
-        BINARY="kokkos-stream"
-        if [ "$COMPILER" != "intel-2018" ]
-        then
-          echo
-          echo " Must use Intel with Kokkos module"
-          echo
-          exit 1
-        fi
-        ;;
-      acc)
-        MAKE_FILE="OpenACC.make"
-        BINARY="acc-stream"
-        MAKE_OPTS+=' TARGET=SKL'
-        if [ "$COMPILER" != "pgi-18.10" ]
-        then
-          echo
-          echo " Must use PGI with OpenACC"
-          echo
-          exit 1
-        fi
-      ;;
-    esac
 
     # Perform build
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
