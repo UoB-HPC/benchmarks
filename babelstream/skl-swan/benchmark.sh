@@ -11,6 +11,7 @@ function usage
     echo "  cce-8.7"
     echo "  gcc-7.3"
     echo "  intel-2018"
+    echo "  pgi-18.10"
     echo
     echo "Valid models:"
     echo "  omp"
@@ -56,6 +57,11 @@ case "$COMPILER" in
         module swap PrgEnv-{cray,intel}
         module swap intel intel/18.0.0.128
         MAKE_OPTS='COMPILER=INTEL TARGET=CPU EXTRA_FLAGS=-xCORE-AVX512'
+        ;;
+    pgi-18.10)
+        module swap PrgEnv-{cray,pgi}
+        module swap pgi pgi/18.10.0
+	MAKE_OPTS='COMPILER=PGI TARGET=CPU EXTRA_FLAGS="-ta=multicore -tp=skylake"'
         ;;
     *)
         echo
