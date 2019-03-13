@@ -14,6 +14,7 @@ function usage
     echo
     echo "Valid models:"
     echo "  omp"
+    echo "  kokkos"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -82,6 +83,20 @@ then
       omp)
         MAKE_FILE="OpenMP.make"
         BINARY="omp-stream"
+        ;;
+      kokkos)
+        module use /lus/scratch/p02555/modules/modulefiles
+        module load kokkos/skylake
+        MAKE_FILE="Kokkos.make"
+        BINARY="kokkos-stream"
+        if [ "$COMPILER" != "intel-2018" ]
+        then
+          echo
+          echo " Must use Intel with Kokkos module"
+          echo
+          exit 1
+        fi
+        ;;
     esac
 
     # Perform build

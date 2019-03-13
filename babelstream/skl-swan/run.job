@@ -5,4 +5,5 @@
 #PBS -joe
 
 export OMP_NUM_THREADS=56
+export OMP_PROC_BIND=true
 aprun -n 1 -d 56 -j 1 -cc depth ./$BENCHMARK_EXE
