@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -q pascalq
+#PBS -l nodes=1:ppn=36
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+cd $RUN_DIR
+
+cp $SRC_DIR/Benchmarks/tea_bm_5.in tea.in
+
+./$BENCHMARK_EXE
