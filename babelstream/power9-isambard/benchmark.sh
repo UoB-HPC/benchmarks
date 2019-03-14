@@ -15,6 +15,7 @@ function usage
     echo "Valid models:"
     echo "  omp"
     echo "  kokkos"
+    echo "  acc"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -87,6 +88,19 @@ then
           echo
           stop
         fi
+        ;;
+      acc)
+        MAKE_FILE="OpenACC.make"
+        BINARY="acc-stream"
+        MAKE_OPTS+=" TARGET=PWR9"
+        if [ "$COMPILER" != "pgi-18" ]
+        then
+          echo
+          echo "Must use pgi-18 with OpenACC"
+          echo
+          stop
+        fi
+        ;;
     esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
