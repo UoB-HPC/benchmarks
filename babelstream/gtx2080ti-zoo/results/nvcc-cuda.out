@@ -1,0 +1,15 @@
+BabelStream
+Version: 3.3
+Implementation: CUDA
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Using CUDA device GeForce RTX 2080 Ti
+Driver: 10010
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        545972.270  0.00098     0.00101     0.00100     
+Mul         542880.600  0.00099     0.00102     0.00101     
+Add         555691.824  0.00145     0.00148     0.00147     
+Triad       555580.646  0.00145     0.00148     0.00147     
+Dot         571798.661  0.00094     0.00096     0.00095     

@@ -1,0 +1,17 @@
+BabelStream
+Version: 3.3
+Implementation: Kokkos
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        543739.428  0.00099     0.00102     0.00100     
+Mul         541185.786  0.00099     0.00102     0.00101     
+Add         554461.384  0.00145     0.00149     0.00147     
+Triad       554185.896  0.00145     0.00149     0.00147     
+Dot         573954.085  0.00094     0.00094     0.00094     
