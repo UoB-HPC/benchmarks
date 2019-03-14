@@ -85,8 +85,7 @@ then
         BINARY="omp-stream"
         ;;
       kokkos)
-        module load kokkos/pascal
-        module swap cudatoolkit cudatoolkit/8.0.44
+        module load kokkos/volta
         MAKE_FILE="Kokkos.make"
         BINARY="kokkos-stream"
         MAKE_OPTS+=" CXX=$KOKKOS_PATH/bin/nvcc_wrapper"
