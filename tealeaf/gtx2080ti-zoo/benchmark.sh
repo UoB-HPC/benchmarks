@@ -30,13 +30,12 @@ SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 case "$MODEL" in
   omp-target)
-    module use /lustre/projects/bristol/modules-power/modulefiles
     module load llvm/trunk
     export MAKEFLAGS='-j36'
     MAKE_OPTS='\
       CC=clang \
-      CFLAGS="-O3 -DDIFFUSE_OVERLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70" \
-      TL_LDFLAGS="-fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70 -lm -lrt" \
+      CFLAGS="-O3 -DDIFFUSE_OVERLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_75" \
+      TL_LDFLAGS="-fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_75 -lm -lrt" \
       KERNELS="omp4_clang" \
       OPTIONS="-DNO_MPI"'
     export COMPILER=clang
@@ -51,17 +50,17 @@ case "$MODEL" in
     MAKE_OPTS='\
       COMPILER=GNU \
       CUDA_HOME="/usr/local/cuda-10.0/" \
+      CODE_GEN_VOLTA="-gencode arch=compute_75,code=sm_75" \
       NV_ARCH="VOLTA"'
     ;;
   kokkos)
-    module use /lustre/projects/bristol/modules-power/modulefiles
-    module load kokkos/volta
+    module load kokkos/turing
     KOKKOS_CXXFLAGS=$(grep KOKKOS_CXXFLAGS $KOKKOS_PATH/Makefile.kokkos | cut -d '=' -f 2- )
     export SRC_DIR="$PWD/TeaLeaf/2d"
     export BENCHMARK_EXE="tealeaf.kokkos"
     NVCC_WRAPPER="$KOKKOS_PATH/bin/nvcc_wrapper"
     KERNELS_PATH="$SRC_DIR/c_kernels/kokkos"
-    export MAKEFLAGS="-j40"
+    #export MAKEFLAGS="-j40"
     export COMPILER=NVCC
     MAKE_OPTS='\
       CC="$NVCC_WRAPPER" \
