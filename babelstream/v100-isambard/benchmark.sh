@@ -60,8 +60,7 @@ case "$COMPILER" in
         export OMP_PROC_BIND=spread
         ;;
     pgi-18.10)
-      module load PrgEnv-pgi
-      module swap pgi pgi/18.10
+      module load pgi/18.10
       MAKE_OPTS='COMPILER=PGI TARGET=VOLTA'
       ;;
     *)
