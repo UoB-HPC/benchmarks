@@ -9,7 +9,8 @@ function usage
     echo
     echo "Valid compilers:"
     echo "  cce-8.7"
-    echo "  gcc-8.2"
+    echo "  gcc-6.1"
+    echo "  llvm-trunk"
     echo
     echo "Valid models:"
     echo "  omp"
@@ -47,9 +48,12 @@ case "$COMPILER" in
         module swap cce cce/8.6.4
         MAKE_OPTS="COMPILER=CRAY TARGET=NVIDIA"
         ;;
-    gcc-8.2)
-        module swap PrgEnv-cray PrgEnv-gnu
-        module swap gcc gcc/8.2.0
+    llvm-trunk)
+      module load llvm/trunk
+      MAKE_OPTS='COMPILER=CLANG TARGET=NVIDIA EXTRA_FLAGS="-Xopenmp-target -march=sm_60"'
+      ;;
+    gcc-6.1)
+        module swap gcc gcc/6.1.0
         MAKE_OPTS="COMPILER=GNU TARGET=CPU"
         export OMP_PROC_BIND=spread
         ;;
@@ -75,9 +79,11 @@ then
         BINARY="omp-stream"
         ;;
       kokkos)
-        module load kokkos/2.8.00
+        module load kokkos/pascal
+        module swap cudatoolkit cudatoolkit/8.0.44
         MAKE_FILE="Kokkos.make"
         BINARY="kokkos-stream"
+        MAKE_OPTS+=" CXX=$KOKKOS_PATH/bin/nvcc_wrapper"
     esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
