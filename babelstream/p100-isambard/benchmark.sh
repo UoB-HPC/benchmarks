@@ -18,6 +18,7 @@ function usage
     echo "  kokkos"
     echo "  cuda"
     echo "  acc"
+    echo "  ocl"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -102,6 +103,13 @@ then
       acc)
         MAKE_FILE="OpenACC.make"
         BINARY="acc-stream"
+        ;;
+      ocl)
+        NVCC=`which nvcc`
+        CUDA_PATH=`dirname $NVCC`/..
+        MAKE_FILE="OpenCL.make"
+        BINARY="ocl-stream"
+        MAKE_OPTS+=' EXTRA_FLAGS="-I$CUDA_PATH/include/ -L$CUDA_PATH/lib64"'
         ;;
     esac
 
