@@ -9,7 +9,7 @@ function usage
     echo
     echo "Valid compilers:"
     echo "  xl-16.1"
-    echo "  gcc-8.2"
+    echo "  gcc-8.1"
     echo
     echo "Valid models:"
     echo "  omp"
@@ -44,11 +44,10 @@ case "$COMPILER" in
     xl-16.1)
         MAKE_OPTS="COMPILER=XL TARGET=CPU"
         ;;
-    gcc-8.2)
-        module swap PrgEnv-cray PrgEnv-gnu
-        module swap gcc gcc/8.2.0
+    gcc-8.1)
+        module purge
+        module load gcc/8.1.0
         MAKE_OPTS="COMPILER=GNU TARGET=CPU"
-        export OMP_PROC_BIND=spread
         ;;
     *)
         echo
