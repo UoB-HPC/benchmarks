@@ -11,11 +11,13 @@ function usage
     echo "  cce-8.7"
     echo "  gcc-6.1"
     echo "  llvm-trunk"
+    echo "  pgi-18.10"
     echo
     echo "Valid models:"
     echo "  omp"
     echo "  kokkos"
     echo "  cuda"
+    echo "  acc"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -58,6 +60,11 @@ case "$COMPILER" in
         MAKE_OPTS="COMPILER=GNU TARGET=CPU"
         export OMP_PROC_BIND=spread
         ;;
+    pgi-18.10)
+      module load PrgEnv-pgi
+      module swap pgi pgi/18.10
+      MAKE_OPTS='COMPILER=PGI TARGET=PASCAL'
+      ;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
@@ -91,7 +98,11 @@ then
         MAKE_FILE="CUDA.make"
         BINARY="cuda-stream"
         MAKE_OPTS+=' EXTRA_FLAGS="-arch=sm_60"'
-      ;;
+        ;;
+      acc)
+        MAKE_FILE="OpenACC.make"
+        BINARY="acc-stream"
+        ;;
     esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
