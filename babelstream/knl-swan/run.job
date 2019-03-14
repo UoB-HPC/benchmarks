@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -q knl64
+#PBS -l os=CLE_quad_flat
+#PBS -l nodes=1
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+export OMP_NUM_THREADS=64
+export OMP_PROC_BIND=true
+export ACC_NUM_CORES=64
+aprun -n 1 -d 64 -j 1 -cc depth numactl -m 1 "./$BENCHMARK_EXE"
