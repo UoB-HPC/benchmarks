@@ -10,6 +10,7 @@ function usage
     echo "Valid compilers:"
     echo "  xl-16.1"
     echo "  gcc-8.1"
+    echo "  pgi-18"
     echo
     echo "Valid models:"
     echo "  omp"
@@ -48,6 +49,11 @@ case "$COMPILER" in
         module purge
         module load gcc/8.1.0
         MAKE_OPTS="COMPILER=GNU TARGET=CPU"
+        ;;
+    pgi-18)
+        module purge
+        module load pgi/18.10
+        MAKE_OPTS="COMPILER=PGI TARGET=CPU"
         ;;
     *)
         echo
