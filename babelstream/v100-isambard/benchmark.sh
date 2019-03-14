@@ -53,7 +53,7 @@ case "$COMPILER" in
         ;;
     llvm-trunk)
       module load llvm/trunk
-      MAKE_OPTS='COMPILER=CLANG TARGET=NVIDIA EXTRA_FLAGS="-Xopenmp-target -march=sm_60"'
+      MAKE_OPTS='COMPILER=CLANG TARGET=NVIDIA EXTRA_FLAGS="-Xopenmp-target -march=sm_70"'
       ;;
     gcc-4.8)
         MAKE_OPTS="COMPILER=GNU TARGET=NVIDIA"
