@@ -77,9 +77,16 @@ then
         BINARY="omp-stream"
         ;;
       kokkos)
-        module load kokkos/2.8.00
+        module load kokkos/power9/gcc-8.1
         MAKE_FILE="Kokkos.make"
         BINARY="kokkos-stream"
+        if [ "$COMPILER" != "gcc-8.1" ]
+        then
+          echo
+          echo "Must use gcc-8.1 with Kokkos"
+          echo
+          stop
+        fi
     esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
