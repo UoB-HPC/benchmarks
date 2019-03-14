@@ -1,0 +1,13 @@
+BabelStream
+Version: 3.3
+Implementation: OpenACC
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        544397.203  0.00099     0.00101     0.00101     
+Mul         541711.101  0.00099     0.00102     0.00101     
+Add         555016.243  0.00145     0.00148     0.00147     
+Triad       555081.278  0.00145     0.00148     0.00147     
+Dot         525941.325  0.00102     0.00106     0.00103     

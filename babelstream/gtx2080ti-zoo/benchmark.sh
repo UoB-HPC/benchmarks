@@ -56,6 +56,10 @@ case "$COMPILER" in
     MAKE_OPTS='\
       COMPILER=GNU'
     ;;
+  pgi-18.10)
+    MAKE_OPTS='\
+      COMPILER=PGI'
+    ;;
   *)
     echo
     echo "Invalid compiler '$COMPILER'."
@@ -64,15 +68,6 @@ case "$COMPILER" in
     ;;
 esac
 
-#ocl)
-#  module use /lus/scratch/p02555/modules/modulefiles
-#  module load opencl/intel
-#  MAKE_FILE="OpenCL.make"
-#  BINARY="ocl-stream"
-#  export LD_PRELOAD=/lus/scratch/p02555/modules/intel-opencl/lib/libintelocl.so
-#  #export LD_PRELOAD=/lus/scratch/p02100/l_opencl_p_18.1.0.013/opt/intel/opencl_compilers_and_libraries_18.1.0.013/linux/compiler/lib/intel64_lin/libintelocl.so
-#;;
-# Select Makefile to use, and model specific information
 case "$MODEL" in
   omp-target)
     MAKE_FILE="OpenMP.make"
@@ -100,6 +95,12 @@ case "$MODEL" in
     MAKE_FILE="OpenCL.make"
     BINARY="ocl-stream"
     MAKE_OPTS="$MAKE_OPTS TARGET=GPU"
+    ;;
+  acc)
+    MAKE_FILE="OpenACC.make"
+    BINARY="acc-stream"
+    MAKE_OPTS="$MAKE_OPTS TARGET=VOLTA"
+    ;;
 esac
 
 
