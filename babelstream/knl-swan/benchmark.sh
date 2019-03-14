@@ -103,7 +103,7 @@ case "$MODEL" in
   acc)
     MAKE_FILE="OpenACC.make"
     BINARY="acc-stream"
-    MAKE_OPTS+=' TARGET=SKL'
+    MAKE_OPTS+=' TARGET=KNL'
     if [ "$COMPILER" != "pgi-18.10" ]
     then
       echo
