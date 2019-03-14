@@ -15,6 +15,7 @@ function usage
     echo "Valid models:"
     echo "  omp"
     echo "  kokkos"
+    echo "  cuda"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -84,6 +85,13 @@ then
         MAKE_FILE="Kokkos.make"
         BINARY="kokkos-stream"
         MAKE_OPTS+=" CXX=$KOKKOS_PATH/bin/nvcc_wrapper"
+        ;;
+      cuda)
+        module swap gcc gcc/4.9.1
+        MAKE_FILE="CUDA.make"
+        BINARY="cuda-stream"
+        MAKE_OPTS+=' EXTRA_FLAGS="-arch=sm_60"'
+      ;;
     esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
