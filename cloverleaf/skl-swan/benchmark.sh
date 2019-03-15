@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEFAULT_COMPILER=intel-2018
-DEFUALT_MODEL=mpi
+DEFAULT_MODEL=mpi
 function usage
 {
     echo
