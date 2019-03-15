@@ -35,7 +35,7 @@ SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 export BENCHMARK_TEMPLATE=$SCRIPT_DIR/../benchmark.in
-export CONFIG="skl"_"$COMPILER"
+export CONFIG="skl"_"$COMPILER"_"$MODEL"
 export SRC_DIR=$PWD/SNAP/src
 export RUN_DIR=$PWD/SNAP-$CONFIG
 
