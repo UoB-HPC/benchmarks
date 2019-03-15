@@ -36,11 +36,11 @@ export SRC_DIR="$PWD/minifmm/"
 case "$COMPILER" in
   intel-19.0)
     module load PrgEnv-intel
-    MAKE_OPTS="$MAKE_OPTS COMPILER=INTEL EXTRA_FLAGS=-qopt-zmm-usage=high"
+    MAKE_OPTS="$MAKE_OPTS COMPILER=INTEL ARCH=core-avx512 EXTRA_FLAGS=-qopt-zmm-usage=high"
     ;;
   gcc-8.2)
     module load PrgEnv-gnu
-    MAKE_OPTS="$MAKE_OPTS COMPILER=GNU"
+    MAKE_OPTS="$MAKE_OPTS COMPILER=GNU ARCH=skylake-avx512"
     ;;
   *)
     ;;
@@ -49,7 +49,7 @@ esac
 case "$MODEL" in
   omp)
     export BENCHMARK_EXE="fmm.omp"
-    MAKE_OPTS="$MAKE_OPTS MODEL=omp ARCH=core-avx512"
+    MAKE_OPTS="$MAKE_OPTS MODEL=omp"
     ;;
   *)
     echo

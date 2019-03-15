@@ -7,3 +7,4 @@
 cd $RUN_DIR
 
 aprun -d 56 -cc depth ./$BENCHMARK_EXE $RUN_ARGS
+aprun -d 112 -j 2 -cc depth ./$BENCHMARK_EXE $RUN_ARGS
