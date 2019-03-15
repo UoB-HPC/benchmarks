@@ -60,9 +60,10 @@ case "$COMPILER" in
     intel-2019)
         module load intel/compiler/2019.2
         module load intel/mpi/2019.2
+        source /opt/intel/impi/2019.2.187/intel64/bin/mpivars.sh
         MAKE_OPTS='COMPILER=INTEL MPI_COMPILER=mpiifort C_MPI_COMPILER=mpiicc'
-        MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -xCORE-AVX2"'
-        MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX2"'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -xhost"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xhost"'
         MAKE_OPTS=$MAKE_OPTS' OMP_INTEL="-qopenmp"'
         ;;
     *)

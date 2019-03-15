@@ -7,10 +7,10 @@ cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 case "$MODEL" in
     mpi)
         export OMP_NUM_THREADS=1
-        mpirun -np 56 --bind-to core ./$BENCHMARK_EXE
+        mpirun -np 64 --bind-to core ./$BENCHMARK_EXE
         ;;
     omp)
-        export OMP_NUM_THREADS=56 OMP_PROC_BIND=true OMP_PLACES=cores
+        export OMP_NUM_THREADS=64 OMP_PROC_BIND=true OMP_PLACES=cores
         mpirun -np 1 --bind-to none ./$BENCHMARK_EXE
         ;;
     *)
