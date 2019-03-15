@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -q teaching
+#PBS -q gpu
 #PBS -l nodes=1
-#PBS -l walltime=00:15:00
+#PBS -l walltime=00:30:00
 #PBS -joe
 
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
