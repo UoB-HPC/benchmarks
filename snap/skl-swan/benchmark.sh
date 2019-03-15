@@ -1,17 +1,23 @@
 #!/bin/bash
 
 DEFAULT_COMPILER=intel-2018
+DEFAULT_MODEL=mpi
 function usage
 {
     echo
-    echo "Usage: ./benchmark.sh build|run [COMPILER]"
+    echo "Usage: ./benchmark.sh build|run [COMPILER] [MODEL]"
     echo
     echo "Valid compilers:"
-    echo "  cce-8.7"
+    echo "  cce-8.6"
     echo "  gcc-7.3"
     echo "  intel-2018"
     echo
+    echo "Valid models:"
+    echo "  mpi"
+    echo "  omp"
+    echo
     echo "The default configuration is '$DEFAULT_COMPILER'."
+    echo "The default programming model is '$DEFAULT_MODEL'."
     echo
 }
 
@@ -36,8 +42,8 @@ export RUN_DIR=$PWD/SNAP-$CONFIG
 # Set up the environment
 module swap craype-{broadwell,x86-skylake}
 case "$COMPILER" in
-    cce-8.7)
-        module swap cce cce/8.7.1
+    cce-8.6)
+        module swap cce cce/8.6.4
         export BENCHMARK_EXE=csnap
         MAKE_OPTS='TARGET=csnap FORTRAN=ftn FFLAGS=-hfp3 PP=cpp'
         ;;
@@ -96,11 +102,23 @@ then
         exit 1
     fi
 
-    qsub $SCRIPT_DIR/run.job \
-        -d $RUN_DIR \
-        -o snap-$CONFIG.out \
-        -N snap \
-        -V
+    case "$MODEL" in
+      mpi)
+        qsub $SCRIPT_DIR/run.job \
+            -d $RUN_DIR \
+            -o snap-$CONFIG.out \
+            -N snap \
+            -V
+        ;;
+      omp)
+        qsub $SCRIPT_DIR/run_omp.job \
+            -d $RUN_DIR \
+            -o snap-$CONFIG.out \
+            -N snap \
+            -V
+        ;;
+      esac
+
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
