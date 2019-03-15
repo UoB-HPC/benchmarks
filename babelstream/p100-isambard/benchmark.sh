@@ -77,6 +77,15 @@ esac
 # Handle actions
 if [ "$ACTION" == "build" ]
 then
+    # Fetch source code
+    if ! "$SCRIPT_DIR/../fetch.sh"
+    then
+        echo
+        echo "Failed to fetch source code."
+        echo
+        exit 1
+    fi
+
     # Perform build
     rm -f $BENCHMARK_EXE
 
