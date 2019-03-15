@@ -1,0 +1,13 @@
+BabelStream
+Version: 3.3
+Implementation: OpenMP
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        107241.846  0.00501     0.02193     0.00529     
+Mul         107238.526  0.00501     0.01589     0.00520     
+Add         104816.110  0.00768     0.00882     0.00779     
+Triad       105209.559  0.00765     0.00927     0.00781     
+Dot         97606.469   0.00550     0.00687     0.00569     
