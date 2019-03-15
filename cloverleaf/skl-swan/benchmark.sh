@@ -1,17 +1,23 @@
 #!/bin/bash
 
 DEFAULT_COMPILER=intel-2018
+DEFUALT_MODEL=mpi
 function usage
 {
     echo
-    echo "Usage: ./benchmark.sh build|run [COMPILER]"
+    echo "Usage: ./benchmark.sh build|run [COMPILER] [MODEL]"
     echo
     echo "Valid compilers:"
     echo "  cce-8.7"
     echo "  gcc-7.3"
     echo "  intel-2018"
+    echo "  intel-2019"
     echo
-    echo "The default configuration is '$DEFAULT_COMPILER'."
+    echo "Valid models:"
+    echo "  mpi"
+    echo "  omp"
+    echo
+    echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_MODEL'."
     echo
 }
 
@@ -24,6 +30,7 @@ fi
 
 ACTION=$1
 COMPILER=${2:-$DEFAULT_COMPILER}
+export MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
@@ -50,6 +57,13 @@ case "$COMPILER" in
     intel-2018)
         module swap PrgEnv-{cray,intel}
         module swap intel intel/18.0.0.128
+        MAKE_OPTS='COMPILER=INTEL MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -xCORE-AVX512"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX512"'
+        ;;
+    intel-2019)
+        module swap PrgEnv-{cray,intel}
+        module swap intel intel/19.0.0.117
         MAKE_OPTS='COMPILER=INTEL MPI_COMPILER=ftn C_MPI_COMPILER=cc'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -xCORE-AVX512"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX512"'
