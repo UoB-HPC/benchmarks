@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -q pascalq
+#PBS -l nodes=1:ppn=36
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+cd $RUN_DIR
+
+./$BENCHMARK_EXE $RUN_ARGS
