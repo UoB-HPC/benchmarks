@@ -13,4 +13,4 @@ ICHUNK=16 \
 envsubst <$BENCHMARK_TEMPLATE >$CONFIG.in
 
 export OMP_NUM_THREADS=28
-aprun -n 2 -d 28 -j 1 ./$BENCHMARK_EXE $CONFIG.in $CONFIG.out
+aprun -n 2 -d 28 -j 1 -cc depth ./$BENCHMARK_EXE $CONFIG.in $CONFIG.out
