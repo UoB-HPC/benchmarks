@@ -10,6 +10,7 @@ function usage
     echo "Valid compilers:"
     echo "  cce-8.7"
     echo "  gcc-6.1"
+    echo "  gcc-4.8"
     echo "  llvm-trunk"
     echo "  pgi-18.10"
     echo
@@ -40,7 +41,7 @@ SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 export CONFIG="p100"_"$COMPILER"_"$MODEL"
 export BENCHMARK_EXE=stream-$CONFIG
-export SRC_DIR=$SCRIPT_DIR/../BabelStream/
+export SRC_DIR=$SCRIPT_DIR/BabelStream/
 export RUN_DIR=$SCRIPT_DIR
 
 
@@ -60,6 +61,10 @@ case "$COMPILER" in
         module swap gcc gcc/6.1.0
         MAKE_OPTS="COMPILER=GNU TARGET=GPU"
         ;;
+    gcc-4.8)
+        module unload gcc
+        MAKE_OPTS="COMPILER=GNU TARGET=GPU"
+        ;;
     pgi-18.10)
       module load PrgEnv-pgi
       module swap pgi pgi/18.10
@@ -73,6 +78,43 @@ case "$COMPILER" in
         ;;
 esac
 
+# Select Makefile to use
+case "$MODEL" in
+  omp)
+    MAKE_FILE="OpenMP.make"
+    BINARY="omp-stream"
+    ;;
+  kokkos)
+    module unload cudatoolkit/8.0.44
+    module load kokkos/pascal
+    MAKE_FILE="Kokkos.make"
+    BINARY="kokkos-stream"
+    if [ "$COMPILER" != "gcc-4.8" ]
+    then
+      echo
+      echo " Must use gcc-4.8 with Kokkos"
+      echo
+      stop
+    fi
+    ;;
+  cuda)
+    module swap gcc gcc/4.9.1
+    MAKE_FILE="CUDA.make"
+    BINARY="cuda-stream"
+    MAKE_OPTS+=' EXTRA_FLAGS="-arch=sm_60"'
+    ;;
+  acc)
+    MAKE_FILE="OpenACC.make"
+    BINARY="acc-stream"
+    ;;
+  ocl)
+    NVCC=`which nvcc`
+    CUDA_PATH=`dirname $NVCC`/..
+    MAKE_FILE="OpenCL.make"
+    BINARY="ocl-stream"
+    MAKE_OPTS+=' EXTRA_FLAGS="-I$CUDA_PATH/include/ -L$CUDA_PATH/lib64"'
+    ;;
+esac
 
 # Handle actions
 if [ "$ACTION" == "build" ]
@@ -89,36 +131,6 @@ then
     # Perform build
     rm -f $BENCHMARK_EXE
 
-    # Select Makefile to use
-    case "$MODEL" in
-      omp)
-        MAKE_FILE="OpenMP.make"
-        BINARY="omp-stream"
-        ;;
-      kokkos)
-        module unload cudatoolkit/8.0.44
-        module load kokkos/pascal
-        MAKE_FILE="Kokkos.make"
-        BINARY="kokkos-stream"
-        ;;
-      cuda)
-        module swap gcc gcc/4.9.1
-        MAKE_FILE="CUDA.make"
-        BINARY="cuda-stream"
-        MAKE_OPTS+=' EXTRA_FLAGS="-arch=sm_60"'
-        ;;
-      acc)
-        MAKE_FILE="OpenACC.make"
-        BINARY="acc-stream"
-        ;;
-      ocl)
-        NVCC=`which nvcc`
-        CUDA_PATH=`dirname $NVCC`/..
-        MAKE_FILE="OpenCL.make"
-        BINARY="ocl-stream"
-        MAKE_OPTS+=' EXTRA_FLAGS="-I$CUDA_PATH/include/ -L$CUDA_PATH/lib64"'
-        ;;
-    esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
     then
