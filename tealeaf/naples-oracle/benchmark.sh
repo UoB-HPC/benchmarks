@@ -62,8 +62,8 @@ case "$COMPILER" in
         module load intel/compiler/2019.2
         export OMPI_CC=icc OMPI_FC=ifort
         MAKE_OPTS='COMPILER=INTEL'
-        MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -fpp -align array64byte -xCORE-AVX2"'
-        MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX2"'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -fpp -align array64byte -xhost"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xhost"'
         ;;
     *)
         echo
