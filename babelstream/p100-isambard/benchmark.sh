@@ -58,8 +58,7 @@ case "$COMPILER" in
       ;;
     gcc-6.1)
         module swap gcc gcc/6.1.0
-        MAKE_OPTS="COMPILER=GNU TARGET=CPU"
-        export OMP_PROC_BIND=spread
+        MAKE_OPTS="COMPILER=GNU TARGET=GPU"
         ;;
     pgi-18.10)
       module load PrgEnv-pgi
@@ -88,11 +87,10 @@ then
         BINARY="omp-stream"
         ;;
       kokkos)
+        module unload cudatoolkit/8.0.44
         module load kokkos/pascal
-        module swap cudatoolkit cudatoolkit/8.0.44
         MAKE_FILE="Kokkos.make"
         BINARY="kokkos-stream"
-        MAKE_OPTS+=" CXX=$KOKKOS_PATH/bin/nvcc_wrapper"
         ;;
       cuda)
         module swap gcc gcc/4.9.1
