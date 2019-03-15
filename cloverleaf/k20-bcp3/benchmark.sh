@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEFAULT_COMPILER=gcc-7.1.0
+DEFAULT_COMPILER=clang
 DEFAULT_MODEL=omp-target
 function usage
 {
@@ -8,7 +8,7 @@ function usage
     echo "Usage: ./benchmark.sh build|run [COMPILER]"
     echo
     echo "Valid compilers:"
-    echo "  gcc-7.1.0"
+    echo "  clang-9"
     echo
     echo "Valid models:"
     echo "  omp-target"
@@ -39,9 +39,33 @@ export RUN_DIR=$PWD/CloverLeaf-$CONFIG
 
 # Set up the environment
 case "$COMPILER" in
-    gcc-7.1.0)
-        module load languages/gcc-7.1.0
-        MAKE_OPTS='COMPILER=GNU MPI_C=mpicc MPI_F90=mpif90'
+    clang-9)
+        module use /newhome/pa13269/modules/modulefiles
+        module load llvm
+        module load openmpi3-gcc4.8
+        export MAKEFLAGS='-j16'
+
+        export OMPI_MPICC=clang
+        export OMPI_FC=gfortran
+
+        # TODO: there are most likely extraneous flags here
+        # Flags for clang
+        export CFLAGS="\
+            -O3 -DOFFLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_35 \
+            -I/newhome/pa13269/modules/install/llvm/include -L/newhome/pa13269/modules/install/llvm/lib \
+            -lomptarget -lomp -lpthread -lgfortran -pthread -Wl,-rpath -Wl,/newhome/pa13269/modules/openmpi3-gcc4.8/lib \
+            -Wl,--enable-new-dtags -L/newhome/pa13269/modules/openmpi3-gcc4.8/lib -lmpi"
+        # Flags for gfortran
+        export FLAGS="\
+        -O3 -DOFFLOAD -L/newhome/pa13269/modules/openmpi3-gcc4.8/lib -L/cm/shared/languages/GCC-4.8.4/lib \
+        -I/newhome/pa13269/modules/install/llvm/include -L/newhome/pa13269/modules/install/llvm/lib \
+        -lomptarget -lomp -lpthread -lgfortran -pthread -I/newhome/pa13269/modules/openmpi3-gcc4.8/lib -Wl,-rpath \
+        -Wl,/newhome/pa13269/modules/openmpi3-gcc4.8/lib -Wl,--enable-new-dtags \
+        -L/newhome/pa13269/modules/openmpi3-gcc4.8/lib -lmpi_usempi -lmpi_mpifh -lmpi"
+
+        MAKE_OPTS='\
+          COMPILER=CLANG MPI_C=mpicc MPI_F90=mpif90 CFLAGS="${CFLAGS}" FLAGS="${FLAGS}'
+        export COMPILER=clang
         ;;
     *)
         echo
