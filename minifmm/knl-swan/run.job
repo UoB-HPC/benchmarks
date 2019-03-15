@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -q knl64
+#PBS -l os=CLE_quad_flat
+#PBS -l nodes=1
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+cd $RUN_DIR
+
+aprun -d 64 -cc depth ./$BENCHMARK_EXE $RUN_ARGS
+aprun -d 128 -j 2 -cc depth ./$BENCHMARK_EXE $RUN_ARGS
+aprun -d 256 -j 4 -cc depth ./$BENCHMARK_EXE $RUN_ARGS
