@@ -8,7 +8,7 @@ function usage
     echo "Usage: ./benchmark.sh build|run [COMPILER] [MODEL]"
     echo
     echo "Valid compilers:"
-    echo "  cce-8.6"
+    echo "  cce-8.7"
     echo "  gcc-7.3"
     echo "  intel-2018"
     echo
@@ -30,6 +30,7 @@ fi
 
 ACTION=$1
 COMPILER=${2:-$DEFAULT_COMPILER}
+MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
@@ -42,8 +43,8 @@ export RUN_DIR=$PWD/SNAP-$CONFIG
 # Set up the environment
 module swap craype-{broadwell,x86-skylake}
 case "$COMPILER" in
-    cce-8.6)
-        module swap cce cce/8.6.4
+    cce-8.7)
+        module swap cce cce/8.7.9
         export BENCHMARK_EXE=csnap
         MAKE_OPTS='TARGET=csnap FORTRAN=ftn FFLAGS=-hfp3 PP=cpp'
         ;;
