@@ -1,0 +1,84 @@
+Warning: Process to core binding is enabled and OMP_NUM_THREADS is set to non-zero (36) value
+If your program has OpenMP sections, this can cause over-subscription of cores and consequently poor performance
+To avoid this, please re-run your application after setting MV2_ENABLE_AFFINITY=0
+Use MV2_USE_THREAD_WARNING=0 to suppress this message
+
+ SNAP: SN (Discrete Ordinates) Application Proxy
+ MPI+CUDA port
+ Run on Mon Mar 18 12:06:29 2019
+
+
+********************************************************
+  Input Parameters
+********************************************************
+ Geometry
+   Problem size:                  1.000 x 1.000 x 1.000
+   Cells:                             8 x     8 x  1024
+   Cell size:                     0.125 x 0.125 x 0.001
+
+ Discrete Ordinates
+   Angles per octant:             36
+   Moments:                       2
+   "Computational" moments:       4
+
+ Energy groups
+   Number of groups:              32
+
+ Timesteps
+   Timesteps:                     1
+   Simulation time:               0.002
+   Time delta:                    0.002
+
+ Iterations
+   Max outers per timestep:       5
+   Max inners per outer:          5
+   Stopping criteria
+     Inner convergence:           1.00E-05
+     Outer convergence:           1.00E-03
+
+ MPI decomposition
+   Rank layout:                   1 x 1 x 1
+   Chunk size:                    16
+
+
+********************************************************
+  CUDA Information
+********************************************************
+ Device
+   Tesla P100-PCIE-16GB
+
+ Driver
+   Driver 9010
+   Runtime 8000
+
+********************************************************
+  Iteration Monitor
+********************************************************
+ Timestep 0
+   Outer      Difference      Inners    
+     0         0.025410        4         
+     1         0.010958        3         
+     2         0.000064        2         
+
+   Population: 0.023
+
+
+********************************************************
+  Timing Report
+********************************************************
+ Setup                           0.293s
+ Outer source                    0.539s
+ Outer parameters                0.000s
+ Inner source                    0.061s
+ Sweeps                          2.909s
+   MPI Send time                 0.000s
+   MPI Recv time                 0.038s
+   PCIe transfer time            0.027s
+   Compute time                  2.845s
+ Scalar flux reductions          0.670s
+ Convergence checking            0.044s
+ Other                           0.061s
+ Total simulation                4.284s
+
+ Grind time                      0.788ns
+********************************************************
