@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -q veryshort
+#PBS -l nodes=1:ppn=16:gpus=1
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+cd $RUN_DIR
+
+cp $SRC_DIR/Benchmarks/tea_bm_5.in tea.in
+
+./$BENCHMARK_EXE

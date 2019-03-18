@@ -1,0 +1,113 @@
+librdmacm: couldn't read ABI version.
+librdmacm: assuming: 4
+CMA: unable to open /dev/infiniband/rdma_cm
+CUDA in rank 0 using Tesla K20m
+Solver to use: Conjugate gradient
+Preconditioner to use: None (no preconditioner specified in tea.in)
+@@@@@ PROFILING @@@@@
+
+   Tea Version    1.400
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:    16
+
+ Step       1 time   0.0000000 timestep   4.00E-03
+Conduction error  0.9975393E-15
+Iteration count     3381
+      Solve Time   40.7822141647    Its   3382     Time Per It    0.0120586086
+ Wall clock    40.782272100448608     
+ Average time per cell    2.5488920062780380E-006
+ Step time per cell       2.5488920062780380E-006
+ Step       2 time   0.0040000 timestep   4.00E-03
+Conduction error  0.9859479E-15
+Iteration count     4096
+      Solve Time   49.3962860107    Its   4097     Time Per It    0.0120566966
+ Wall clock    90.178596019744873     
+ Average time per cell    2.8180811256170273E-006
+ Step time per cell       3.0872694998979566E-006
+ Step       3 time   0.0080000 timestep   4.00E-03
+Conduction error  0.9843777E-15
+Iteration count     4060
+      Solve Time   48.9623119831    Its   4061     Time Per It    0.0120567131
+ Wall clock    139.14093995094299     
+ Average time per cell    2.8987695823113122E-006
+ Step time per cell       3.0601458698511122E-006
+ Step       4 time   0.0120000 timestep   4.00E-03
+Conduction error  0.9863986E-15
+Iteration count     3950
+      Solve Time   47.6351540089    Its   3951     Time Per It    0.0120564804
+ Wall clock    186.77612996101379     
+ Average time per cell    2.9183770306408403E-006
+ Step time per cell       2.9771987497806549E-006
+ Step       5 time   0.0160000 timestep   4.00E-03
+Conduction error  0.9967578E-15
+Iteration count     3832
+      Solve Time   46.2045459747    Its   3833     Time Per It    0.0120544080
+ Wall clock    232.98071002960205     
+ Average time per cell    2.9122588753700256E-006
+ Step time per cell       2.8877855688333511E-006
+ Step       6 time   0.0200000 timestep   4.00E-03
+Conduction error  0.9968242E-15
+Iteration count     3710
+      Solve Time   44.7343831062    Its   3711     Time Per It    0.0120545360
+ Wall clock    277.71512699127197     
+ Average time per cell    2.8928659061590830E-006
+ Step time per cell       2.7959004342556001E-006
+ Step       7 time   0.0240000 timestep   4.00E-03
+Conduction error  0.9985422E-15
+Iteration count     3601
+      Solve Time   43.4209520817    Its   3602     Time Per It    0.0120546785
+ Wall clock    321.13611292839050     
+ Average time per cell    2.8672867225749151E-006
+ Step time per cell       2.7138109952211382E-006
+ Step       8 time   0.0280000 timestep   4.00E-03
+Conduction error  0.9814203E-15
+Iteration count     3501
+      Solve Time   42.2161030769    Its   3502     Time Per It    0.0120548552
+ Wall clock    363.35225105285645     
+ Average time per cell    2.8386894613504411E-006
+ Step time per cell       2.6385079473257066E-006
+ Step       9 time   0.0320000 timestep   4.00E-03
+Conduction error  0.9819812E-15
+Iteration count     3406
+      Solve Time   41.0716919899    Its   3407     Time Per It    0.0120550901
+ Wall clock    404.42397499084473     
+ Average time per cell    2.8084998263253105E-006
+ Step time per cell       2.5669821202754976E-006
+ Step      10 time   0.0360000 timestep   4.00E-03
+Conduction error  0.9930161E-15
+Iteration count     3330
+      Solve Time   40.1556961536    Its   3331     Time Per It    0.0120551474
+ Wall clock    444.58434510231018     
+ Average time per cell    2.7786521568894386E-006
+ Step time per cell       2.5100224465131758E-006
+ First step overhead  -8.6140389442443848     
+ Wall clock    444.58902311325073     
+
+   Tea Version    1.400
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:    16
+
+ Output file tea.out opened. All output will go there.
+Test problem   5 is within   0.1101526E-08% of the expected solution
+ This test is considered PASSED
+@@@@@ PROFILING @@@@@
+      "device_field_summary_kernel" : 13.260
+       "device_generate_chunk_init" : 1.893
+     "device_generate_chunk_init_u" : 41.162
+     "device_generate_chunk_kernel" : 4.936
+   "device_initialise_chunk_kernel" : 2.760
+"device_initialise_chunk_kernel_vertex" : 0.616
+          "device_set_field_kernel" : 1.744
+       "device_tea_leaf_calc_2norm" : 12.178
+    "device_tea_leaf_calc_residual" : 46.016
+  "device_tea_leaf_cg_solve_calc_p" : 96997.486
+ "device_tea_leaf_cg_solve_calc_ur" : 209220.376
+  "device_tea_leaf_cg_solve_calc_w" : 133714.135
+  "device_tea_leaf_cg_solve_init_p" : 22.653
+         "device_tea_leaf_finalise" : 27.107
+      "device_tea_leaf_init_common" : 27.638
+  "device_tea_leaf_zero_boundaries" : 6.693
