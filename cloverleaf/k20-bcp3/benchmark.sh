@@ -15,6 +15,7 @@ function usage
     echo "Valid models:"
     echo "  omp-target"
     echo "  kokkos"
+    echo "  cuda"
     echo
     echo "The default compiler is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -36,7 +37,6 @@ SCRIPT_DIR=`dirname $0`
 
 export BENCHMARK_EXE=clover_leaf
 export CONFIG="$MODEL"_"$COMPILER"
-export SRC_DIR=$PWD/CloverLeaf-OpenMP4
 export RUN_DIR=$PWD/$CONFIG
 
 
@@ -47,7 +47,7 @@ case "$COMPILER" in
         module load llvm
     ;;
     gcc-7.1)
-        module load languages/gcc-7.1
+        module load languages/gcc-7.1.0
     ;;
     intel-16)
         module load languages/intel-compiler-16-u2
@@ -94,26 +94,32 @@ case "$MODEL" in
 
         MAKE_OPTS='\
           COMPILER=CLANG MPI_C=mpicc MPI_F90=mpif90 CFLAGS="${CFLAGS}" FLAGS="${FLAGS}"'
+        export SRC_DIR=$PWD/CloverLeaf-OpenMP4
         export COMPILER=clang
         ;;
     kokkos)
         module use /newhome/pa13269/modules/modulefiles
         module load kokkos
         module load cuda/toolkit/7.5.18
-
         export MAKEFLAGS='-j16'
         export SRC_DIR=$PWD/CloverLeaf
-        export BENCHMARK_EXE=clover_leaf
+        mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
 
         if [ "$COMPILER" == "gcc-7.1" ]
         then
-            MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH -j16'
+            MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
         elif [ "$COMPILER" == "intel-16" ]
         then
-            MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH -j16'
+            MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
         fi
+        ;;
+    cuda)
+        module load cuda/toolkit/7.5.18
+        export MAKEFLAGS='-j16'
+        export SRC_DIR=$PWD/CloverLeaf
 
-        mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
+        MAKE_OPTS='COMPILER=GNU USE_CUDA=1 \
+            CFLAGS="-O3"'
         ;;
     *)
         echo

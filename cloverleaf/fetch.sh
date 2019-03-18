@@ -39,6 +39,12 @@ case "$MODEL" in
       git clone https://github.com/UoB-HPC/CloverLeaf
     fi
     ;;
+  cuda)
+    if [ ! -e CloverLeaf/src/cudadefs.h ]
+    then
+      git clone https://github.com/UoB-HPC/CloverLeaf
+    fi
+    ;;
   *)
     echo
     echo "Invalid model '$MODEL'."
