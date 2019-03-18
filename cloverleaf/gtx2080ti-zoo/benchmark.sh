@@ -1,15 +1,16 @@
 #!/bin/bash
 
-DEFAULT_MODEL=cuda
+DEFAULT_MODEL=omp-target
 function usage
 {
   echo
   echo "Usage: ./benchmark.sh build|run [MODEL]"
   echo
   echo "Valid models:"
+  echo "  omp-target"
   echo "  kokkos"
   echo
-  echo "The default configuration is '$DEFAULT_COMPILER'."
+  echo "The default model is '$DEFAULT_MODEL'."
   echo
 }
 
@@ -27,6 +28,21 @@ SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 case "$MODEL" in
+  omp-target)
+    module load llvm/trunk
+    module load openmpi/3.0.3-gcc-4.8.5
+    module load cuda/10.1
+    export OMPI_MPICC=clang
+    export OMPI_FC=gfortran
+    export MAKEFLAGS='-j36'
+    MAKE_OPTS='\
+      COMPILER=CLANG MPI_C=mpicc MPI_F90=mpif90 \
+      CFLAGS="-O3 -DOFFLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_75 -lrt -lm -lgfortran -lmpi_usempi -lmpi_mpifh" \
+      FLAGS="-O3 -DOFFLOAD -lgfortran -lmpi_usempi -lmpi_mpifh"'
+    export COMPILER=clang
+    export SRC_DIR="$PWD/CloverLeaf-OpenMP4"
+    export BENCHMARK_EXE="clover_leaf"
+    ;;
   kokkos)
     module load kokkos/turing
     module load openmpi/3.0.3-gcc-4.8.5

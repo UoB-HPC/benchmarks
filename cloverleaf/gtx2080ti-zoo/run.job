@@ -8,4 +8,7 @@ cd $RUN_DIR
 
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 
+# Make sure we're using the C kernels for the OpenMP target version
+sed -i 's/ test_problem 5/ test_problem 5\'$'\n use_c_kernels/g' clover.in
+
 ./$BENCHMARK_EXE
