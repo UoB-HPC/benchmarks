@@ -9,6 +9,7 @@ function usage
   echo "Valid models:"
   echo "  omp-target"
   echo "  kokkos"
+  echo "  cuda"
   echo
   echo "The default model is '$DEFAULT_MODEL'."
   echo
@@ -26,6 +27,7 @@ ACTION=$1
 MODEL=${2:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
+export BENCHMARK_EXE=clover_leaf
 
 case "$MODEL" in
   omp-target)
@@ -34,23 +36,27 @@ case "$MODEL" in
     module load cuda/10.1
     export OMPI_MPICC=clang
     export OMPI_FC=gfortran
+    export COMPILER=clang
+    export SRC_DIR="$PWD/CloverLeaf-OpenMP4"
     export MAKEFLAGS='-j36'
     MAKE_OPTS='\
       COMPILER=CLANG MPI_C=mpicc MPI_F90=mpif90 \
       CFLAGS="-O3 -DOFFLOAD -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_75 -lrt -lm -lgfortran -lmpi_usempi -lmpi_mpifh" \
       FLAGS="-O3 -DOFFLOAD -lgfortran -lmpi_usempi -lmpi_mpifh"'
-    export COMPILER=clang
-    export SRC_DIR="$PWD/CloverLeaf-OpenMP4"
-    export BENCHMARK_EXE="clover_leaf"
     ;;
   kokkos)
     module load kokkos/turing
     module load openmpi/3.0.3-gcc-4.8.5
     module load
+    export SRC_DIR=$PWD/CloverLeaf
+    export MAKEFLAGS='-j16'
+    MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH fast -j16'
+    ;;
+  cuda)
+    module load cuda/10.1
     export MAKEFLAGS='-j16'
     export SRC_DIR=$PWD/CloverLeaf
-    export BENCHMARK_EXE=clover_leaf
-    MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH fast -j16'
+    MAKE_OPTS='COMPILER=GNU USE_CUDA=1'
     ;;
   *)
     echo

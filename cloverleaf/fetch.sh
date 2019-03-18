@@ -10,6 +10,7 @@ function usage
     echo "  omp"
     echo "  omp-target"
     echo "  kokkos"
+    echo "  cuda"
     echo
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo

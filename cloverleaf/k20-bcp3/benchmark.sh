@@ -118,8 +118,7 @@ case "$MODEL" in
         export MAKEFLAGS='-j16'
         export SRC_DIR=$PWD/CloverLeaf
 
-        MAKE_OPTS='COMPILER=GNU USE_CUDA=1 \
-            CFLAGS="-O3"'
+        MAKE_OPTS='COMPILER=GNU USE_CUDA=1'
         ;;
     *)
         echo
