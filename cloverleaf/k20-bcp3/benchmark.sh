@@ -108,9 +108,9 @@ case "$MODEL" in
         if [ "$COMPILER" == "gcc-7.1" ]
         then
             MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH fast -j16'
-        elif [ "$COMPILER" == "gcc-7.1" ]
+        elif [ "$COMPILER" == "intel-16" ]
         then
-            MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH fast -j16'
+            MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH -j16'
         fi
 
         mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
