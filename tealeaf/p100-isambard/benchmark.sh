@@ -79,6 +79,18 @@ case "$MODEL" in
       KERNEL_FLAGS="$KOKKOS_CXXFLAGS -DNO_MPI -DCUDA -I$KERNELS_PATH" \
       KERNELS=kokkos' \
     ;;
+  acc)
+    module load pgi/18.10
+    export SRC_DIR="$PWD/TeaLeaf/2d"
+    export BENCHMARK_EXE="tealeaf.openacc"
+    export COMPILER=PGI
+    MAKE_OPTS='\
+      OACC_FLAGS="-ta=tesla,cc60 -tp=haswell-64" \
+      COMPILER=PGI \
+      CC=pgcc \
+      OPTIONS=-DNO_MPI \
+      KERNELS="openacc"'
+    ;;
   *)
     echo
     echo "Invalid model '$MODEL'"

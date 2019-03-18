@@ -34,7 +34,7 @@ case "$MODEL" in
       git clone https://github.com/UK-MAC/TeaLeaf_ref
     fi
     ;;
-  kokkos|omp-target|oacc|raja)
+  kokkos|omp-target|acc|raja)
     if [ ! -e TeaLeaf/2d/main.c ]
     then
       git clone https://github.com/UoB-HPC/TeaLeaf
