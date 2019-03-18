@@ -42,7 +42,8 @@ export RUN_DIR=$PWD/SNAP-$CONFIG
 # Set up the environment
 case "$COMPILER" in
     cce-8.7)
-        module swap cce cce/8.7.7
+        module load craype-arm-thunderx2
+        module swap cce cce/8.7.9
         export BENCHMARK_EXE=csnap
         MAKE_OPTS='TARGET=csnap FORTRAN=ftn FFLAGS=-hfp3 PP=cpp'
         ;;
@@ -101,10 +102,11 @@ then
         exit 1
     fi
 
-    qsub $SCRIPT_DIR/run.job \
+    qsub \
         -o snap-$CONFIG.out \
         -N snap \
-        -V
+        -V \
+        $SCRIPT_DIR/run.job
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
