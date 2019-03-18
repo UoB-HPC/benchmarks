@@ -13,8 +13,10 @@ function usage
     echo "  gcc-7.3"
     echo "  gcc-8.1"
     echo "  intel-2019"
+    echo "  pgi-18.10"
     echo
     echo "Valid models:"
+    echo "  acc"
     echo "  omp"
     echo "  kokkos"
     echo
@@ -31,7 +33,7 @@ then
 fi
 
 ACTION=$1
-COMPILER=${2:-$DEFAULT_COMPILER}
+export COMPILER=${2:-$DEFAULT_COMPILER}
 export MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath "$(dirname $SCRIPT)"`
@@ -43,27 +45,29 @@ export RUN_DIR=$PWD/TeaLeaf-$CONFIG
 
 
 # Set up the environment
+module purge
 case "$COMPILER" in
     gcc-7.3)
-        module purge
         MAKE_OPTS='COMPILER=GNU'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -march=znver1 -funroll-loops -cpp -ffree-line-length-none -ffast-math -ffp-contract=fast"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -march=znver1 -funroll-loops -ffast-math -ffp-contract=fast"'
         ;;
     gcc-8.1)
-        module purge
         module load gcc/8.1
         MAKE_OPTS='COMPILER=GNU'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -march=znver1 -funroll-loops -cpp -ffree-line-length-none -ffast-math -ffp-contract=fast"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -march=znver1 -funroll-loops -ffast-math -ffp-contract=fast"'
         ;;
     intel-2019)
-        module purge
         module load intel/compiler/2019.2
         export OMPI_CC=icc OMPI_FC=ifort
         MAKE_OPTS='COMPILER=INTEL'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -fpp -align array64byte -xhost"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xhost"'
+        ;;
+    pgi-18.10)
+        module load pgi/18.10
+        MAKE_OPTS="OPTIONS=-DNO_MPI COMPILER=PGI CC=pgcc CPP=gpc++ CFLAGS_PGI='-fast -Mlist -tp=zen'"
         ;;
     *)
         echo
@@ -74,12 +78,39 @@ case "$COMPILER" in
 esac
 
 case "$MODEL" in
+    acc)
+        if ! [[ "$COMPILER" =~ pgi ]]; then
+            echo "OpenACC not supported with compiler '$COMPILER'"
+            exit 1
+        fi
+
+        export SRC_DIR="$PWD/TeaLeaf/2d"
+        export BENCHMARK_EXE=tealeaf
+        MAKE_OPTS+=" KERNELS=openacc OACC_FLAGS='-ta=multicore -tp=zen'"
+        ;;
     omp)
-        module load openmpi/3.0.3/gcc-7.3
-        export SRC_DIR=$PWD/TeaLeaf_ref
-        export BENCHMARK_EXE=tea_leaf
+        case "$COMPILER" in
+            gcc-*)
+                module load openmpi/3.0.3/gcc-7.3
+                export SRC_DIR=$PWD/TeaLeaf_ref
+                export BENCHMARK_EXE=tea_leaf
+                ;;
+            pgi-*)
+                export SRC_DIR="$PWD/TeaLeaf/2d"
+                export BENCHMARK_EXE=tealeaf
+                ;;
+            *)
+                echo "OpenMP not supported with compiler '$COMPILER'"
+                exit 1
+                ;;
+        esac
         ;;
     kokkos)
+        if ! [[ "$COMPILER" =~ gcc ]]; then
+            echo "Kokkos not supported with compiler '$COMPILER'"
+            exit 1
+        fi
+
         module load kokkos/gcc-8.1
         export SRC_DIR=$PWD/TeaLeaf/2d
         export BENCHMARK_EXE=tealeaf
