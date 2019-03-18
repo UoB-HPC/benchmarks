@@ -12,8 +12,10 @@ function usage
     echo "  gcc-7.3"
     echo "  intel-2018"
     echo "  intel-2019"
+    echo "  pgi-18"
     echo
     echo "Valid models:"
+    echo "  acc"
     echo "  omp"
     echo "  kokkos"
     echo
@@ -69,6 +71,12 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -fpp -align array64byte -xCORE-AVX512"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX512"'
         ;;
+    pgi-18)
+        module swap craype-{x86-skylake,broadwell} # PrgEnv-pgi is not compatible with craype-skylake
+        module swap PrgEnv-{cray,pgi}
+        module swap pgi pgi/18.10.0
+        MAKE_OPTS='OPTIONS=-DNO_MPI COMPILER=PGI CC=pgcc CPP=gpc++'
+        ;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
@@ -78,7 +86,22 @@ case "$COMPILER" in
 esac
 
 case "$MODEL" in
+    acc)
+        if ! [[ "$COMPILER" =~ pgi ]]; then
+            echo "OpenACC not available with compiler '$COMPILER'"
+            exit 1
+        fi
+
+        export SRC_DIR="$PWD/TeaLeaf/2d"
+        export BENCHMARK_EXE=tealeaf
+        MAKE_OPTS+=" KERNELS=openacc OACC_FLAGS='-ta=multicore -tp=skylake'"
+        ;;
     omp)
+        if [[ "$COMPILER" =~ pgi ]]; then
+            echo "OpenMP not available with compiler '$COMPILER'"
+            exit 1
+        fi
+
         export SRC_DIR=$PWD/TeaLeaf_ref
         export BENCHMARK_EXE=tea_leaf
         ;;
@@ -113,6 +136,7 @@ then
 
     # Perform build
     rm -f $SRC_DIR/$BENCHMARK_EXE $RUN_DIR/$BENCHMARK_EXE
+    make -C "$SRC_DIR" clean
     if ! eval make -j 8 -C $SRC_DIR -B $MAKE_OPTS
     then
         echo
@@ -133,7 +157,7 @@ then
         exit 1
     fi
 
-    if [ "$MODEL" = kokkos ]; then
+    if [ "$MODEL" = kokkos ] || [ "$MODEL" = acc ]; then
         cp $SRC_DIR/tea.problems $RUN_DIR
         echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
     fi
