@@ -161,7 +161,7 @@ then
         exit 1
     fi
 
-    if [ "$MODEL" = kokkos ]; then
+    if [ "$MODEL" = kokkos ] || [ "$MODEL" = acc ]; then
         cp $SRC_DIR/tea.problems $RUN_DIR
         echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
     fi
