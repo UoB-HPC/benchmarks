@@ -5,15 +5,18 @@ DEFAULT_MODEL=omp-target
 function usage
 {
     echo
-    echo "Usage: ./benchmark.sh build|run [COMPILER]"
+    echo "Usage: ./benchmark.sh build|run [COMPILER] [MODEL]"
     echo
     echo "Valid compilers:"
     echo "  clang-9"
+    echo "  gcc-7.1"
+    echo "  intel-16"
     echo
     echo "Valid models:"
     echo "  omp-target"
+    echo "  kokkos"
     echo
-    echo "The default configuration is '$DEFAULT_COMPILER'."
+    echo "The default compiler is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
 }
@@ -32,21 +35,45 @@ SCRIPT=`basename $0`
 SCRIPT_DIR=`dirname $0`
 
 export BENCHMARK_EXE=clover_leaf
-export CONFIG="k20"_"$COMPILER"
+export CONFIG="$MODEL"_"$COMPILER"
 export SRC_DIR=$PWD/CloverLeaf-OpenMP4
-export RUN_DIR=$PWD/CloverLeaf-$CONFIG
+export RUN_DIR=$PWD/$CONFIG
 
 
 # Set up the environment
 case "$COMPILER" in
     clang-9)
-        module load languages/gcc-4.8.4
-        module load cuda/toolkit/7.5.18
         module use /newhome/pa13269/modules/modulefiles
         module load llvm
-        module load openmpi3-gcc4.8
-        export MAKEFLAGS='-j16'
+    ;;
+    gcc-7.1)
+        module load languages/gcc-7.1
+    ;;
+    intel-16)
+        module load languages/intel-compiler-16-u2
+    ;;
+    *)
+        echo
+        echo "Invalid compiler '$COMPILER'."
+        usage
+        exit 1
+    ;;
+esac
 
+case "$MODEL" in
+    omp-target)
+        if [ "$COMPILER" != "clang-9" ]
+        then
+          echo
+          echo " Must use clang 9 with OpenMP4 module"
+          echo
+          exit 1
+        fi
+        module load openmpi3-gcc4.8
+        module load languages/gcc-4.8.4
+        module load cuda/toolkit/7.5.18
+
+        export MAKEFLAGS='-j16'
         export OMPI_MPICC=clang
         export OMPI_FC=gfortran
 
@@ -69,14 +96,32 @@ case "$COMPILER" in
           COMPILER=CLANG MPI_C=mpicc MPI_F90=mpif90 CFLAGS="${CFLAGS}" FLAGS="${FLAGS}"'
         export COMPILER=clang
         ;;
+    kokkos)
+        module use /newhome/pa13269/modules/modulefiles
+        module load kokkos
+        module load cuda/toolkit/7.5.18
+
+        export MAKEFLAGS='-j16'
+        export SRC_DIR=$PWD/CloverLeaf
+        export BENCHMARK_EXE=clover_leaf
+
+        if [ "$COMPILER" == "gcc-7.1" ]
+        then
+            MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH fast -j16'
+        elif [ "$COMPILER" == "gcc-7.1" ]
+        then
+            MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH fast -j16'
+        fi
+
+        mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
+        ;;
     *)
         echo
-        echo "Invalid compiler '$COMPILER'."
+        echo "Invalid model '$MODEL'."
         usage
         exit 1
         ;;
 esac
-
 
 # Handle actions
 if [ "$ACTION" == "build" ]
