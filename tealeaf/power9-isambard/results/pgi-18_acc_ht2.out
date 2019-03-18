@@ -1,0 +1,69 @@
+Opening tea.out as log file.
+Performing this solve with the OpenACC  solver
+Running on Intel CPU
+This implementation overloads the diffuse function.
+
+Timestep 1
+CG: 			4873 iterations
+Wallclock: 		55.477s
+Avg. time per cell: 	3.467288e-06
+Error: 			9.746356e-31
+
+Timestep 2
+CG: 			4717 iterations
+Wallclock: 		109.007s
+Avg. time per cell: 	6.812931e-06
+Error: 			9.982417e-31
+
+Timestep 3
+CG: 			4560 iterations
+Wallclock: 		160.761s
+Avg. time per cell: 	1.004758e-05
+Error: 			9.646820e-31
+
+Timestep 4
+CG: 			4406 iterations
+Wallclock: 		210.761s
+Avg. time per cell: 	1.317257e-05
+Error: 			9.863982e-31
+
+Timestep 5
+CG: 			4261 iterations
+Wallclock: 		259.147s
+Avg. time per cell: 	1.619672e-05
+Error: 			9.851832e-31
+
+Timestep 6
+CG: 			4123 iterations
+Wallclock: 		305.920s
+Avg. time per cell: 	1.911998e-05
+Error: 			9.869486e-31
+
+Timestep 7
+CG: 			4001 iterations
+Wallclock: 		351.355s
+Avg. time per cell: 	2.195970e-05
+Error: 			9.787945e-31
+
+Timestep 8
+CG: 			3883 iterations
+Wallclock: 		395.511s
+Avg. time per cell: 	2.471942e-05
+Error: 			9.924772e-31
+
+Timestep 9
+CG: 			3778 iterations
+Wallclock: 		438.510s
+Avg. time per cell: 	2.740685e-05
+Error: 			9.880771e-31
+
+Timestep 10
+CG: 			3679 iterations
+Wallclock: 		480.340s
+Avg. time per cell: 	3.002126e-05
+Error: 			9.879141e-31
+
+Checking results...
+
+WARNING: Could not open the test problem file.
+/lustre-nfs/home/br-apoenaru/workspace-arm/doe-p3-benchmarks/tealeaf/power9-isambard/run.sh: line 8: 53384 Segmentation fault      "./$BENCHMARK_EXE"

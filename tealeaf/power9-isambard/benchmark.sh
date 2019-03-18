@@ -14,6 +14,7 @@ function usage
     echo "  pgi-18"
     echo
     echo "Valid models:"
+    echo "  acc"
     echo "  omp"
     echo "  kokkos"
     echo
@@ -30,7 +31,7 @@ then
 fi
 
 ACTION=$1
-COMPILER=${2:-$DEFAULT_COMPILER}
+export COMPILER=${2:-$DEFAULT_COMPILER}
 MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath "$(dirname $SCRIPT)"`
@@ -62,8 +63,21 @@ case "$COMPILER" in
 esac
 
 case "$MODEL" in
+    acc)
+        case "$COMPILER" in
+            pgi-18)
+                ;;
+            *)
+                echo "OpenACC not available with compiler '$COMPILER'"
+                exit 1
+                ;;
+        esac
+        export SRC_DIR="$PWD/TeaLeaf/2d"
+        export BENCHMARK_EXE=tealeaf
+        MAKE_OPTS+=" KERNELS=openacc OACC_FLAGS='-ta=multicore -tp=pwr9'"
+        ;;
     omp)
-        export SRC_DIR=$PWD/TeaLeaf/2d
+        export SRC_DIR="$PWD/TeaLeaf/2d"
         export BENCHMARK_EXE=tealeaf
         ;;
     kokkos)
@@ -76,7 +90,7 @@ case "$MODEL" in
                 exit 1
                 ;;
         esac
-        export SRC_DIR=$PWD/TeaLeaf/2d
+        export SRC_DIR="$PWD/TeaLeaf/2d"
         export BENCHMARK_EXE=tealeaf
         MAKE_OPTS='KERNELS=kokkos OPTIONS=-DNO_MPI'
         sed -i 's/-march=native/-mcpu=power9/' "$SRC_DIR/make.flags"
@@ -125,10 +139,12 @@ then
         exit 1
     fi
 
-    if [ "$MODEL" = kokkos ]; then
-        cp $SRC_DIR/tea.problems $RUN_DIR
-        echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
-    fi
+    case "$MODEL" in
+        kokkos|acc)
+            cp $SRC_DIR/tea.problems $RUN_DIR
+            echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
+            ;;
+    esac
 
     cd "$RUN_DIR"
     bash "$SCRIPT_DIR/run.sh"

@@ -9,7 +9,7 @@ function usage
   echo "Valid models:"
   echo " omp"
   echo " omp-target"
-  echo " oacc"
+  echo " acc"
   echo " kokkos"
   echo " raja"
   echo " opencl"
