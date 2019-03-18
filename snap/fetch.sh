@@ -8,7 +8,8 @@ function usage
     echo
     echo "Valid models:"
     echo "  omp"
-    echo " kokkos"
+    echo "  kokkos"
+    echo "  cuda"
     echo
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
@@ -27,6 +28,12 @@ case "$MODEL" in
     if [ ! -e SNAP-Kokkos/src/ext_sweep.cpp ]
     then
       git clone https://github.com/UoB-HPC/SNAP-Kokkos
+    fi
+    ;;
+  cuda)
+    if [ ! -e SNAP_MPI_CUDA/src/snap_main.c ]
+    then
+      git clone https://github.com/UoB-HPC/SNAP_MPI_CUDA
     fi
     ;;
   *)
