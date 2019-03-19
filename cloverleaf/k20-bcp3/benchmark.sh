@@ -110,15 +110,40 @@ case "$MODEL" in
             EXTRA_PATH="-I/cm/shared/apps/cuda-7.5.18/include/CL"'
         ;;
     acc)
-        module load openmpi3-gcc4.8
-        module load languages/pgi-18.4
+        COMPILER=${3:-pgi-18.4}
+        case "$COMPILER" in
+#            gcc-7.1.0)
+#                module load languages/gcc-7.1.0
+#                MAKE_OPTS='COMPILER=GNU OPTIONS="-cpp -fopenacc"'
+#            ;;
+#            intel-16)
+#                module load languages/intel-compiler-16-u2
+#                MAKE_OPTS='COMPILER=INTEL MPI_COMPILER=mpiifort \
+#                    C_MPI_COMPILER=mpiicc OPTIONS="-cpp -fopenacc"'
+#            ;;
+            pgi-18.4)
+                module load languages/pgi-18.4
+                module load mvapich2/pgi/64/1.7-qlc
+                export OMPI_CC=pgcc
+                export OMPI_FC=pgfortran
+                export LD_LIBRARY_PATH=/cm/shared/languages/PGI-2018-184/linux86-64-llvm/18.4/lib:$LD_LIBRARY_PATH
+                MAKE_OPTS="COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90 \
+                    FLAGS_PGI='-fast -acc -cpp -ta=tesla,cc35'
+                    OPTIONS='-noswitcherror' C_OPTIONS='-noswitcherror'"
+            ;;
+            *)
+                echo
+                echo "Invalid compiler '$COMPILER'."
+                usage
+                exit 1
+            ;;
+        esac
+
+#        module load openmpi3-gcc4.8
+#        module load openmpi/gcc/64/2.1.1
         module load cuda/toolkit/7.5.18
         export SRC_DIR=$PWD/CloverLeaf-OpenACC
         mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
-        export OMPI_CC=pgcc
-        export OMPI_FC=pgfortran
-        MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90 \
-            OPTIONS="-noswitcherror" C_OPTIONS="-noswitcherror"'
         ;;
     *)
         echo
