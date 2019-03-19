@@ -78,7 +78,7 @@ case "$MODEL" in
         ;;
     kokkos)
         module use /lustre/projects/bristol/modules-arm-phase2/modulefiles
-        module load kokkos/2.8.00
+        module load kokkos/2.8.0/gcc-8.2
         export SRC_DIR=$PWD/TeaLeaf/2d
         export BENCHMARK_EXE=tealeaf
         MAKE_OPTS='KERNELS=kokkos OPTIONS=-DNO_MPI'

@@ -73,7 +73,7 @@ then
         BINARY="omp-stream"
         ;;
       kokkos)
-        module load kokkos/2.8.00
+        module load kokkos/2.8.0/gcc-8.2
         MAKE_FILE="Kokkos.make"
         BINARY="kokkos-stream"
     esac

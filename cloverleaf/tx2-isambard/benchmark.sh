@@ -91,7 +91,7 @@ case "$MODEL" in
     export SRC_DIR=$PWD/CloverLeaf_ref
     ;;
   kokkos)
-    module load kokkos/2.8.00
+    module load kokkos/2.8.0/gcc-8.2
     export SRC_DIR=$PWD/CloverLeaf
     mkdir -p $SRC_DIR/{obj,mpiobj}
     case "$COMPILER" in
