@@ -6,95 +6,95 @@ Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
   For unit testing set OMP_PROC_BIND=false
 
 Timestep 1
-CG: 			1000 iterations
-Wallclock: 		12.596s
-Avg. time per cell: 	7.872195e-07
-Error: 			8.341197e-01
+CG: 			4873 iterations
+Wallclock: 		59.638s
+Avg. time per cell: 	3.727370e-06
+Error: 			9.746356e-31
 
 Timestep 2
-CG: 			1000 iterations
-Wallclock: 		25.184s
-Avg. time per cell: 	1.574031e-06
-Error: 			6.026179e-02
+CG: 			4717 iterations
+Wallclock: 		117.360s
+Avg. time per cell: 	7.335010e-06
+Error: 			9.982422e-31
 
 Timestep 3
-CG: 			1000 iterations
-Wallclock: 		37.777s
-Avg. time per cell: 	2.361060e-06
-Error: 			3.171515e-03
+CG: 			4560 iterations
+Wallclock: 		173.178s
+Avg. time per cell: 	1.082365e-05
+Error: 			9.646618e-31
 
 Timestep 4
-CG: 			1000 iterations
-Wallclock: 		50.363s
-Avg. time per cell: 	3.147713e-06
-Error: 			2.573671e-04
+CG: 			4406 iterations
+Wallclock: 		227.102s
+Avg. time per cell: 	1.419388e-05
+Error: 			9.855545e-31
 
 Timestep 5
-CG: 			1000 iterations
-Wallclock: 		62.956s
-Avg. time per cell: 	3.934778e-06
-Error: 			4.650390e-05
+CG: 			4261 iterations
+Wallclock: 		279.250s
+Avg. time per cell: 	1.745315e-05
+Error: 			9.889012e-31
 
 Timestep 6
-CG: 			1000 iterations
-Wallclock: 		75.547s
-Avg. time per cell: 	4.721713e-06
-Error: 			8.127846e-06
+CG: 			4122 iterations
+Wallclock: 		329.704s
+Avg. time per cell: 	2.060650e-05
+Error: 			9.931857e-31
 
 Timestep 7
-CG: 			1000 iterations
-Wallclock: 		88.139s
-Avg. time per cell: 	5.508695e-06
-Error: 			1.682059e-06
+CG: 			4001 iterations
+Wallclock: 		378.675s
+Avg. time per cell: 	2.366719e-05
+Error: 			9.833270e-31
 
 Timestep 8
-CG: 			1000 iterations
-Wallclock: 		100.730s
-Avg. time per cell: 	6.295648e-06
-Error: 			4.478280e-07
+CG: 			3884 iterations
+Wallclock: 		426.203s
+Avg. time per cell: 	2.663770e-05
+Error: 			9.838563e-31
 
 Timestep 9
-CG: 			1000 iterations
-Wallclock: 		113.321s
-Avg. time per cell: 	7.082544e-06
-Error: 			8.756485e-08
+CG: 			3780 iterations
+Wallclock: 		472.474s
+Avg. time per cell: 	2.952962e-05
+Error: 			9.829642e-31
 
 Timestep 10
-CG: 			1000 iterations
-Wallclock: 		125.912s
-Avg. time per cell: 	7.869485e-06
-Error: 			1.917831e-08
+CG: 			3679 iterations
+Wallclock: 		517.520s
+Avg. time per cell: 	3.234501e-05
+Error: 			9.873042e-31
 
 Checking results...
 Expected 9.546235158221428e+01
-Actual   9.546135871581996e+01
-This run [31mFAILED[0m (Difference is within 0.00104006%)
-Application 1080686 resources: utime ~6076s, stime ~167s, Rss ~2009152, inblocks ~0, outblocks ~8
+Actual   9.546235158219206e+01
+This run [32mPASSED[0m (Difference is within 0.00000000%)
+Application 1084264 resources: utime ~23627s, stime ~301s, Rss ~2009560, inblocks ~16, outblocks ~8
 ============================= PBS epilogue =============================
 
 End of Job Report
-Run at 2019-03-08 17:30:00 for job 6261.xci00
-Submitted              : 2019-03-08 17:27:41
-Queued                 : 2019-03-08 17:27:42
-Started                : 2019-03-08 17:27:42
-Completed              : 2019-03-08 17:30:00
+Run at 2019-03-19 12:03:58 for job 6511.xci00
+Submitted              : 2019-03-19 11:55:08
+Queued                 : 2019-03-19 11:55:08
+Started                : 2019-03-19 11:55:08
+Completed              : 2019-03-19 12:03:58
 Queued Time            : 0:00:00 (0 seconds)
-Elapsed Time           : 0:02:13 (133 seconds, 15% of limit)
-Parallel Time          : 0:02:12 (132 seconds, 99% of elapsed time)
+Elapsed Time           : 0:08:45 (525 seconds, 58% of limit)
+Parallel Time          : 0:08:43 (523 seconds, 99% of elapsed time)
 Walltime Limit         : 0:15:00 (900 seconds)
 Node Time Limit        : 0:15:00 (900 seconds)
-Node Time              : 0:02:13 (133 seconds, 15% of limit)
+Node Time              : 0:08:45 (525 seconds, 58% of limit)
 Job Name               : TeaLeaf-kokkos
 Queue                  : arm
-Owner                  : br-patkinson
+Owner                  : br-apoenaru
 Group                  : -default-
 Project                : bristol
 Subproject             : 
 Funding                : 
 Trustzone              : 
-STDOUT                 : /home/br-patkinson/benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_kokkos/TeaLeaf-tx2_gcc-8.2_kokkos.out
-STDERR                 : /home/br-patkinson/benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_kokkos/TeaLeaf-kokkos.e6261
-Job Directory          : /home/br-patkinson/pbs.6261.xci00.x8z
+STDOUT                 : /home/br-apoenaru/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_kokkos/TeaLeaf-tx2_gcc-8.2_kokkos.out
+STDERR                 : /home/br-apoenaru/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_gcc-8.2_kokkos/TeaLeaf-kokkos.e6511
+Job Directory          : /home/br-apoenaru/pbs.6511.xci00.x8z
 Job Arch               : XT
 CPU Core Type          : arm
 Total Nodes            : 1
@@ -102,21 +102,21 @@ Total Tasks            : 64
 Parent Node            : xcimom
 Parent Node Memory     : 
 Parent Node CPU Time   : 
-Compute Nodes          : 0
+Compute Nodes          : 1
 Electrical Groups      : 1
 Run Version            : 1
 
                                         Wallclock  Wallclock     Memory     Memory
 Executable             APID      Nodes       Used  Requested       Used  Requested   CPU Time    Read IO   Write IO     Energy
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
-tealeaf             1080686          1     8215.1       913%       1.4G         1%       6.0k       9.0k       4.0k      40.1k
+tealeaf             1084264          1    33258.2      3695%       1.4G         1%      23.4k       9.0k       4.0k     206.3k
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
-total                   all          1     8215.1       913%       1.4G         1%       6.0k       9.0k       4.0k      40.1k
+total                   all          1    33258.2      3695%       1.4G         1%      23.4k       9.0k       4.0k     206.3k
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
 
 Lustre
 device         read  written     open    close   create  getattr  setattr    perms    mkdir    rmdir  readdir     link   unlink   rename
 ========== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ========
-/lustre        1.9k     2.7k        3        3        0        5        0      118        0        0        0        0        0        0
+/lustre        1.9k     2.7k        3        3        0        6        0      314        0        0        0        0        0        0
 
 For more information see https://gw4-isambard.github.io/docs/

@@ -14,5 +14,10 @@ cp "$SRC_DIR/Benchmarks/tea_bm_5.in" tea.in
 
 export OMP_NUM_THREADS=64
 
-aprun -n 1 -d 64 -cc cpu "./$BENCHMARK_EXE"
+if [[ "$COMPILER" =~ arm ]]; then
+    export OMP_PROC_BIND=true OMP_PLACES=cores
+    aprun -n 1 -d 64 -cc none "./$BENCHMARK_EXE"
+else
+    aprun -n 1 -d 64 -cc cpu "./$BENCHMARK_EXE"
+fi
 

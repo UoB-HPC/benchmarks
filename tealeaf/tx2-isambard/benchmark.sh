@@ -8,6 +8,7 @@ function usage
     echo "Usage: ./benchmark.sh build|run [COMPILER] [MODEL]"
     echo
     echo "Valid compilers:"
+    echo "  arm-19.0"
     echo "  cce-8.7"
     echo "  gcc-8.2"
     echo
@@ -43,6 +44,13 @@ else
     module swap "craype-$CRAY_CPU_TARGET" craype-arm-thunderx2
 fi
 case "$COMPILER" in
+    arm-19.0)
+        [ "$PE_ENV" != ALLINEA ] && module swap "PrgEnv-$(tr '[:upper:]' '[:lower:]' <<<"$PE_ENV")" PrgEnv-allinea
+        module swap allinea allinea/19.0.0.1
+        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops -cpp -ffree-line-length-none"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
+        ;;
     cce-8.7)
         [ "$PE_ENV" != CRAY ] && module swap "PrgEnv-$(tr '[:upper:]' '[:lower:]' <<<"$PE_ENV")" PrgEnv-cray
         module swap cce cce/8.7.9
