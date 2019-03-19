@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -eu
+
+cd $RUN_DIR
+
+NY=8 \
+NZ=8 \
+NPEY=1 \
+NPEZ=1 \
+NANG=36 \
+NTHREADS=1 \
+ICHUNK=16 \
+envsubst <$BENCHMARK_TEMPLATE >$CONFIG.in
+
+# Need to swap problem dimensions for this version
+echo "nx=8" >> $CONFIG.in
+echo "nz=1024" >> $CONFIG.in
+echo "npex=1" >> $CONFIG.in
+echo "chunk=16" >> $CONFIG.in
+
+mpirun -np 1 ./$BENCHMARK_EXE $CONFIG.in
