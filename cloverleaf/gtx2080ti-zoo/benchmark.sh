@@ -26,19 +26,19 @@ fi
 
 ACTION=$1
 #COMPILER=${2:-$DEFAULT_COMPILER}
-MODEL=${2:-$DEFAULT_MODEL}
+export MODEL=${2:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 export BENCHMARK_EXE=clover_leaf
 
 case "$MODEL" in
   omp-target)
+    COMPILER=clang-9
     module load llvm/trunk
     module load openmpi/3.0.3-gcc-4.8.5
     module load cuda/10.1
     export OMPI_MPICC=clang
     export OMPI_FC=gfortran
-    export COMPILER=clang
     export SRC_DIR="$PWD/CloverLeaf-OpenMP4"
     export MAKEFLAGS='-j36'
     MAKE_OPTS='\
@@ -47,6 +47,7 @@ case "$MODEL" in
       FLAGS="-O3 -DOFFLOAD -lgfortran -lmpi_usempi -lmpi_mpifh"'
     ;;
   kokkos)
+    COMPILER=gcc-4.8.5
     module load kokkos/turing
     module load openmpi/3.0.3-gcc-4.8.5
     module load
@@ -55,12 +56,14 @@ case "$MODEL" in
     MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH fast -j16'
     ;;
   cuda)
+    COMPILER=nvcc
     module load cuda/10.1
     export MAKEFLAGS='-j16'
     export SRC_DIR=$PWD/CloverLeaf
     MAKE_OPTS='COMPILER=GNU USE_CUDA=1'
     ;;
   opencl)
+    COMPILER=gcc-4.8.5
     module load cuda/10.1
     module load openmpi/3.0.3-gcc-4.8.5
     export MAKEFLAGS='-j16'
@@ -70,6 +73,7 @@ case "$MODEL" in
         EXTRA_PATH="-I/usr/local/cuda-10.1/targets/x86_64-linux/include/CL/"'
     ;;
   acc)
+    COMPILER=pgi-18.10
     module load openmpi/2.1.2-pgi-18.10
     module load pgi/18.10
     module load cuda/10.1
@@ -77,8 +81,8 @@ case "$MODEL" in
     export OMPI_CC=pgcc
     export OMPI_FC=pgfortran
     MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90 \
-        OPTIONS="-ta=tesla:cc70 -L/opt/local-modules/pgi/linux86-64/18.10/lib/ -lpgm" \
-        C_OPTIONS="-ta=tesla:cc70 -L/opt/local-modules/pgi/linux86-64/18.10/lib/ -lpgm"'
+        OPTIONS="-ta=tesla:cc70 -L/opt/local-modules/pgi/linux86-64/18.10/lib/ -Wl,-rpath,/opt/local-modules/pgi/linux86-64/18.10/lib/ -lpgm" \
+        C_OPTIONS="-ta=tesla:cc70 -L/opt/local-modules/pgi/linux86-64/18.10/lib/ -Wl,-rpath,/opt/local-modules/pgi/linux86-64/18.10/lib/ -lpgm"'
     ;;
   *)
     echo
@@ -89,7 +93,7 @@ case "$MODEL" in
 esac
 
 
-export CONFIG="$MODEL"
+export CONFIG="${COMPILER}_${MODEL}"
 export RUN_DIR=$PWD/$CONFIG
 
 # Handle actions
@@ -128,7 +132,7 @@ then
     exit 1
   fi
 
-  bash $SCRIPT_DIR/run.job &> CloverLeaf-$CONFIG.out
+  bash $SCRIPT_DIR/run.sh &
 else
   echo
   echo "Invalid action (use 'build' or 'run')."
