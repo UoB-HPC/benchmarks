@@ -1,0 +1,6 @@
+#!/bin/bash
+cd $RUN_DIR
+
+export OMP_NUM_THREADS=32
+export OMP_PROC_BIND=true
+./$BENCHMARK_EXE $RUN_ARGS
