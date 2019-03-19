@@ -1,16 +1,10 @@
 #!/bin/bash
 
-DEFAULT_COMPILER=clang-9
 DEFAULT_MODEL=omp-target
 function usage
 {
     echo
-    echo "Usage: ./benchmark.sh build|run [COMPILER] [MODEL]"
-    echo
-    echo "Valid compilers:"
-    echo "  clang-9"
-    echo "  gcc-7.1"
-    echo "  intel-16"
+    echo "Usage: ./benchmark.sh build|run [MODEL [COMPILER]]"
     echo
     echo "Valid models:"
     echo "  omp-target"
@@ -19,7 +13,6 @@ function usage
     echo "  opencl"
     echo "  acc"
     echo
-    echo "The default compiler is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
 }
@@ -32,50 +25,22 @@ then
 fi
 
 ACTION=$1
-COMPILER=${2:-$DEFAULT_COMPILER}
-MODEL=${3:-$DEFAULT_MODEL}
+MODEL=${2:-$DEFAULT_MODEL}
 SCRIPT=`basename $0`
 SCRIPT_DIR=`dirname $0`
-
 export BENCHMARK_EXE=clover_leaf
-export CONFIG="$MODEL"_"$COMPILER"
-export RUN_DIR=$PWD/$CONFIG
-
-
-# Set up the environment
-case "$COMPILER" in
-    clang-9)
-        module use /newhome/pa13269/modules/modulefiles
-        module load llvm
-    ;;
-    gcc-7.1)
-        module load languages/gcc-7.1.0
-    ;;
-    intel-16)
-        module load languages/intel-compiler-16-u2
-    ;;
-    *)
-        echo
-        echo "Invalid compiler '$COMPILER'."
-        usage
-        exit 1
-    ;;
-esac
 
 case "$MODEL" in
     omp-target)
-        if [ "$COMPILER" != "clang-9" ]
-        then
-          echo
-          echo " Must use clang 9 with OpenMP4 module"
-          echo
-          exit 1
-        fi
+        COMPILER=clang-9
+        module use /newhome/pa13269/modules/modulefiles
+        module load llvm
         module load openmpi3-gcc4.8
         module load languages/gcc-4.8.4
         module load cuda/toolkit/7.5.18
 
         export MAKEFLAGS='-j16'
+        export SRC_DIR=$PWD/CloverLeaf-OpenMP4
         export OMPI_MPICC=clang
         export OMPI_FC=gfortran
 
@@ -96,40 +61,46 @@ case "$MODEL" in
 
         MAKE_OPTS='\
           COMPILER=CLANG MPI_C=mpicc MPI_F90=mpif90 CFLAGS="${CFLAGS}" FLAGS="${FLAGS}"'
-        export SRC_DIR=$PWD/CloverLeaf-OpenMP4
-        export COMPILER=clang
         ;;
     kokkos)
+        COMPILER=${3:-gcc-7.1.0}
+        case "$COMPILER" in
+            gcc-7.1.0)
+                COMPILER=gcc-7.1.0
+                MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
+                module load languages/gcc-7.1.0
+            ;;
+            intel-16)
+                MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
+                COMPILER=intel-16
+                module load languages/intel-compiler-16-u2
+            ;;
+            *)
+                echo
+                echo "Invalid compiler '$COMPILER'."
+                usage
+                exit 1
+            ;;
+        esac
+
         module use /newhome/pa13269/modules/modulefiles
         module load kokkos
         module load cuda/toolkit/7.5.18
         export MAKEFLAGS='-j16'
         export SRC_DIR=$PWD/CloverLeaf
         mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
-
-        if [ "$COMPILER" == "gcc-7.1" ]
-        then
-            MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
-        elif [ "$COMPILER" == "intel-16" ]
-        then
-            MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
-        fi
         ;;
     cuda)
+        COMPILER=nvcc-7.5.18
         module load cuda/toolkit/7.5.18
         export MAKEFLAGS='-j16'
         export SRC_DIR=$PWD/CloverLeaf
         mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
-        MAKE_OPTS='COMPILER=GNU USE_CUDA=1'
+        MAKE_OPTS='COMPILER=CUDA USE_CUDA=1'
         ;;
     opencl)
-        if [ "$COMPILER" != "intel-16" ]
-        then
-          echo
-          echo " Must use intel 16 with OpenCL module"
-          echo
-          exit 1
-        fi
+        COMPILER=intel-16
+        module load languages/intel-compiler-16-u2
         module load cuda/toolkit/7.5.18
         export SRC_DIR=$PWD/CloverLeaf
         mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
@@ -156,6 +127,9 @@ case "$MODEL" in
         exit 1
         ;;
 esac
+
+export CONFIG="$COMPILER"_"$MODEL"
+export RUN_DIR=$PWD/$CONFIG
 
 # Handle actions
 if [ "$ACTION" == "build" ]
@@ -195,7 +169,7 @@ then
         -d $RUN_DIR \
         -o CloverLeaf-$CONFIG.out \
         -N cloverleaf \
-        -V
+        -n -V
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
