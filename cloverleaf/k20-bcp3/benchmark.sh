@@ -17,6 +17,7 @@ function usage
     echo "  kokkos"
     echo "  cuda"
     echo "  opencl"
+    echo "  acc"
     echo
     echo "The default compiler is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -134,6 +135,16 @@ case "$MODEL" in
         MAKE_OPTS='COMPILER=INTEL USE_OPENCL=1 MPI_CC_INTEL=mpiicc \
             EXTRA_INC="-I/cm/shared/apps/cuda-7.5.18/include/CL" \
             EXTRA_PATH="-I/cm/shared/apps/cuda-7.5.18/include/CL"'
+        ;;
+    acc)
+        module load openmpi3-gcc4.8
+        module load languages/pgi-18.4
+        module load cuda/toolkit/7.5.18
+        export SRC_DIR=$PWD/CloverLeaf-OpenACC
+        export OMPI_CC=pgcc
+        export OMPI_FC=pgfortran
+        MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90 \
+            OPTIONS="-noswitcherror" C_OPTIONS="-noswitcherror"'
         ;;
     *)
         echo
