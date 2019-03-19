@@ -123,7 +123,6 @@ case "$MODEL" in
 #            ;;
             pgi-18.4)
                 module load languages/pgi-18.4
-                module load mvapich2/pgi/64/1.7-qlc
                 export OMPI_CC=pgcc
                 export OMPI_FC=pgfortran
                 export LD_LIBRARY_PATH=/cm/shared/languages/PGI-2018-184/linux86-64-llvm/18.4/lib:$LD_LIBRARY_PATH
@@ -139,8 +138,6 @@ case "$MODEL" in
             ;;
         esac
 
-#        module load openmpi3-gcc4.8
-#        module load openmpi/gcc/64/2.1.1
         module load cuda/toolkit/7.5.18
         export SRC_DIR=$PWD/CloverLeaf-OpenACC
         mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
