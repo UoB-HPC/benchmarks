@@ -119,7 +119,7 @@ case "$MODEL" in
         module load cuda/toolkit/7.5.18
         export MAKEFLAGS='-j16'
         export SRC_DIR=$PWD/CloverLeaf
-
+        mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
         MAKE_OPTS='COMPILER=GNU USE_CUDA=1'
         ;;
     opencl)
@@ -132,6 +132,8 @@ case "$MODEL" in
         fi
         module load cuda/toolkit/7.5.18
         export SRC_DIR=$PWD/CloverLeaf
+        mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
+        export OCL_SRC_PREFIX=$SRC_DIR
         MAKE_OPTS='COMPILER=INTEL USE_OPENCL=1 MPI_CC_INTEL=mpiicc \
             EXTRA_INC="-I/cm/shared/apps/cuda-7.5.18/include/CL" \
             EXTRA_PATH="-I/cm/shared/apps/cuda-7.5.18/include/CL"'
@@ -141,6 +143,7 @@ case "$MODEL" in
         module load languages/pgi-18.4
         module load cuda/toolkit/7.5.18
         export SRC_DIR=$PWD/CloverLeaf-OpenACC
+        mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
         export OMPI_CC=pgcc
         export OMPI_FC=pgfortran
         MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90 \
