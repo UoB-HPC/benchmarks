@@ -78,10 +78,28 @@ case "$MODEL" in
         ;;
     kokkos)
         module use /lustre/projects/bristol/modules-arm-phase2/modulefiles
-        module load kokkos/2.8.0/gcc-8.2
+        case "$COMPILER" in
+            arm-*)
+                module load kokkos/2.8.0/arm-19.0
+                MAKE_OPTS="CC=armclang CPP=armclang++ OPTIONS='-DNO_MPI -march=armv8.1-a -mcpu=thunderx2t99'"
+                ;;
+            gcc-*)
+                module load kokkos/2.8.0/gcc-8.2
+                MAKE_OPTS='OPTIONS=-DNO_MPI'
+                ;;
+            cce-*)
+                module load kokkos/2.8.0/cce-8.7
+                MAKE_OPTS="COMPILER=CRAY CC=cc CPP=CC OPTIONS='-DNO_MPI -I${KOKKOS_PATH}/include'"
+                ;;
+            *)
+                echo "Kokkos not supported with compiler '$COMPILER'"
+                exit 1
+                ;;
+        esac
+
         export SRC_DIR=$PWD/TeaLeaf/2d
         export BENCHMARK_EXE=tealeaf
-        MAKE_OPTS='KERNELS=kokkos OPTIONS=-DNO_MPI'
+        MAKE_OPTS+=' KERNELS=kokkos '
         ;;
     *)
         echo
@@ -106,6 +124,7 @@ then
 
     # Perform build
     rm -f $SRC_DIR/$BENCHMARK_EXE $RUN_DIR/$BENCHMARK_EXE
+    make -C "$SRC_DIR" clean
     if ! eval make -C $SRC_DIR -B $MAKE_OPTS
     then
         echo

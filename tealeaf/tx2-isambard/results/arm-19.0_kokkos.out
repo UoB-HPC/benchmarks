@@ -1,0 +1,118 @@
+Opening tea.out as log file.
+Performing this solve with the Kokkos  solver
+
+Timestep 1
+CG: 			4873 iterations
+Wallclock: 		50.629s
+Avg. time per cell: 	3.164323e-06
+Error: 			9.746356e-31
+
+Timestep 2
+CG: 			4717 iterations
+Wallclock: 		99.628s
+Avg. time per cell: 	6.226721e-06
+Error: 			9.982909e-31
+
+Timestep 3
+CG: 			4560 iterations
+Wallclock: 		146.996s
+Avg. time per cell: 	9.187270e-06
+Error: 			9.645505e-31
+
+Timestep 4
+CG: 			4406 iterations
+Wallclock: 		192.778s
+Avg. time per cell: 	1.204863e-05
+Error: 			9.855568e-31
+
+Timestep 5
+CG: 			4261 iterations
+Wallclock: 		237.045s
+Avg. time per cell: 	1.481534e-05
+Error: 			9.873392e-31
+
+Timestep 6
+CG: 			4122 iterations
+Wallclock: 		279.873s
+Avg. time per cell: 	1.749207e-05
+Error: 			9.920152e-31
+
+Timestep 7
+CG: 			4001 iterations
+Wallclock: 		321.436s
+Avg. time per cell: 	2.008975e-05
+Error: 			9.882087e-31
+
+Timestep 8
+CG: 			3886 iterations
+Wallclock: 		361.804s
+Avg. time per cell: 	2.261276e-05
+Error: 			9.902074e-31
+
+Timestep 9
+CG: 			3784 iterations
+Wallclock: 		401.116s
+Avg. time per cell: 	2.506975e-05
+Error: 			9.945865e-31
+
+Timestep 10
+CG: 			3681 iterations
+Wallclock: 		439.364s
+Avg. time per cell: 	2.746026e-05
+Error: 			9.785411e-31
+
+Checking results...
+Expected 9.546235158221428e+01
+Actual   9.546235158217732e+01
+This run [32mPASSED[0m (Difference is within 0.00000000%)
+Application 1084288 resources: utime ~27730s, stime ~524s, Rss ~2010804, inblocks ~16, outblocks ~8
+============================= PBS epilogue =============================
+
+End of Job Report
+Run at 2019-03-19 13:26:50 for job 6524.xci00
+Submitted              : 2019-03-19 13:19:18
+Queued                 : 2019-03-19 13:19:18
+Started                : 2019-03-19 13:19:18
+Completed              : 2019-03-19 13:26:50
+Queued Time            : 0:00:00 (0 seconds)
+Elapsed Time           : 0:07:27 (447 seconds, 50% of limit)
+Parallel Time          : 0:07:25 (445 seconds, 99% of elapsed time)
+Walltime Limit         : 0:15:00 (900 seconds)
+Node Time Limit        : 0:15:00 (900 seconds)
+Node Time              : 0:07:27 (447 seconds, 50% of limit)
+Job Name               : TeaLeaf-kokkos
+Queue                  : arm
+Owner                  : br-apoenaru
+Group                  : -default-
+Project                : bristol
+Subproject             : 
+Funding                : 
+Trustzone              : 
+STDOUT                 : /home/br-apoenaru/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_arm-19.0_kokkos/TeaLeaf-tx2_arm-19.0_kokkos.out
+STDERR                 : /home/br-apoenaru/workspace-arm/doe-p3-benchmarks/tealeaf/tx2-isambard/TeaLeaf-tx2_arm-19.0_kokkos/TeaLeaf-kokkos.e6524
+Job Directory          : /home/br-apoenaru/pbs.6524.xci00.x8z
+Job Arch               : XT
+CPU Core Type          : arm
+Total Nodes            : 1
+Total Tasks            : 64
+Parent Node            : xcimom
+Parent Node Memory     : 
+Parent Node CPU Time   : 
+Compute Nodes          : 0
+Electrical Groups      : 1
+Run Version            : 1
+
+                                        Wallclock  Wallclock     Memory     Memory
+Executable             APID      Nodes       Used  Requested       Used  Requested   CPU Time    Read IO   Write IO     Energy
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+tealeaf             1084288          1    28253.6      3139%       1.9G         1%      27.6k     113.0k       4.0k     198.6k
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+total                   all          1    28253.6      3139%       1.9G         1%      27.6k     113.0k       4.0k     198.6k
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+
+Lustre
+device         read  written     open    close   create  getattr  setattr    perms    mkdir    rmdir  readdir     link   unlink   rename
+========== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ========
+/lustre        1.9k     2.7k        3        3        0        6        0      337        0        0        0        0        0        0
+
+For more information see https://gw4-isambard.github.io/docs/
