@@ -11,6 +11,7 @@ function usage
     echo "  omp-target"
     echo "  kokkos"
     echo "  cuda"
+    echo "  opencl"
     echo
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
@@ -42,6 +43,12 @@ case "$MODEL" in
     ;;
   cuda)
     if [ ! -e CloverLeaf/src/cudadefs.h ]
+    then
+      git clone https://github.com/UoB-HPC/CloverLeaf
+    fi
+    ;;
+  opencl)
+    if [ ! -e CloverLeaf/src/opencldefs.h ]
     then
       git clone https://github.com/UoB-HPC/CloverLeaf
     fi

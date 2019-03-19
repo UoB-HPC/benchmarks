@@ -10,6 +10,7 @@ function usage
   echo "  omp-target"
   echo "  kokkos"
   echo "  cuda"
+  echo "  opencl"
   echo
   echo "The default model is '$DEFAULT_MODEL'."
   echo
@@ -57,6 +58,15 @@ case "$MODEL" in
     export MAKEFLAGS='-j16'
     export SRC_DIR=$PWD/CloverLeaf
     MAKE_OPTS='COMPILER=GNU USE_CUDA=1'
+    ;;
+  opencl)
+    module load cuda/10.1
+    module load openmpi/3.0.3-gcc-4.8.5
+    export MAKEFLAGS='-j16'
+    export SRC_DIR=$PWD/CloverLeaf
+    MAKE_OPTS='COMPILER=GNU USE_OPENCL=1 \
+        EXTRA_INC="-I/usr/local/cuda-10.1/targets/x86_64-linux/include/CL/" \
+        EXTRA_PATH="-I/usr/local/cuda-10.1/targets/x86_64-linux/include/CL/"'
     ;;
   *)
     echo

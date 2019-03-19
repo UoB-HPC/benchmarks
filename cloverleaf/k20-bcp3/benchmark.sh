@@ -16,6 +16,7 @@ function usage
     echo "  omp-target"
     echo "  kokkos"
     echo "  cuda"
+    echo "  opencl"
     echo
     echo "The default compiler is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -119,6 +120,20 @@ case "$MODEL" in
         export SRC_DIR=$PWD/CloverLeaf
 
         MAKE_OPTS='COMPILER=GNU USE_CUDA=1'
+        ;;
+    opencl)
+        if [ "$COMPILER" != "intel-16" ]
+        then
+          echo
+          echo " Must use intel 16 with OpenCL module"
+          echo
+          exit 1
+        fi
+        module load cuda/toolkit/7.5.18
+        export SRC_DIR=$PWD/CloverLeaf
+        MAKE_OPTS='COMPILER=INTEL USE_OPENCL=1 MPI_CC_INTEL=mpiicc \
+            EXTRA_INC="-I/cm/shared/apps/cuda-7.5.18/include/CL" \
+            EXTRA_PATH="-I/cm/shared/apps/cuda-7.5.18/include/CL"'
         ;;
     *)
         echo
