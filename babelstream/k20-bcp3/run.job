@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -q veryshort
+#PBS -l nodes=1:ppn=16:gpus=1
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+cd $RUN_DIR
+
+
+./$BENCHMARK_EXE

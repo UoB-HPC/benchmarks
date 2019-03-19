@@ -1,0 +1,15 @@
+BabelStream
+Version: 3.3
+Implementation: CUDA
+Running kernels 100 times
+Precision: double
+Array size: 268.4 MB (=0.3 GB)
+Total size: 805.3 MB (=0.8 GB)
+Using CUDA device Tesla K20m
+Driver: 7050
+Function    MBytes/sec  Min (sec)   Max         Average     
+Copy        152220.461  0.00353     0.00354     0.00353     
+Mul         152005.486  0.00353     0.00355     0.00354     
+Add         150317.875  0.00536     0.00538     0.00537     
+Triad       150360.956  0.00536     0.00538     0.00537     
+Dot         144435.803  0.00372     0.00376     0.00373     
