@@ -11,6 +11,7 @@ function usage
   echo "  kokkos"
   echo "  cuda"
   echo "  opencl"
+  echo "  acc"
   echo
   echo "The default model is '$DEFAULT_MODEL'."
   echo
@@ -67,6 +68,17 @@ case "$MODEL" in
     MAKE_OPTS='COMPILER=GNU USE_OPENCL=1 \
         EXTRA_INC="-I/usr/local/cuda-10.1/targets/x86_64-linux/include/CL/" \
         EXTRA_PATH="-I/usr/local/cuda-10.1/targets/x86_64-linux/include/CL/"'
+    ;;
+  acc)
+    module load openmpi/2.1.2-pgi-18.10
+    module load pgi/18.10
+    module load cuda/10.1
+    export SRC_DIR=$PWD/CloverLeaf-OpenACC
+    export OMPI_CC=pgcc
+    export OMPI_FC=pgfortran
+    MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90 \
+        OPTIONS="-ta=tesla:cc70 -L/opt/local-modules/pgi/linux86-64/18.10/lib/ -lpgm" \
+        C_OPTIONS="-ta=tesla:cc70 -L/opt/local-modules/pgi/linux86-64/18.10/lib/ -lpgm"'
     ;;
   *)
     echo

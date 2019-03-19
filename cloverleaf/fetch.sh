@@ -12,6 +12,7 @@ function usage
     echo "  kokkos"
     echo "  cuda"
     echo "  opencl"
+    echo "  acc"
     echo
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
@@ -51,6 +52,12 @@ case "$MODEL" in
     if [ ! -e CloverLeaf/src/opencldefs.h ]
     then
       git clone https://github.com/UoB-HPC/CloverLeaf
+    fi
+    ;;
+  acc)
+    if [ ! -e CloverLeaf-OpenACC/clover.f90 ]
+    then
+      git clone https://github.com/UoB-HPC/CloverLeaf-OpenACC
     fi
     ;;
   *)
