@@ -37,10 +37,15 @@ export CONFIG="tx2_${COMPILER}_${MODEL}"
 export RUN_DIR="$PWD/TeaLeaf-$CONFIG"
 
 # Set up the environment
+if [ -z "$CRAY_CPU_TARGET" ]; then
+    module load craype-arm-thunderx2
+else
+    module swap "craype-$CRAY_CPU_TARGET" craype-arm-thunderx2
+fi
 case "$COMPILER" in
     cce-8.7)
         [ "$PE_ENV" != CRAY ] && module swap "PrgEnv-$(tr '[:upper:]' '[:lower:]' <<<"$PE_ENV")" PrgEnv-cray
-        module swap cce cce/8.7.7
+        module swap cce cce/8.7.9
         MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
         ;;
     gcc-8.2)
