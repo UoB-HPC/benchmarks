@@ -24,7 +24,7 @@ then
 fi
 
 ACTION=$1
-MODEL=${2:-$DEFAULT_MODEL}
+export MODEL=${2:-$DEFAULT_MODEL}
 SCRIPT=`basename $0`
 SCRIPT_DIR=`dirname $0`
 export BENCHMARK_EXE=clover_leaf
@@ -33,8 +33,15 @@ module use /lustre/projects/bristol/modules-power/modulefiles
 module purge
 case "$MODEL" in
     omp-target)
-        echo "OMP target not implemented yet"
-        exit 99
+        module load llvm/trunk
+        module load gcc/8.1.0
+        module load openmpi/3.0.2/gcc8
+        export SRC_DIR="$PWD/CloverLeaf-OpenMP4"
+        export OMPI_CC=clang OMPI_FC=gfortran
+        MAKE_OPTS='-j20 COMPILER=GNU MPI_F90=mpif90 MPI_C=mpicc MPI_LD=mpicc'
+        MAKE_OPTS="$MAKE_OPTS FLAGS_GNU='-O3 -mcpu=power9'"
+        MAKE_OPTS="$MAKE_OPTS CFLAGS_GNU='-O3 -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70' LDLIBS='-lrt -lm -lgfortran -lgomp -lmpi_mpifh'"
+        MAKE_OPTS="$MAKE_OPTS LDFLAGS='-O3 -fopenmp -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70'"
         ;;
     cuda)
         module load cuda/10.0
