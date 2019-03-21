@@ -31,9 +31,7 @@ case "$MODEL" in
   omp-target)
     if [ ! -e CloverLeaf-OpenMP4/clover.f90 ]
     then
-        # TODO: this is temporary until https://github.com/UoB-HPC/CloverLeaf-OpenMP4/pull/1 is merged
-        git clone https://github.com/jlsalmon/CloverLeaf-OpenMP4
-        # git clone https://github.com/UoB-HPC/CloverLeaf-OpenMP4
+        git clone -b doe-p3-2019 https://github.com/UoB-HPC/CloverLeaf-OpenMP4
     fi
     ;;
   kokkos)

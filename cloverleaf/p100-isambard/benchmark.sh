@@ -24,22 +24,23 @@ then
 fi
 
 ACTION=$1
-MODEL=${2:-$DEFAULT_MODEL}
+export MODEL=${2:-$DEFAULT_MODEL}
 SCRIPT=`basename $0`
 SCRIPT_DIR=`dirname $0`
 export BENCHMARK_EXE=clover_leaf
 
 case "$MODEL" in
     omp-target)
-        echo "OMP target not implemented yet"
-        exit 99
+        module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
+        module load craype-accel-nvidia60
+        export SRC_DIR="$PWD/CloverLeaf-OpenMP4"
+        MAKE_OPTS='-j16 COMPILER=CRAY MPI_F90=ftn MPI_C=cc'
         ;;
     cuda)
         module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
         module load craype-accel-nvidia60
-        # module swap cudatoolkit cudatoolkit/9.1.85
         export SRC_DIR="$PWD/CloverLeaf_CUDA"
-        MAKE_OPTS='COMPILER=CRAY NV_ARCH=PASCAL C_MPI_COMPILER=cc MPI_COMPILER=ftn'
+        MAKE_OPTS='-j16 COMPILER=CRAY NV_ARCH=PASCAL C_MPI_COMPILER=cc MPI_COMPILER=ftn'
         ;;
     *)
         echo
@@ -63,6 +64,9 @@ then
         echo
         exit 1
     fi
+
+    # As of 21 Mar 2019, the linker command does not work with the Cray compiler (and possibly others too)
+    sed -i '/-o clover_leaf/c\\t$(MPI_F90) $(FFLAGS) $(OBJ) $(LDLIBS) -o clover_leaf' "$SRC_DIR/Makefile"
 
     # Perform build
     rm -f "$SRC_DIR/$BENCHMARK_EXE" "$RUN_DIR/$BENCHMARK_EXE"
