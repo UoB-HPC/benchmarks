@@ -43,9 +43,9 @@ case "$MODEL" in
     fi
     ;;
   cuda)
-    if [ ! -e CloverLeaf/src/cudadefs.h ]
+    if [ ! -e CloverLeaf_CUDA/clover_leaf.f90 ]
     then
-      git clone https://github.com/UoB-HPC/CloverLeaf
+      git clone --depth 1 https://github.com/UK-MAC/CloverLeaf_CUDA.git
     fi
     ;;
   opencl)

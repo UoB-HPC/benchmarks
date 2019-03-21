@@ -100,12 +100,13 @@ export RUN_DIR=$PWD/$CONFIG
 if [ "$ACTION" == "build" ]
 then
   # Fetch source code
-  if ! "$SCRIPT_DIR/../fetch.sh" $MODEL
-  then
-    echo
-    echo "Failed to fetch source code."
-    echo
-    exit 1
+  if [ ! -e CloverLeaf/src/cudadefs.h ]; then
+      if ! git clone https://github.com/UoB-HPC/CloverLeaf; then
+          echo
+          echo "Failed to fetch source code."
+          echo
+          exit 1
+      fi
   fi
 
   mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
