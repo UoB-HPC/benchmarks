@@ -53,7 +53,7 @@ case "$MODEL" in
     module load
     export SRC_DIR=$PWD/CloverLeaf
     export MAKEFLAGS='-j16'
-    MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH fast -j16'
+    MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
     ;;
   cuda)
     COMPILER=nvcc
@@ -101,7 +101,8 @@ if [ "$ACTION" == "build" ]
 then
   # Fetch source code
   if [ ! -e CloverLeaf/src/cudadefs.h ]; then
-      if ! git clone https://github.com/UoB-HPC/CloverLeaf; then
+      if ! eval ../fetch.sh $MODEL
+      then
           echo
           echo "Failed to fetch source code."
           echo
