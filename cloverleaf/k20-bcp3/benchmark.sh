@@ -68,7 +68,9 @@ case "$MODEL" in
             gcc-7.1.0)
                 COMPILER=gcc-7.1.0
                 MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
+                module use /newhome/pa13269/modules/modulefiles
                 module load languages/gcc-7.1.0
+                module load openmpi3-gcc4.8
             ;;
             intel-16)
                 MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
