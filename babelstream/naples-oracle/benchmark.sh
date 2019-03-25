@@ -10,8 +10,10 @@ function usage
     echo "Valid compilers:"
     echo "  gcc-8.1"
     echo "  intel-2019"
+    echo "  pgi-18"
     echo
     echo "Valid models:"
+    echo "  acc"
     echo "  omp"
     echo "  kokkos"
     echo
@@ -28,7 +30,7 @@ then
 fi
 
 ACTION=$1
-COMPILER=${2:-$DEFAULT_COMPILER}
+export COMPILER=${2:-$DEFAULT_COMPILER}
 MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
@@ -51,6 +53,11 @@ case "$COMPILER" in
         module purge
         module load intel/compiler/2019.2
         MAKE_OPTS="COMPILER=INTEL TARGET=CPU"
+        ;;
+    pgi-18)
+        module purge
+        module load pgi/18.10
+        MAKE_OPTS="COMPILER=PGI TARGET=ZEN TARGET_FLAGS_ZEN='-ta=multicore -tp=zen'"
         ;;
     *)
         echo
@@ -78,21 +85,34 @@ then
 
     # Select Makefile to use
     case "$MODEL" in
-      omp)
-        MAKE_FILE="OpenMP.make"
-        BINARY="omp-stream"
-        ;;
-      kokkos)
-        MAKE_FILE="Kokkos.make"
-        BINARY="kokkos-stream"
-	case "$COMPILER" in
-          gcc-8.1)
-            module load kokkos/gcc-8.1
-	    ;;
-          intel-2019)
-            module load kokkos/intel-2019
-	    ;;
-	esac
+        acc)
+            if [ "$COMPILER" =~ pgi ]]; then
+                echo "OpenACC not supported with compiler $COMPILER"
+                exit 1
+            fi
+
+            MAKE_FILE="OpenACC.make"
+            BINARY="acc-stream"
+            ;;
+        omp)
+            MAKE_FILE="OpenMP.make"
+            BINARY="omp-stream"
+            ;;
+        kokkos)
+            MAKE_FILE="Kokkos.make"
+            BINARY="kokkos-stream"
+            case "$COMPILER" in
+                gcc-8.1)
+                    module load kokkos/gcc-8.1
+                    ;;
+                intel-2019)
+                    module load kokkos/intel-2019
+                    ;;
+                *)
+                    echo "Kokkos not supported with compiler $COMPILER"
+                    exit 1
+                    ;;
+            esac
     esac
 
     if ! eval make -f $MAKE_FILE -C $SRC_DIR -B $MAKE_OPTS
