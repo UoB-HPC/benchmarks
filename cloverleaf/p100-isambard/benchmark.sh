@@ -11,7 +11,8 @@ function usage
     echo "Valid models:"
     echo "  omp-target"
     echo "  cuda"
-    echo " kokkos"
+    echo "  kokkos"
+    echo "  acc"
     echo
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
@@ -53,6 +54,13 @@ case "$MODEL" in
         export SRC_DIR="$PWD/CloverLeaf"
         MAKE_OPTS="COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH"
         ;;
+    acc)
+        module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
+        module load craype-accel-nvidia60
+        module load PrgEnv-pgi
+        export SRC_DIR="$PWD/CloverLeaf-OpenACC"
+        MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90  FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=tesla:cc60" CFLAGS_PGI="-O3 -ta=tesla:cc60" OMP_PGI=""'
+        ;;
     *)
         echo
         echo "Invalid model '$MODEL'."
@@ -76,7 +84,7 @@ then
         exit 1
     fi
 
-    if [ "$MODEL" != "kokkos" ]
+    if [ "$MODEL" == "omp-target" ]
     then
         # As of 21 Mar 2019, the linker command does not work with the Cray compiler (and possibly others too)
         sed -i '/-o clover_leaf/c\\t$(MPI_F90) $(FFLAGS) $(OBJ) $(LDLIBS) -o clover_leaf' "$SRC_DIR/Makefile"
