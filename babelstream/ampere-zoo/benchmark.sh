@@ -46,6 +46,10 @@ case "$COMPILER" in
         MAKE_OPTS="COMPILER=GNU TARGET=CPU"
         MAKE_OPTS="$MAKE_OPTS FLAGS_GNU='-O3 -std=c++11 -march=armv8-a'"
         ;;
+    clang-trunk)
+        module load llvm/trunk
+        MAKE_OPTS="COMPILER=CLANG TARGET=CPU EXTRA_FLAGS=-march=armv8-a"
+        ;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
