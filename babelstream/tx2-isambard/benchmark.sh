@@ -42,7 +42,8 @@ export RUN_DIR=$SCRIPT_DIR
 # Set up the environment
 case "$COMPILER" in
     cce-8.7)
-        module swap cce cce/8.7.7
+        [ -z "$CRAY_CPU_TARGET" ] && module load craype-arm-thunderx2
+        module swap cce cce/8.7.9
         MAKE_OPTS="COMPILER=CRAY TARGET=CPU"
         ;;
     gcc-8.2)
@@ -98,10 +99,10 @@ then
         exit 1
     fi
 
-    qsub $SCRIPT_DIR/run.job \
-        -o BabelStream-$CONFIG.out \
+    qsub -o BabelStream-$CONFIG.out \
         -N babelstream \
-        -V
+        -V \
+        $SCRIPT_DIR/run.job
 
 else
     echo

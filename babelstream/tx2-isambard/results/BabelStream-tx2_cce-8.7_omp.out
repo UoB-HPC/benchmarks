@@ -6,37 +6,37 @@ Precision: double
 Array size: 268.4 MB (=0.3 GB)
 Total size: 805.3 MB (=0.8 GB)
 Function    MBytes/sec  Min (sec)   Max         Average     
-Copy        165751.136  0.00324     0.00362     0.00334     
-Mul         163115.666  0.00329     0.00405     0.00338     
-Add         181809.973  0.00443     0.00501     0.00469     
-Triad       180507.328  0.00446     0.00478     0.00457     
-Dot         215163.717  0.00250     0.00329     0.00254     
-Application 1080197 resources: utime ~70s, stime ~23s, Rss ~1574900, inblocks ~0, outblocks ~0
+Copy        167662.132  0.00320     0.00344     0.00328     
+Mul         161586.040  0.00332     0.00396     0.00352     
+Add         179756.367  0.00448     0.00495     0.00474     
+Triad       179231.912  0.00449     0.00498     0.00467     
+Dot         244046.986  0.00220     0.00279     0.00229     
+Application 1085188 resources: utime ~66s, stime ~22s, Rss ~1576084, inblocks ~0, outblocks ~0
 ============================= PBS epilogue =============================
 
 End of Job Report
-Run at 2019-03-05 11:43:01 for job 6100.xci00
-Submitted              : 2019-03-05 11:42:47
-Queued                 : 2019-03-05 11:42:47
-Started                : 2019-03-05 11:42:47
-Completed              : 2019-03-05 11:43:01
+Run at 2019-03-25 14:42:43 for job 6902.xci00
+Submitted              : 2019-03-25 14:42:30
+Queued                 : 2019-03-25 14:42:30
+Started                : 2019-03-25 14:42:30
+Completed              : 2019-03-25 14:42:43
 Queued Time            : 0:00:00 (0 seconds)
-Elapsed Time           : 0:00:09 (9 seconds, 1% of limit)
-Parallel Time          : 0:00:06 (6 seconds, 66% of elapsed time)
+Elapsed Time           : 0:00:08 (8 seconds, 1% of limit)
+Parallel Time          : 0:00:06 (6 seconds, 69% of elapsed time)
 Walltime Limit         : 0:15:00 (900 seconds)
 Node Time Limit        : 0:15:00 (900 seconds)
-Node Time              : 0:00:09 (9 seconds, 1% of limit)
+Node Time              : 0:00:08 (8 seconds, 1% of limit)
 Job Name               : babelstream
 Queue                  : arm
-Owner                  : br-tdeakin
+Owner                  : br-apoenaru
 Group                  : -default-
 Project                : bristol
 Subproject             : 
 Funding                : 
 Trustzone              : 
-STDOUT                 : /home/br-tdeakin/codes/benchmarks/babelstream/tx2-isambard/BabelStream-tx2_cce-8.7_omp.out
-STDERR                 : /home/br-tdeakin/codes/benchmarks/babelstream/tx2-isambard/babelstream.e6100
-Job Directory          : /home/br-tdeakin/pbs.6100.xci00.x8z
+STDOUT                 : /home/br-apoenaru/workspace-arm/doe-p3-benchmarks/babelstream/tx2-isambard/BabelStream-tx2_cce-8.7_omp.out
+STDERR                 : /home/br-apoenaru/workspace-arm/doe-p3-benchmarks/babelstream/tx2-isambard/babelstream.e6902
+Job Directory          : /home/br-apoenaru/pbs.6902.xci00.x8z
 Job Arch               : XT
 CPU Core Type          : arm
 Total Nodes            : 1
@@ -44,16 +44,16 @@ Total Tasks            : 64
 Parent Node            : xcimom
 Parent Node Memory     : 
 Parent Node CPU Time   : 
-Compute Nodes          : 0
+Compute Nodes          : 1
 Electrical Groups      : 1
 Run Version            : 1
 
                                         Wallclock  Wallclock     Memory     Memory
 Executable             APID      Nodes       Used  Requested       Used  Requested   CPU Time    Read IO   Write IO     Energy
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
-stream-tx2_cce-8.7_omp    1080197          1       94.4        10%       1.3G         1%       91.1      36.0k        0.0       1.4k
+stream-tx2_cce-8.7_omp    1085188          1       89.4        10%       1.3G         1%       86.4      36.0k        0.0       1.7k
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
-total                   all          1       94.4        10%       1.3G         1%       91.1      36.0k        0.0       1.4k
+total                   all          1       89.4        10%       1.3G         1%       86.4      36.0k        0.0       1.7k
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
 
 Lustre

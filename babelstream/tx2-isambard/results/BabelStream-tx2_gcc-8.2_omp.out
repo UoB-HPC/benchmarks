@@ -6,37 +6,37 @@ Precision: double
 Array size: 268.4 MB (=0.3 GB)
 Total size: 805.3 MB (=0.8 GB)
 Function    MBytes/sec  Min (sec)   Max         Average     
-Copy        210858.365  0.00255     0.00261     0.00257     
-Mul         209175.755  0.00257     0.00263     0.00259     
-Add         215438.861  0.00374     0.00403     0.00376     
-Triad       216925.662  0.00371     0.00408     0.00379     
-Dot         150733.229  0.00356     0.00364     0.00359     
-Application 1080199 resources: utime ~53s, stime ~26s, Rss ~1574368, inblocks ~0, outblocks ~0
+Copy        235209.730  0.00228     0.00246     0.00230     
+Mul         230276.459  0.00233     0.00250     0.00235     
+Add         241556.643  0.00333     0.00349     0.00336     
+Triad       245792.554  0.00328     0.00486     0.00331     
+Dot         181643.170  0.00296     0.00321     0.00298     
+Application 1085195 resources: utime ~47s, stime ~23s, Rss ~1574296, inblocks ~0, outblocks ~0
 ============================= PBS epilogue =============================
 
 End of Job Report
-Run at 2019-03-05 11:53:38 for job 6101.xci00
-Submitted              : 2019-03-05 11:53:25
-Queued                 : 2019-03-05 11:53:25
-Started                : 2019-03-05 11:53:25
-Completed              : 2019-03-05 11:53:38
+Run at 2019-03-25 14:45:21 for job 6905.xci00
+Submitted              : 2019-03-25 14:45:08
+Queued                 : 2019-03-25 14:45:08
+Started                : 2019-03-25 14:45:08
+Completed              : 2019-03-25 14:45:21
 Queued Time            : 0:00:00 (0 seconds)
 Elapsed Time           : 0:00:08 (8 seconds, 1% of limit)
-Parallel Time          : 0:00:06 (6 seconds, 68% of elapsed time)
+Parallel Time          : 0:00:06 (6 seconds, 72% of elapsed time)
 Walltime Limit         : 0:15:00 (900 seconds)
 Node Time Limit        : 0:15:00 (900 seconds)
 Node Time              : 0:00:08 (8 seconds, 1% of limit)
 Job Name               : babelstream
 Queue                  : arm
-Owner                  : br-tdeakin
+Owner                  : br-apoenaru
 Group                  : -default-
 Project                : bristol
 Subproject             : 
 Funding                : 
 Trustzone              : 
-STDOUT                 : /home/br-tdeakin/codes/benchmarks/babelstream/tx2-isambard/BabelStream-tx2_gcc-8.2_omp.out
-STDERR                 : /home/br-tdeakin/codes/benchmarks/babelstream/tx2-isambard/babelstream.e6101
-Job Directory          : /home/br-tdeakin/pbs.6101.xci00.x8z
+STDOUT                 : /home/br-apoenaru/workspace-arm/doe-p3-benchmarks/babelstream/tx2-isambard/BabelStream-tx2_gcc-8.2_omp.out
+STDERR                 : /home/br-apoenaru/workspace-arm/doe-p3-benchmarks/babelstream/tx2-isambard/babelstream.e6905
+Job Directory          : /home/br-apoenaru/pbs.6905.xci00.x8z
 Job Arch               : XT
 CPU Core Type          : arm
 Total Nodes            : 1
@@ -44,21 +44,21 @@ Total Tasks            : 64
 Parent Node            : xcimom
 Parent Node Memory     : 
 Parent Node CPU Time   : 
-Compute Nodes          : 0
+Compute Nodes          : 106
 Electrical Groups      : 1
 Run Version            : 1
 
                                         Wallclock  Wallclock     Memory     Memory
 Executable             APID      Nodes       Used  Requested       Used  Requested   CPU Time    Read IO   Write IO     Energy
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
-stream-tx2_gcc-8.2_omp    1080199          1       93.6        10%       1.1G         1%       77.6       7.0k        0.0       1.4k
+stream-tx2_gcc-8.2_omp    1085195          1       82.0         9%       1.1G         1%       69.1       7.0k        0.0       1.5k
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
-total                   all          1       93.6        10%       1.1G         1%       77.6       7.0k        0.0       1.4k
+total                   all          1       82.0         9%       1.1G         1%       69.1       7.0k        0.0       1.5k
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
 
 Lustre
 device         read  written     open    close   create  getattr  setattr    perms    mkdir    rmdir  readdir     link   unlink   rename
 ========== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ========
-/lustre           0        0        0        0        0        0        0        7        0        0        0        0        0        0
+/lustre           0        0        0        0        0        1        0      139        0        0        0        0        0        0
 
 For more information see https://gw4-isambard.github.io/docs/
