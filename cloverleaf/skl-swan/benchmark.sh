@@ -12,10 +12,12 @@ function usage
     echo "  gcc-7.3"
     echo "  intel-2018"
     echo "  intel-2019"
+    echo "  pgi-18"
     echo
     echo "Valid models:"
     echo "  mpi"
     echo "  omp"
+    echo "  kokkos"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_MODEL'."
     echo
@@ -68,9 +70,40 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -xCORE-AVX512"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xCORE-AVX512"'
         ;;
+    pgi-18)
+        module swap craype-{x86-skylake,broadwell} # PrgEnv-pgi is not compatible with craype-skylake
+        module swap PrgEnv-{cray,pgi}
+        module swap pgi pgi/18.10.0
+        MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=cc MPI_COMPILER=ftn'
+        ;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
+        usage
+        exit 1
+        ;;
+esac
+
+
+case "$MODEL" in
+    omp)
+        ;;
+
+    kokkos)
+        module use /lus/scratch/p02555/modules/modulefiles
+        module load kokkos/skylake
+        MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=cpu MPI_CC_INTEL=CC KOKKOS_PATH=$KOKKOS_PATH'
+        export SRC_DIR=$PWD/CloverLeaf
+        ;;
+
+    acc)
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=multicore -tp=skylake" CFLAGS_PGI="-O3 -ta=multicore -tp=skylake" OMP_PGI=""'
+        export SRC_DIR=$PWD/CloverLeaf-OpenACC
+        ;;
+
+    *)
+        echo
+        echo "Invalid model '$MODEL'."
         usage
         exit 1
         ;;
@@ -81,7 +114,7 @@ esac
 if [ "$ACTION" == "build" ]
 then
     # Fetch source code
-    if ! "$SCRIPT_DIR/../fetch.sh"
+    if ! eval "$SCRIPT_DIR/../fetch.sh $MODEL"
     then
         echo
         echo "Failed to fetch source code."

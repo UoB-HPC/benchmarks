@@ -15,6 +15,10 @@ case "$MODEL" in
         export OMP_NUM_THREADS=56
         aprun -n 1 -d 56 -j 1 -cc depth ./$BENCHMARK_EXE
         ;;
+    acc)
+        export ACC_NUM_CORES=56
+        aprun -n 1 -d 56 -j 1 -cc depth ./$BENCHMARK_EXE
+        ;;
     *)
         echo "Unknown run configuration for model '$MODEL'"
         exit 1
