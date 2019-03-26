@@ -13,10 +13,12 @@ function usage
     echo "  gcc-7.3"
     echo "  gcc-8.1"
     echo "  intel-2019"
+    echo "  pgi-18"
     echo
     echo "Valid models:"
     echo "  mpi"
     echo "  omp"
+    echo "  acc"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_MODEL'."
     echo
@@ -66,6 +68,11 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xhost"'
         MAKE_OPTS=$MAKE_OPTS' OMP_INTEL="-qopenmp"'
         ;;
+    pgi-18)
+	module load pgi/18.10
+	export PATH=/opt/modules/pgi/linux86-64/18.10/mpi/openmpi/bin/:$PATH
+	MAKE_OPTS='COMPILER=PGI'
+	;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
@@ -74,12 +81,19 @@ case "$COMPILER" in
         ;;
 esac
 
+case "$MODEL" in
+    acc)
+        export SRC_DIR=$PWD/CloverLeaf-OpenACC
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=multicore -tp=zen" CFLAGS_PGI="-O3 -ta=multicore -tp=zen" OMP_PGI=""'
+        ;;
+esac
+
 
 # Handle actions
 if [ "$ACTION" == "build" ]
 then
     # Fetch source code
-    if ! "$SCRIPT_DIR/../fetch.sh"
+    if ! eval "$SCRIPT_DIR/../fetch.sh $MODEL"
     then
         echo
         echo "Failed to fetch source code."
