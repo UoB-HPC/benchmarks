@@ -10,10 +10,12 @@ function usage
     echo "Valid compilers:"
     echo "  intel-2018"
     echo "  intel-2019"
+    echo "  pgi-18"
     echo
     echo "Valid models:"
     echo "  omp"
     echo "  kokkos"
+    echo "  acc"
     echo
     echo "The default compiler is '$DEFAULT_COMPILER'."
     echo "The default programming model is '$DEFAULT_MODEL'."
@@ -56,6 +58,12 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' FLAGS_INTEL="-O3 -no-prec-div -fpp -align array64byte -xMIC-AVX512"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_INTEL="-O3 -no-prec-div -restrict -fno-alias -xMIC-AVX512"'
         ;;
+    pgi-18)
+        module swap craype-{mic-knl,broadwell} # PrgEnv-pgi is not compatible with craype-mic-knl
+        module swap PrgEnv-{cray,pgi}
+        module swap pgi pgi/18.10.0
+        MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=cc MPI_COMPILER=ftn'
+        ;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
@@ -77,6 +85,10 @@ case "$MODEL" in
         mkdir -p $SRC_DIR/{obj,mpiobj}
         MAKE_OPTS="COMPILER=INTEL USE_KOKKOS=1 MPI_CC_INTEL=CC EXTRA_PATH=-qopenmp"
         ;;
+    acc)
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=multicore -tp=knl" CFLAGS_PGI="-O3 -ta=multicore -tp=knl" OMP_PGI=""'
+        export SRC_DIR=$PWD/CloverLeaf-OpenACC
+        ;;
     *)
         echo
         echo "Invalid model '$MODEL'."
@@ -90,7 +102,7 @@ esac
 if [ "$ACTION" == "build" ]
 then
     # Fetch source code
-    if ! "$SCRIPT_DIR/../fetch.sh" "$MODEL"
+    if ! eval "$SCRIPT_DIR/../fetch.sh $MODEL"
     then
         echo
         echo "Failed to fetch source code."

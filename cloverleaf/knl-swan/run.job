@@ -8,4 +8,5 @@
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 
 export OMP_NUM_THREADS=64
+export ACC_NUM_CORES=64
 aprun -n 1 -d 64 -j 1 -cc depth numactl -m 1 "./$BENCHMARK_EXE"
