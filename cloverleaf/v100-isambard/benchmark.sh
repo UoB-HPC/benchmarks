@@ -12,6 +12,7 @@ function usage
     echo "  omp-target"
     echo "  cuda"
     echo "  kokkos"
+    echo "  acc"
     echo
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
@@ -55,6 +56,12 @@ case "$MODEL" in
        module load openmpi/3.0.2/gcc8
        export SRC_DIR="$PWD/CloverLeaf"
        MAKE_OPTS='-j20 COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH="$KOKKOS_PATH" FLAGS_GNU="-std=c++11 -Wall -Wpedantic -g -Wno-unknown-pragmas -O3 -lm"'
+       ;;
+    acc)
+       module load pgi/18.10
+       export PATH=/opt/pgi/linuxpower/18.10/mpi/openmpi/bin/:$PATH
+       export SRC_DIR="$PWD/CloverLeaf-OpenACC"
+       MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90 FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=tesla:cc70" CFLAGS_PGI="-O3 -ta=tesla:cc70" OMP_PGI=""'
        ;;
     *)
         echo
