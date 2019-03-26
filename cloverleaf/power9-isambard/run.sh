@@ -13,6 +13,9 @@ case "$MODEL" in
         export OMP_NUM_THREADS=40 OMP_PROC_BIND=spread OMP_PLACES=cores
         mpirun -np 1 --bind-to none ./$BENCHMARK_EXE
         ;;
+    acc)
+        mpirun -np 1 ./$BENCHMARK_EXE
+        ;;
     *)
         echo "Unknown run configuration for model '$MODEL'"
         exit 1
