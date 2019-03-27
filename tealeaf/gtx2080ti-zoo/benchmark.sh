@@ -68,6 +68,18 @@ case "$MODEL" in
       KERNEL_FLAGS="$KOKKOS_CXXFLAGS -DNO_MPI -DCUDA -I$KERNELS_PATH" \
       KERNELS=kokkos' \
     ;;
+  acc)
+    module load pgi/18.10
+    export SRC_DIR="$PWD/TeaLeaf/2d"
+    export BENCHMARK_EXE="tealeaf.openacc"
+    export COMPILER=PGI
+    MAKE_OPTS='\
+      OACC_FLAGS="-ta=tesla,cc70 -tp=zen" \
+      COMPILER=PGI \
+      CC=pgcc \
+      OPTIONS=-DNO_MPI \
+      KERNELS="openacc"'
+    ;;
   *)
     echo
     echo "Invalid model '$MODEL'"
@@ -121,7 +133,7 @@ then
     exit 1
   fi
 
-  if [[ "$MODEL" = kokkos || $MODEL = "omp-target" ]]; then
+  if [[ "$MODEL" = kokkos || $MODEL = "omp-target" || $MODEL = "acc" ]]; then
     cp $SRC_DIR/tea.problems $RUN_DIR
     echo "4000 4000 10 9.5462351582214282e+01" >> "$RUN_DIR/tea.problems"
   fi
