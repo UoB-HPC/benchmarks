@@ -1,0 +1,98 @@
+diff --git a/clover.f90 b/clover.f90
+index 2e4a426..dafd670 100644
+--- a/clover.f90
++++ b/clover.f90
+@@ -60,9 +60,9 @@ CONTAINS
+     INTEGER :: err
+ 
+     CLOSE(g_out)
+-    CALL FLUSH(0)
+-    CALL FLUSH(6)
+-    CALL FLUSH(g_out)
++    !CALL FLUSH(0)
++    !CALL FLUSH(6)
++    !CALL FLUSH(g_out)
+     CALL MPI_FINALIZE(err)
+ 
+   END SUBROUTINE clover_finalize
+diff --git a/hydro.f90 b/hydro.f90
+index 37b3b51..5a03ca5 100644
+--- a/hydro.f90
++++ b/hydro.f90
+@@ -190,21 +190,21 @@ SUBROUTINE hydro
+ 
+         END IF
+ 
+-        IF (parallel%boss) THEN
+-            wall_clock=timer()-timerstart
+-            step_clock=timer()-step_time
+-            WRITE(g_out,*)"Wall clock ",wall_clock
+-            WRITE(0    ,*)"Wall clock ",wall_clock
+-            cells = grid%x_cells * grid%y_cells
+-            rstep = step
+-            grind_time   = wall_clock/(rstep * cells)
+-            step_grind   = step_clock/cells
+-            WRITE(0    ,*)"Average time per cell ",grind_time
+-            WRITE(g_out,*)"Average time per cell ",grind_time
+-            WRITE(0    ,*)"Step time per cell    ",step_grind
+-            WRITE(g_out,*)"Step time per cell    ",step_grind
+-
+-        END IF
++        !IF (parallel%boss) THEN
++        !    wall_clock=timer()-timerstart
++        !    step_clock=timer()-step_time
++        !    WRITE(g_out,*)"Wall clock ",wall_clock
++        !    WRITE(0    ,*)"Wall clock ",wall_clock
++        !    cells = grid%x_cells * grid%y_cells
++        !    rstep = step
++        !    grind_time   = wall_clock/(rstep * cells)
++        !    step_grind   = step_clock/cells
++        !    WRITE(0    ,*)"Average time per cell ",grind_time
++        !    WRITE(g_out,*)"Average time per cell ",grind_time
++        !    WRITE(0    ,*)"Step time per cell    ",step_grind
++        !    WRITE(g_out,*)"Step time per cell    ",step_grind
++
++        !END IF
+ 
+     END DO
+ 
+diff --git a/parse.f90 b/parse.f90
+index a510d5f..73303f0 100644
+--- a/parse.f90
++++ b/parse.f90
+@@ -158,7 +158,7 @@ CONTAINS
+       IF(parse_getline.NE.0) RETURN
+ 
+       DO i=1,len_trim(l)
+-        if (IACHAR(l(i:)).LT.32.OR.IACHAR(l(i:i)).GT.128) l(i:i)=' '
++        if (IACHAR(l(i:i)).LT.31.OR.IACHAR(l(i:i)).GT.128) l(i:i)=' '
+       ENDDO
+ 
+       l=TRIM(ADJUSTL(l))
+diff --git a/timestep.f90 b/timestep.f90
+index 8f30c22..f2faacd 100644
+--- a/timestep.f90
++++ b/timestep.f90
+@@ -101,14 +101,14 @@ CONTAINS
+ 
+     IF(dt.LT.dtmin) small=1
+ 
+-    IF (parallel%boss) THEN
+-      !$  IF(OMP_GET_THREAD_NUM().EQ.0) THEN
+-      WRITE(g_out,"(' Step ', i7,' time ', f11.7,' control ',a11,' timestep  ',1pe9.2,i8,',',i8,' x ',1pe9.2,' y ',1pe9.2)") &
+-        step,time,dt_control,dt,jdt,kdt,x_pos,y_pos
+-      WRITE(0,"(' Step ', i7,' time ', f11.7,' control ',a11,' timestep  ',1pe9.2,i8,',',i8,' x ',1pe9.2,' y ',1pe9.2)") &
+-        step,time,dt_control,dt,jdt,kdt,x_pos,y_pos
+-    !$  ENDIF
+-    ENDIF
++    !IF (parallel%boss) THEN
++    !  !$  IF(OMP_GET_THREAD_NUM().EQ.0) THEN
++    !  WRITE(g_out,"(' Step ', i7,' time ', f11.7,' control ',a11,' timestep  ',1pe9.2,i8,',',i8,' x ',1pe9.2,' y ',1pe9.2)") &
++    !    step,time,dt_control,dt,jdt,kdt,x_pos,y_pos
++    !  WRITE(0,"(' Step ', i7,' time ', f11.7,' control ',a11,' timestep  ',1pe9.2,i8,',',i8,' x ',1pe9.2,' y ',1pe9.2)") &
++    !    step,time,dt_control,dt,jdt,kdt,x_pos,y_pos
++    !!$  ENDIF
++    !ENDIF
+ 
+     IF(small.EQ.1) THEN
+       CALL report_error('timestep','small timestep')

@@ -1,0 +1,1570 @@
+
+Clover Version    1.300
+       MPI Version
+    OpenMP Version
+   Task Count      1
+ Thread Count:     8
+
+ Clover will run from the following input:-
+
+*clover                                                                                             
+                                                                                                    
+ state 1 density=0.2 energy 1.0                                                                     
+ state 2 density=1.0 energy=2.5 geometry=rectangle xmin=0.0 xmax=5.0 ymin=0.0 ymax=2.0              
+                                                                                                    
+ x_cells=3840                                                                                       
+ y_cells=3840                                                                                       
+                                                                                                    
+ xmin=0.0                                                                                           
+ ymin=0.0                                                                                           
+ xmax=10.0                                                                                          
+ ymax=10.0                                                                                          
+                                                                                                    
+ initial_timestep=0.04                                                                              
+ timestep_rise=1.5                                                                                  
+ max_timestep=0.04                                                                                  
+ end_time=15.6                                                                                      
+ end_step=2955                                                                                      
+ test_problem 5                                                                                     
+                                                                                                    
+*endclover                                                                                          
+
+ Initialising and generating
+
+ Reading input file
+
+ Reading specification for state  1
+
+            state density   0.2000E+00
+             state energy   0.1000E+01
+
+ Reading specification for state  2
+
+            state density   0.1000E+01
+             state energy   0.2500E+01
+ state geometry rectangular
+               state xmin   0.0000E+00
+               state xmax   0.5000E+01
+               state ymin   0.0000E+00
+               state ymax   0.2000E+01
+
+                   x_cells        3840
+                   y_cells        3840
+                      xmin  0.0000E+00
+                      ymin  0.0000E+00
+                      xmax  0.1000E+02
+                      ymax  0.1000E+02
+         initial_timestep   0.4000E-01
+             timestep_rise  0.1500E+01
+              max_timestep  0.4000E-01
+                  end_time  0.1560E+02
+                  end_step        2955
+              test_problem           5
+
+     Using Fortran Kernels
+
+ Input read finished.
+
+ Setting up initial geometry
+
+
+ Mesh ratio of    1.0000000000000000
+ Decomposing the mesh into  1  by  1  chunks
+ Decomposing the chunk with  1  tiles
+
+ Generating chunks
+
+ Problem initialised and generated
+
+ Time    0.0000000000000000
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:      0      0.1000E+03      0.2800E+02      0.2800E+00      0.1720E+00      0.4300E+02      0.0000E+00      0.4300E+02
+
+ Starting the calculation
+
+ Time    1.3513557686645576E-02
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     10      0.1000E+03      0.2800E+02      0.2800E+00      0.1719E+00      0.4297E+02      0.3190E-01      0.4300E+02
+
+
+ Time    2.8000103943834700E-02
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     20      0.1000E+03      0.2800E+02      0.2800E+00      0.1717E+00      0.4293E+02      0.6785E-01      0.4300E+02
+
+
+ Time    4.2549505830010971E-02
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     30      0.1000E+03      0.2800E+02      0.2800E+00      0.1716E+00      0.4289E+02      0.1037E+00      0.4300E+02
+
+
+ Time    5.7118606373806148E-02
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     40      0.1000E+03      0.2800E+02      0.2800E+00      0.1714E+00      0.4286E+02      0.1396E+00      0.4300E+02
+
+
+ Time    7.1700585166468961E-02
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     50      0.1000E+03      0.2800E+02      0.2800E+00      0.1713E+00      0.4282E+02      0.1754E+00      0.4300E+02
+
+
+ Time    8.6294514618842202E-02
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     60      0.1000E+03      0.2800E+02      0.2800E+00      0.1711E+00      0.4278E+02      0.2112E+00      0.4300E+02
+
+
+ Time    0.1008983085635486
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     70      0.1000E+03      0.2800E+02      0.2800E+00      0.1710E+00      0.4275E+02      0.2469E+00      0.4300E+02
+
+
+ Time    0.1155098865932747
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     80      0.1000E+03      0.2800E+02      0.2800E+00      0.1708E+00      0.4271E+02      0.2826E+00      0.4299E+02
+
+
+ Time    0.1301294706791029
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:     90      0.1000E+03      0.2800E+02      0.2800E+00      0.1707E+00      0.4268E+02      0.3182E+00      0.4299E+02
+
+
+ Time    0.1447564129540004
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    100      0.1000E+03      0.2800E+02      0.2800E+00      0.1706E+00      0.4264E+02      0.3537E+00      0.4299E+02
+
+
+ Time    0.1593891886338075
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    110      0.1000E+03      0.2800E+02      0.2800E+00      0.1704E+00      0.4260E+02      0.3892E+00      0.4299E+02
+
+
+ Time    0.1740275857963872
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    120      0.1000E+03      0.2800E+02      0.2800E+00      0.1703E+00      0.4257E+02      0.4246E+00      0.4299E+02
+
+
+ Time    0.1886717742651266
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    130      0.1000E+03      0.2800E+02      0.2800E+00      0.1701E+00      0.4253E+02      0.4599E+00      0.4299E+02
+
+
+ Time    0.2033206690658283
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    140      0.1000E+03      0.2800E+02      0.2800E+00      0.1700E+00      0.4250E+02      0.4951E+00      0.4299E+02
+
+
+ Time    0.2179737416833429
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    150      0.1000E+03      0.2800E+02      0.2800E+00      0.1698E+00      0.4246E+02      0.5303E+00      0.4299E+02
+
+
+ Time    0.2326315438601031
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    160      0.1000E+03      0.2800E+02      0.2800E+00      0.1697E+00      0.4243E+02      0.5654E+00      0.4299E+02
+
+
+ Time    0.2472933449435112
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    170      0.1000E+03      0.2800E+02      0.2800E+00      0.1696E+00      0.4239E+02      0.6004E+00      0.4299E+02
+
+
+ Time    0.2619585408082624
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    180      0.1000E+03      0.2800E+02      0.2800E+00      0.1694E+00      0.4236E+02      0.6354E+00      0.4299E+02
+
+
+ Time    0.2766275393404541
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    190      0.1000E+03      0.2800E+02      0.2800E+00      0.1693E+00      0.4232E+02      0.6702E+00      0.4299E+02
+
+
+ Time    0.2913000958990066
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    200      0.1000E+03      0.2800E+02      0.2800E+00      0.1691E+00      0.4229E+02      0.7050E+00      0.4299E+02
+
+
+ Time    0.3059756788245427
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    210      0.1000E+03      0.2800E+02      0.2800E+00      0.1690E+00      0.4225E+02      0.7397E+00      0.4299E+02
+
+
+ Time    0.3206542562566463
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    220      0.1000E+03      0.2800E+02      0.2800E+00      0.1689E+00      0.4221E+02      0.7744E+00      0.4299E+02
+
+
+ Time    0.3353360762638110
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    230      0.1000E+03      0.2800E+02      0.2800E+00      0.1687E+00      0.4218E+02      0.8090E+00      0.4299E+02
+
+
+ Time    0.3500207098179540
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    240      0.1000E+03      0.2800E+02      0.2800E+00      0.1686E+00      0.4215E+02      0.8435E+00      0.4299E+02
+
+
+ Time    0.3647078295419249
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    250      0.1000E+03      0.2800E+02      0.2800E+00      0.1684E+00      0.4211E+02      0.8779E+00      0.4299E+02
+
+
+ Time    0.3793978135792800
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    260      0.1000E+03      0.2800E+02      0.2800E+00      0.1683E+00      0.4208E+02      0.9122E+00      0.4299E+02
+
+
+ Time    0.3940904619398889
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    270      0.1000E+03      0.2800E+02      0.2800E+00      0.1682E+00      0.4204E+02      0.9465E+00      0.4299E+02
+
+
+ Time    0.4087854323589690
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    280      0.1000E+03      0.2800E+02      0.2800E+00      0.1680E+00      0.4201E+02      0.9807E+00      0.4299E+02
+
+
+ Time    0.4234827251804299
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    290      0.1000E+03      0.2800E+02      0.2800E+00      0.1679E+00      0.4197E+02      0.1015E+01      0.4299E+02
+
+
+ Time    0.4381825551617105
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    300      0.1000E+03      0.2800E+02      0.2800E+00      0.1677E+00      0.4194E+02      0.1049E+01      0.4299E+02
+
+
+ Time    0.4528846359859209
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    310      0.1000E+03      0.2800E+02      0.2800E+00      0.1676E+00      0.4190E+02      0.1083E+01      0.4299E+02
+
+
+ Time    0.4675887161334625
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    320      0.1000E+03      0.2800E+02      0.2800E+00      0.1675E+00      0.4187E+02      0.1117E+01      0.4299E+02
+
+
+ Time    0.4822950588185095
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    330      0.1000E+03      0.2800E+02      0.2800E+00      0.1673E+00      0.4183E+02      0.1150E+01      0.4298E+02
+
+
+ Time    0.4970035947469471
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    340      0.1000E+03      0.2800E+02      0.2800E+00      0.1672E+00      0.4180E+02      0.1184E+01      0.4298E+02
+
+
+ Time    0.5117140739136311
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    350      0.1000E+03      0.2800E+02      0.2800E+00      0.1671E+00      0.4177E+02      0.1218E+01      0.4298E+02
+
+
+ Time    0.5264263892045693
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    360      0.1000E+03      0.2800E+02      0.2800E+00      0.1669E+00      0.4173E+02      0.1251E+01      0.4298E+02
+
+
+ Time    0.5411407930285528
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    370      0.1000E+03      0.2800E+02      0.2800E+00      0.1668E+00      0.4170E+02      0.1285E+01      0.4298E+02
+
+
+ Time    0.5558571104243304
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    380      0.1000E+03      0.2800E+02      0.2800E+00      0.1667E+00      0.4166E+02      0.1318E+01      0.4298E+02
+
+
+ Time    0.5705751244277680
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    390      0.1000E+03      0.2800E+02      0.2800E+00      0.1665E+00      0.4163E+02      0.1352E+01      0.4298E+02
+
+
+ Time    0.5852949138830060
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    400      0.1000E+03      0.2800E+02      0.2800E+00      0.1664E+00      0.4160E+02      0.1385E+01      0.4298E+02
+
+
+ Time    0.6000165809978604
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    410      0.1000E+03      0.2800E+02      0.2800E+00      0.1663E+00      0.4156E+02      0.1418E+01      0.4298E+02
+
+
+ Time    0.6147399313872163
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    420      0.1000E+03      0.2800E+02      0.2800E+00      0.1661E+00      0.4153E+02      0.1451E+01      0.4298E+02
+
+
+ Time    0.6294647952247050
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    430      0.1000E+03      0.2800E+02      0.2800E+00      0.1660E+00      0.4150E+02      0.1484E+01      0.4298E+02
+
+
+ Time    0.6441913723050157
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    440      0.1000E+03      0.2800E+02      0.2800E+00      0.1659E+00      0.4146E+02      0.1517E+01      0.4298E+02
+
+
+ Time    0.6589196255493026
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    450      0.1000E+03      0.2800E+02      0.2800E+00      0.1657E+00      0.4143E+02      0.1550E+01      0.4298E+02
+
+
+ Time    0.6736493814150341
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    460      0.1000E+03      0.2800E+02      0.2800E+00      0.1656E+00      0.4140E+02      0.1583E+01      0.4298E+02
+
+
+ Time    0.6883805317504028
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    470      0.1000E+03      0.2800E+02      0.2800E+00      0.1655E+00      0.4136E+02      0.1615E+01      0.4298E+02
+
+
+ Time    0.7031132904443020
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    480      0.1000E+03      0.2800E+02      0.2800E+00      0.1653E+00      0.4133E+02      0.1648E+01      0.4298E+02
+
+
+ Time    0.7178475582635353
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    490      0.1000E+03      0.2800E+02      0.2800E+00      0.1652E+00      0.4130E+02      0.1680E+01      0.4298E+02
+
+
+ Time    0.7325831730375811
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    500      0.1000E+03      0.2800E+02      0.2800E+00      0.1651E+00      0.4127E+02      0.1713E+01      0.4298E+02
+
+
+ Time    0.7473201190694081
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    510      0.1000E+03      0.2800E+02      0.2800E+00      0.1649E+00      0.4123E+02      0.1745E+01      0.4298E+02
+
+
+ Time    0.7620585488297256
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    520      0.1000E+03      0.2800E+02      0.2800E+00      0.1648E+00      0.4120E+02      0.1777E+01      0.4298E+02
+
+
+ Time    0.7767983412377133
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    530      0.1000E+03      0.2800E+02      0.2800E+00      0.1647E+00      0.4117E+02      0.1810E+01      0.4298E+02
+
+
+ Time    0.7915393562021303
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    540      0.1000E+03      0.2800E+02      0.2800E+00      0.1645E+00      0.4114E+02      0.1842E+01      0.4298E+02
+
+
+ Time    0.8062816557423562
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    550      0.1000E+03      0.2800E+02      0.2800E+00      0.1644E+00      0.4110E+02      0.1874E+01      0.4298E+02
+
+
+ Time    0.8210253125491908
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    560      0.1000E+03      0.2800E+02      0.2800E+00      0.1643E+00      0.4107E+02      0.1906E+01      0.4298E+02
+
+
+ Time    0.8357702082719152
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    570      0.1000E+03      0.2800E+02      0.2800E+00      0.1642E+00      0.4104E+02      0.1937E+01      0.4298E+02
+
+
+ Time    0.8505162243541090
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    580      0.1000E+03      0.2800E+02      0.2800E+00      0.1640E+00      0.4101E+02      0.1969E+01      0.4298E+02
+
+
+ Time    0.8652634779734517
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    590      0.1000E+03      0.2800E+02      0.2800E+00      0.1639E+00      0.4097E+02      0.2001E+01      0.4297E+02
+
+
+ Time    0.8800119777086024
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    600      0.1000E+03      0.2800E+02      0.2800E+00      0.1638E+00      0.4094E+02      0.2033E+01      0.4297E+02
+
+
+ Time    0.8947616183030239
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    610      0.1000E+03      0.2800E+02      0.2800E+00      0.1636E+00      0.4091E+02      0.2064E+01      0.4297E+02
+
+
+ Time    0.9095122905307933
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    620      0.1000E+03      0.2800E+02      0.2800E+00      0.1635E+00      0.4088E+02      0.2096E+01      0.4297E+02
+
+
+ Time    0.9242641467734827
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    630      0.1000E+03      0.2800E+02      0.2800E+00      0.1634E+00      0.4085E+02      0.2127E+01      0.4297E+02
+
+
+ Time    0.9390171556880695
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    640      0.1000E+03      0.2800E+02      0.2800E+00      0.1633E+00      0.4081E+02      0.2158E+01      0.4297E+02
+
+
+ Time    0.9537712125249431
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    650      0.1000E+03      0.2800E+02      0.2800E+00      0.1631E+00      0.4078E+02      0.2189E+01      0.4297E+02
+
+
+ Time    0.9685262418386277
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    660      0.1000E+03      0.2800E+02      0.2800E+00      0.1630E+00      0.4075E+02      0.2221E+01      0.4297E+02
+
+
+ Time    0.9832823886888857
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    670      0.1000E+03      0.2800E+02      0.2800E+00      0.1629E+00      0.4072E+02      0.2252E+01      0.4297E+02
+
+
+ Time    0.9980396047446354
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    680      0.1000E+03      0.2800E+02      0.2800E+00      0.1628E+00      0.4069E+02      0.2283E+01      0.4297E+02
+
+
+ Time    1.0127977973636251
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    690      0.1000E+03      0.2800E+02      0.2800E+00      0.1626E+00      0.4066E+02      0.2313E+01      0.4297E+02
+
+
+ Time    1.0275569023398319
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    700      0.1000E+03      0.2800E+02      0.2800E+00      0.1625E+00      0.4063E+02      0.2344E+01      0.4297E+02
+
+
+ Time    1.0423170650566016
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    710      0.1000E+03      0.2800E+02      0.2800E+00      0.1624E+00      0.4060E+02      0.2375E+01      0.4297E+02
+
+
+ Time    1.0570782255121587
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    720      0.1000E+03      0.2800E+02      0.2800E+00      0.1623E+00      0.4056E+02      0.2405E+01      0.4297E+02
+
+
+ Time    1.0718402896710422
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    730      0.1000E+03      0.2800E+02      0.2800E+00      0.1621E+00      0.4053E+02      0.2436E+01      0.4297E+02
+
+
+ Time    1.0866032330267605
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    740      0.1000E+03      0.2800E+02      0.2800E+00      0.1620E+00      0.4050E+02      0.2467E+01      0.4297E+02
+
+
+ Time    1.1013671673708463
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    750      0.1000E+03      0.2800E+02      0.2800E+00      0.1619E+00      0.4047E+02      0.2497E+01      0.4297E+02
+
+
+ Time    1.1161320355863742
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    760      0.1000E+03      0.2800E+02      0.2800E+00      0.1618E+00      0.4044E+02      0.2527E+01      0.4297E+02
+
+
+ Time    1.1308977501571589
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    770      0.1000E+03      0.2800E+02      0.2800E+00      0.1616E+00      0.4041E+02      0.2557E+01      0.4297E+02
+
+
+ Time    1.1456643041323806
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    780      0.1000E+03      0.2800E+02      0.2800E+00      0.1615E+00      0.4038E+02      0.2588E+01      0.4297E+02
+
+
+ Time    1.1604317906046240
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    790      0.1000E+03      0.2800E+02      0.2800E+00      0.1614E+00      0.4035E+02      0.2618E+01      0.4297E+02
+
+
+ Time    1.1752001528165457
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    800      0.1000E+03      0.2800E+02      0.2800E+00      0.1613E+00      0.4032E+02      0.2648E+01      0.4297E+02
+
+
+ Time    1.1899693127894584
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    810      0.1000E+03      0.2800E+02      0.2800E+00      0.1612E+00      0.4029E+02      0.2677E+01      0.4297E+02
+
+
+ Time    1.2047392711902836
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    820      0.1000E+03      0.2800E+02      0.2800E+00      0.1610E+00      0.4026E+02      0.2707E+01      0.4297E+02
+
+
+ Time    1.2195101115269025
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    830      0.1000E+03      0.2800E+02      0.2800E+00      0.1609E+00      0.4023E+02      0.2737E+01      0.4297E+02
+
+
+ Time    1.2342817780054847
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    840      0.1000E+03      0.2800E+02      0.2800E+00      0.1608E+00      0.4020E+02      0.2767E+01      0.4297E+02
+
+
+ Time    1.2490541974427232
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    850      0.1000E+03      0.2800E+02      0.2800E+00      0.1607E+00      0.4017E+02      0.2796E+01      0.4296E+02
+
+
+ Time    1.2638273777074849
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    860      0.1000E+03      0.2800E+02      0.2800E+00      0.1606E+00      0.4014E+02      0.2826E+01      0.4296E+02
+
+
+ Time    1.2786013938315475
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    870      0.1000E+03      0.2800E+02      0.2800E+00      0.1604E+00      0.4011E+02      0.2855E+01      0.4296E+02
+
+
+ Time    1.2933761905790579
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    880      0.1000E+03      0.2800E+02      0.2800E+00      0.1603E+00      0.4008E+02      0.2884E+01      0.4296E+02
+
+
+ Time    1.3081516968406499
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    890      0.1000E+03      0.2800E+02      0.2800E+00      0.1602E+00      0.4005E+02      0.2914E+01      0.4296E+02
+
+
+ Time    1.3229279327764403
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    900      0.1000E+03      0.2800E+02      0.2800E+00      0.1601E+00      0.4002E+02      0.2943E+01      0.4296E+02
+
+
+ Time    1.3377049613644272
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    910      0.1000E+03      0.2800E+02      0.2800E+00      0.1600E+00      0.3999E+02      0.2972E+01      0.4296E+02
+
+
+ Time    1.3524827297089503
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    920      0.1000E+03      0.2800E+02      0.2800E+00      0.1598E+00      0.3996E+02      0.3001E+01      0.4296E+02
+
+
+ Time    1.3672611697993025
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    930      0.1000E+03      0.2800E+02      0.2800E+00      0.1597E+00      0.3993E+02      0.3030E+01      0.4296E+02
+
+
+ Time    1.3820403088287863
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    940      0.1000E+03      0.2800E+02      0.2800E+00      0.1596E+00      0.3990E+02      0.3058E+01      0.4296E+02
+
+
+ Time    1.3968202000717174
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    950      0.1000E+03      0.2800E+02      0.2800E+00      0.1595E+00      0.3987E+02      0.3087E+01      0.4296E+02
+
+
+ Time    1.4116007943640487
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    960      0.1000E+03      0.2800E+02      0.2800E+00      0.1594E+00      0.3985E+02      0.3116E+01      0.4296E+02
+
+
+ Time    1.4263820272925105
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    970      0.1000E+03      0.2800E+02      0.2800E+00      0.1593E+00      0.3982E+02      0.3144E+01      0.4296E+02
+
+
+ Time    1.4411639278126334
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    980      0.1000E+03      0.2800E+02      0.2800E+00      0.1591E+00      0.3979E+02      0.3173E+01      0.4296E+02
+
+
+ Time    1.4559465440586123
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:    990      0.1000E+03      0.2800E+02      0.2800E+00      0.1590E+00      0.3976E+02      0.3201E+01      0.4296E+02
+
+
+ Time    1.4707298305854191
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1000      0.1000E+03      0.2800E+02      0.2800E+00      0.1589E+00      0.3973E+02      0.3229E+01      0.4296E+02
+
+
+ Time    1.4855137265555487
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1010      0.1000E+03      0.2800E+02      0.2800E+00      0.1588E+00      0.3970E+02      0.3258E+01      0.4296E+02
+
+
+ Time    1.5002982583604436
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1020      0.1000E+03      0.2800E+02      0.2800E+00      0.1587E+00      0.3967E+02      0.3286E+01      0.4296E+02
+
+
+ Time    1.5150834733162102
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1030      0.1000E+03      0.2800E+02      0.2800E+00      0.1586E+00      0.3964E+02      0.3314E+01      0.4296E+02
+
+
+ Time    1.5298693291709951
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1040      0.1000E+03      0.2800E+02      0.2800E+00      0.1585E+00      0.3962E+02      0.3342E+01      0.4296E+02
+
+
+ Time    1.5446557686637730
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1050      0.1000E+03      0.2800E+02      0.2800E+00      0.1584E+00      0.3959E+02      0.3370E+01      0.4296E+02
+
+
+ Time    1.5594428120100661
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1060      0.1000E+03      0.2800E+02      0.2800E+00      0.1582E+00      0.3956E+02      0.3398E+01      0.4296E+02
+
+
+ Time    1.5742305093702067
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1070      0.1000E+03      0.2800E+02      0.2800E+00      0.1581E+00      0.3953E+02      0.3425E+01      0.4296E+02
+
+
+ Time    1.5890188211365588
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1080      0.1000E+03      0.2800E+02      0.2800E+00      0.1580E+00      0.3950E+02      0.3453E+01      0.4296E+02
+
+
+ Time    1.6038076936841754
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1090      0.1000E+03      0.2800E+02      0.2800E+00      0.1579E+00      0.3948E+02      0.3480E+01      0.4296E+02
+
+
+ Time    1.6185971396478622
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1100      0.1000E+03      0.2800E+02      0.2800E+00      0.1578E+00      0.3945E+02      0.3508E+01      0.4296E+02
+
+
+ Time    1.6333872112131775
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1110      0.1000E+03      0.2800E+02      0.2800E+00      0.1577E+00      0.3942E+02      0.3535E+01      0.4296E+02
+
+
+ Time    1.6481778730547081
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1120      0.1000E+03      0.2800E+02      0.2800E+00      0.1576E+00      0.3939E+02      0.3563E+01      0.4296E+02
+
+
+ Time    1.6629690749477870
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1130      0.1000E+03      0.2800E+02      0.2800E+00      0.1575E+00      0.3936E+02      0.3590E+01      0.4295E+02
+
+
+ Time    1.6777608221865927
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1140      0.1000E+03      0.2800E+02      0.2800E+00      0.1573E+00      0.3934E+02      0.3617E+01      0.4295E+02
+
+
+ Time    1.6925531676057011
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1150      0.1000E+03      0.2800E+02      0.2800E+00      0.1572E+00      0.3931E+02      0.3644E+01      0.4295E+02
+
+
+ Time    1.7073460812747354
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1160      0.1000E+03      0.2800E+02      0.2800E+00      0.1571E+00      0.3928E+02      0.3671E+01      0.4295E+02
+
+
+ Time    1.7221395152992032
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1170      0.1000E+03      0.2800E+02      0.2800E+00      0.1570E+00      0.3926E+02      0.3698E+01      0.4295E+02
+
+
+ Time    1.7369334690896572
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1180      0.1000E+03      0.2800E+02      0.2800E+00      0.1569E+00      0.3923E+02      0.3724E+01      0.4295E+02
+
+
+ Time    1.7517279978399742
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1190      0.1000E+03      0.2800E+02      0.2800E+00      0.1568E+00      0.3920E+02      0.3751E+01      0.4295E+02
+
+
+ Time    1.7665230724284602
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1200      0.1000E+03      0.2800E+02      0.2800E+00      0.1567E+00      0.3917E+02      0.3777E+01      0.4295E+02
+
+
+ Time    1.7813186481957266
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1210      0.1000E+03      0.2800E+02      0.2800E+00      0.1566E+00      0.3915E+02      0.3804E+01      0.4295E+02
+
+
+ Time    1.7961147199198475
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1220      0.1000E+03      0.2800E+02      0.2800E+00      0.1565E+00      0.3912E+02      0.3830E+01      0.4295E+02
+
+
+ Time    1.8109113451237513
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1230      0.1000E+03      0.2800E+02      0.2800E+00      0.1564E+00      0.3910E+02      0.3856E+01      0.4295E+02
+
+
+ Time    1.8257084962592340
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1240      0.1000E+03      0.2800E+02      0.2800E+00      0.1563E+00      0.3907E+02      0.3881E+01      0.4295E+02
+
+
+ Time    1.8405061304632466
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1250      0.1000E+03      0.2800E+02      0.2800E+00      0.1562E+00      0.3904E+02      0.3907E+01      0.4295E+02
+
+
+ Time    1.8553042364087138
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1260      0.1000E+03      0.2800E+02      0.2800E+00      0.1561E+00      0.3902E+02      0.3932E+01      0.4295E+02
+
+
+ Time    1.8701028759102920
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1270      0.1000E+03      0.2800E+02      0.2800E+00      0.1560E+00      0.3899E+02      0.3957E+01      0.4295E+02
+
+
+ Time    1.8849020241546754
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1280      0.1000E+03      0.2800E+02      0.2800E+00      0.1559E+00      0.3897E+02      0.3982E+01      0.4295E+02
+
+
+ Time    1.8997016410230307
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1290      0.1000E+03      0.2800E+02      0.2800E+00      0.1558E+00      0.3894E+02      0.4007E+01      0.4295E+02
+
+
+ Time    1.9145017036813394
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1300      0.1000E+03      0.2800E+02      0.2800E+00      0.1557E+00      0.3892E+02      0.4031E+01      0.4295E+02
+
+
+ Time    1.9293022802739972
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1310      0.1000E+03      0.2800E+02      0.2800E+00      0.1556E+00      0.3889E+02      0.4055E+01      0.4295E+02
+
+
+ Time    1.9441033488220198
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1320      0.1000E+03      0.2800E+02      0.2800E+00      0.1555E+00      0.3887E+02      0.4079E+01      0.4295E+02
+
+
+ Time    1.9589048728776375
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1330      0.1000E+03      0.2800E+02      0.2800E+00      0.1554E+00      0.3885E+02      0.4102E+01      0.4295E+02
+
+
+ Time    1.9737068239620923
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1340      0.1000E+03      0.2800E+02      0.2800E+00      0.1553E+00      0.3882E+02      0.4125E+01      0.4295E+02
+
+
+ Time    1.9885092677143854
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1350      0.1000E+03      0.2800E+02      0.2800E+00      0.1552E+00      0.3880E+02      0.4148E+01      0.4295E+02
+
+
+ Time    2.0033121851718034
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1360      0.1000E+03      0.2800E+02      0.2800E+00      0.1551E+00      0.3878E+02      0.4171E+01      0.4295E+02
+
+
+ Time    2.0181155444335821
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1370      0.1000E+03      0.2800E+02      0.2800E+00      0.1550E+00      0.3875E+02      0.4193E+01      0.4295E+02
+
+
+ Time    2.0329193155385741
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1380      0.1000E+03      0.2800E+02      0.2800E+00      0.1549E+00      0.3873E+02      0.4215E+01      0.4295E+02
+
+
+ Time    2.0477235591516521
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1390      0.1000E+03      0.2800E+02      0.2800E+00      0.1548E+00      0.3871E+02      0.4237E+01      0.4295E+02
+
+
+ Time    2.0625282618930139
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1400      0.1000E+03      0.2800E+02      0.2800E+00      0.1547E+00      0.3869E+02      0.4259E+01      0.4295E+02
+
+
+ Time    2.0773333925112736
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1410      0.1000E+03      0.2800E+02      0.2800E+00      0.1547E+00      0.3867E+02      0.4280E+01      0.4295E+02
+
+
+ Time    2.0921389185363020
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1420      0.1000E+03      0.2800E+02      0.2800E+00      0.1546E+00      0.3864E+02      0.4301E+01      0.4294E+02
+
+
+ Time    2.1069448972978351
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1430      0.1000E+03      0.2800E+02      0.2800E+00      0.1545E+00      0.3862E+02      0.4321E+01      0.4294E+02
+
+
+ Time    2.1217513203514744
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1440      0.1000E+03      0.2800E+02      0.2800E+00      0.1544E+00      0.3860E+02      0.4341E+01      0.4294E+02
+
+
+ Time    2.1365581616072888
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1450      0.1000E+03      0.2800E+02      0.2800E+00      0.1543E+00      0.3858E+02      0.4361E+01      0.4294E+02
+
+
+ Time    2.1513653861391582
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1460      0.1000E+03      0.2800E+02      0.2800E+00      0.1542E+00      0.3856E+02      0.4381E+01      0.4294E+02
+
+
+ Time    2.1661730399126173
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1470      0.1000E+03      0.2800E+02      0.2800E+00      0.1542E+00      0.3854E+02      0.4400E+01      0.4294E+02
+
+
+ Time    2.1809811232344223
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1480      0.1000E+03      0.2800E+02      0.2800E+00      0.1541E+00      0.3852E+02      0.4419E+01      0.4294E+02
+
+
+ Time    2.1957896139896640
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1490      0.1000E+03      0.2800E+02      0.2800E+00      0.1540E+00      0.3850E+02      0.4438E+01      0.4294E+02
+
+
+ Time    2.2105984800129073
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1500      0.1000E+03      0.2800E+02      0.2800E+00      0.1539E+00      0.3849E+02      0.4456E+01      0.4294E+02
+
+
+ Time    2.2254077516760771
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1510      0.1000E+03      0.2800E+02      0.2800E+00      0.1539E+00      0.3847E+02      0.4474E+01      0.4294E+02
+
+
+ Time    2.2402174417847540
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1520      0.1000E+03      0.2800E+02      0.2800E+00      0.1538E+00      0.3845E+02      0.4492E+01      0.4294E+02
+
+
+ Time    2.2550275299177849
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1530      0.1000E+03      0.2800E+02      0.2800E+00      0.1537E+00      0.3843E+02      0.4509E+01      0.4294E+02
+
+
+ Time    2.2698379826525819
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1540      0.1000E+03      0.2800E+02      0.2800E+00      0.1537E+00      0.3841E+02      0.4526E+01      0.4294E+02
+
+
+ Time    2.2846488162653094
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1550      0.1000E+03      0.2800E+02      0.2800E+00      0.1536E+00      0.3840E+02      0.4543E+01      0.4294E+02
+
+
+ Time    2.2994600579721292
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1560      0.1000E+03      0.2800E+02      0.2800E+00      0.1535E+00      0.3838E+02      0.4559E+01      0.4294E+02
+
+
+ Time    2.3142716896759428
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1570      0.1000E+03      0.2800E+02      0.2800E+00      0.1535E+00      0.3836E+02      0.4576E+01      0.4294E+02
+
+
+ Time    2.3290836792134240
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1580      0.1000E+03      0.2800E+02      0.2800E+00      0.1534E+00      0.3835E+02      0.4591E+01      0.4294E+02
+
+
+ Time    2.3438960272442326
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1590      0.1000E+03      0.2800E+02      0.2800E+00      0.1533E+00      0.3833E+02      0.4607E+01      0.4294E+02
+
+
+ Time    2.3587087730876002
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1600      0.1000E+03      0.2800E+02      0.2800E+00      0.1533E+00      0.3832E+02      0.4622E+01      0.4294E+02
+
+
+ Time    2.3735218976218917
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1610      0.1000E+03      0.2800E+02      0.2800E+00      0.1532E+00      0.3830E+02      0.4637E+01      0.4294E+02
+
+
+ Time    2.3883353725842524
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1620      0.1000E+03      0.2800E+02      0.2800E+00      0.1531E+00      0.3829E+02      0.4652E+01      0.4294E+02
+
+
+ Time    2.4031491868385091
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1630      0.1000E+03      0.2800E+02      0.2800E+00      0.1531E+00      0.3827E+02      0.4666E+01      0.4294E+02
+
+
+ Time    2.4179633878650453
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1640      0.1000E+03      0.2800E+02      0.2800E+00      0.1530E+00      0.3826E+02      0.4680E+01      0.4294E+02
+
+
+ Time    2.4327779589180176
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1650      0.1000E+03      0.2800E+02      0.2800E+00      0.1530E+00      0.3824E+02      0.4694E+01      0.4294E+02
+
+
+ Time    2.4475928738053021
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1660      0.1000E+03      0.2800E+02      0.2800E+00      0.1529E+00      0.3823E+02      0.4707E+01      0.4294E+02
+
+
+ Time    2.4624081121607029
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1670      0.1000E+03      0.2800E+02      0.2800E+00      0.1529E+00      0.3822E+02      0.4720E+01      0.4294E+02
+
+
+ Time    2.4772237242976454
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1680      0.1000E+03      0.2800E+02      0.2800E+00      0.1528E+00      0.3820E+02      0.4733E+01      0.4294E+02
+
+
+ Time    2.4920396957151301
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1690      0.1000E+03      0.2800E+02      0.2800E+00      0.1528E+00      0.3819E+02      0.4745E+01      0.4294E+02
+
+
+ Time    2.5068560039378132
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1700      0.1000E+03      0.2800E+02      0.2800E+00      0.1527E+00      0.3818E+02      0.4758E+01      0.4294E+02
+
+
+ Time    2.5216726250695829
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1710      0.1000E+03      0.2800E+02      0.2800E+00      0.1527E+00      0.3817E+02      0.4770E+01      0.4294E+02
+
+
+ Time    2.5364896049366008
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1720      0.1000E+03      0.2800E+02      0.2800E+00      0.1526E+00      0.3815E+02      0.4781E+01      0.4293E+02
+
+
+ Time    2.5513069348389119
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1730      0.1000E+03      0.2800E+02      0.2800E+00      0.1526E+00      0.3814E+02      0.4793E+01      0.4293E+02
+
+
+ Time    2.5661245958937617
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1740      0.1000E+03      0.2800E+02      0.2800E+00      0.1525E+00      0.3813E+02      0.4804E+01      0.4293E+02
+
+
+ Time    2.5809425609398859
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1750      0.1000E+03      0.2800E+02      0.2800E+00      0.1525E+00      0.3812E+02      0.4815E+01      0.4293E+02
+
+
+ Time    2.5957608672135861
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1760      0.1000E+03      0.2800E+02      0.2800E+00      0.1524E+00      0.3811E+02      0.4825E+01      0.4293E+02
+
+
+ Time    2.6105795146686326
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1770      0.1000E+03      0.2800E+02      0.2800E+00      0.1524E+00      0.3810E+02      0.4835E+01      0.4293E+02
+
+
+ Time    2.6253984871827831
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1780      0.1000E+03      0.2800E+02      0.2800E+00      0.1524E+00      0.3809E+02      0.4845E+01      0.4293E+02
+
+
+ Time    2.6402177593419052
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1790      0.1000E+03      0.2800E+02      0.2800E+00      0.1523E+00      0.3808E+02      0.4855E+01      0.4293E+02
+
+
+ Time    2.6550373524772533
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1800      0.1000E+03      0.2800E+02      0.2800E+00      0.1523E+00      0.3807E+02      0.4864E+01      0.4293E+02
+
+
+ Time    2.6698572794151998
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1810      0.1000E+03      0.2800E+02      0.2800E+00      0.1522E+00      0.3806E+02      0.4874E+01      0.4293E+02
+
+
+ Time    2.6846775273190340
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1820      0.1000E+03      0.2800E+02      0.2800E+00      0.1522E+00      0.3805E+02      0.4883E+01      0.4293E+02
+
+
+ Time    2.6994980708058649
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1830      0.1000E+03      0.2800E+02      0.2800E+00      0.1522E+00      0.3804E+02      0.4891E+01      0.4293E+02
+
+
+ Time    2.7143189984382561
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1840      0.1000E+03      0.2800E+02      0.2800E+00      0.1521E+00      0.3803E+02      0.4900E+01      0.4293E+02
+
+
+ Time    2.7291427415943912
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1850      0.1000E+03      0.2800E+02      0.2800E+00      0.1521E+00      0.3802E+02      0.4908E+01      0.4293E+02
+
+
+ Time    2.7439898679357837
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1860      0.1000E+03      0.2800E+02      0.2800E+00      0.1521E+00      0.3801E+02      0.4916E+01      0.4293E+02
+
+
+ Time    2.7588948243675633
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1870      0.1000E+03      0.2800E+02      0.2800E+00      0.1520E+00      0.3801E+02      0.4924E+01      0.4293E+02
+
+
+ Time    2.7738103549034010
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1880      0.1000E+03      0.2800E+02      0.2800E+00      0.1520E+00      0.3800E+02      0.4931E+01      0.4293E+02
+
+
+ Time    2.7887264534650971
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1890      0.1000E+03      0.2800E+02      0.2800E+00      0.1520E+00      0.3799E+02      0.4938E+01      0.4293E+02
+
+
+ Time    2.8036441903831744
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1900      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3798E+02      0.4945E+01      0.4293E+02
+
+
+ Time    2.8185629837189596
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1910      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3798E+02      0.4952E+01      0.4293E+02
+
+
+ Time    2.8334777020989721
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1920      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3797E+02      0.4959E+01      0.4293E+02
+
+
+ Time    2.8483922094187237
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1930      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3796E+02      0.4965E+01      0.4293E+02
+
+
+ Time    2.8633069277193468
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1940      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3796E+02      0.4971E+01      0.4293E+02
+
+
+ Time    2.8782250994663303
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1950      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3795E+02      0.4977E+01      0.4293E+02
+
+
+ Time    2.8931432640045864
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1960      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3794E+02      0.4983E+01      0.4293E+02
+
+
+ Time    2.9080611768595999
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1970      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3794E+02      0.4988E+01      0.4293E+02
+
+
+ Time    2.9229758562451384
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1980      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3793E+02      0.4994E+01      0.4293E+02
+
+
+ Time    2.9378907494824373
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   1990      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3793E+02      0.4999E+01      0.4293E+02
+
+
+ Time    2.9528069599767170
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2000      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3792E+02      0.5004E+01      0.4293E+02
+
+
+ Time    2.9677243669732878
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2010      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3792E+02      0.5008E+01      0.4293E+02
+
+
+ Time    2.9826430945111233
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2020      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3791E+02      0.5013E+01      0.4293E+02
+
+
+ Time    2.9975577223727661
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2030      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3791E+02      0.5017E+01      0.4293E+02
+
+
+ Time    3.0124722990778503
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2040      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3790E+02      0.5022E+01      0.4293E+02
+
+
+ Time    3.0273869955217427
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2050      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3790E+02      0.5026E+01      0.4292E+02
+
+
+ Time    3.0423050182462208
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2060      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3789E+02      0.5030E+01      0.4292E+02
+
+
+ Time    3.0572229775700839
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2070      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3789E+02      0.5033E+01      0.4292E+02
+
+
+ Time    3.0721404824731264
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2080      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3789E+02      0.5037E+01      0.4292E+02
+
+
+ Time    3.0870551954688450
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2090      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3788E+02      0.5041E+01      0.4292E+02
+
+
+ Time    3.1019701639758273
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2100      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3788E+02      0.5044E+01      0.4292E+02
+
+
+ Time    3.1168867692458835
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2110      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3788E+02      0.5047E+01      0.4292E+02
+
+
+ Time    3.1318041032905333
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2120      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3787E+02      0.5050E+01      0.4292E+02
+
+
+ Time    3.1467228605618391
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2130      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3787E+02      0.5053E+01      0.4292E+02
+
+
+ Time    3.1616374294727740
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2140      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3787E+02      0.5056E+01      0.4292E+02
+
+
+ Time    3.1765520702929364
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2150      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3786E+02      0.5059E+01      0.4292E+02
+
+
+ Time    3.1914668952623702
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2160      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3786E+02      0.5061E+01      0.4292E+02
+
+
+ Time    3.2063850870880453
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2170      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3786E+02      0.5064E+01      0.4292E+02
+
+
+ Time    3.2213031942199826
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2180      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3786E+02      0.5066E+01      0.4292E+02
+
+
+ Time    3.2362204986706273
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2190      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3785E+02      0.5068E+01      0.4292E+02
+
+
+ Time    3.2511353066329520
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2200      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3785E+02      0.5070E+01      0.4292E+02
+
+
+ Time    3.2660503549044857
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2210      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3785E+02      0.5072E+01      0.4292E+02
+
+
+ Time    3.2809674911231905
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2220      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3785E+02      0.5074E+01      0.4292E+02
+
+
+ Time    3.2958850417290391
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2230      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3784E+02      0.5076E+01      0.4292E+02
+
+
+ Time    3.3108042457016085
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2240      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3784E+02      0.5077E+01      0.4292E+02
+
+
+ Time    3.3257191734545666
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2250      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3784E+02      0.5079E+01      0.4292E+02
+
+
+ Time    3.3406342198199348
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2260      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3784E+02      0.5080E+01      0.4292E+02
+
+
+ Time    3.3555493504514526
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2270      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3784E+02      0.5082E+01      0.4292E+02
+
+
+ Time    3.3704678458430539
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2280      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5083E+01      0.4292E+02
+
+
+ Time    3.3853863210642552
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2290      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5084E+01      0.4292E+02
+
+
+ Time    3.4003037321251739
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2300      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5085E+01      0.4292E+02
+
+
+ Time    3.4152191192485053
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2310      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5087E+01      0.4292E+02
+
+
+ Time    3.4301347216032152
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2320      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5087E+01      0.4292E+02
+
+
+ Time    3.4450528322137797
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2330      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5088E+01      0.4292E+02
+
+
+ Time    3.4599708580372091
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2340      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5089E+01      0.4292E+02
+
+
+ Time    3.4748907934172912
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2350      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5090E+01      0.4292E+02
+
+
+ Time    3.4898064240838647
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2360      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5091E+01      0.4292E+02
+
+
+ Time    3.5047223202021862
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2370      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3782E+02      0.5091E+01      0.4292E+02
+
+
+ Time    3.5196383471473784
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2380      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3782E+02      0.5092E+01      0.4292E+02
+
+
+ Time    3.5345576729690200
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2390      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3782E+02      0.5092E+01      0.4291E+02
+
+
+ Time    3.5483916021675026
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2400      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3782E+02      0.5092E+01      0.4291E+02
+
+
+ Time    3.5614198558204220
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2410      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3782E+02      0.5091E+01      0.4291E+02
+
+
+ Time    3.5746001423056297
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2420      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3782E+02      0.5090E+01      0.4291E+02
+
+
+ Time    3.5878210025129569
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2430      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5088E+01      0.4291E+02
+
+
+ Time    3.6010919374665260
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2440      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5086E+01      0.4291E+02
+
+
+ Time    3.6143998081553637
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2450      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5084E+01      0.4291E+02
+
+
+ Time    3.6278589628260174
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2460      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5081E+01      0.4291E+02
+
+
+ Time    3.6414717231699751
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2470      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3783E+02      0.5079E+01      0.4291E+02
+
+
+ Time    3.6551714105972142
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2480      0.1000E+03      0.2800E+02      0.2800E+00      0.1513E+00      0.3784E+02      0.5076E+01      0.4291E+02
+
+
+ Time    3.6688980344501867
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2490      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3784E+02      0.5072E+01      0.4291E+02
+
+
+ Time    3.6826500374202151
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2500      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3784E+02      0.5069E+01      0.4291E+02
+
+
+ Time    3.6964471188593748
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2510      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3785E+02      0.5066E+01      0.4291E+02
+
+
+ Time    3.7103250792654654
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2520      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3785E+02      0.5062E+01      0.4291E+02
+
+
+ Time    3.7242725628903131
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2530      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3785E+02      0.5059E+01      0.4291E+02
+
+
+ Time    3.7382869436178106
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2540      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3786E+02      0.5055E+01      0.4291E+02
+
+
+ Time    3.7523939234003034
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2550      0.1000E+03      0.2800E+02      0.2800E+00      0.1514E+00      0.3786E+02      0.5051E+01      0.4291E+02
+
+
+ Time    3.7666047357353198
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2560      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3786E+02      0.5047E+01      0.4291E+02
+
+
+ Time    3.7808338555665451
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2570      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3787E+02      0.5043E+01      0.4291E+02
+
+
+ Time    3.7950724317740119
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2580      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3787E+02      0.5038E+01      0.4291E+02
+
+
+ Time    3.8093293856401398
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2590      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3788E+02      0.5034E+01      0.4291E+02
+
+
+ Time    3.8238773001067536
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2600      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3788E+02      0.5030E+01      0.4291E+02
+
+
+ Time    3.8384693065159854
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2610      0.1000E+03      0.2800E+02      0.2800E+00      0.1515E+00      0.3788E+02      0.5025E+01      0.4291E+02
+
+
+ Time    3.8530805547180886
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2620      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3789E+02      0.5021E+01      0.4291E+02
+
+
+ Time    3.8677362602703229
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2630      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3789E+02      0.5016E+01      0.4291E+02
+
+
+ Time    3.8824794648193444
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2640      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3790E+02      0.5011E+01      0.4291E+02
+
+
+ Time    3.8972479706984062
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2650      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3790E+02      0.5007E+01      0.4291E+02
+
+
+ Time    3.9120376461408570
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2660      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3791E+02      0.5002E+01      0.4291E+02
+
+
+ Time    3.9268414104241396
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2670      0.1000E+03      0.2800E+02      0.2800E+00      0.1516E+00      0.3791E+02      0.4997E+01      0.4291E+02
+
+
+ Time    3.9416815130195140
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2680      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3792E+02      0.4992E+01      0.4291E+02
+
+
+ Time    3.9565432132427709
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2690      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3792E+02      0.4987E+01      0.4291E+02
+
+
+ Time    3.9714076524799076
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2700      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3792E+02      0.4982E+01      0.4291E+02
+
+
+ Time    3.9863135164934946
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2710      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3793E+02      0.4977E+01      0.4291E+02
+
+
+ Time    4.0012166167105931
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2720      0.1000E+03      0.2800E+02      0.2800E+00      0.1517E+00      0.3793E+02      0.4972E+01      0.4291E+02
+
+
+ Time    4.0161208216677560
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2730      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3794E+02      0.4967E+01      0.4291E+02
+
+
+ Time    4.0310353957601013
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2740      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3794E+02      0.4962E+01      0.4291E+02
+
+
+ Time    4.0459515736469314
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2750      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3795E+02      0.4957E+01      0.4291E+02
+
+
+ Time    4.0608697419392419
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2760      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3795E+02      0.4952E+01      0.4290E+02
+
+
+ Time    4.0757885335590105
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2770      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3796E+02      0.4947E+01      0.4290E+02
+
+
+ Time    4.0907093541644572
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2780      0.1000E+03      0.2800E+02      0.2800E+00      0.1518E+00      0.3796E+02      0.4942E+01      0.4290E+02
+
+
+ Time    4.1056255724477948
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2790      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3797E+02      0.4937E+01      0.4290E+02
+
+
+ Time    4.1205418930610058
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2800      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3797E+02      0.4932E+01      0.4290E+02
+
+
+ Time    4.1354585147501020
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2810      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3798E+02      0.4927E+01      0.4290E+02
+
+
+ Time    4.1503780661358576
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2820      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3798E+02      0.4922E+01      0.4290E+02
+
+
+ Time    4.1652973913311833
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2830      0.1000E+03      0.2800E+02      0.2800E+00      0.1519E+00      0.3799E+02      0.4917E+01      0.4290E+02
+
+
+ Time    4.1802147203013371
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2840      0.1000E+03      0.2800E+02      0.2800E+00      0.1520E+00      0.3799E+02      0.4912E+01      0.4290E+02
+
+
+ Time    4.1951311913739318
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2850      0.1000E+03      0.2800E+02      0.2800E+00      0.1520E+00      0.3800E+02      0.4907E+01      0.4290E+02
+
+
+ Time    4.2100475989672788
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2860      0.1000E+03      0.2800E+02      0.2800E+00      0.1520E+00      0.3800E+02      0.4901E+01      0.4290E+02
+
+
+ Time    4.2249673917290353
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2870      0.1000E+03      0.2800E+02      0.2800E+00      0.1520E+00      0.3800E+02      0.4896E+01      0.4290E+02
+
+
+ Time    4.2398867762900627
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2880      0.1000E+03      0.2800E+02      0.2800E+00      0.1520E+00      0.3801E+02      0.4891E+01      0.4290E+02
+
+
+ Time    4.2548072661119942
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2890      0.1000E+03      0.2800E+02      0.2800E+00      0.1521E+00      0.3801E+02      0.4886E+01      0.4290E+02
+
+
+ Time    4.2697229412048463
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2900      0.1000E+03      0.2800E+02      0.2800E+00      0.1521E+00      0.3802E+02      0.4881E+01      0.4290E+02
+
+
+ Time    4.2846388088514011
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2910      0.1000E+03      0.2800E+02      0.2800E+00      0.1521E+00      0.3802E+02      0.4876E+01      0.4290E+02
+
+
+ Time    4.2995553470728014
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2920      0.1000E+03      0.2800E+02      0.2800E+00      0.1521E+00      0.3803E+02      0.4871E+01      0.4290E+02
+
+
+ Time    4.3144743055659980
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2930      0.1000E+03      0.2800E+02      0.2800E+00      0.1521E+00      0.3803E+02      0.4866E+01      0.4290E+02
+
+
+ Time    4.3293937710820467
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2940      0.1000E+03      0.2800E+02      0.2800E+00      0.1522E+00      0.3804E+02      0.4861E+01      0.4290E+02
+
+
+ Time    4.3443094955947998
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2950      0.1000E+03      0.2800E+02      0.2800E+00      0.1522E+00      0.3804E+02      0.4856E+01      0.4290E+02
+
+
+ Time    4.3517690277767809
+                       Volume            Mass         Density        Pressure Internal Energy  Kinetic Energy    Total Energy
+ step:   2955      0.1000E+03      0.2800E+02      0.2800E+00      0.1522E+00      0.3805E+02      0.4854E+01      0.4290E+02
+
+Test problem   5 is within   0.2701199E-09% of the expected solution
+ This test is considered PASSED
+
+ Calculation complete
+ Clover is finishing
+ Wall clock    3.2325530910491943E+02
+ First step overhead  -1.0013580322265625E-05
