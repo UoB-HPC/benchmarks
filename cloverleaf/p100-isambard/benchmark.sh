@@ -13,6 +13,7 @@ function usage
     echo "  cuda"
     echo "  kokkos"
     echo "  acc"
+    echo "  opencl"
     echo
     echo "The default programming model is '$DEFAULT_MODEL'."
     echo
@@ -28,7 +29,7 @@ fi
 ACTION=$1
 export MODEL=${2:-$DEFAULT_MODEL}
 SCRIPT=`basename $0`
-SCRIPT_DIR=`dirname $0`
+SCRIPT_DIR=$PWD
 export BENCHMARK_EXE=clover_leaf
 
 case "$MODEL" in
@@ -60,6 +61,18 @@ case "$MODEL" in
         module load PrgEnv-pgi
         export SRC_DIR="$PWD/CloverLeaf-OpenACC"
         MAKE_OPTS='COMPILER=PGI C_MPI_COMPILER=mpicc MPI_F90=mpif90  FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=tesla:cc60" CFLAGS_PGI="-O3 -ta=tesla:cc60" OMP_PGI=""'
+        ;;
+    opencl)
+        module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
+        module load craype-accel-nvidia60
+        module load gcc/6.1.0
+        module load openmpi/gcc-6.1.0/1.10.7
+        export SRC_DIR="$PWD/CloverLeaf"
+        NVCC=`which nvcc`
+        CUDA_PATH=`dirname $NVCC`/..
+        CUDA_INCLUDE=$CUDA_PATH/include
+        MAKE_OPTS='COMPILER=GNU USE_OPENCL=1 EXTRA_INC="-I $CUDA_INCLUDE -I $CUDA_INCLUDE/CL -L$CUDA_PATH/lib64" EXTRA_PATH="-I $CUDA_INCLUDE -I $CUDA_INCLUDE/CL -L$CUDA_PATH/lib64"'
+        mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
         ;;
     *)
         echo
