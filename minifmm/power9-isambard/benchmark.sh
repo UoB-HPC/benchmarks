@@ -43,6 +43,10 @@ case "$COMPILER" in
     MAKE_OPTS="$MAKE_OPTS COMPILER=GNU ARCH=power9 EXTRA_FLAGS='-mcpu=power9 -mtune=power9'"
     ;;
   *)
+    echo
+    echo "Invalid compile '$COMPILER'"
+    usage
+    exit 1
     ;;
 esac
 
@@ -50,6 +54,11 @@ case "$MODEL" in
   omp)
     export BENCHMARK_EXE="fmm.omp"
     MAKE_OPTS="$MAKE_OPTS MODEL=omp"
+    ;;
+  kokkos)
+    module load kokkos/power9/llvm-trunk
+    export BENCHMARK_EXE="fmm.kokkos"
+    MAKE_OPTS="$MAKE_OPTS MODEL=kokkos KOKKOS_TARGET=CPU"
     ;;
   *)
     echo
