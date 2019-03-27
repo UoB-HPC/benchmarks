@@ -1,0 +1,40 @@
+FMM args
+Num Points  = 10000000
+NCrit       = 512
+Num Terms   = 4
+Theta       = 0.5
+Num Samples = 1000
+
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+built tree
+num_nodes = 37449
+root 0 has 8 children
+--------------------
+solve time = 15.623219s
+--------------------
+pot err = 1.078654173762e-02
+acc err = 3.565807640553e-02
+Application 3741412 resources: utime ~899s, stime ~3s, Rss ~986004, inblocks ~1730, outblocks ~0
+FMM args
+Num Points  = 10000000
+NCrit       = 512
+Num Terms   = 4
+Theta       = 0.5
+Num Samples = 1000
+
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+built tree
+num_nodes = 37449
+root 0 has 8 children
+--------------------
+solve time = 12.944178s
+--------------------
+pot err = 1.078654173762e-02
+acc err = 3.565807640553e-02
+Application 3741413 resources: utime ~6033s, stime ~8s, Rss ~986952, inblocks ~1624, outblocks ~0

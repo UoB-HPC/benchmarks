@@ -51,6 +51,11 @@ case "$MODEL" in
     export BENCHMARK_EXE="fmm.omp"
     MAKE_OPTS="$MAKE_OPTS MODEL=omp"
     ;;
+  kokkos)
+    module load kokkos/skylake
+    export BENCHMARK_EXE="fmm.kokkos"
+    MAKE_OPTS="$MAKE_OPTS MODEL=kokkos KOKKOS_TARGET=CPU"
+    ;;
   *)
     echo
     echo "Invalid model '$MODEL'"
