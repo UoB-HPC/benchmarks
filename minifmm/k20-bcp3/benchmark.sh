@@ -40,6 +40,18 @@ case "$MODEL" in
       MODEL="cuda" \
       ARCH="sm_35"'
     ;;
+  kokkos)
+    module use /newhome/pa13269/modules/modulefiles
+    module unload languages/gcc-7.1.0
+    module load languages/gcc-4.8.4
+    module load cuda/toolkit/7.5.18
+    module load kokkos
+    export COMPILER=NVCC
+    export BENCHMARK_EXE="fmm.kokkos"
+    MAKE_OPTS='\
+      MODEL="kokkos" \
+      ARCH="sm_35"'
+    ;;
   *)
     echo
     echo "Invalid model '$MODEL'"
