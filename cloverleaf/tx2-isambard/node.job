@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l select=1
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+set -u
+
+cd $PBS_O_WORKDIR
+
+cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
+
+export OMP_WAIT_POLICY=active
+export OMP_NUM_THREADS=4
+aprun -n 64 -d 4 -j 4 -cc depth $RUN_DIR/$BENCHMARK_EXE
