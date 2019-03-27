@@ -1,0 +1,20 @@
+FMM args
+Num Points  = 10000000
+NCrit       = 512
+Num Terms   = 4
+Theta       = 0.5
+Num Samples = 1000
+
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+Kokkos::Cuda::initialize WARNING: running kernels compiled for compute capability 7.0 on device with compute capability 7.5 , this will likely reduce potential performance.
+built tree
+num_nodes = 37449
+root 0 has 8 children
+--------------------
+solve time = 4.245517s
+--------------------
+pot err = 1.078661624342e-02
+acc err = 3.565798699856e-02
