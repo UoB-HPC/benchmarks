@@ -41,9 +41,11 @@ export CONFIG="tx2"_"$COMPILER"_"$MODEL"
 export RUN_DIR=$PWD/CloverLeaf-$CONFIG
 
 # Set up the environment
+module load craype-arm-thunderx2
 case "$COMPILER" in
     cce-8.7)
-        module swap cce cce/8.7.7
+        module load PrgEnv-cray
+        module swap cce cce/8.7.9
         MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
         ;;
     gcc-7.2)
@@ -137,10 +139,12 @@ then
         exit 1
     fi
 
-    qsub $SCRIPT_DIR/run.job \
+    qsub \
         -o CloverLeaf-$CONFIG.out \
         -N cloverleaf \
-        -V
+        -V \
+        $SCRIPT_DIR/run.job \
+
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
