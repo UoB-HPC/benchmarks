@@ -40,6 +40,13 @@ case "$MODEL" in
       MODEL="cuda" \
       ARCH="sm_60"'
     ;;
+  kokkos)
+    module unload cudatoolkit/8.0.44
+    module load kokkos/pascal
+    export COMPILER=NVCC
+    export BENCHMARK_EXE="fmm.kokkos"
+    MAKE_OPTS='MODEL=kokkos ARCH=sm_60'
+    ;;
   *)
     echo
     echo "Invalid model '$MODEL'"
