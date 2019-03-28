@@ -25,7 +25,7 @@ CFLAGS      = $(WM_CFLAGS) -O3 \
     -DSCOTCH_DETERMINISTIC \
     -DSCOTCH_RENAME \
     -Drestrict=__restrict \
-    -I/opt/cray/pe/mpt/7.7.0/gni/mpich-gnu/5.1/include
+    -I/opt/cray/pe/mpt/7.7.6/gni/mpich-gnu/8.2/include
 
 # 32-bit vs. 64-bit labels
 ifeq ($(WM_LABEL_SIZE),64)
@@ -34,7 +34,7 @@ endif
 
 CLIBFLAGS   = -shared
 LDFLAGS     = -Xlinker --no-as-needed $(WM_LDFLAGS) -lz -lm -lrt \
-    -L/opt/cray/pe/mpt/7.7.0/gni/mpich-gnu/5.1/lib -lmpich
+    -L/opt/cray/pe/mpt/7.7.6/gni/mpich-gnu/8.2/lib -lmpich
 
 MAKE        = make
 CP          = cp

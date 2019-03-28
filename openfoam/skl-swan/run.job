@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#PBS -N OpenFOAM-bdw
-#PBS -q large
-#PBS -l nodes=1
+#PBS -N OpenFOAM-skl
+#PBS -q sk56
+#PBS -l select=1:ncpus=56
 #PBS -l walltime=00:15:00
 #PBS -joe
 
@@ -35,7 +35,7 @@ runlog="simpleFoam_${BENCHMARK_PLATFORM}_${COMPILER}_${MPILIB}_$ts.log"
 
 procdirs=$(set +o pipefail && ls -d processor* 2>/dev/null | wc -l)
 if [ "$procdirs" -ne "$numprocs" ]; then
-    decomposePar |& tee "decomposePar_$ts.log"
+    aprun decomposePar |& tee "decomposePar_$ts.log"
 fi
 
 aprun -n "$numprocs" -d 1 -j 2 simpleFoam -parallel |& tee "$runlog"

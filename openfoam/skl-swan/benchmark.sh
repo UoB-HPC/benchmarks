@@ -4,12 +4,10 @@
 set -eu
 set -o pipefail
 
-# TODO: hypethreading parameter
-
 # Note: building for AVX-512 produces invalid results, so we use AVX2, making the build part virutally identical to that for BDW.
 
 default_compiler=gcc-7.3
-default_mpilib=cray-mpich-7.7.0
+default_mpilib=cray-mpich-7.7.6
 function usage ()
 {
     echo
@@ -20,7 +18,7 @@ function usage ()
     echo "  intel-2018"
     echo
     echo "Valid MPI libraries:"
-    echo "  cray-mpich-7.7.0"
+    echo "  cray-mpich-7.7.6"
     echo "  openmpi-1.10.4"
     echo
     echo "The default configuration is '$default_compiler $default_mpilib'."
@@ -54,6 +52,7 @@ case "$COMPILER" in
         current_env=$( module li 2>&1 | grep PrgEnv | sed -r 's/[^-]*-([a-z]+).*/\1/')
         module swap "PrgEnv-$current_env" PrgEnv-gnu
         module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
+        module swap gcc gcc/7.3.0
         module load cray-fftw/3.3.6.3
         module load craype-hugepages8M
 
@@ -77,8 +76,8 @@ case "$COMPILER" in
 esac
 
 case "$MPILIB" in
-    cray-mpich-7.7.0)
-        module swap cray-mpich cray-mpich/7.7.0
+    cray-mpich-7.7.6)
+        module swap cray-mpich cray-mpich/7.7.6
         ;;
     openmpi-1.10.4)
         # No action required
@@ -160,6 +159,8 @@ if [ "$action" == "build" ]; then
     case "$COMPILER" in
         gcc-*)
             sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=Gcc,' "$bashrc"
+            sed -i '/export WM_COMPILER=Gcc/a export CRAYPE_LINK_TYPE=dynamic' "$bashrc"
+            sed -i 's/^CC          =.*/CC          = CC -std=c++11/' "$cppflags"
             ;;
         intel-*)
             sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=Icc,' "$bashrc"
@@ -210,9 +211,9 @@ elif [ "$action" == "run" ]; then
         exit $exit_not_built
     fi
 
-    qsub "$script_dir/run.job" \
+    qsub -V \
         -o "OpenFOAM-$BENCHMARK_PLATFORM-$COMPILER-$MPILIB.out" \
-        -V
+        "$script_dir/run.job"
 else
     usage
     exit $exit_invalid_action
