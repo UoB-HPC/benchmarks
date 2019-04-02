@@ -142,8 +142,11 @@ if [ "$action" == "build" ]; then
         gcc-*)
             sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=Gcc,' "$bashrc"
             sed -i '/export WM_COMPILER=Gcc/a export CRAYPE_LINK_TYPE=dynamic' "$bashrc"
-            sed -i "s/^CC          =.*/CC          = ${OPT_CC}/" "$cppflags"
-            sed -i "s/^c++OPT      =.*/c++OPT      = ${OPT_CPPOPT}/" "$cppOptflags"
+            [ -n "${OPT_CC:-}" ] && sed -i "s/^CC          =.*/CC          = ${OPT_CC}/" "$cppflags"
+            [ -n "${OPT_CPPOPT:-}" ] && sed -i "s/^c++OPT      =.*/c++OPT      = ${OPT_CPPOPT}/" "$cppOptflags"
+            ;;
+        intel-*)
+            sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=Icc,' "$bashrc"
             ;;
         *)
             echo "Invalid compiler '$COMPILER'. This is most likely a bug in the script."
@@ -162,6 +165,7 @@ EOF
 
     # Additional flag changes: enable parallel compilation
     export WM_NCOMPPROCS="$OPT_NCOMPPROCS"
+    [ "$(type -t override_env)" = "function" ] && override_env
 
     [ "$restart_build" = yes ] && wclean all
     time ./Allwmake |& tee "build_${ARCH}_${COMPILER}_${MPILIB}.log"
