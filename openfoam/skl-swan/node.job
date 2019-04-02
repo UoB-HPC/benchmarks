@@ -12,10 +12,10 @@ set -o pipefail
 cd "$PBS_O_WORKDIR"
 
 set +e +u
-source "$PWD/OpenFOAM-v1712-SKL-$COMPILER-$MPILIB/OpenFOAM-v1712/etc/bashrc"
+source "${INSTALL_DIR}/OpenFOAM-v1712/etc/bashrc"
 set -eu
 
-testdir="run/block_DrivAer_small-${BENCHMARK_PLATFORM}"
+testdir="block_DrivAer_small-${ARCH}"
 numprocs=112
 
 if [ ! -d "$testdir" ]; then
@@ -31,7 +31,7 @@ cd "$testdir"
 sed -i 's/^numberOfSubdomains.*/numberOfSubdomains '"$numprocs"';/' system/decomposeParDict
 
 ts="$(date "+%Y-%m-%d_%H-%M")"
-runlog="simpleFoam_${BENCHMARK_PLATFORM}_${COMPILER}_${MPILIB}_$ts.log"
+runlog="simpleFoam_${ARCH}_${COMPILER}_${MPILIB}_$ts.log"
 
 procdirs=$(set +o pipefail && ls -d processor* 2>/dev/null | wc -l)
 if [ "$procdirs" -ne "$numprocs" ]; then
