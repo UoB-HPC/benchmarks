@@ -61,5 +61,7 @@ export OPT_CC="CC -std=c++11"
 export OPT_CPPOPT="-march=armv8.1-a -mtune=thunderx2t99 -mcpu=thunderx2t99 -O3 -ffast-math"
 export OPT_NCOMPPROCS=16
 
+export PBS_RESOURCES=":ncpus=64"
+
 bash "$PLATFORM_DIR"/../common.sh "$@"
 

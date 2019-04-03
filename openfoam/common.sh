@@ -201,10 +201,6 @@ elif [ "$action" == "run" ]; then
         NODES=1
         jobscript=node.job
     elif [[ "$run_args" == scale-* ]]; then
-        # TODO: implement scaling jobs
-        echo "Not implemented yet"
-        exit 99
-        
         export NODES=${run_args#scale-}
         if ! [[ "$NODES" =~ ^[0-9]+$ ]]; then
             echo
@@ -222,7 +218,7 @@ elif [ "$action" == "run" ]; then
 
     # Submit job
     cd "$RUN_DIR"
-    qsub -l select="$NODES" \
+    qsub -l select="${NODES}${PBS_RESOURCES:-}" \
         -o "${PWD}/../OpenFOAM-v1712_${PLATFORM}_${CONFIG}_${run_args}".out \
         -N OpenFOAM_"${run_args}_${CONFIG}" \
         -V \

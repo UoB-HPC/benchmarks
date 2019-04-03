@@ -70,5 +70,7 @@ export OPT_CC="CC -std=c++11"
 export OPT_NCOMPPROCS=8
 export -f override_env
 
+export PBS_RESOURCES=":ncpus=56"
+
 bash "$PLATFORM_DIR"/../common.sh "$@"
 

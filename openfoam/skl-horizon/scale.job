@@ -1,0 +1,55 @@
+#!/bin/bash
+
+#PBS -N OpenFOAM-skl
+#PBS -q batch
+#PBS -l walltime=12:00:00
+#PBS -joe
+
+set -eu
+set -o pipefail
+
+cd "$PBS_O_WORKDIR"
+
+set +e +u
+source "${INSTALL_DIR}/OpenFOAM-v1712/etc/bashrc"
+set -eu
+
+pernode=40
+numprocs=$(( $NODES * $pernode ))
+testdir="64M-${numprocs}"
+originaldir=DrivAer/64M
+
+if [ ! -d "$testdir" ]; then
+    if [ -d "$originaldir" ]; then
+        echo "Copying $originaldir into $testdir..."
+        cp -r "$originaldir" "$testdir"
+    else
+        echo "Run directory does not exist: $PWD/$testdir"
+        echo "Have you copied over your test case?"
+        echo "Stop."
+        exit 1
+    fi
+fi
+
+cd "$testdir"
+
+# Set the number of processors
+sed -i 's/^numberOfSubdomains.*/numberOfSubdomains '"$numprocs"';/' system/decomposeParDict
+
+ts="$(date "+%Y-%m-%d_%H-%M")"
+runlog="simpleFoam_${ARCH}_${COMPILER}_${MPILIB}_${ts}.log"
+
+procdirs=$(set +o pipefail && ls -d processor* 2>/dev/null | wc -l)
+if [ "$procdirs" -ne "$numprocs" ]; then
+    aprun decomposePar |& tee "decomposePar_$ts.log"
+fi
+
+aprun -n "$numprocs" -N "$pernode" -d 1 simpleFoam -parallel |& tee "$runlog"
+
+time_first=$(grep ExecutionTime "$runlog" | head -1 | awk '{print $3}')
+time_last=$(grep ExecutionTime "$runlog" | tail -1 | awk '{print $3}')
+time_diff=$(echo "$time_last - $time_first" | bc -l)
+echo "Benchmark time (total time - first step): $time_diff"
+
+echo "Full run log: $runlog"
+echo "Done."
