@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -q arm
-#PBS -l select=1
+#PBS -l select=1:ncpus=64
 #PBS -l walltime=00:15:00
 #PBS -joe
 

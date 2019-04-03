@@ -111,8 +111,8 @@ then
     # Submit job
     mkdir -p $RUN_ARGS
     cd $RUN_ARGS
-    qsub -l select=$NODES \
-        -o $PWD/../"$RUN_ARGS"_"$CONFIG".out \
+    qsub -l select=$NODES:ncpus=$NCORES \
+        -o $PWD/../"$RUN_ARGS".out \
         -N cloverleaf_"$RUN_ARGS"_"$CONFIG" \
         -V \
         $PLATFORM_DIR/$JOBSCRIPT
