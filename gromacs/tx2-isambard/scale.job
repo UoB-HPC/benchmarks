@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l walltime=01:00:00
+#PBS -joe
+
+set -u
+
+cd $PBS_O_WORKDIR
+
+# Using a lookup table helps for smaller node counts
+if [ $NODES -lt 96 ]
+then
+  export GMX_NBNXN_EWALD_TABLE=1
+fi
+
+export OMP_NUM_THREADS=4
+export GMX_MAXBACKUP=-1
+aprun -n $[NODES * 64] -N 64 -d 4 -j 4 $BUILD_DIR/bin/gmx_mpi mdrun \
+      -s $BENCHMARK_SCALE \
+      -ntomp 4 -noconfout

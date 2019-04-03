@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ ! -e gromacs-2018.1 ]
+if [ ! -e gromacs-2018.5 ]
 then
-    wget http://ftp.gromacs.org/pub/gromacs/gromacs-2018.1.tar.gz
-    tar xf gromacs-2018.1.tar.gz
+    wget http://ftp.gromacs.org/pub/gromacs/gromacs-2018.5.tar.gz
+    tar xf gromacs-2018.5.tar.gz
 fi
 
 if [ ! -e gromacs-benchmarks ]
