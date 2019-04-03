@@ -17,7 +17,7 @@ function setup_env()
                 module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
             fi
             module swap gcc gcc/7.3.0
-            module load cray-fftw/3.3.6.3
+            module load cray-fftw/3.3.8.2
             module load craype-hugepages8M
 
             of_platform=linux64Gcc
@@ -31,7 +31,7 @@ function setup_env()
             else
                 module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
             fi
-            module load cray-fftw/3.3.6.3
+            module load cray-fftw/3.3.8.2
             module load craype-hugepages8M
 
             of_platform=linux64Icc
