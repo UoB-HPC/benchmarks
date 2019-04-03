@@ -33,11 +33,11 @@ function setup_env()
 }
 
 SCRIPT=`realpath $0`
+export ARCH="tx2"
 export PLATFORM_DIR=`realpath $(dirname $SCRIPT)`
-export PLATFORM="tx2"
-export NCORES=64
 export COMPILERS="cce-8.7 gcc-8.2 arm-19.0"
 export DEFAULT_COMPILER=cce-8.7
+export PBS_RESOURCES=":ncpus=64"
 export -f setup_env
 
 $PLATFORM_DIR/../common.sh $*

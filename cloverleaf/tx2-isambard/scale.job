@@ -11,4 +11,4 @@ cp $SRC_DIR/InputDecks/clover_bm256.in clover.in
 
 export OMP_WAIT_POLICY=active
 export OMP_NUM_THREADS=4
-aprun -n $[NODES * 64] -N 64 -d 4 -j 4 -cc depth $RUN_DIR/$BENCHMARK_EXE
+aprun -n $[NODES * 64] -N 64 -d 4 -j 4 -cc depth $CFG_DIR/$BENCHMARK_EXE

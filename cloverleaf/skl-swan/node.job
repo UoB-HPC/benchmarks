@@ -11,4 +11,4 @@ cd $PBS_O_WORKDIR
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 
 export OMP_NUM_THREADS=1
-aprun -n 56 -d 1 -j 1 $RUN_DIR/$BENCHMARK_EXE
+aprun -n 56 -d 1 -j 1 $CFG_DIR/$BENCHMARK_EXE

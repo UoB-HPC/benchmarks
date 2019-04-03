@@ -10,4 +10,4 @@ cd $PBS_O_WORKDIR
 cp $SRC_DIR/InputDecks/clover_bm256.in clover.in
 
 export OMP_NUM_THREADS=1
-aprun -n $[NODES * 44] -N 44 -d 1 -j 1 -cc depth $RUN_DIR/$BENCHMARK_EXE
+aprun -n $[NODES * 44] -N 44 -d 1 -j 1 -cc depth $CFG_DIR/$BENCHMARK_EXE

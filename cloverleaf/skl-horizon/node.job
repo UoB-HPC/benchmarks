@@ -1,7 +1,6 @@
 #!/bin/bash
-#PBS -q batch
-#PBS -l nodes=1
-#PBS -l hostlist=\"[196-283]+[288-343]^\"
+#PBS -q workq
+#PBS -l select=1:nodetype=SK40
 #PBS -l walltime=00:15:00
 #PBS -joe
 
@@ -12,4 +11,4 @@ cd $PBS_O_WORKDIR
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 
 export OMP_NUM_THREADS=1
-aprun -n 40 -d 1 -j 1 $RUN_DIR/$BENCHMARK_EXE
+aprun -n 40 -d 1 -j 1 $CFG_DIR/$BENCHMARK_EXE

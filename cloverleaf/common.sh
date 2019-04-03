@@ -42,10 +42,10 @@ COMPILER=${2:-$DEFAULT_COMPILER}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
-export CONFIG="$PLATFORM"_"$COMPILER"
+export CONFIG="$ARCH"_"$COMPILER"
 export BENCHMARK_EXE=clover_leaf
 export SRC_DIR=$PWD/CloverLeaf_ref
-export RUN_DIR=$PWD/CloverLeaf-$CONFIG
+export CFG_DIR=$PWD/cloverleaf/${ARCH}/${COMPILER}
 
 # Set up the environment
 setup_env
@@ -63,7 +63,7 @@ then
     fi
 
     # Perform build
-    rm -f $SRC_DIR/$BENCHMARK_EXE $RUN_DIR/$BENCHMARK_EXE
+    rm -f $SRC_DIR/$BENCHMARK_EXE $CFG_DIR/$BENCHMARK_EXE
     if ! eval make -C $SRC_DIR -B $MAKE_OPTS
     then
         echo
@@ -72,19 +72,19 @@ then
         exit 1
     fi
 
-    mkdir -p $RUN_DIR
-    mv $SRC_DIR/$BENCHMARK_EXE $RUN_DIR
+    mkdir -p $CFG_DIR
+    mv $SRC_DIR/$BENCHMARK_EXE $CFG_DIR
 
 elif [ "$ACTION" == "run" ]
 then
-    if [ ! -x "$RUN_DIR/$BENCHMARK_EXE" ]
+    if [ ! -x "$CFG_DIR/$BENCHMARK_EXE" ]
     then
-        echo "Executable '$RUN_DIR/$BENCHMARK_EXE' not found."
+        echo "Executable '$CFG_DIR/$BENCHMARK_EXE' not found."
         echo "Use the 'build' action first."
         exit 1
     fi
 
-    cd $RUN_DIR
+    cd $CFG_DIR
 
     if [ "$RUN_ARGS" == node ]
     then
@@ -111,8 +111,8 @@ then
     # Submit job
     mkdir -p $RUN_ARGS
     cd $RUN_ARGS
-    qsub -l select=$NODES:ncpus=$NCORES \
-        -o $PWD/../"$RUN_ARGS".out \
+    qsub -l select=$NODES$PBS_RESOURCES \
+        -o job.out \
         -N cloverleaf_"$RUN_ARGS"_"$CONFIG" \
         -V \
         $PLATFORM_DIR/$JOBSCRIPT

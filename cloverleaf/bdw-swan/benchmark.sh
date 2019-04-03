@@ -32,11 +32,11 @@ function setup_env()
 }
 
 SCRIPT=`realpath $0`
+export ARCH="bdw"
 export PLATFORM_DIR=`realpath $(dirname $SCRIPT)`
-export PLATFORM="bdw"
-export NCORES=44
 export COMPILERS="cce-8.7 gcc-8.2 intel-2019"
 export DEFAULT_COMPILER=intel-2019
+export PBS_RESOURCES=":ncpus=44"
 export -f setup_env
 
 $PLATFORM_DIR/../common.sh $*
