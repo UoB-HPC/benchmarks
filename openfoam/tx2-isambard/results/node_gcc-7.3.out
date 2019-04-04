@@ -1,0 +1,2909 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1712                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1712
+Arch   : "LSB;label=32;scalar=64"
+Exec   : decomposePar
+Date   : Mar 30 2019
+Time   : 17:52:35
+Host   : "nid00000"
+PID    : 253498
+I/O    : uncollated
+Case   : /lustre/home/br-apoenaru/applications-arm/OpenFOAM/run/block_DrivAer_small-tx2
+nProcs : 1
+trapFpe: Floating point exception trapping - not supported on this platform
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh region0
+
+Create mesh
+
+Calculating distribution of cells
+Selecting decompositionMethod scotch [128]
+
+Finished decomposition in 55.97 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 104729
+    Number of faces shared with processor 1 = 46
+    Number of faces shared with processor 2 = 160
+    Number of faces shared with processor 3 = 384
+    Number of faces shared with processor 4 = 379
+    Number of faces shared with processor 5 = 236
+    Number of faces shared with processor 6 = 99
+    Number of faces shared with processor 7 = 125
+    Number of faces shared with processor 10 = 14
+    Number of faces shared with processor 56 = 43
+    Number of faces shared with processor 62 = 282
+    Number of faces shared with processor 66 = 69
+    Number of faces shared with processor 77 = 4
+    Number of faces shared with processor 91 = 16
+    Number of faces shared with processor 102 = 234
+    Number of faces shared with processor 107 = 94
+    Number of processor patches = 15
+    Number of processor faces = 2185
+    Number of boundary faces = 7667
+
+Processor 1
+    Number of cells = 104472
+    Number of faces shared with processor 0 = 46
+    Number of faces shared with processor 2 = 2248
+    Number of faces shared with processor 3 = 100
+    Number of faces shared with processor 4 = 1708
+    Number of faces shared with processor 5 = 629
+    Number of processor patches = 5
+    Number of processor faces = 4731
+    Number of boundary faces = 2039
+
+Processor 2
+    Number of cells = 104481
+    Number of faces shared with processor 0 = 160
+    Number of faces shared with processor 1 = 2248
+    Number of faces shared with processor 3 = 2104
+    Number of faces shared with processor 4 = 235
+    Number of processor patches = 4
+    Number of processor faces = 4747
+    Number of boundary faces = 1855
+
+Processor 3
+    Number of cells = 103756
+    Number of faces shared with processor 0 = 384
+    Number of faces shared with processor 1 = 100
+    Number of faces shared with processor 2 = 2104
+    Number of processor patches = 3
+    Number of processor faces = 2588
+    Number of boundary faces = 2242
+
+Processor 4
+    Number of cells = 104757
+    Number of faces shared with processor 0 = 379
+    Number of faces shared with processor 1 = 1708
+    Number of faces shared with processor 2 = 235
+    Number of faces shared with processor 5 = 2094
+    Number of faces shared with processor 6 = 668
+    Number of faces shared with processor 7 = 211
+    Number of processor patches = 6
+    Number of processor faces = 5295
+    Number of boundary faces = 1189
+
+Processor 5
+    Number of cells = 104471
+    Number of faces shared with processor 0 = 236
+    Number of faces shared with processor 1 = 629
+    Number of faces shared with processor 4 = 2094
+    Number of faces shared with processor 6 = 1702
+    Number of faces shared with processor 10 = 5
+    Number of processor patches = 5
+    Number of processor faces = 4666
+    Number of boundary faces = 2326
+
+Processor 6
+    Number of cells = 104711
+    Number of faces shared with processor 0 = 99
+    Number of faces shared with processor 4 = 668
+    Number of faces shared with processor 5 = 1702
+    Number of faces shared with processor 7 = 1824
+    Number of faces shared with processor 8 = 482
+    Number of faces shared with processor 10 = 641
+    Number of faces shared with processor 11 = 119
+    Number of faces shared with processor 59 = 63
+    Number of faces shared with processor 62 = 79
+    Number of processor patches = 9
+    Number of processor faces = 5677
+    Number of boundary faces = 1423
+
+Processor 7
+    Number of cells = 104757
+    Number of faces shared with processor 0 = 125
+    Number of faces shared with processor 4 = 211
+    Number of faces shared with processor 6 = 1824
+    Number of faces shared with processor 8 = 474
+    Number of faces shared with processor 9 = 1108
+    Number of faces shared with processor 11 = 1042
+    Number of faces shared with processor 33 = 232
+    Number of faces shared with processor 42 = 1
+    Number of faces shared with processor 48 = 331
+    Number of faces shared with processor 52 = 493
+    Number of faces shared with processor 53 = 87
+    Number of faces shared with processor 55 = 42
+    Number of faces shared with processor 58 = 38
+    Number of faces shared with processor 59 = 40
+    Number of faces shared with processor 60 = 151
+    Number of faces shared with processor 61 = 77
+    Number of faces shared with processor 62 = 150
+    Number of faces shared with processor 102 = 74
+    Number of processor patches = 18
+    Number of processor faces = 6500
+    Number of boundary faces = 1514
+
+Processor 8
+    Number of cells = 104725
+    Number of faces shared with processor 6 = 482
+    Number of faces shared with processor 7 = 474
+    Number of faces shared with processor 9 = 1364
+    Number of faces shared with processor 10 = 1347
+    Number of faces shared with processor 11 = 627
+    Number of faces shared with processor 58 = 1138
+    Number of faces shared with processor 59 = 60
+    Number of processor patches = 7
+    Number of processor faces = 5492
+    Number of boundary faces = 1672
+
+Processor 9
+    Number of cells = 104743
+    Number of faces shared with processor 7 = 1108
+    Number of faces shared with processor 8 = 1364
+    Number of faces shared with processor 11 = 411
+    Number of faces shared with processor 48 = 115
+    Number of faces shared with processor 52 = 481
+    Number of faces shared with processor 58 = 463
+    Number of faces shared with processor 60 = 1069
+    Number of processor patches = 7
+    Number of processor faces = 5011
+    Number of boundary faces = 2093
+
+Processor 10
+    Number of cells = 104606
+    Number of faces shared with processor 0 = 14
+    Number of faces shared with processor 5 = 5
+    Number of faces shared with processor 6 = 641
+    Number of faces shared with processor 8 = 1347
+    Number of faces shared with processor 11 = 1193
+    Number of faces shared with processor 12 = 100
+    Number of faces shared with processor 13 = 221
+    Number of faces shared with processor 15 = 612
+    Number of faces shared with processor 17 = 153
+    Number of faces shared with processor 21 = 36
+    Number of faces shared with processor 26 = 382
+    Number of faces shared with processor 27 = 181
+    Number of faces shared with processor 30 = 5
+    Number of faces shared with processor 56 = 79
+    Number of faces shared with processor 57 = 281
+    Number of faces shared with processor 58 = 152
+    Number of faces shared with processor 59 = 372
+    Number of faces shared with processor 62 = 14
+    Number of processor patches = 18
+    Number of processor faces = 5788
+    Number of boundary faces = 2136
+
+Processor 11
+    Number of cells = 104621
+    Number of faces shared with processor 6 = 119
+    Number of faces shared with processor 7 = 1042
+    Number of faces shared with processor 8 = 627
+    Number of faces shared with processor 9 = 411
+    Number of faces shared with processor 10 = 1193
+    Number of faces shared with processor 12 = 541
+    Number of faces shared with processor 30 = 1
+    Number of faces shared with processor 48 = 1051
+    Number of processor patches = 8
+    Number of processor faces = 4985
+    Number of boundary faces = 2917
+
+Processor 12
+    Number of cells = 104529
+    Number of faces shared with processor 10 = 100
+    Number of faces shared with processor 11 = 541
+    Number of faces shared with processor 13 = 465
+    Number of faces shared with processor 14 = 410
+    Number of faces shared with processor 15 = 678
+    Number of faces shared with processor 16 = 4
+    Number of faces shared with processor 18 = 82
+    Number of faces shared with processor 21 = 123
+    Number of faces shared with processor 22 = 418
+    Number of faces shared with processor 24 = 328
+    Number of faces shared with processor 26 = 15
+    Number of faces shared with processor 30 = 268
+    Number of faces shared with processor 31 = 367
+    Number of faces shared with processor 48 = 207
+    Number of faces shared with processor 54 = 782
+    Number of processor patches = 15
+    Number of processor faces = 4788
+    Number of boundary faces = 2624
+
+Processor 13
+    Number of cells = 103060
+    Number of faces shared with processor 10 = 221
+    Number of faces shared with processor 12 = 465
+    Number of faces shared with processor 14 = 748
+    Number of faces shared with processor 15 = 904
+    Number of faces shared with processor 17 = 316
+    Number of faces shared with processor 20 = 281
+    Number of faces shared with processor 21 = 470
+    Number of faces shared with processor 22 = 540
+    Number of faces shared with processor 57 = 552
+    Number of processor patches = 9
+    Number of processor faces = 4497
+    Number of boundary faces = 2761
+
+Processor 14
+    Number of cells = 103226
+    Number of faces shared with processor 12 = 410
+    Number of faces shared with processor 13 = 748
+    Number of faces shared with processor 15 = 890
+    Number of faces shared with processor 16 = 601
+    Number of faces shared with processor 17 = 238
+    Number of faces shared with processor 18 = 669
+    Number of faces shared with processor 22 = 450
+    Number of faces shared with processor 24 = 83
+    Number of processor patches = 8
+    Number of processor faces = 4089
+    Number of boundary faces = 4271
+
+Processor 15
+    Number of cells = 102863
+    Number of faces shared with processor 10 = 612
+    Number of faces shared with processor 12 = 678
+    Number of faces shared with processor 13 = 904
+    Number of faces shared with processor 14 = 890
+    Number of faces shared with processor 17 = 68
+    Number of faces shared with processor 24 = 1069
+    Number of faces shared with processor 26 = 321
+    Number of faces shared with processor 27 = 201
+    Number of processor patches = 8
+    Number of processor faces = 4743
+    Number of boundary faces = 3447
+
+Processor 16
+    Number of cells = 103546
+    Number of faces shared with processor 12 = 4
+    Number of faces shared with processor 14 = 601
+    Number of faces shared with processor 17 = 1146
+    Number of faces shared with processor 18 = 816
+    Number of faces shared with processor 19 = 617
+    Number of faces shared with processor 24 = 520
+    Number of faces shared with processor 25 = 509
+    Number of faces shared with processor 27 = 795
+    Number of processor patches = 8
+    Number of processor faces = 5008
+    Number of boundary faces = 3808
+
+Processor 17
+    Number of cells = 103125
+    Number of faces shared with processor 10 = 153
+    Number of faces shared with processor 13 = 316
+    Number of faces shared with processor 14 = 238
+    Number of faces shared with processor 15 = 68
+    Number of faces shared with processor 16 = 1146
+    Number of faces shared with processor 18 = 698
+    Number of faces shared with processor 19 = 95
+    Number of faces shared with processor 20 = 762
+    Number of faces shared with processor 21 = 39
+    Number of faces shared with processor 22 = 9
+    Number of faces shared with processor 26 = 7
+    Number of faces shared with processor 27 = 585
+    Number of faces shared with processor 29 = 3
+    Number of faces shared with processor 57 = 200
+    Number of processor patches = 14
+    Number of processor faces = 4319
+    Number of boundary faces = 3723
+
+Processor 18
+    Number of cells = 103227
+    Number of faces shared with processor 12 = 82
+    Number of faces shared with processor 14 = 669
+    Number of faces shared with processor 16 = 816
+    Number of faces shared with processor 17 = 698
+    Number of faces shared with processor 19 = 1274
+    Number of faces shared with processor 20 = 815
+    Number of faces shared with processor 22 = 653
+    Number of faces shared with processor 23 = 396
+    Number of faces shared with processor 24 = 41
+    Number of faces shared with processor 25 = 206
+    Number of faces shared with processor 30 = 207
+    Number of faces shared with processor 31 = 36
+    Number of processor patches = 12
+    Number of processor faces = 5893
+    Number of boundary faces = 3403
+
+Processor 19
+    Number of cells = 103569
+    Number of faces shared with processor 16 = 617
+    Number of faces shared with processor 17 = 95
+    Number of faces shared with processor 18 = 1274
+    Number of faces shared with processor 20 = 293
+    Number of faces shared with processor 21 = 38
+    Number of faces shared with processor 23 = 629
+    Number of faces shared with processor 25 = 732
+    Number of faces shared with processor 27 = 23
+    Number of faces shared with processor 28 = 537
+    Number of faces shared with processor 29 = 12
+    Number of processor patches = 10
+    Number of processor faces = 4250
+    Number of boundary faces = 5166
+
+Processor 20
+    Number of cells = 103915
+    Number of faces shared with processor 13 = 281
+    Number of faces shared with processor 17 = 762
+    Number of faces shared with processor 18 = 815
+    Number of faces shared with processor 19 = 293
+    Number of faces shared with processor 21 = 906
+    Number of faces shared with processor 22 = 281
+    Number of faces shared with processor 23 = 422
+    Number of faces shared with processor 57 = 132
+    Number of processor patches = 8
+    Number of processor faces = 3892
+    Number of boundary faces = 4024
+
+Processor 21
+    Number of cells = 104478
+    Number of faces shared with processor 10 = 36
+    Number of faces shared with processor 12 = 123
+    Number of faces shared with processor 13 = 470
+    Number of faces shared with processor 17 = 39
+    Number of faces shared with processor 19 = 38
+    Number of faces shared with processor 20 = 906
+    Number of faces shared with processor 22 = 376
+    Number of faces shared with processor 23 = 804
+    Number of faces shared with processor 26 = 22
+    Number of faces shared with processor 28 = 495
+    Number of faces shared with processor 29 = 197
+    Number of faces shared with processor 31 = 377
+    Number of faces shared with processor 54 = 445
+    Number of faces shared with processor 56 = 321
+    Number of faces shared with processor 57 = 357
+    Number of processor patches = 15
+    Number of processor faces = 5006
+    Number of boundary faces = 3476
+
+Processor 22
+    Number of cells = 102816
+    Number of faces shared with processor 12 = 418
+    Number of faces shared with processor 13 = 540
+    Number of faces shared with processor 14 = 450
+    Number of faces shared with processor 17 = 9
+    Number of faces shared with processor 18 = 653
+    Number of faces shared with processor 20 = 281
+    Number of faces shared with processor 21 = 376
+    Number of faces shared with processor 23 = 763
+    Number of faces shared with processor 31 = 420
+    Number of processor patches = 9
+    Number of processor faces = 3910
+    Number of boundary faces = 4298
+
+Processor 23
+    Number of cells = 102968
+    Number of faces shared with processor 18 = 396
+    Number of faces shared with processor 19 = 629
+    Number of faces shared with processor 20 = 422
+    Number of faces shared with processor 21 = 804
+    Number of faces shared with processor 22 = 763
+    Number of faces shared with processor 28 = 1090
+    Number of faces shared with processor 30 = 150
+    Number of faces shared with processor 31 = 813
+    Number of processor patches = 8
+    Number of processor faces = 5067
+    Number of boundary faces = 3567
+
+Processor 24
+    Number of cells = 103070
+    Number of faces shared with processor 12 = 328
+    Number of faces shared with processor 14 = 83
+    Number of faces shared with processor 15 = 1069
+    Number of faces shared with processor 16 = 520
+    Number of faces shared with processor 18 = 41
+    Number of faces shared with processor 25 = 753
+    Number of faces shared with processor 26 = 213
+    Number of faces shared with processor 27 = 393
+    Number of faces shared with processor 30 = 913
+    Number of processor patches = 9
+    Number of processor faces = 4313
+    Number of boundary faces = 3619
+
+Processor 25
+    Number of cells = 104251
+    Number of faces shared with processor 16 = 509
+    Number of faces shared with processor 18 = 206
+    Number of faces shared with processor 19 = 732
+    Number of faces shared with processor 24 = 753
+    Number of faces shared with processor 26 = 659
+    Number of faces shared with processor 27 = 643
+    Number of faces shared with processor 28 = 639
+    Number of faces shared with processor 29 = 342
+    Number of faces shared with processor 30 = 524
+    Number of processor patches = 9
+    Number of processor faces = 5007
+    Number of boundary faces = 4521
+
+Processor 26
+    Number of cells = 104363
+    Number of faces shared with processor 10 = 382
+    Number of faces shared with processor 12 = 15
+    Number of faces shared with processor 15 = 321
+    Number of faces shared with processor 17 = 7
+    Number of faces shared with processor 21 = 22
+    Number of faces shared with processor 24 = 213
+    Number of faces shared with processor 25 = 659
+    Number of faces shared with processor 27 = 951
+    Number of faces shared with processor 29 = 1119
+    Number of faces shared with processor 30 = 269
+    Number of processor patches = 10
+    Number of processor faces = 3958
+    Number of boundary faces = 3936
+
+Processor 27
+    Number of cells = 103489
+    Number of faces shared with processor 10 = 181
+    Number of faces shared with processor 15 = 201
+    Number of faces shared with processor 16 = 795
+    Number of faces shared with processor 17 = 585
+    Number of faces shared with processor 19 = 23
+    Number of faces shared with processor 24 = 393
+    Number of faces shared with processor 25 = 643
+    Number of faces shared with processor 26 = 951
+    Number of faces shared with processor 29 = 8
+    Number of processor patches = 9
+    Number of processor faces = 3780
+    Number of boundary faces = 3968
+
+Processor 28
+    Number of cells = 103138
+    Number of faces shared with processor 19 = 537
+    Number of faces shared with processor 21 = 495
+    Number of faces shared with processor 23 = 1090
+    Number of faces shared with processor 25 = 639
+    Number of faces shared with processor 29 = 1400
+    Number of faces shared with processor 30 = 405
+    Number of faces shared with processor 31 = 359
+    Number of processor patches = 7
+    Number of processor faces = 4925
+    Number of boundary faces = 4965
+
+Processor 29
+    Number of cells = 103693
+    Number of faces shared with processor 17 = 3
+    Number of faces shared with processor 19 = 12
+    Number of faces shared with processor 21 = 197
+    Number of faces shared with processor 25 = 342
+    Number of faces shared with processor 26 = 1119
+    Number of faces shared with processor 27 = 8
+    Number of faces shared with processor 28 = 1400
+    Number of faces shared with processor 30 = 714
+    Number of faces shared with processor 31 = 34
+    Number of processor patches = 9
+    Number of processor faces = 3829
+    Number of boundary faces = 4107
+
+Processor 30
+    Number of cells = 103437
+    Number of faces shared with processor 10 = 5
+    Number of faces shared with processor 11 = 1
+    Number of faces shared with processor 12 = 268
+    Number of faces shared with processor 18 = 207
+    Number of faces shared with processor 23 = 150
+    Number of faces shared with processor 24 = 913
+    Number of faces shared with processor 25 = 524
+    Number of faces shared with processor 26 = 269
+    Number of faces shared with processor 28 = 405
+    Number of faces shared with processor 29 = 714
+    Number of faces shared with processor 31 = 1382
+    Number of processor patches = 11
+    Number of processor faces = 4838
+    Number of boundary faces = 3388
+
+Processor 31
+    Number of cells = 102784
+    Number of faces shared with processor 12 = 367
+    Number of faces shared with processor 18 = 36
+    Number of faces shared with processor 21 = 377
+    Number of faces shared with processor 22 = 420
+    Number of faces shared with processor 23 = 813
+    Number of faces shared with processor 28 = 359
+    Number of faces shared with processor 29 = 34
+    Number of faces shared with processor 30 = 1382
+    Number of faces shared with processor 54 = 109
+    Number of processor patches = 9
+    Number of processor faces = 3897
+    Number of boundary faces = 3753
+
+Processor 32
+    Number of cells = 102704
+    Number of faces shared with processor 33 = 294
+    Number of faces shared with processor 34 = 657
+    Number of faces shared with processor 36 = 481
+    Number of faces shared with processor 39 = 731
+    Number of faces shared with processor 45 = 774
+    Number of faces shared with processor 46 = 7
+    Number of faces shared with processor 48 = 521
+    Number of faces shared with processor 49 = 330
+    Number of processor patches = 8
+    Number of processor faces = 3795
+    Number of boundary faces = 3957
+
+Processor 33
+    Number of cells = 103064
+    Number of faces shared with processor 7 = 232
+    Number of faces shared with processor 32 = 294
+    Number of faces shared with processor 34 = 1397
+    Number of faces shared with processor 35 = 82
+    Number of faces shared with processor 36 = 734
+    Number of faces shared with processor 37 = 474
+    Number of faces shared with processor 39 = 21
+    Number of faces shared with processor 42 = 35
+    Number of faces shared with processor 43 = 1
+    Number of faces shared with processor 45 = 385
+    Number of faces shared with processor 47 = 448
+    Number of faces shared with processor 48 = 629
+    Number of faces shared with processor 52 = 57
+    Number of processor patches = 13
+    Number of processor faces = 4789
+    Number of boundary faces = 3509
+
+Processor 34
+    Number of cells = 102916
+    Number of faces shared with processor 32 = 657
+    Number of faces shared with processor 33 = 1397
+    Number of faces shared with processor 35 = 1023
+    Number of faces shared with processor 36 = 507
+    Number of faces shared with processor 45 = 241
+    Number of faces shared with processor 46 = 857
+    Number of faces shared with processor 47 = 164
+    Number of processor patches = 7
+    Number of processor faces = 4846
+    Number of boundary faces = 3882
+
+Processor 35
+    Number of cells = 102967
+    Number of faces shared with processor 33 = 82
+    Number of faces shared with processor 34 = 1023
+    Number of faces shared with processor 36 = 955
+    Number of faces shared with processor 37 = 54
+    Number of faces shared with processor 38 = 459
+    Number of faces shared with processor 41 = 906
+    Number of faces shared with processor 42 = 28
+    Number of faces shared with processor 43 = 45
+    Number of faces shared with processor 46 = 824
+    Number of faces shared with processor 47 = 35
+    Number of processor patches = 10
+    Number of processor faces = 4411
+    Number of boundary faces = 5433
+
+Processor 36
+    Number of cells = 103902
+    Number of faces shared with processor 32 = 481
+    Number of faces shared with processor 33 = 734
+    Number of faces shared with processor 34 = 507
+    Number of faces shared with processor 35 = 955
+    Number of faces shared with processor 37 = 1087
+    Number of faces shared with processor 38 = 616
+    Number of faces shared with processor 39 = 992
+    Number of faces shared with processor 41 = 72
+    Number of faces shared with processor 46 = 129
+    Number of faces shared with processor 49 = 7
+    Number of processor patches = 10
+    Number of processor faces = 5580
+    Number of boundary faces = 4042
+
+Processor 37
+    Number of cells = 103853
+    Number of faces shared with processor 33 = 474
+    Number of faces shared with processor 35 = 54
+    Number of faces shared with processor 36 = 1087
+    Number of faces shared with processor 38 = 682
+    Number of faces shared with processor 39 = 250
+    Number of faces shared with processor 43 = 410
+    Number of faces shared with processor 48 = 296
+    Number of faces shared with processor 50 = 269
+    Number of faces shared with processor 52 = 245
+    Number of processor patches = 9
+    Number of processor faces = 3767
+    Number of boundary faces = 3779
+
+Processor 38
+    Number of cells = 103935
+    Number of faces shared with processor 35 = 459
+    Number of faces shared with processor 36 = 616
+    Number of faces shared with processor 37 = 682
+    Number of faces shared with processor 39 = 848
+    Number of faces shared with processor 40 = 830
+    Number of faces shared with processor 41 = 588
+    Number of faces shared with processor 43 = 789
+    Number of faces shared with processor 49 = 56
+    Number of faces shared with processor 50 = 358
+    Number of faces shared with processor 51 = 154
+    Number of processor patches = 10
+    Number of processor faces = 5380
+    Number of boundary faces = 4064
+
+Processor 39
+    Number of cells = 102861
+    Number of faces shared with processor 32 = 731
+    Number of faces shared with processor 33 = 21
+    Number of faces shared with processor 36 = 992
+    Number of faces shared with processor 37 = 250
+    Number of faces shared with processor 38 = 848
+    Number of faces shared with processor 40 = 47
+    Number of faces shared with processor 41 = 116
+    Number of faces shared with processor 46 = 26
+    Number of faces shared with processor 48 = 391
+    Number of faces shared with processor 49 = 399
+    Number of faces shared with processor 50 = 715
+    Number of processor patches = 11
+    Number of processor faces = 4536
+    Number of boundary faces = 3606
+
+Processor 40
+    Number of cells = 103073
+    Number of faces shared with processor 38 = 830
+    Number of faces shared with processor 39 = 47
+    Number of faces shared with processor 41 = 1243
+    Number of faces shared with processor 42 = 820
+    Number of faces shared with processor 43 = 554
+    Number of faces shared with processor 44 = 814
+    Number of faces shared with processor 46 = 96
+    Number of faces shared with processor 47 = 290
+    Number of faces shared with processor 49 = 120
+    Number of faces shared with processor 51 = 602
+    Number of processor patches = 10
+    Number of processor faces = 5416
+    Number of boundary faces = 3400
+
+Processor 41
+    Number of cells = 102969
+    Number of faces shared with processor 35 = 906
+    Number of faces shared with processor 36 = 72
+    Number of faces shared with processor 38 = 588
+    Number of faces shared with processor 39 = 116
+    Number of faces shared with processor 40 = 1243
+    Number of faces shared with processor 42 = 597
+    Number of faces shared with processor 43 = 451
+    Number of faces shared with processor 46 = 773
+    Number of faces shared with processor 47 = 28
+    Number of faces shared with processor 49 = 6
+    Number of processor patches = 10
+    Number of processor faces = 4780
+    Number of boundary faces = 4918
+
+Processor 42
+    Number of cells = 103563
+    Number of faces shared with processor 7 = 1
+    Number of faces shared with processor 33 = 35
+    Number of faces shared with processor 35 = 28
+    Number of faces shared with processor 40 = 820
+    Number of faces shared with processor 41 = 597
+    Number of faces shared with processor 43 = 752
+    Number of faces shared with processor 44 = 44
+    Number of faces shared with processor 47 = 842
+    Number of faces shared with processor 51 = 548
+    Number of faces shared with processor 52 = 42
+    Number of faces shared with processor 54 = 204
+    Number of faces shared with processor 55 = 23
+    Number of processor patches = 12
+    Number of processor faces = 3936
+    Number of boundary faces = 3890
+
+Processor 43
+    Number of cells = 103817
+    Number of faces shared with processor 33 = 1
+    Number of faces shared with processor 35 = 45
+    Number of faces shared with processor 37 = 410
+    Number of faces shared with processor 38 = 789
+    Number of faces shared with processor 40 = 554
+    Number of faces shared with processor 41 = 451
+    Number of faces shared with processor 42 = 752
+    Number of faces shared with processor 50 = 330
+    Number of faces shared with processor 51 = 155
+    Number of faces shared with processor 52 = 274
+    Number of faces shared with processor 54 = 5
+    Number of processor patches = 11
+    Number of processor faces = 3766
+    Number of boundary faces = 3750
+
+Processor 44
+    Number of cells = 102888
+    Number of faces shared with processor 40 = 814
+    Number of faces shared with processor 42 = 44
+    Number of faces shared with processor 45 = 864
+    Number of faces shared with processor 46 = 531
+    Number of faces shared with processor 47 = 330
+    Number of faces shared with processor 49 = 341
+    Number of faces shared with processor 51 = 871
+    Number of faces shared with processor 54 = 79
+    Number of processor patches = 8
+    Number of processor faces = 3874
+    Number of boundary faces = 3936
+
+Processor 45
+    Number of cells = 102688
+    Number of faces shared with processor 32 = 774
+    Number of faces shared with processor 33 = 385
+    Number of faces shared with processor 34 = 241
+    Number of faces shared with processor 44 = 864
+    Number of faces shared with processor 46 = 694
+    Number of faces shared with processor 48 = 133
+    Number of faces shared with processor 49 = 360
+    Number of faces shared with processor 54 = 33
+    Number of processor patches = 8
+    Number of processor faces = 3484
+    Number of boundary faces = 3840
+
+Processor 46
+    Number of cells = 103223
+    Number of faces shared with processor 32 = 7
+    Number of faces shared with processor 34 = 857
+    Number of faces shared with processor 35 = 824
+    Number of faces shared with processor 36 = 129
+    Number of faces shared with processor 39 = 26
+    Number of faces shared with processor 40 = 96
+    Number of faces shared with processor 41 = 773
+    Number of faces shared with processor 44 = 531
+    Number of faces shared with processor 45 = 694
+    Number of faces shared with processor 47 = 1378
+    Number of faces shared with processor 49 = 79
+    Number of processor patches = 11
+    Number of processor faces = 5394
+    Number of boundary faces = 3526
+
+Processor 47
+    Number of cells = 103435
+    Number of faces shared with processor 33 = 448
+    Number of faces shared with processor 34 = 164
+    Number of faces shared with processor 35 = 35
+    Number of faces shared with processor 40 = 290
+    Number of faces shared with processor 41 = 28
+    Number of faces shared with processor 42 = 842
+    Number of faces shared with processor 44 = 330
+    Number of faces shared with processor 46 = 1378
+    Number of faces shared with processor 51 = 34
+    Number of processor patches = 9
+    Number of processor faces = 3549
+    Number of boundary faces = 4255
+
+Processor 48
+    Number of cells = 103985
+    Number of faces shared with processor 7 = 331
+    Number of faces shared with processor 9 = 115
+    Number of faces shared with processor 11 = 1051
+    Number of faces shared with processor 12 = 207
+    Number of faces shared with processor 32 = 521
+    Number of faces shared with processor 33 = 629
+    Number of faces shared with processor 37 = 296
+    Number of faces shared with processor 39 = 391
+    Number of faces shared with processor 45 = 133
+    Number of faces shared with processor 49 = 962
+    Number of faces shared with processor 50 = 848
+    Number of faces shared with processor 52 = 473
+    Number of faces shared with processor 54 = 332
+    Number of processor patches = 13
+    Number of processor faces = 6289
+    Number of boundary faces = 2859
+
+Processor 49
+    Number of cells = 103048
+    Number of faces shared with processor 32 = 330
+    Number of faces shared with processor 36 = 7
+    Number of faces shared with processor 38 = 56
+    Number of faces shared with processor 39 = 399
+    Number of faces shared with processor 40 = 120
+    Number of faces shared with processor 41 = 6
+    Number of faces shared with processor 44 = 341
+    Number of faces shared with processor 45 = 360
+    Number of faces shared with processor 46 = 79
+    Number of faces shared with processor 48 = 962
+    Number of faces shared with processor 50 = 528
+    Number of faces shared with processor 51 = 713
+    Number of faces shared with processor 54 = 640
+    Number of processor patches = 13
+    Number of processor faces = 4541
+    Number of boundary faces = 2595
+
+Processor 50
+    Number of cells = 103064
+    Number of faces shared with processor 37 = 269
+    Number of faces shared with processor 38 = 358
+    Number of faces shared with processor 39 = 715
+    Number of faces shared with processor 43 = 330
+    Number of faces shared with processor 48 = 848
+    Number of faces shared with processor 49 = 528
+    Number of faces shared with processor 51 = 1111
+    Number of faces shared with processor 52 = 414
+    Number of processor patches = 8
+    Number of processor faces = 4573
+    Number of boundary faces = 3299
+
+Processor 51
+    Number of cells = 102809
+    Number of faces shared with processor 38 = 154
+    Number of faces shared with processor 40 = 602
+    Number of faces shared with processor 42 = 548
+    Number of faces shared with processor 43 = 155
+    Number of faces shared with processor 44 = 871
+    Number of faces shared with processor 47 = 34
+    Number of faces shared with processor 49 = 713
+    Number of faces shared with processor 50 = 1111
+    Number of faces shared with processor 52 = 157
+    Number of faces shared with processor 54 = 525
+    Number of processor patches = 10
+    Number of processor faces = 4870
+    Number of boundary faces = 4104
+
+Processor 52
+    Number of cells = 103789
+    Number of faces shared with processor 7 = 493
+    Number of faces shared with processor 9 = 481
+    Number of faces shared with processor 33 = 57
+    Number of faces shared with processor 37 = 245
+    Number of faces shared with processor 42 = 42
+    Number of faces shared with processor 43 = 274
+    Number of faces shared with processor 48 = 473
+    Number of faces shared with processor 50 = 414
+    Number of faces shared with processor 51 = 157
+    Number of faces shared with processor 53 = 1516
+    Number of faces shared with processor 54 = 237
+    Number of faces shared with processor 55 = 35
+    Number of faces shared with processor 60 = 847
+    Number of processor patches = 13
+    Number of processor faces = 5271
+    Number of boundary faces = 2313
+
+Processor 53
+    Number of cells = 103842
+    Number of faces shared with processor 7 = 87
+    Number of faces shared with processor 52 = 1516
+    Number of faces shared with processor 54 = 346
+    Number of faces shared with processor 55 = 1228
+    Number of faces shared with processor 60 = 657
+    Number of faces shared with processor 61 = 690
+    Number of faces shared with processor 62 = 988
+    Number of faces shared with processor 63 = 339
+    Number of faces shared with processor 71 = 42
+    Number of faces shared with processor 102 = 53
+    Number of processor patches = 10
+    Number of processor faces = 5946
+    Number of boundary faces = 1660
+
+Processor 54
+    Number of cells = 104556
+    Number of faces shared with processor 12 = 782
+    Number of faces shared with processor 21 = 445
+    Number of faces shared with processor 31 = 109
+    Number of faces shared with processor 42 = 204
+    Number of faces shared with processor 43 = 5
+    Number of faces shared with processor 44 = 79
+    Number of faces shared with processor 45 = 33
+    Number of faces shared with processor 48 = 332
+    Number of faces shared with processor 49 = 640
+    Number of faces shared with processor 51 = 525
+    Number of faces shared with processor 52 = 237
+    Number of faces shared with processor 53 = 346
+    Number of faces shared with processor 55 = 443
+    Number of faces shared with processor 56 = 193
+    Number of faces shared with processor 77 = 25
+    Number of faces shared with processor 79 = 1613
+    Number of processor patches = 16
+    Number of processor faces = 6011
+    Number of boundary faces = 3087
+
+Processor 55
+    Number of cells = 104504
+    Number of faces shared with processor 7 = 42
+    Number of faces shared with processor 42 = 23
+    Number of faces shared with processor 52 = 35
+    Number of faces shared with processor 53 = 1228
+    Number of faces shared with processor 54 = 443
+    Number of faces shared with processor 63 = 372
+    Number of faces shared with processor 70 = 203
+    Number of faces shared with processor 71 = 220
+    Number of faces shared with processor 78 = 738
+    Number of faces shared with processor 79 = 398
+    Number of faces shared with processor 102 = 32
+    Number of processor patches = 11
+    Number of processor faces = 3734
+    Number of boundary faces = 2654
+
+Processor 56
+    Number of cells = 104686
+    Number of faces shared with processor 0 = 43
+    Number of faces shared with processor 10 = 79
+    Number of faces shared with processor 21 = 321
+    Number of faces shared with processor 54 = 193
+    Number of faces shared with processor 57 = 958
+    Number of faces shared with processor 59 = 1239
+    Number of faces shared with processor 61 = 620
+    Number of faces shared with processor 62 = 538
+    Number of faces shared with processor 64 = 49
+    Number of faces shared with processor 66 = 34
+    Number of faces shared with processor 67 = 1113
+    Number of faces shared with processor 76 = 1101
+    Number of faces shared with processor 77 = 472
+    Number of faces shared with processor 79 = 129
+    Number of processor patches = 14
+    Number of processor faces = 6889
+    Number of boundary faces = 1739
+
+Processor 57
+    Number of cells = 104323
+    Number of faces shared with processor 10 = 281
+    Number of faces shared with processor 13 = 552
+    Number of faces shared with processor 17 = 200
+    Number of faces shared with processor 20 = 132
+    Number of faces shared with processor 21 = 357
+    Number of faces shared with processor 56 = 958
+    Number of faces shared with processor 59 = 1168
+    Number of faces shared with processor 76 = 122
+    Number of processor patches = 8
+    Number of processor faces = 3770
+    Number of boundary faces = 2462
+
+Processor 58
+    Number of cells = 104654
+    Number of faces shared with processor 7 = 38
+    Number of faces shared with processor 8 = 1138
+    Number of faces shared with processor 9 = 463
+    Number of faces shared with processor 10 = 152
+    Number of faces shared with processor 59 = 1703
+    Number of faces shared with processor 60 = 960
+    Number of faces shared with processor 61 = 561
+    Number of processor patches = 7
+    Number of processor faces = 5015
+    Number of boundary faces = 2029
+
+Processor 59
+    Number of cells = 104539
+    Number of faces shared with processor 6 = 63
+    Number of faces shared with processor 7 = 40
+    Number of faces shared with processor 8 = 60
+    Number of faces shared with processor 10 = 372
+    Number of faces shared with processor 56 = 1239
+    Number of faces shared with processor 57 = 1168
+    Number of faces shared with processor 58 = 1703
+    Number of faces shared with processor 61 = 873
+    Number of faces shared with processor 62 = 149
+    Number of processor patches = 9
+    Number of processor faces = 5667
+    Number of boundary faces = 1729
+
+Processor 60
+    Number of cells = 104516
+    Number of faces shared with processor 7 = 151
+    Number of faces shared with processor 9 = 1069
+    Number of faces shared with processor 52 = 847
+    Number of faces shared with processor 53 = 657
+    Number of faces shared with processor 58 = 960
+    Number of faces shared with processor 61 = 1098
+    Number of processor patches = 6
+    Number of processor faces = 4782
+    Number of boundary faces = 1998
+
+Processor 61
+    Number of cells = 104399
+    Number of faces shared with processor 7 = 77
+    Number of faces shared with processor 53 = 690
+    Number of faces shared with processor 56 = 620
+    Number of faces shared with processor 58 = 561
+    Number of faces shared with processor 59 = 873
+    Number of faces shared with processor 60 = 1098
+    Number of faces shared with processor 62 = 1673
+    Number of processor patches = 7
+    Number of processor faces = 5592
+    Number of boundary faces = 1802
+
+Processor 62
+    Number of cells = 104727
+    Number of faces shared with processor 0 = 282
+    Number of faces shared with processor 6 = 79
+    Number of faces shared with processor 7 = 150
+    Number of faces shared with processor 10 = 14
+    Number of faces shared with processor 53 = 988
+    Number of faces shared with processor 56 = 538
+    Number of faces shared with processor 59 = 149
+    Number of faces shared with processor 61 = 1673
+    Number of faces shared with processor 63 = 1698
+    Number of faces shared with processor 66 = 42
+    Number of faces shared with processor 67 = 724
+    Number of faces shared with processor 68 = 154
+    Number of faces shared with processor 102 = 216
+    Number of processor patches = 13
+    Number of processor faces = 6707
+    Number of boundary faces = 1367
+
+Processor 63
+    Number of cells = 104376
+    Number of faces shared with processor 53 = 339
+    Number of faces shared with processor 55 = 372
+    Number of faces shared with processor 62 = 1698
+    Number of faces shared with processor 67 = 375
+    Number of faces shared with processor 68 = 850
+    Number of faces shared with processor 69 = 674
+    Number of faces shared with processor 70 = 795
+    Number of faces shared with processor 71 = 392
+    Number of faces shared with processor 102 = 67
+    Number of processor patches = 9
+    Number of processor faces = 5562
+    Number of boundary faces = 2006
+
+Processor 64
+    Number of cells = 104019
+    Number of faces shared with processor 56 = 49
+    Number of faces shared with processor 65 = 1915
+    Number of faces shared with processor 66 = 317
+    Number of faces shared with processor 67 = 525
+    Number of faces shared with processor 76 = 426
+    Number of faces shared with processor 77 = 462
+    Number of processor patches = 6
+    Number of processor faces = 3694
+    Number of boundary faces = 2956
+
+Processor 65
+    Number of cells = 103459
+    Number of faces shared with processor 64 = 1915
+    Number of faces shared with processor 66 = 980
+    Number of faces shared with processor 67 = 596
+    Number of faces shared with processor 77 = 131
+    Number of processor patches = 4
+    Number of processor faces = 3622
+    Number of boundary faces = 3488
+
+Processor 66
+    Number of cells = 104472
+    Number of faces shared with processor 0 = 69
+    Number of faces shared with processor 56 = 34
+    Number of faces shared with processor 62 = 42
+    Number of faces shared with processor 64 = 317
+    Number of faces shared with processor 65 = 980
+    Number of faces shared with processor 67 = 481
+    Number of faces shared with processor 68 = 1383
+    Number of faces shared with processor 72 = 615
+    Number of faces shared with processor 73 = 1
+    Number of faces shared with processor 77 = 577
+    Number of faces shared with processor 84 = 75
+    Number of faces shared with processor 85 = 4
+    Number of faces shared with processor 91 = 49
+    Number of faces shared with processor 93 = 118
+    Number of faces shared with processor 94 = 109
+    Number of faces shared with processor 102 = 43
+    Number of faces shared with processor 105 = 438
+    Number of faces shared with processor 106 = 742
+    Number of faces shared with processor 107 = 158
+    Number of processor patches = 19
+    Number of processor faces = 6235
+    Number of boundary faces = 1385
+
+Processor 67
+    Number of cells = 104572
+    Number of faces shared with processor 56 = 1113
+    Number of faces shared with processor 62 = 724
+    Number of faces shared with processor 63 = 375
+    Number of faces shared with processor 64 = 525
+    Number of faces shared with processor 65 = 596
+    Number of faces shared with processor 66 = 481
+    Number of faces shared with processor 68 = 826
+    Number of faces shared with processor 76 = 481
+    Number of processor patches = 8
+    Number of processor faces = 5121
+    Number of boundary faces = 1857
+
+Processor 68
+    Number of cells = 103646
+    Number of faces shared with processor 62 = 154
+    Number of faces shared with processor 63 = 850
+    Number of faces shared with processor 66 = 1383
+    Number of faces shared with processor 67 = 826
+    Number of faces shared with processor 69 = 1292
+    Number of faces shared with processor 102 = 128
+    Number of faces shared with processor 106 = 481
+    Number of processor patches = 7
+    Number of processor faces = 5114
+    Number of boundary faces = 1936
+
+Processor 69
+    Number of cells = 103027
+    Number of faces shared with processor 63 = 674
+    Number of faces shared with processor 68 = 1292
+    Number of faces shared with processor 70 = 986
+    Number of faces shared with processor 71 = 153
+    Number of faces shared with processor 78 = 121
+    Number of faces shared with processor 102 = 1146
+    Number of faces shared with processor 106 = 313
+    Number of processor patches = 7
+    Number of processor faces = 4685
+    Number of boundary faces = 2017
+
+Processor 70
+    Number of cells = 103397
+    Number of faces shared with processor 55 = 203
+    Number of faces shared with processor 63 = 795
+    Number of faces shared with processor 69 = 986
+    Number of faces shared with processor 71 = 1717
+    Number of faces shared with processor 78 = 282
+    Number of faces shared with processor 102 = 25
+    Number of processor patches = 6
+    Number of processor faces = 4008
+    Number of boundary faces = 3376
+
+Processor 71
+    Number of cells = 103653
+    Number of faces shared with processor 53 = 42
+    Number of faces shared with processor 55 = 220
+    Number of faces shared with processor 63 = 392
+    Number of faces shared with processor 69 = 153
+    Number of faces shared with processor 70 = 1717
+    Number of faces shared with processor 78 = 243
+    Number of faces shared with processor 102 = 197
+    Number of processor patches = 7
+    Number of processor faces = 2964
+    Number of boundary faces = 3132
+
+Processor 72
+    Number of cells = 104757
+    Number of faces shared with processor 66 = 615
+    Number of faces shared with processor 73 = 1039
+    Number of faces shared with processor 74 = 669
+    Number of faces shared with processor 75 = 775
+    Number of faces shared with processor 76 = 366
+    Number of faces shared with processor 77 = 735
+    Number of faces shared with processor 80 = 120
+    Number of faces shared with processor 84 = 123
+    Number of faces shared with processor 85 = 159
+    Number of faces shared with processor 87 = 953
+    Number of faces shared with processor 93 = 56
+    Number of faces shared with processor 94 = 30
+    Number of faces shared with processor 105 = 192
+    Number of processor patches = 13
+    Number of processor faces = 5832
+    Number of boundary faces = 3116
+
+Processor 73
+    Number of cells = 104469
+    Number of faces shared with processor 66 = 1
+    Number of faces shared with processor 72 = 1039
+    Number of faces shared with processor 74 = 1027
+    Number of faces shared with processor 75 = 444
+    Number of faces shared with processor 84 = 209
+    Number of faces shared with processor 85 = 39
+    Number of faces shared with processor 86 = 486
+    Number of faces shared with processor 87 = 724
+    Number of faces shared with processor 89 = 25
+    Number of faces shared with processor 93 = 855
+    Number of processor patches = 10
+    Number of processor faces = 4849
+    Number of boundary faces = 3235
+
+Processor 74
+    Number of cells = 104288
+    Number of faces shared with processor 72 = 669
+    Number of faces shared with processor 73 = 1027
+    Number of faces shared with processor 75 = 1364
+    Number of faces shared with processor 89 = 909
+    Number of faces shared with processor 93 = 317
+    Number of faces shared with processor 94 = 416
+    Number of faces shared with processor 95 = 554
+    Number of faces shared with processor 105 = 146
+    Number of processor patches = 8
+    Number of processor faces = 5402
+    Number of boundary faces = 3096
+
+Processor 75
+    Number of cells = 104757
+    Number of faces shared with processor 72 = 775
+    Number of faces shared with processor 73 = 444
+    Number of faces shared with processor 74 = 1364
+    Number of faces shared with processor 76 = 196
+    Number of faces shared with processor 80 = 152
+    Number of faces shared with processor 81 = 7
+    Number of faces shared with processor 86 = 11
+    Number of faces shared with processor 87 = 104
+    Number of faces shared with processor 88 = 268
+    Number of faces shared with processor 89 = 904
+    Number of faces shared with processor 91 = 176
+    Number of faces shared with processor 94 = 25
+    Number of faces shared with processor 104 = 253
+    Number of faces shared with processor 105 = 409
+    Number of faces shared with processor 111 = 547
+    Number of processor patches = 15
+    Number of processor faces = 5635
+    Number of boundary faces = 3029
+
+Processor 76
+    Number of cells = 104234
+    Number of faces shared with processor 56 = 1101
+    Number of faces shared with processor 57 = 122
+    Number of faces shared with processor 64 = 426
+    Number of faces shared with processor 67 = 481
+    Number of faces shared with processor 72 = 366
+    Number of faces shared with processor 75 = 196
+    Number of faces shared with processor 77 = 962
+    Number of faces shared with processor 78 = 310
+    Number of faces shared with processor 80 = 227
+    Number of faces shared with processor 111 = 364
+    Number of processor patches = 10
+    Number of processor faces = 4555
+    Number of boundary faces = 2689
+
+Processor 77
+    Number of cells = 104712
+    Number of faces shared with processor 0 = 4
+    Number of faces shared with processor 54 = 25
+    Number of faces shared with processor 56 = 472
+    Number of faces shared with processor 64 = 462
+    Number of faces shared with processor 65 = 131
+    Number of faces shared with processor 66 = 577
+    Number of faces shared with processor 72 = 735
+    Number of faces shared with processor 76 = 962
+    Number of faces shared with processor 78 = 388
+    Number of faces shared with processor 79 = 1126
+    Number of faces shared with processor 80 = 204
+    Number of faces shared with processor 82 = 41
+    Number of faces shared with processor 84 = 13
+    Number of faces shared with processor 85 = 286
+    Number of faces shared with processor 87 = 202
+    Number of faces shared with processor 91 = 64
+    Number of faces shared with processor 94 = 5
+    Number of processor patches = 17
+    Number of processor faces = 5697
+    Number of boundary faces = 2957
+
+Processor 78
+    Number of cells = 104659
+    Number of faces shared with processor 55 = 738
+    Number of faces shared with processor 69 = 121
+    Number of faces shared with processor 70 = 282
+    Number of faces shared with processor 71 = 243
+    Number of faces shared with processor 76 = 310
+    Number of faces shared with processor 77 = 388
+    Number of faces shared with processor 79 = 1193
+    Number of faces shared with processor 98 = 34
+    Number of faces shared with processor 99 = 646
+    Number of faces shared with processor 102 = 476
+    Number of faces shared with processor 111 = 508
+    Number of faces shared with processor 122 = 6
+    Number of faces shared with processor 124 = 175
+    Number of faces shared with processor 127 = 339
+    Number of processor patches = 14
+    Number of processor faces = 5459
+    Number of boundary faces = 3065
+
+Processor 79
+    Number of cells = 103930
+    Number of faces shared with processor 54 = 1613
+    Number of faces shared with processor 55 = 398
+    Number of faces shared with processor 56 = 129
+    Number of faces shared with processor 77 = 1126
+    Number of faces shared with processor 78 = 1193
+    Number of processor patches = 5
+    Number of processor faces = 4459
+    Number of boundary faces = 3585
+
+Processor 80
+    Number of cells = 103080
+    Number of faces shared with processor 72 = 120
+    Number of faces shared with processor 75 = 152
+    Number of faces shared with processor 76 = 227
+    Number of faces shared with processor 77 = 204
+    Number of faces shared with processor 81 = 1150
+    Number of faces shared with processor 82 = 445
+    Number of faces shared with processor 85 = 462
+    Number of faces shared with processor 87 = 939
+    Number of faces shared with processor 88 = 658
+    Number of faces shared with processor 111 = 91
+    Number of processor patches = 10
+    Number of processor faces = 4448
+    Number of boundary faces = 3748
+
+Processor 81
+    Number of cells = 103195
+    Number of faces shared with processor 75 = 7
+    Number of faces shared with processor 80 = 1150
+    Number of faces shared with processor 82 = 756
+    Number of faces shared with processor 83 = 1107
+    Number of faces shared with processor 85 = 311
+    Number of faces shared with processor 86 = 736
+    Number of faces shared with processor 87 = 371
+    Number of faces shared with processor 88 = 697
+    Number of faces shared with processor 89 = 20
+    Number of faces shared with processor 92 = 89
+    Number of processor patches = 10
+    Number of processor faces = 5244
+    Number of boundary faces = 3250
+
+Processor 82
+    Number of cells = 103459
+    Number of faces shared with processor 77 = 41
+    Number of faces shared with processor 80 = 445
+    Number of faces shared with processor 81 = 756
+    Number of faces shared with processor 83 = 898
+    Number of faces shared with processor 85 = 71
+    Number of faces shared with processor 88 = 259
+    Number of faces shared with processor 90 = 169
+    Number of faces shared with processor 91 = 883
+    Number of faces shared with processor 92 = 3
+    Number of faces shared with processor 94 = 10
+    Number of processor patches = 10
+    Number of processor faces = 3535
+    Number of boundary faces = 4391
+
+Processor 83
+    Number of cells = 103128
+    Number of faces shared with processor 81 = 1107
+    Number of faces shared with processor 82 = 898
+    Number of faces shared with processor 84 = 521
+    Number of faces shared with processor 85 = 493
+    Number of faces shared with processor 86 = 298
+    Number of faces shared with processor 88 = 20
+    Number of faces shared with processor 90 = 582
+    Number of faces shared with processor 92 = 727
+    Number of faces shared with processor 94 = 4
+    Number of processor patches = 9
+    Number of processor faces = 4650
+    Number of boundary faces = 4934
+
+Processor 84
+    Number of cells = 104490
+    Number of faces shared with processor 66 = 75
+    Number of faces shared with processor 72 = 123
+    Number of faces shared with processor 73 = 209
+    Number of faces shared with processor 77 = 13
+    Number of faces shared with processor 83 = 521
+    Number of faces shared with processor 85 = 1079
+    Number of faces shared with processor 86 = 801
+    Number of faces shared with processor 92 = 732
+    Number of faces shared with processor 93 = 754
+    Number of faces shared with processor 94 = 33
+    Number of processor patches = 10
+    Number of processor faces = 4340
+    Number of boundary faces = 4480
+
+Processor 85
+    Number of cells = 104039
+    Number of faces shared with processor 66 = 4
+    Number of faces shared with processor 72 = 159
+    Number of faces shared with processor 73 = 39
+    Number of faces shared with processor 77 = 286
+    Number of faces shared with processor 80 = 462
+    Number of faces shared with processor 81 = 311
+    Number of faces shared with processor 82 = 71
+    Number of faces shared with processor 83 = 493
+    Number of faces shared with processor 84 = 1079
+    Number of faces shared with processor 86 = 604
+    Number of faces shared with processor 87 = 244
+    Number of faces shared with processor 94 = 22
+    Number of processor patches = 12
+    Number of processor faces = 3774
+    Number of boundary faces = 3806
+
+Processor 86
+    Number of cells = 103353
+    Number of faces shared with processor 73 = 486
+    Number of faces shared with processor 75 = 11
+    Number of faces shared with processor 81 = 736
+    Number of faces shared with processor 83 = 298
+    Number of faces shared with processor 84 = 801
+    Number of faces shared with processor 85 = 604
+    Number of faces shared with processor 87 = 911
+    Number of faces shared with processor 89 = 43
+    Number of faces shared with processor 92 = 450
+    Number of faces shared with processor 93 = 813
+    Number of processor patches = 10
+    Number of processor faces = 5153
+    Number of boundary faces = 3249
+
+Processor 87
+    Number of cells = 103537
+    Number of faces shared with processor 72 = 953
+    Number of faces shared with processor 73 = 724
+    Number of faces shared with processor 75 = 104
+    Number of faces shared with processor 77 = 202
+    Number of faces shared with processor 80 = 939
+    Number of faces shared with processor 81 = 371
+    Number of faces shared with processor 85 = 244
+    Number of faces shared with processor 86 = 911
+    Number of processor patches = 8
+    Number of processor faces = 4448
+    Number of boundary faces = 3410
+
+Processor 88
+    Number of cells = 103764
+    Number of faces shared with processor 75 = 268
+    Number of faces shared with processor 80 = 658
+    Number of faces shared with processor 81 = 697
+    Number of faces shared with processor 82 = 259
+    Number of faces shared with processor 83 = 20
+    Number of faces shared with processor 89 = 1083
+    Number of faces shared with processor 90 = 583
+    Number of faces shared with processor 91 = 444
+    Number of faces shared with processor 92 = 42
+    Number of faces shared with processor 111 = 111
+    Number of processor patches = 10
+    Number of processor faces = 4165
+    Number of boundary faces = 3569
+
+Processor 89
+    Number of cells = 103093
+    Number of faces shared with processor 73 = 25
+    Number of faces shared with processor 74 = 909
+    Number of faces shared with processor 75 = 904
+    Number of faces shared with processor 81 = 20
+    Number of faces shared with processor 86 = 43
+    Number of faces shared with processor 88 = 1083
+    Number of faces shared with processor 90 = 480
+    Number of faces shared with processor 91 = 388
+    Number of faces shared with processor 92 = 69
+    Number of faces shared with processor 93 = 20
+    Number of faces shared with processor 94 = 75
+    Number of faces shared with processor 95 = 475
+    Number of processor patches = 12
+    Number of processor faces = 4491
+    Number of boundary faces = 3339
+
+Processor 90
+    Number of cells = 102875
+    Number of faces shared with processor 82 = 169
+    Number of faces shared with processor 83 = 582
+    Number of faces shared with processor 88 = 583
+    Number of faces shared with processor 89 = 480
+    Number of faces shared with processor 91 = 1242
+    Number of faces shared with processor 92 = 900
+    Number of faces shared with processor 94 = 33
+    Number of faces shared with processor 95 = 1048
+    Number of processor patches = 8
+    Number of processor faces = 5037
+    Number of boundary faces = 3957
+
+Processor 91
+    Number of cells = 104014
+    Number of faces shared with processor 0 = 16
+    Number of faces shared with processor 66 = 49
+    Number of faces shared with processor 75 = 176
+    Number of faces shared with processor 77 = 64
+    Number of faces shared with processor 82 = 883
+    Number of faces shared with processor 88 = 444
+    Number of faces shared with processor 89 = 388
+    Number of faces shared with processor 90 = 1242
+    Number of faces shared with processor 92 = 6
+    Number of faces shared with processor 94 = 213
+    Number of faces shared with processor 95 = 319
+    Number of faces shared with processor 104 = 203
+    Number of faces shared with processor 105 = 288
+    Number of faces shared with processor 107 = 61
+    Number of faces shared with processor 111 = 23
+    Number of processor patches = 15
+    Number of processor faces = 4375
+    Number of boundary faces = 3701
+
+Processor 92
+    Number of cells = 103965
+    Number of faces shared with processor 81 = 89
+    Number of faces shared with processor 82 = 3
+    Number of faces shared with processor 83 = 727
+    Number of faces shared with processor 84 = 732
+    Number of faces shared with processor 86 = 450
+    Number of faces shared with processor 88 = 42
+    Number of faces shared with processor 89 = 69
+    Number of faces shared with processor 90 = 900
+    Number of faces shared with processor 91 = 6
+    Number of faces shared with processor 93 = 515
+    Number of faces shared with processor 94 = 596
+    Number of faces shared with processor 95 = 730
+    Number of processor patches = 12
+    Number of processor faces = 4859
+    Number of boundary faces = 5335
+
+Processor 93
+    Number of cells = 103143
+    Number of faces shared with processor 66 = 118
+    Number of faces shared with processor 72 = 56
+    Number of faces shared with processor 73 = 855
+    Number of faces shared with processor 74 = 317
+    Number of faces shared with processor 84 = 754
+    Number of faces shared with processor 86 = 813
+    Number of faces shared with processor 89 = 20
+    Number of faces shared with processor 92 = 515
+    Number of faces shared with processor 94 = 1119
+    Number of faces shared with processor 95 = 547
+    Number of processor patches = 10
+    Number of processor faces = 5114
+    Number of boundary faces = 3482
+
+Processor 94
+    Number of cells = 103101
+    Number of faces shared with processor 66 = 109
+    Number of faces shared with processor 72 = 30
+    Number of faces shared with processor 74 = 416
+    Number of faces shared with processor 75 = 25
+    Number of faces shared with processor 77 = 5
+    Number of faces shared with processor 82 = 10
+    Number of faces shared with processor 83 = 4
+    Number of faces shared with processor 84 = 33
+    Number of faces shared with processor 85 = 22
+    Number of faces shared with processor 89 = 75
+    Number of faces shared with processor 90 = 33
+    Number of faces shared with processor 91 = 213
+    Number of faces shared with processor 92 = 596
+    Number of faces shared with processor 93 = 1119
+    Number of faces shared with processor 95 = 1225
+    Number of faces shared with processor 105 = 256
+    Number of processor patches = 16
+    Number of processor faces = 4171
+    Number of boundary faces = 3649
+
+Processor 95
+    Number of cells = 102787
+    Number of faces shared with processor 74 = 554
+    Number of faces shared with processor 89 = 475
+    Number of faces shared with processor 90 = 1048
+    Number of faces shared with processor 91 = 319
+    Number of faces shared with processor 92 = 730
+    Number of faces shared with processor 93 = 547
+    Number of faces shared with processor 94 = 1225
+    Number of processor patches = 7
+    Number of processor faces = 4898
+    Number of boundary faces = 3664
+
+Processor 96
+    Number of cells = 103063
+    Number of faces shared with processor 97 = 1003
+    Number of faces shared with processor 98 = 594
+    Number of faces shared with processor 100 = 478
+    Number of faces shared with processor 111 = 68
+    Number of faces shared with processor 112 = 585
+    Number of faces shared with processor 114 = 331
+    Number of faces shared with processor 121 = 1100
+    Number of faces shared with processor 122 = 116
+    Number of processor patches = 8
+    Number of processor faces = 4275
+    Number of boundary faces = 3655
+
+Processor 97
+    Number of cells = 103479
+    Number of faces shared with processor 96 = 1003
+    Number of faces shared with processor 98 = 1141
+    Number of faces shared with processor 100 = 123
+    Number of faces shared with processor 112 = 157
+    Number of faces shared with processor 114 = 188
+    Number of faces shared with processor 115 = 428
+    Number of faces shared with processor 116 = 717
+    Number of faces shared with processor 117 = 670
+    Number of faces shared with processor 121 = 54
+    Number of processor patches = 9
+    Number of processor faces = 4481
+    Number of boundary faces = 3547
+
+Processor 98
+    Number of cells = 104160
+    Number of faces shared with processor 78 = 34
+    Number of faces shared with processor 96 = 594
+    Number of faces shared with processor 97 = 1141
+    Number of faces shared with processor 99 = 1126
+    Number of faces shared with processor 100 = 540
+    Number of faces shared with processor 102 = 814
+    Number of faces shared with processor 111 = 330
+    Number of faces shared with processor 115 = 146
+    Number of faces shared with processor 117 = 705
+    Number of faces shared with processor 118 = 172
+    Number of faces shared with processor 121 = 169
+    Number of faces shared with processor 124 = 285
+    Number of faces shared with processor 125 = 104
+    Number of processor patches = 13
+    Number of processor faces = 6160
+    Number of boundary faces = 2844
+
+Processor 99
+    Number of cells = 104097
+    Number of faces shared with processor 78 = 646
+    Number of faces shared with processor 98 = 1126
+    Number of faces shared with processor 102 = 988
+    Number of faces shared with processor 111 = 2
+    Number of faces shared with processor 117 = 699
+    Number of faces shared with processor 118 = 264
+    Number of faces shared with processor 119 = 116
+    Number of faces shared with processor 124 = 243
+    Number of faces shared with processor 125 = 448
+    Number of faces shared with processor 126 = 275
+    Number of faces shared with processor 127 = 602
+    Number of processor patches = 11
+    Number of processor faces = 5409
+    Number of boundary faces = 2575
+
+Processor 100
+    Number of cells = 102779
+    Number of faces shared with processor 96 = 478
+    Number of faces shared with processor 97 = 123
+    Number of faces shared with processor 98 = 540
+    Number of faces shared with processor 101 = 1480
+    Number of faces shared with processor 102 = 308
+    Number of faces shared with processor 103 = 792
+    Number of faces shared with processor 111 = 197
+    Number of faces shared with processor 114 = 480
+    Number of faces shared with processor 115 = 225
+    Number of faces shared with processor 122 = 97
+    Number of processor patches = 10
+    Number of processor faces = 4720
+    Number of boundary faces = 2804
+
+Processor 101
+    Number of cells = 102700
+    Number of faces shared with processor 100 = 1480
+    Number of faces shared with processor 102 = 41
+    Number of faces shared with processor 103 = 743
+    Number of faces shared with processor 106 = 11
+    Number of faces shared with processor 107 = 43
+    Number of faces shared with processor 108 = 974
+    Number of faces shared with processor 109 = 250
+    Number of faces shared with processor 111 = 353
+    Number of processor patches = 8
+    Number of processor faces = 3895
+    Number of boundary faces = 2573
+
+Processor 102
+    Number of cells = 103840
+    Number of faces shared with processor 0 = 234
+    Number of faces shared with processor 7 = 74
+    Number of faces shared with processor 53 = 53
+    Number of faces shared with processor 55 = 32
+    Number of faces shared with processor 62 = 216
+    Number of faces shared with processor 63 = 67
+    Number of faces shared with processor 66 = 43
+    Number of faces shared with processor 68 = 128
+    Number of faces shared with processor 69 = 1146
+    Number of faces shared with processor 70 = 25
+    Number of faces shared with processor 71 = 197
+    Number of faces shared with processor 78 = 476
+    Number of faces shared with processor 98 = 814
+    Number of faces shared with processor 99 = 988
+    Number of faces shared with processor 100 = 308
+    Number of faces shared with processor 101 = 41
+    Number of faces shared with processor 103 = 1210
+    Number of faces shared with processor 106 = 645
+    Number of faces shared with processor 107 = 51
+    Number of faces shared with processor 115 = 195
+    Number of faces shared with processor 117 = 25
+    Number of faces shared with processor 118 = 586
+    Number of faces shared with processor 119 = 154
+    Number of faces shared with processor 122 = 20
+    Number of faces shared with processor 127 = 92
+    Number of processor patches = 25
+    Number of processor faces = 7820
+    Number of boundary faces = 1836
+
+Processor 103
+    Number of cells = 102829
+    Number of faces shared with processor 100 = 792
+    Number of faces shared with processor 101 = 743
+    Number of faces shared with processor 102 = 1210
+    Number of faces shared with processor 106 = 378
+    Number of faces shared with processor 109 = 779
+    Number of faces shared with processor 115 = 46
+    Number of processor patches = 6
+    Number of processor faces = 3948
+    Number of boundary faces = 2242
+
+Processor 104
+    Number of cells = 104756
+    Number of faces shared with processor 75 = 253
+    Number of faces shared with processor 91 = 203
+    Number of faces shared with processor 105 = 1298
+    Number of faces shared with processor 107 = 964
+    Number of faces shared with processor 110 = 492
+    Number of faces shared with processor 111 = 872
+    Number of processor patches = 6
+    Number of processor faces = 4082
+    Number of boundary faces = 2818
+
+Processor 105
+    Number of cells = 104728
+    Number of faces shared with processor 66 = 438
+    Number of faces shared with processor 72 = 192
+    Number of faces shared with processor 74 = 146
+    Number of faces shared with processor 75 = 409
+    Number of faces shared with processor 91 = 288
+    Number of faces shared with processor 94 = 256
+    Number of faces shared with processor 104 = 1298
+    Number of faces shared with processor 106 = 27
+    Number of faces shared with processor 107 = 1362
+    Number of processor patches = 9
+    Number of processor faces = 4416
+    Number of boundary faces = 2248
+
+Processor 106
+    Number of cells = 104325
+    Number of faces shared with processor 66 = 742
+    Number of faces shared with processor 68 = 481
+    Number of faces shared with processor 69 = 313
+    Number of faces shared with processor 101 = 11
+    Number of faces shared with processor 102 = 645
+    Number of faces shared with processor 103 = 378
+    Number of faces shared with processor 105 = 27
+    Number of faces shared with processor 107 = 1512
+    Number of faces shared with processor 109 = 1187
+    Number of faces shared with processor 110 = 395
+    Number of processor patches = 10
+    Number of processor faces = 5691
+    Number of boundary faces = 2205
+
+Processor 107
+    Number of cells = 104701
+    Number of faces shared with processor 0 = 94
+    Number of faces shared with processor 66 = 158
+    Number of faces shared with processor 91 = 61
+    Number of faces shared with processor 101 = 43
+    Number of faces shared with processor 102 = 51
+    Number of faces shared with processor 104 = 964
+    Number of faces shared with processor 105 = 1362
+    Number of faces shared with processor 106 = 1512
+    Number of faces shared with processor 108 = 7
+    Number of faces shared with processor 109 = 4
+    Number of faces shared with processor 110 = 721
+    Number of faces shared with processor 111 = 76
+    Number of processor patches = 12
+    Number of processor faces = 5053
+    Number of boundary faces = 2527
+
+Processor 108
+    Number of cells = 103174
+    Number of faces shared with processor 101 = 974
+    Number of faces shared with processor 107 = 7
+    Number of faces shared with processor 109 = 1116
+    Number of faces shared with processor 110 = 813
+    Number of faces shared with processor 111 = 899
+    Number of processor patches = 5
+    Number of processor faces = 3809
+    Number of boundary faces = 2533
+
+Processor 109
+    Number of cells = 103185
+    Number of faces shared with processor 101 = 250
+    Number of faces shared with processor 103 = 779
+    Number of faces shared with processor 106 = 1187
+    Number of faces shared with processor 107 = 4
+    Number of faces shared with processor 108 = 1116
+    Number of faces shared with processor 110 = 344
+    Number of processor patches = 6
+    Number of processor faces = 3680
+    Number of boundary faces = 2912
+
+Processor 110
+    Number of cells = 104232
+    Number of faces shared with processor 104 = 492
+    Number of faces shared with processor 106 = 395
+    Number of faces shared with processor 107 = 721
+    Number of faces shared with processor 108 = 813
+    Number of faces shared with processor 109 = 344
+    Number of faces shared with processor 111 = 1161
+    Number of processor patches = 6
+    Number of processor faces = 3926
+    Number of boundary faces = 2732
+
+Processor 111
+    Number of cells = 104454
+    Number of faces shared with processor 75 = 547
+    Number of faces shared with processor 76 = 364
+    Number of faces shared with processor 78 = 508
+    Number of faces shared with processor 80 = 91
+    Number of faces shared with processor 88 = 111
+    Number of faces shared with processor 91 = 23
+    Number of faces shared with processor 96 = 68
+    Number of faces shared with processor 98 = 330
+    Number of faces shared with processor 99 = 2
+    Number of faces shared with processor 100 = 197
+    Number of faces shared with processor 101 = 353
+    Number of faces shared with processor 104 = 872
+    Number of faces shared with processor 107 = 76
+    Number of faces shared with processor 108 = 899
+    Number of faces shared with processor 110 = 1161
+    Number of faces shared with processor 121 = 55
+    Number of faces shared with processor 124 = 97
+    Number of processor patches = 17
+    Number of processor faces = 5754
+    Number of boundary faces = 2920
+
+Processor 112
+    Number of cells = 103267
+    Number of faces shared with processor 96 = 585
+    Number of faces shared with processor 97 = 157
+    Number of faces shared with processor 113 = 863
+    Number of faces shared with processor 114 = 1211
+    Number of faces shared with processor 115 = 76
+    Number of faces shared with processor 116 = 195
+    Number of faces shared with processor 121 = 1097
+    Number of faces shared with processor 122 = 872
+    Number of faces shared with processor 123 = 74
+    Number of processor patches = 9
+    Number of processor faces = 5130
+    Number of boundary faces = 3858
+
+Processor 113
+    Number of cells = 103432
+    Number of faces shared with processor 112 = 863
+    Number of faces shared with processor 114 = 413
+    Number of faces shared with processor 115 = 714
+    Number of faces shared with processor 116 = 219
+    Number of faces shared with processor 118 = 31
+    Number of faces shared with processor 119 = 718
+    Number of faces shared with processor 122 = 405
+    Number of faces shared with processor 123 = 748
+    Number of processor patches = 8
+    Number of processor faces = 4111
+    Number of boundary faces = 5403
+
+Processor 114
+    Number of cells = 103198
+    Number of faces shared with processor 96 = 331
+    Number of faces shared with processor 97 = 188
+    Number of faces shared with processor 100 = 480
+    Number of faces shared with processor 112 = 1211
+    Number of faces shared with processor 113 = 413
+    Number of faces shared with processor 115 = 1158
+    Number of faces shared with processor 118 = 1
+    Number of faces shared with processor 122 = 481
+    Number of processor patches = 8
+    Number of processor faces = 4263
+    Number of boundary faces = 4019
+
+Processor 115
+    Number of cells = 103472
+    Number of faces shared with processor 97 = 428
+    Number of faces shared with processor 98 = 146
+    Number of faces shared with processor 100 = 225
+    Number of faces shared with processor 102 = 195
+    Number of faces shared with processor 103 = 46
+    Number of faces shared with processor 112 = 76
+    Number of faces shared with processor 113 = 714
+    Number of faces shared with processor 114 = 1158
+    Number of faces shared with processor 116 = 504
+    Number of faces shared with processor 118 = 861
+    Number of faces shared with processor 119 = 180
+    Number of processor patches = 11
+    Number of processor faces = 4533
+    Number of boundary faces = 3805
+
+Processor 116
+    Number of cells = 103871
+    Number of faces shared with processor 97 = 717
+    Number of faces shared with processor 112 = 195
+    Number of faces shared with processor 113 = 219
+    Number of faces shared with processor 115 = 504
+    Number of faces shared with processor 117 = 922
+    Number of faces shared with processor 118 = 739
+    Number of faces shared with processor 119 = 675
+    Number of faces shared with processor 121 = 70
+    Number of faces shared with processor 123 = 373
+    Number of faces shared with processor 126 = 714
+    Number of processor patches = 10
+    Number of processor faces = 5128
+    Number of boundary faces = 3150
+
+Processor 117
+    Number of cells = 103496
+    Number of faces shared with processor 97 = 670
+    Number of faces shared with processor 98 = 705
+    Number of faces shared with processor 99 = 699
+    Number of faces shared with processor 102 = 25
+    Number of faces shared with processor 116 = 922
+    Number of faces shared with processor 118 = 234
+    Number of faces shared with processor 121 = 60
+    Number of faces shared with processor 123 = 3
+    Number of faces shared with processor 125 = 117
+    Number of faces shared with processor 126 = 736
+    Number of processor patches = 10
+    Number of processor faces = 4171
+    Number of boundary faces = 3153
+
+Processor 118
+    Number of cells = 103566
+    Number of faces shared with processor 98 = 172
+    Number of faces shared with processor 99 = 264
+    Number of faces shared with processor 102 = 586
+    Number of faces shared with processor 113 = 31
+    Number of faces shared with processor 114 = 1
+    Number of faces shared with processor 115 = 861
+    Number of faces shared with processor 116 = 739
+    Number of faces shared with processor 117 = 234
+    Number of faces shared with processor 119 = 1415
+    Number of faces shared with processor 122 = 10
+    Number of faces shared with processor 126 = 14
+    Number of faces shared with processor 127 = 62
+    Number of processor patches = 12
+    Number of processor faces = 4389
+    Number of boundary faces = 3937
+
+Processor 119
+    Number of cells = 103487
+    Number of faces shared with processor 99 = 116
+    Number of faces shared with processor 102 = 154
+    Number of faces shared with processor 113 = 718
+    Number of faces shared with processor 115 = 180
+    Number of faces shared with processor 116 = 675
+    Number of faces shared with processor 118 = 1415
+    Number of faces shared with processor 122 = 3
+    Number of faces shared with processor 123 = 388
+    Number of faces shared with processor 126 = 651
+    Number of faces shared with processor 127 = 501
+    Number of processor patches = 10
+    Number of processor faces = 4801
+    Number of boundary faces = 4261
+
+Processor 120
+    Number of cells = 102808
+    Number of faces shared with processor 121 = 744
+    Number of faces shared with processor 122 = 1082
+    Number of faces shared with processor 123 = 656
+    Number of faces shared with processor 124 = 516
+    Number of faces shared with processor 125 = 474
+    Number of faces shared with processor 127 = 945
+    Number of processor patches = 6
+    Number of processor faces = 4417
+    Number of boundary faces = 3935
+
+Processor 121
+    Number of cells = 102803
+    Number of faces shared with processor 96 = 1100
+    Number of faces shared with processor 97 = 54
+    Number of faces shared with processor 98 = 169
+    Number of faces shared with processor 111 = 55
+    Number of faces shared with processor 112 = 1097
+    Number of faces shared with processor 116 = 70
+    Number of faces shared with processor 117 = 60
+    Number of faces shared with processor 120 = 744
+    Number of faces shared with processor 122 = 217
+    Number of faces shared with processor 123 = 317
+    Number of faces shared with processor 124 = 1103
+    Number of faces shared with processor 125 = 146
+    Number of processor patches = 12
+    Number of processor faces = 5132
+    Number of boundary faces = 3234
+
+Processor 122
+    Number of cells = 103175
+    Number of faces shared with processor 78 = 6
+    Number of faces shared with processor 96 = 116
+    Number of faces shared with processor 100 = 97
+    Number of faces shared with processor 102 = 20
+    Number of faces shared with processor 112 = 872
+    Number of faces shared with processor 113 = 405
+    Number of faces shared with processor 114 = 481
+    Number of faces shared with processor 118 = 10
+    Number of faces shared with processor 119 = 3
+    Number of faces shared with processor 120 = 1082
+    Number of faces shared with processor 121 = 217
+    Number of faces shared with processor 123 = 461
+    Number of faces shared with processor 124 = 9
+    Number of faces shared with processor 127 = 97
+    Number of processor patches = 14
+    Number of processor faces = 3876
+    Number of boundary faces = 4228
+
+Processor 123
+    Number of cells = 104234
+    Number of faces shared with processor 112 = 74
+    Number of faces shared with processor 113 = 748
+    Number of faces shared with processor 116 = 373
+    Number of faces shared with processor 117 = 3
+    Number of faces shared with processor 119 = 388
+    Number of faces shared with processor 120 = 656
+    Number of faces shared with processor 121 = 317
+    Number of faces shared with processor 122 = 461
+    Number of faces shared with processor 125 = 499
+    Number of faces shared with processor 126 = 708
+    Number of faces shared with processor 127 = 393
+    Number of processor patches = 11
+    Number of processor faces = 4620
+    Number of boundary faces = 5164
+
+Processor 124
+    Number of cells = 102730
+    Number of faces shared with processor 78 = 175
+    Number of faces shared with processor 98 = 285
+    Number of faces shared with processor 99 = 243
+    Number of faces shared with processor 111 = 97
+    Number of faces shared with processor 120 = 516
+    Number of faces shared with processor 121 = 1103
+    Number of faces shared with processor 122 = 9
+    Number of faces shared with processor 125 = 1151
+    Number of faces shared with processor 127 = 410
+    Number of processor patches = 9
+    Number of processor faces = 3989
+    Number of boundary faces = 3599
+
+Processor 125
+    Number of cells = 102925
+    Number of faces shared with processor 98 = 104
+    Number of faces shared with processor 99 = 448
+    Number of faces shared with processor 117 = 117
+    Number of faces shared with processor 120 = 474
+    Number of faces shared with processor 121 = 146
+    Number of faces shared with processor 123 = 499
+    Number of faces shared with processor 124 = 1151
+    Number of faces shared with processor 126 = 1296
+    Number of faces shared with processor 127 = 105
+    Number of processor patches = 9
+    Number of processor faces = 4340
+    Number of boundary faces = 3350
+
+Processor 126
+    Number of cells = 102760
+    Number of faces shared with processor 99 = 275
+    Number of faces shared with processor 116 = 714
+    Number of faces shared with processor 117 = 736
+    Number of faces shared with processor 118 = 14
+    Number of faces shared with processor 119 = 651
+    Number of faces shared with processor 123 = 708
+    Number of faces shared with processor 125 = 1296
+    Number of faces shared with processor 127 = 863
+    Number of processor patches = 8
+    Number of processor faces = 5257
+    Number of boundary faces = 3995
+
+Processor 127
+    Number of cells = 103364
+    Number of faces shared with processor 78 = 339
+    Number of faces shared with processor 99 = 602
+    Number of faces shared with processor 102 = 92
+    Number of faces shared with processor 118 = 62
+    Number of faces shared with processor 119 = 501
+    Number of faces shared with processor 120 = 945
+    Number of faces shared with processor 122 = 97
+    Number of faces shared with processor 123 = 393
+    Number of faces shared with processor 124 = 410
+    Number of faces shared with processor 125 = 105
+    Number of faces shared with processor 126 = 863
+    Number of processor patches = 11
+    Number of processor faces = 4409
+    Number of boundary faces = 3577
+
+Number of processor faces = 301957
+Max number of cells = 104757 (0.999389% above average 103720)
+Max number of processor patches = 25 (151.969% above average 9.92188)
+Max number of faces between processors = 7820 (65.7455% above average 4718.08)
+
+Time = 0
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+Processor 4: field transfer
+Processor 5: field transfer
+Processor 6: field transfer
+Processor 7: field transfer
+Processor 8: field transfer
+Processor 9: field transfer
+Processor 10: field transfer
+Processor 11: field transfer
+Processor 12: field transfer
+Processor 13: field transfer
+Processor 14: field transfer
+Processor 15: field transfer
+Processor 16: field transfer
+Processor 17: field transfer
+Processor 18: field transfer
+Processor 19: field transfer
+Processor 20: field transfer
+Processor 21: field transfer
+Processor 22: field transfer
+Processor 23: field transfer
+Processor 24: field transfer
+Processor 25: field transfer
+Processor 26: field transfer
+Processor 27: field transfer
+Processor 28: field transfer
+Processor 29: field transfer
+Processor 30: field transfer
+Processor 31: field transfer
+Processor 32: field transfer
+Processor 33: field transfer
+Processor 34: field transfer
+Processor 35: field transfer
+Processor 36: field transfer
+Processor 37: field transfer
+Processor 38: field transfer
+Processor 39: field transfer
+Processor 40: field transfer
+Processor 41: field transfer
+Processor 42: field transfer
+Processor 43: field transfer
+Processor 44: field transfer
+Processor 45: field transfer
+Processor 46: field transfer
+Processor 47: field transfer
+Processor 48: field transfer
+Processor 49: field transfer
+Processor 50: field transfer
+Processor 51: field transfer
+Processor 52: field transfer
+Processor 53: field transfer
+Processor 54: field transfer
+Processor 55: field transfer
+Processor 56: field transfer
+Processor 57: field transfer
+Processor 58: field transfer
+Processor 59: field transfer
+Processor 60: field transfer
+Processor 61: field transfer
+Processor 62: field transfer
+Processor 63: field transfer
+Processor 64: field transfer
+Processor 65: field transfer
+Processor 66: field transfer
+Processor 67: field transfer
+Processor 68: field transfer
+Processor 69: field transfer
+Processor 70: field transfer
+Processor 71: field transfer
+Processor 72: field transfer
+Processor 73: field transfer
+Processor 74: field transfer
+Processor 75: field transfer
+Processor 76: field transfer
+Processor 77: field transfer
+Processor 78: field transfer
+Processor 79: field transfer
+Processor 80: field transfer
+Processor 81: field transfer
+Processor 82: field transfer
+Processor 83: field transfer
+Processor 84: field transfer
+Processor 85: field transfer
+Processor 86: field transfer
+Processor 87: field transfer
+Processor 88: field transfer
+Processor 89: field transfer
+Processor 90: field transfer
+Processor 91: field transfer
+Processor 92: field transfer
+Processor 93: field transfer
+Processor 94: field transfer
+Processor 95: field transfer
+Processor 96: field transfer
+Processor 97: field transfer
+Processor 98: field transfer
+Processor 99: field transfer
+Processor 100: field transfer
+Processor 101: field transfer
+Processor 102: field transfer
+Processor 103: field transfer
+Processor 104: field transfer
+Processor 105: field transfer
+Processor 106: field transfer
+Processor 107: field transfer
+Processor 108: field transfer
+Processor 109: field transfer
+Processor 110: field transfer
+Processor 111: field transfer
+Processor 112: field transfer
+Processor 113: field transfer
+Processor 114: field transfer
+Processor 115: field transfer
+Processor 116: field transfer
+Processor 117: field transfer
+Processor 118: field transfer
+Processor 119: field transfer
+Processor 120: field transfer
+Processor 121: field transfer
+Processor 122: field transfer
+Processor 123: field transfer
+Processor 124: field transfer
+Processor 125: field transfer
+Processor 126: field transfer
+Processor 127: field transfer
+
+End
+
+Application 1085736 resources: utime ~366s, stime ~9s, Rss ~5781548, inblocks ~760086, outblocks ~744504
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1712                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1712
+Arch   : "LSB;label=32;scalar=64"
+Exec   : simpleFoam -parallel
+Date   : Mar 30 2019
+Time   : 17:59:23
+Host   : "nid00000"
+PID    : 253909
+I/O    : uncollated
+Case   : /lustre/home/br-apoenaru/applications-arm/OpenFOAM/run/block_DrivAer_small-tx2
+nProcs : 128
+Hosts  :
+(
+    (nid00000 128)
+)
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping - not supported on this platform
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+SIMPLE: no convergence criteria found. Calculations will run for 50 steps.
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Selecting incompressible transport model Newtonian
+Selecting turbulence model type RAS
+Selecting RAS turbulence model kOmegaSST
+Selecting patchDistMethod meshWave
+RAS
+{
+    RASModel        kOmegaSST;
+    turbulence      on;
+    printCoeffs     on;
+    alphaK1         0.85;
+    alphaK2         1;
+    alphaOmega1     0.5;
+    alphaOmega2     0.856;
+    gamma1          0.555556;
+    gamma2          0.44;
+    beta1           0.075;
+    beta2           0.0828;
+    betaStar        0.09;
+    a1              0.31;
+    b1              1;
+    c1              10;
+    F3              false;
+    decayControl    false;
+    kInf            0;
+    omegaInf        0;
+}
+
+No MRF models present
+
+No finite volume options present
+
+
+Starting time loop
+
+Time = 1
+
+smoothSolver:  Solving for Ux, Initial residual = 1, Final residual = 0.0304006, No Iterations 1
+smoothSolver:  Solving for Uy, Initial residual = 1, Final residual = 0.0419853, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 1, Final residual = 0.0974184, No Iterations 2
+GAMG:  Solving for p, Initial residual = 1, Final residual = 0.0843372, No Iterations 5
+time step continuity errors : sum local = 0.014552, global = -0.00207622, cumulative = -0.00207622
+smoothSolver:  Solving for omega, Initial residual = 0.0618862, Final residual = 0.00395888, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 1, Final residual = 0.0774076, No Iterations 3
+ExecutionTime = 4.09 s  ClockTime = 5 s
+
+Time = 2
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0575583, Final residual = 0.00456207, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.498744, Final residual = 0.020084, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.327802, Final residual = 0.0127266, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.797251, Final residual = 0.0483269, No Iterations 3
+time step continuity errors : sum local = 0.0361536, global = -0.000535661, cumulative = -0.00261189
+smoothSolver:  Solving for omega, Initial residual = 0.0238146, Final residual = 0.00183908, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.222892, Final residual = 0.0194312, No Iterations 3
+ExecutionTime = 5.86 s  ClockTime = 7 s
+
+Time = 3
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00712403, Final residual = 0.000556881, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.222526, Final residual = 0.00852017, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0705135, Final residual = 0.0026191, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.679013, Final residual = 0.0494486, No Iterations 4
+time step continuity errors : sum local = 0.0297219, global = -0.000428786, cumulative = -0.00304067
+smoothSolver:  Solving for omega, Initial residual = 0.0119231, Final residual = 0.00112929, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0896528, Final residual = 0.00853582, No Iterations 3
+ExecutionTime = 7.7 s  ClockTime = 9 s
+
+Time = 4
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00694498, Final residual = 0.000600189, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.164558, Final residual = 0.0063111, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0664625, Final residual = 0.00251079, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.478587, Final residual = 0.0333606, No Iterations 4
+time step continuity errors : sum local = 0.0268694, global = -3.32592e-05, cumulative = -0.00307393
+smoothSolver:  Solving for omega, Initial residual = 0.00811754, Final residual = 0.000507983, No Iterations 4
+smoothSolver:  Solving for k, Initial residual = 0.0477193, Final residual = 0.00259761, No Iterations 4
+ExecutionTime = 9.57 s  ClockTime = 10 s
+
+Time = 5
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00807184, Final residual = 0.000345899, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.13495, Final residual = 0.00507368, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0774851, Final residual = 0.00296349, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.425653, Final residual = 0.034083, No Iterations 3
+time step continuity errors : sum local = 0.0385207, global = 0.000428785, cumulative = -0.00264515
+smoothSolver:  Solving for omega, Initial residual = 0.00954046, Final residual = 0.000658486, No Iterations 4
+smoothSolver:  Solving for k, Initial residual = 0.0302544, Final residual = 0.00170038, No Iterations 4
+ExecutionTime = 11.39 s  ClockTime = 12 s
+
+Time = 6
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0120988, Final residual = 0.000555152, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.12054, Final residual = 0.00482445, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.110756, Final residual = 0.00445426, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.404552, Final residual = 0.0264989, No Iterations 4
+time step continuity errors : sum local = 0.0269774, global = 0.000427202, cumulative = -0.00221794
+smoothSolver:  Solving for omega, Initial residual = 0.0102929, Final residual = 0.000738981, No Iterations 4
+smoothSolver:  Solving for k, Initial residual = 0.0215703, Final residual = 0.00128386, No Iterations 4
+ExecutionTime = 13.27 s  ClockTime = 14 s
+
+Time = 7
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0263346, Final residual = 0.00155578, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.151448, Final residual = 0.00687147, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.160423, Final residual = 0.0076322, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.418908, Final residual = 0.0315682, No Iterations 3
+time step continuity errors : sum local = 0.0278681, global = 0.00070273, cumulative = -0.00151521
+smoothSolver:  Solving for omega, Initial residual = 0.00780385, Final residual = 0.000763784, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0161801, Final residual = 0.00156116, No Iterations 3
+ExecutionTime = 15.05 s  ClockTime = 16 s
+
+Time = 8
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0314743, Final residual = 0.00178516, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.176833, Final residual = 0.00794777, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.184663, Final residual = 0.00867512, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.450968, Final residual = 0.0431567, No Iterations 2
+time step continuity errors : sum local = 0.0370232, global = 0.00107861, cumulative = -0.000436602
+smoothSolver:  Solving for omega, Initial residual = 0.00849768, Final residual = 0.0007836, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.0160504, Final residual = 0.00101935, No Iterations 3
+ExecutionTime = 16.76 s  ClockTime = 18 s
+
+Time = 9
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0215567, Final residual = 0.00193738, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.160428, Final residual = 0.0134926, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.140409, Final residual = 0.0118777, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.453009, Final residual = 0.0341411, No Iterations 4
+time step continuity errors : sum local = 0.0248339, global = 0.00071732, cumulative = 0.000280718
+smoothSolver:  Solving for omega, Initial residual = 0.0137213, Final residual = 0.00114406, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0192594, Final residual = 0.00160632, No Iterations 3
+ExecutionTime = 18.57 s  ClockTime = 19 s
+
+Time = 10
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0176585, Final residual = 0.00140838, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.161835, Final residual = 0.0151405, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.137348, Final residual = 0.0126243, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.510753, Final residual = 0.0440464, No Iterations 3
+time step continuity errors : sum local = 0.0278034, global = 0.000725134, cumulative = 0.00100585
+smoothSolver:  Solving for omega, Initial residual = 0.00947751, Final residual = 0.000590449, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0172463, Final residual = 0.00102368, No Iterations 3
+ExecutionTime = 20.32 s  ClockTime = 21 s
+
+Time = 11
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0205876, Final residual = 0.00171931, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.17562, Final residual = 0.0155132, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.157042, Final residual = 0.013843, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.430062, Final residual = 0.0309673, No Iterations 3
+time step continuity errors : sum local = 0.0267916, global = 0.000613458, cumulative = 0.00161931
+smoothSolver:  Solving for omega, Initial residual = 0.0113689, Final residual = 0.000963524, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0233886, Final residual = 0.0016235, No Iterations 3
+ExecutionTime = 22.06 s  ClockTime = 23 s
+
+Time = 12
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0204148, Final residual = 0.000957691, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.157869, Final residual = 0.00714228, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.154926, Final residual = 0.00712802, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.379599, Final residual = 0.0278227, No Iterations 4
+time step continuity errors : sum local = 0.0227972, global = 0.000448442, cumulative = 0.00206775
+smoothSolver:  Solving for omega, Initial residual = 0.0139061, Final residual = 0.00126593, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0252589, Final residual = 0.00217949, No Iterations 3
+ExecutionTime = 23.91 s  ClockTime = 25 s
+
+Time = 13
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0210951, Final residual = 0.00120458, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.151017, Final residual = 0.00725431, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.153175, Final residual = 0.00768902, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.454775, Final residual = 0.0413707, No Iterations 3
+time step continuity errors : sum local = 0.0263574, global = 0.000280574, cumulative = 0.00234833
+smoothSolver:  Solving for omega, Initial residual = 0.0107263, Final residual = 0.000849321, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0225127, Final residual = 0.00159745, No Iterations 3
+ExecutionTime = 25.69 s  ClockTime = 27 s
+
+Time = 14
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0238602, Final residual = 0.00156388, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.164228, Final residual = 0.00845552, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.162904, Final residual = 0.00878143, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.621557, Final residual = 0.0441666, No Iterations 3
+time step continuity errors : sum local = 0.0215255, global = 9.19399e-05, cumulative = 0.00244027
+smoothSolver:  Solving for omega, Initial residual = 0.0101059, Final residual = 0.000559275, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0235855, Final residual = 0.00209277, No Iterations 2
+ExecutionTime = 27.45 s  ClockTime = 28 s
+
+Time = 15
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0177082, Final residual = 0.00098972, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.152926, Final residual = 0.00674663, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.137064, Final residual = 0.00634943, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.55671, Final residual = 0.0485495, No Iterations 3
+time step continuity errors : sum local = 0.0240156, global = -8.46533e-05, cumulative = 0.00235561
+smoothSolver:  Solving for omega, Initial residual = 0.0120387, Final residual = 0.000951125, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.0313195, Final residual = 0.00221286, No Iterations 2
+ExecutionTime = 29.22 s  ClockTime = 30 s
+
+Time = 16
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0130488, Final residual = 0.00122616, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.137723, Final residual = 0.0121017, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.110672, Final residual = 0.00992678, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.488031, Final residual = 0.0471885, No Iterations 3
+time step continuity errors : sum local = 0.0239555, global = -0.000251301, cumulative = 0.00210431
+smoothSolver:  Solving for omega, Initial residual = 0.0135796, Final residual = 0.00114917, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.0354515, Final residual = 0.00293484, No Iterations 2
+ExecutionTime = 30.94 s  ClockTime = 32 s
+
+Time = 17
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0129899, Final residual = 0.00102502, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.130809, Final residual = 0.0108297, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.101698, Final residual = 0.0082566, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.495998, Final residual = 0.0428904, No Iterations 3
+time step continuity errors : sum local = 0.0202403, global = -0.000394465, cumulative = 0.00170985
+smoothSolver:  Solving for omega, Initial residual = 0.0119138, Final residual = 0.00116523, No Iterations 2
+smoothSolver:  Solving for k, Initial residual = 0.0382246, Final residual = 0.0032894, No Iterations 2
+ExecutionTime = 32.66 s  ClockTime = 33 s
+
+Time = 18
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0124308, Final residual = 0.00107594, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.124438, Final residual = 0.0108772, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.0968018, Final residual = 0.00834373, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.538621, Final residual = 0.0459509, No Iterations 3
+time step continuity errors : sum local = 0.0192713, global = -0.000518756, cumulative = 0.00119109
+smoothSolver:  Solving for omega, Initial residual = 0.0123186, Final residual = 0.00089028, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0428503, Final residual = 0.00255659, No Iterations 3
+ExecutionTime = 34.4 s  ClockTime = 35 s
+
+Time = 19
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0107534, Final residual = 0.00107105, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.114912, Final residual = 0.00473895, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0891777, Final residual = 0.00368979, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.544697, Final residual = 0.0395455, No Iterations 4
+time step continuity errors : sum local = 0.0142924, global = -0.000522278, cumulative = 0.000668815
+smoothSolver:  Solving for omega, Initial residual = 0.0111217, Final residual = 0.000763197, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0410385, Final residual = 0.00280942, No Iterations 3
+ExecutionTime = 36.24 s  ClockTime = 37 s
+
+Time = 20
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00985025, Final residual = 0.000515964, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.110238, Final residual = 0.00506801, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0843509, Final residual = 0.00396426, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.534879, Final residual = 0.0492807, No Iterations 3
+time step continuity errors : sum local = 0.0173197, global = -0.000531767, cumulative = 0.000137048
+smoothSolver:  Solving for omega, Initial residual = 0.0099046, Final residual = 0.000624888, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0383937, Final residual = 0.00232782, No Iterations 3
+ExecutionTime = 38.02 s  ClockTime = 39 s
+
+Time = 21
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00972658, Final residual = 0.00056598, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.112753, Final residual = 0.00541653, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0829586, Final residual = 0.00415741, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.486262, Final residual = 0.0423023, No Iterations 3
+time step continuity errors : sum local = 0.0159571, global = -0.000468729, cumulative = -0.000331682
+smoothSolver:  Solving for omega, Initial residual = 0.00832467, Final residual = 0.000524116, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0389289, Final residual = 0.00203333, No Iterations 3
+ExecutionTime = 39.81 s  ClockTime = 41 s
+
+Time = 22
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00851072, Final residual = 0.000477152, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.110925, Final residual = 0.00509659, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0807008, Final residual = 0.00391457, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.431002, Final residual = 0.0375342, No Iterations 3
+time step continuity errors : sum local = 0.0145902, global = -0.000374323, cumulative = -0.000706005
+smoothSolver:  Solving for omega, Initial residual = 0.00798361, Final residual = 0.000429671, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0415435, Final residual = 0.00392378, No Iterations 2
+ExecutionTime = 41.59 s  ClockTime = 42 s
+
+Time = 23
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00771689, Final residual = 0.000369276, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.109093, Final residual = 0.00450281, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0787075, Final residual = 0.00337684, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.402608, Final residual = 0.0347365, No Iterations 3
+time step continuity errors : sum local = 0.013206, global = -0.000245471, cumulative = -0.000951476
+smoothSolver:  Solving for omega, Initial residual = 0.0073911, Final residual = 0.000422735, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0412053, Final residual = 0.00408187, No Iterations 2
+ExecutionTime = 43.37 s  ClockTime = 44 s
+
+Time = 24
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00757814, Final residual = 0.000753846, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.106557, Final residual = 0.0101179, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.0775304, Final residual = 0.00746461, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.409964, Final residual = 0.0358284, No Iterations 3
+time step continuity errors : sum local = 0.0120952, global = -0.000104315, cumulative = -0.00105579
+smoothSolver:  Solving for omega, Initial residual = 0.006736, Final residual = 0.000421919, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0398629, Final residual = 0.00236402, No Iterations 3
+ExecutionTime = 45.11 s  ClockTime = 46 s
+
+Time = 25
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00710233, Final residual = 0.000667215, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.102832, Final residual = 0.00960383, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.0759582, Final residual = 0.00709879, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.445593, Final residual = 0.0415695, No Iterations 3
+time step continuity errors : sum local = 0.0115615, global = 4.1137e-05, cumulative = -0.00101465
+smoothSolver:  Solving for omega, Initial residual = 0.00579998, Final residual = 0.000386553, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0353428, Final residual = 0.00234167, No Iterations 3
+ExecutionTime = 46.85 s  ClockTime = 48 s
+
+Time = 26
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00650286, Final residual = 0.000605038, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.0980582, Final residual = 0.00946079, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.0748675, Final residual = 0.00719207, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.498948, Final residual = 0.0487562, No Iterations 3
+time step continuity errors : sum local = 0.0109444, global = 0.000172887, cumulative = -0.000841768
+smoothSolver:  Solving for omega, Initial residual = 0.00491032, Final residual = 0.000358241, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0319204, Final residual = 0.0022963, No Iterations 3
+ExecutionTime = 48.6 s  ClockTime = 49 s
+
+Time = 27
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00604157, Final residual = 0.00060192, No Iterations 2
+smoothSolver:  Solving for Uy, Initial residual = 0.0930297, Final residual = 0.00368436, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0740838, Final residual = 0.00297818, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.489442, Final residual = 0.0390253, No Iterations 4
+time step continuity errors : sum local = 0.00823527, global = 0.000255927, cumulative = -0.000585841
+smoothSolver:  Solving for omega, Initial residual = 0.00443238, Final residual = 0.000307932, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0289002, Final residual = 0.00194242, No Iterations 3
+ExecutionTime = 50.44 s  ClockTime = 51 s
+
+Time = 28
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00552296, Final residual = 0.00024314, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0878922, Final residual = 0.00353863, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.073083, Final residual = 0.00302947, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.511176, Final residual = 0.0480621, No Iterations 3
+time step continuity errors : sum local = 0.00937727, global = 0.000343373, cumulative = -0.000242468
+smoothSolver:  Solving for omega, Initial residual = 0.00423175, Final residual = 0.000299245, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0290787, Final residual = 0.0018556, No Iterations 3
+ExecutionTime = 52.23 s  ClockTime = 53 s
+
+Time = 29
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00499755, Final residual = 0.000229303, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0819341, Final residual = 0.00329518, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0729695, Final residual = 0.00303548, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.464888, Final residual = 0.0446244, No Iterations 3
+time step continuity errors : sum local = 0.00877253, global = 0.000389823, cumulative = 0.000147356
+smoothSolver:  Solving for omega, Initial residual = 0.00413376, Final residual = 0.000280547, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0288062, Final residual = 0.00173, No Iterations 3
+ExecutionTime = 54.02 s  ClockTime = 55 s
+
+Time = 30
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00459569, Final residual = 0.000213402, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0750943, Final residual = 0.00297784, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0728063, Final residual = 0.00300363, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.399083, Final residual = 0.039032, No Iterations 3
+time step continuity errors : sum local = 0.00819211, global = 0.000400318, cumulative = 0.000547674
+smoothSolver:  Solving for omega, Initial residual = 0.00372787, Final residual = 0.000252809, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.027053, Final residual = 0.00160695, No Iterations 3
+ExecutionTime = 55.81 s  ClockTime = 57 s
+
+Time = 31
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00422599, Final residual = 0.00019059, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0683673, Final residual = 0.00266236, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0717394, Final residual = 0.00288895, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.347365, Final residual = 0.0299449, No Iterations 4
+time step continuity errors : sum local = 0.00668917, global = 0.000366641, cumulative = 0.000914315
+smoothSolver:  Solving for omega, Initial residual = 0.00350947, Final residual = 0.000233818, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0259163, Final residual = 0.00160829, No Iterations 3
+ExecutionTime = 57.66 s  ClockTime = 58 s
+
+Time = 32
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00382505, Final residual = 0.000165148, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0637129, Final residual = 0.00242853, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0686697, Final residual = 0.00267071, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.313027, Final residual = 0.0272632, No Iterations 4
+time step continuity errors : sum local = 0.00638103, global = 0.000326585, cumulative = 0.0012409
+smoothSolver:  Solving for omega, Initial residual = 0.00324524, Final residual = 0.000221952, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0264076, Final residual = 0.0016429, No Iterations 3
+ExecutionTime = 59.51 s  ClockTime = 60 s
+
+Time = 33
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00344922, Final residual = 0.000145015, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0596711, Final residual = 0.00588049, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.0637135, Final residual = 0.00243691, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.288224, Final residual = 0.0255437, No Iterations 4
+time step continuity errors : sum local = 0.00597629, global = 0.000266379, cumulative = 0.00150728
+smoothSolver:  Solving for omega, Initial residual = 0.00301634, Final residual = 0.000203969, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0240115, Final residual = 0.00156804, No Iterations 3
+ExecutionTime = 61.35 s  ClockTime = 62 s
+
+Time = 34
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00310028, Final residual = 0.000125501, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0561472, Final residual = 0.00560369, No Iterations 2
+smoothSolver:  Solving for Uz, Initial residual = 0.0582003, Final residual = 0.00581782, No Iterations 2
+GAMG:  Solving for p, Initial residual = 0.273041, Final residual = 0.0240579, No Iterations 4
+time step continuity errors : sum local = 0.0055082, global = 0.000196828, cumulative = 0.00170411
+smoothSolver:  Solving for omega, Initial residual = 0.0025581, Final residual = 0.000184895, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0211826, Final residual = 0.00146062, No Iterations 3
+ExecutionTime = 63.18 s  ClockTime = 64 s
+
+Time = 35
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00279078, Final residual = 0.000109396, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0539656, Final residual = 0.00205367, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0533567, Final residual = 0.0020353, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.263172, Final residual = 0.0262944, No Iterations 3
+time step continuity errors : sum local = 0.00587989, global = 0.000127252, cumulative = 0.00183136
+smoothSolver:  Solving for omega, Initial residual = 0.00248994, Final residual = 0.000178479, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0205375, Final residual = 0.00145611, No Iterations 3
+ExecutionTime = 64.97 s  ClockTime = 66 s
+
+Time = 36
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00254266, Final residual = 9.98297e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0518291, Final residual = 0.00196805, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0487041, Final residual = 0.00187103, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.246418, Final residual = 0.0223075, No Iterations 4
+time step continuity errors : sum local = 0.00487737, global = 6.1964e-05, cumulative = 0.00189332
+smoothSolver:  Solving for omega, Initial residual = 0.00244917, Final residual = 0.000172474, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0204108, Final residual = 0.00142653, No Iterations 3
+ExecutionTime = 66.82 s  ClockTime = 68 s
+
+Time = 37
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0023808, Final residual = 9.5684e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0492528, Final residual = 0.00188919, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0445951, Final residual = 0.00172183, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.239313, Final residual = 0.0211671, No Iterations 4
+time step continuity errors : sum local = 0.00449808, global = 1.43849e-06, cumulative = 0.00189476
+smoothSolver:  Solving for omega, Initial residual = 0.00232179, Final residual = 0.000161792, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0194881, Final residual = 0.00137504, No Iterations 3
+ExecutionTime = 68.67 s  ClockTime = 69 s
+
+Time = 38
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00226998, Final residual = 9.27826e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.047527, Final residual = 0.00183386, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0413128, Final residual = 0.00160563, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.236605, Final residual = 0.0234207, No Iterations 3
+time step continuity errors : sum local = 0.00476297, global = -5.41999e-05, cumulative = 0.00184056
+smoothSolver:  Solving for omega, Initial residual = 0.00241123, Final residual = 0.000176675, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0192101, Final residual = 0.0013859, No Iterations 3
+ExecutionTime = 70.46 s  ClockTime = 71 s
+
+Time = 39
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00210706, Final residual = 8.68051e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0458992, Final residual = 0.00176381, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0384108, Final residual = 0.00149649, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.229444, Final residual = 0.0220945, No Iterations 4
+time step continuity errors : sum local = 0.00422733, global = -9.64744e-05, cumulative = 0.00174409
+smoothSolver:  Solving for omega, Initial residual = 0.00208704, Final residual = 0.000165867, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.017805, Final residual = 0.00135625, No Iterations 3
+ExecutionTime = 72.32 s  ClockTime = 73 s
+
+Time = 40
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00190222, Final residual = 7.75616e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.044065, Final residual = 0.00167749, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0361286, Final residual = 0.00139975, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.237547, Final residual = 0.021784, No Iterations 5
+time step continuity errors : sum local = 0.00376897, global = -0.000131129, cumulative = 0.00161296
+smoothSolver:  Solving for omega, Initial residual = 0.00192609, Final residual = 0.000156892, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0157379, Final residual = 0.00129457, No Iterations 3
+ExecutionTime = 74.24 s  ClockTime = 75 s
+
+Time = 41
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00175805, Final residual = 7.1854e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0420652, Final residual = 0.00160284, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0344307, Final residual = 0.00133257, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.268122, Final residual = 0.0256166, No Iterations 4
+time step continuity errors : sum local = 0.00380879, global = -0.000163453, cumulative = 0.0014495
+smoothSolver:  Solving for omega, Initial residual = 0.00164513, Final residual = 0.00013203, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.014129, Final residual = 0.00115962, No Iterations 3
+ExecutionTime = 76.1 s  ClockTime = 77 s
+
+Time = 42
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00162754, Final residual = 6.68103e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0406918, Final residual = 0.00154226, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.033511, Final residual = 0.00128379, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.294385, Final residual = 0.0274271, No Iterations 4
+time step continuity errors : sum local = 0.00349711, global = -0.000185093, cumulative = 0.00126441
+smoothSolver:  Solving for omega, Initial residual = 0.00152474, Final residual = 0.000119351, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0133787, Final residual = 0.00107047, No Iterations 3
+ExecutionTime = 77.94 s  ClockTime = 79 s
+
+Time = 43
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00147913, Final residual = 6.12918e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.038929, Final residual = 0.00146868, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0330019, Final residual = 0.0012721, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.340573, Final residual = 0.0308589, No Iterations 4
+time step continuity errors : sum local = 0.00321434, global = -0.000193988, cumulative = 0.00107042
+smoothSolver:  Solving for omega, Initial residual = 0.00140445, Final residual = 0.000107239, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0125422, Final residual = 0.00100661, No Iterations 3
+ExecutionTime = 79.8 s  ClockTime = 81 s
+
+Time = 44
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00135195, Final residual = 5.62135e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0368607, Final residual = 0.00140824, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.032421, Final residual = 0.00126738, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.299866, Final residual = 0.0292524, No Iterations 3
+time step continuity errors : sum local = 0.00330302, global = -0.000204798, cumulative = 0.000865625
+smoothSolver:  Solving for omega, Initial residual = 0.00142202, Final residual = 0.000103559, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.012881, Final residual = 0.00100465, No Iterations 3
+ExecutionTime = 81.58 s  ClockTime = 82 s
+
+Time = 45
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00126488, Final residual = 5.18267e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0341985, Final residual = 0.00128812, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.032046, Final residual = 0.00123173, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.259734, Final residual = 0.0243538, No Iterations 4
+time step continuity errors : sum local = 0.00288047, global = -0.000200201, cumulative = 0.000665424
+smoothSolver:  Solving for omega, Initial residual = 0.00132205, Final residual = 0.000102362, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0125383, Final residual = 0.0010246, No Iterations 3
+ExecutionTime = 83.44 s  ClockTime = 84 s
+
+Time = 46
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00119436, Final residual = 4.88202e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0309723, Final residual = 0.00114436, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0309677, Final residual = 0.00116339, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.235998, Final residual = 0.0225605, No Iterations 4
+time step continuity errors : sum local = 0.00274909, global = -0.000186929, cumulative = 0.000478495
+smoothSolver:  Solving for omega, Initial residual = 0.00124969, Final residual = 9.88779e-05, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0120763, Final residual = 0.00100445, No Iterations 3
+ExecutionTime = 85.3 s  ClockTime = 86 s
+
+Time = 47
+
+smoothSolver:  Solving for Ux, Initial residual = 0.0011592, Final residual = 4.69518e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0285539, Final residual = 0.00104233, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.029772, Final residual = 0.00109537, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.22338, Final residual = 0.0212557, No Iterations 4
+time step continuity errors : sum local = 0.00259929, global = -0.000162601, cumulative = 0.000315894
+smoothSolver:  Solving for omega, Initial residual = 0.00106154, Final residual = 8.85794e-05, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0111941, Final residual = 0.000940343, No Iterations 3
+ExecutionTime = 87.15 s  ClockTime = 88 s
+
+Time = 48
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00111498, Final residual = 4.48104e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0267763, Final residual = 0.000970056, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0291208, Final residual = 0.00105611, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.221835, Final residual = 0.0207797, No Iterations 4
+time step continuity errors : sum local = 0.00246297, global = -0.000129669, cumulative = 0.000186226
+smoothSolver:  Solving for omega, Initial residual = 0.00107509, Final residual = 8.2112e-05, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.0102891, Final residual = 0.000866305, No Iterations 3
+ExecutionTime = 89 s  ClockTime = 90 s
+
+Time = 49
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00108159, Final residual = 4.2739e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.025552, Final residual = 0.000925693, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0285998, Final residual = 0.00103809, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.22884, Final residual = 0.0212469, No Iterations 4
+time step continuity errors : sum local = 0.00233613, global = -9.07176e-05, cumulative = 9.55079e-05
+smoothSolver:  Solving for omega, Initial residual = 0.00105424, Final residual = 7.77964e-05, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.00934634, Final residual = 0.000813624, No Iterations 3
+bounding k, min: -0.0309966 max: 29878.3 average: 3.76425
+ExecutionTime = 90.87 s  ClockTime = 92 s
+
+Time = 50
+
+smoothSolver:  Solving for Ux, Initial residual = 0.00106028, Final residual = 4.0796e-05, No Iterations 3
+smoothSolver:  Solving for Uy, Initial residual = 0.0246684, Final residual = 0.000915183, No Iterations 3
+smoothSolver:  Solving for Uz, Initial residual = 0.0276424, Final residual = 0.00101971, No Iterations 3
+GAMG:  Solving for p, Initial residual = 0.245925, Final residual = 0.0228312, No Iterations 4
+time step continuity errors : sum local = 0.00222203, global = -4.39219e-05, cumulative = 5.1586e-05
+smoothSolver:  Solving for omega, Initial residual = 0.00092462, Final residual = 7.10189e-05, No Iterations 3
+smoothSolver:  Solving for k, Initial residual = 0.00871574, Final residual = 0.000775648, No Iterations 3
+ExecutionTime = 92.72 s  ClockTime = 94 s
+
+End
+
+Finalising parallel run
+Application 1085739 resources: utime ~11930s, stime ~674s, Rss ~210976, inblocks ~767166, outblocks ~0
+Benchmark time (total time - first step): 88.63
+Full run log: simpleFoam_tx2_gcc-7.3_cray-mpich-7.7.6_2019-03-30_17-52.log
+Done.
+============================= PBS epilogue =============================
+
+End of Job Report
+Run at 2019-03-30 18:01:05 for job 7161.xci00
+Submitted              : 2019-03-30 17:52:27
+Queued                 : 2019-03-30 17:52:28
+Started                : 2019-03-30 17:52:28
+Completed              : 2019-03-30 18:01:05
+Queued Time            : 0:00:00 (0 seconds)
+Elapsed Time           : 0:08:32 (512 seconds, 28% of limit)
+Parallel Time          : 0:08:29 (509 seconds, 99% of elapsed time)
+Walltime Limit         : 0:30:00 (1800 seconds)
+Node Time Limit        : 0:30:00 (1800 seconds)
+Node Time              : 0:08:32 (512 seconds, 28% of limit)
+Job Name               : OpenFOAM_node_tx2_gcc-7.3
+Queue                  : arm
+Owner                  : br-apoenaru
+Group                  : -default-
+Project                : bristol
+Subproject             : 
+Funding                : 
+Trustzone              : 
+STDOUT                 : /home/br-apoenaru/applications-arm/OpenFOAM/run/../OpenFOAM-v1712_tx2-isambard_tx2_gcc-7.3_node.out
+STDERR                 : /home/br-apoenaru/applications-arm/OpenFOAM/run/OpenFOAM_node_tx2_gcc-7.3.e7161
+Job Directory          : /home/br-apoenaru/pbs.7161.xci00.x8z
+Job Arch               : XT
+CPU Core Type          : arm
+Total Nodes            : 1
+Total Tasks            : 64
+Parent Node            : xcimom
+Parent Node Memory     : 
+Parent Node CPU Time   : 
+Compute Nodes          : 0
+Electrical Groups      : 1
+Run Version            : 1
+
+                                        Wallclock  Wallclock     Memory     Memory
+Executable             APID      Nodes       Used  Requested       Used  Requested   CPU Time    Read IO   Write IO     Energy
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+decomposePar        1085736          1      778.0        43%       2.3G         2%      373.5     634.4M     356.5M      89.2k
+simpleFoam          1085739          1    14073.8       782%     163.8M         0%      12.3k     366.8M       4.9M      47.2k
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+total                   all          1    14851.8       825%       2.3G         2%      12.6k    1001.2M     361.4M     136.4k
+================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
+
+Lustre
+device         read  written     open    close   create  getattr  setattr    perms    mkdir    rmdir  readdir     link   unlink   rename
+========== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ========
+/lustre      946.2M   373.7M    14.3k    14.3k        0    26.7k        0     1.7M      640        0     4.9k        0        0        0
+
+For more information see https://gw4-isambard.github.io/docs/
