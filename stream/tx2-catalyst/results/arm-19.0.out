@@ -1,0 +1,44 @@
+-bash: setup_env: line 0: syntax error near unexpected token `;'
+-bash: setup_env: line 0: `setup_env () {  case "$COMPILER" in ;  gcc-8.2);  module load Generic-AArch64/SUSE/12/gcc/8.2.0; CC=gcc; FLAGS="-std=gnu99 -fopenmp -Ofast -mcpu=native";  ;; arm-19.0);  module load Generic-AArch64/SUSE/12/arm-hpc-compiler/19.0; CC=armclang; FLAGS="-std=gnu99 -fopenmp -O3 -ffp-contract=fast -mcpu=thunderx2t99";  ;; *);  echo; echo "Invalid compiler '$COMPILER'."; usage; exit 1;  ;; esac; }'
+-bash: error importing function definition for `setup_env'
+/bin/bash: setup_env: line 0: syntax error near unexpected token `;'
+/bin/bash: setup_env: line 0: `setup_env () {  case "$COMPILER" in ;  gcc-8.2);  module load Generic-AArch64/SUSE/12/gcc/8.2.0; CC=gcc; FLAGS="-std=gnu99 -fopenmp -Ofast -mcpu=native";  ;; arm-19.0);  module load Generic-AArch64/SUSE/12/arm-hpc-compiler/19.0; CC=armclang; FLAGS="-std=gnu99 -fopenmp -O3 -ffp-contract=fast -mcpu=thunderx2t99";  ;; *);  echo; echo "Invalid compiler '$COMPILER'."; usage; exit 1;  ;; esac; }'
+/bin/bash: error importing function definition for `setup_env'
+-------------------------------------------------------------
+STREAM version $Revision: 5.10 $
+-------------------------------------------------------------
+This system uses 8 bytes per array element.
+-------------------------------------------------------------
+Array size = 33554432 (elements), Offset = 0 (elements)
+Memory per array = 256.0 MiB (= 0.2 GiB).
+Total memory required = 768.0 MiB (= 0.8 GiB).
+Each kernel will be executed 200 times.
+ The *best* time for each kernel (excluding the first iteration)
+ will be used to compute the reported bandwidth.
+-------------------------------------------------------------
+Number of Threads requested = 64
+Number of Threads counted = 64
+-------------------------------------------------------------
+Your clock granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 2506 microseconds.
+   (= 2506 clock ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 clock ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function    Best Rate MB/s  Avg time     Min time     Max time
+Copy:          202591.1     0.002720     0.002650     0.002805
+Scale:         152045.9     0.003617     0.003531     0.003733
+Add:           198746.7     0.004233     0.004052     0.004460
+Triad:         204758.7     0.004132     0.003933     0.004413
+-------------------------------------------------------------
+Solution Validates: avg error less than 1.000000e-13 on all three arrays
+-------------------------------------------------------------
+ 
+University of Bristol ACRC HPC Service
+--------------------------------------
+Job stream, jobid 789.catalystsvc1, username jp8463 - end of execution at 09:59:58 Fri 05/04/19 on node r1c3n1
+ 
