@@ -6,6 +6,7 @@ function setup_env()
   case "$COMPILER" in
       cce-8.7)
           module swap $PRGENV PrgEnv-cray
+          module swap cce cce/8.7.9
           MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
           ;;
       gcc-8.2)
