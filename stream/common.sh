@@ -30,7 +30,7 @@ SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 SRC=$SCRIPT_DIR/stream.c
 
-export CONFIG="$PLATFORM"_"$COMPILER"
+export CONFIG="$ARCH"_"$COMPILER"
 export BENCHMARK_EXE=stream-$CONFIG
 
 # Set up the environment

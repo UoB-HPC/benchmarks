@@ -33,8 +33,8 @@ function setup_env()
 }
 
 SCRIPT=`realpath $0`
+export ARCH="skl"
 export PLATFORM_DIR=`realpath $(dirname $SCRIPT)`
-export PLATFORM="skl"
 export COMPILERS="cce-8.7 gcc-8.2 intel-2019"
 export DEFAULT_COMPILER=cce-8.7
 export -f setup_env
