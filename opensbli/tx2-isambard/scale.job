@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l walltime=01:00:00
+#PBS -joe
+
+cd $PBS_O_WORKDIR
+
+echo "ss 1024 100 0" >input
+
+export OMP_NUM_THREADS=1
+aprun -n $[NODES * 64] -N 64 -d 1 -j 1 "$BENCHMARK_EXE"
