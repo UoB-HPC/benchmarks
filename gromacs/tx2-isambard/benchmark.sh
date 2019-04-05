@@ -9,6 +9,7 @@ function setup_env()
           module swap gcc gcc/8.2.0
           CMAKE_OPTS="-DCMAKE_C_COMPILER=cc -DCMAKE_CXX_COMPILER=CC"
           CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_C_FLAGS=-mcpu=thunderx2t99 -DCMAKE_CXX_FLAGS=-mcpu=thunderx2t99"
+          CMAKE_OPTS="${CMAKE_OPTS} -DGMX_SIMD=ARM_NEON_ASIMD"
           ARMPL_VARIANT=gcc_8.2.0
           ;;
       arm-19.0)
@@ -16,6 +17,7 @@ function setup_env()
           module swap allinea allinea/19.0.0.1
           CMAKE_OPTS="-DCMAKE_C_COMPILER=cc -DCMAKE_CXX_COMPILER=CC"
           CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_C_FLAGS=-mcpu=thunderx2t99 -DCMAKE_CXX_FLAGS=-mcpu=thunderx2t99"
+          CMAKE_OPTS="${CMAKE_OPTS} -DGMX_SIMD=ARM_NEON_ASIMD"
           ARMPL_VARIANT=arm-hpc-compiler_19.0
           ;;
       *)

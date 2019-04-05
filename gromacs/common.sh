@@ -88,7 +88,7 @@ then
     fi
 
     # Perform build
-    if ! make -j 8
+    if ! make -j 16
     then
         echo
         echo "Build failed."
