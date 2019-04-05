@@ -144,7 +144,7 @@ then
     # Submit job
     mkdir -p $RUN_ARGS
     cd $RUN_ARGS
-    qsub -l select=$NODES:ncpus=$NCORES \
+    qsub -l select=$NODES$PBS_RESOURCES \
         -o job.out \
         -N gromacs_"$CONFIG" \
         -V \

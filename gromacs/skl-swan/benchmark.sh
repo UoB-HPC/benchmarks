@@ -40,11 +40,11 @@ function setup_env()
 
 SCRIPT=`realpath $0`
 export ARCH="skl"
-export NCORES=56
 export PLATFORM_DIR=`realpath $(dirname $SCRIPT)`
 export COMPILERS="gcc-8.2 intel-2019"
 export DEFAULT_COMPILER=gcc-8.2
 export DEFAULT_FFTLIB=cray-fftw-3.3.8
+export PBS_RESOURCES=":ncpus=56"
 export -f setup_env
 
 $PLATFORM_DIR/../common.sh $*
