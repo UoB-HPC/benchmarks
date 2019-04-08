@@ -6,8 +6,8 @@
 
 set -u
 
-cd $PBS_O_WORKDIR
+cd "$PBS_O_WORKDIR"
 
 export OMP_PROC_BIND=true
 export OMP_NUM_THREADS=44
-aprun -n 1 -d 44 -j 1 -cc depth ./$BENCHMARK_EXE
+aprun -n 1 -d 44 -j 1 -cc depth ./"$BENCHMARK_EXE"

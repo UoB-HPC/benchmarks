@@ -24,14 +24,14 @@ then
     exit 1
 fi
 
-ACTION=$1
-COMPILER=${2:-$DEFAULT_COMPILER}
-SCRIPT=`realpath $0`
-SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
-SRC=$SCRIPT_DIR/stream.c
+ACTION="$1"
+COMPILER="${2:-$DEFAULT_COMPILER}"
+SCRIPT="`realpath $0`"
+SCRIPT_DIR="`realpath $(dirname $SCRIPT)`"
+SRC="$SCRIPT_DIR/stream.c"
 
-export CONFIG="$ARCH"_"$COMPILER"
-export BENCHMARK_EXE=stream-$CONFIG
+export CONFIG="${ARCH}_${COMPILER}"
+export BENCHMARK_EXE="stream-$CONFIG"
 
 # Set up the environment
 setup_env
@@ -40,8 +40,8 @@ setup_env
 if [ "$ACTION" == "build" ]
 then
     # Perform build
-    rm -f $BENCHMARK_EXE
-    if ! $CC $FLAGS $SRC -o $BENCHMARK_EXE
+    rm -f "$BENCHMARK_EXE"
+    if ! $CC $FLAGS "$SRC" -o "$BENCHMARK_EXE"
     then
         echo
         echo "Build failed."
@@ -58,10 +58,10 @@ then
         exit 1
     fi
 
-    qsub -o stream-$CONFIG.out \
+    qsub -o "stream-$CONFIG.out" \
          -N stream \
          -V \
-         $PLATFORM_DIR/run.job
+         "$PLATFORM_DIR/run.job"
 else
     echo
     echo "Invalid action (use 'build' or 'run')."

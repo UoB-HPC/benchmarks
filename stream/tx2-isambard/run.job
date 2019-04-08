@@ -6,7 +6,7 @@
 
 set -u
 
-cd $PBS_O_WORKDIR
+cd "$PBS_O_WORKDIR"
 
 # For GCC, best performance observed when only running 16 threads per socket.
 if [ "$PE_ENV" == "GNU" ]
@@ -18,4 +18,4 @@ else
     export OMP_PROC_BIND=true
 fi
 
-aprun -n 1 -d 64 -j 1 -cc none ./$BENCHMARK_EXE
+aprun -n 1 -d 64 -j 1 -cc none ./"$BENCHMARK_EXE"

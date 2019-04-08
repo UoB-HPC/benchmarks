@@ -32,10 +32,11 @@ function setup_env()
   esac
 }
 
-SCRIPT=`realpath $0`
+SCRIPT="`realpath $0`"
 export ARCH="skl"
-export PLATFORM_DIR=`realpath $(dirname $SCRIPT)`
+export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
 export COMPILERS="cce-8.7 gcc-8.2 intel-2019"
 export DEFAULT_COMPILER=cce-8.7
 export -f setup_env
-bash $PLATFORM_DIR/../common.sh $*
+
+"$PLATFORM_DIR/../common.sh" "$@"

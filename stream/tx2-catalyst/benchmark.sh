@@ -23,11 +23,11 @@ function setup_env()
   esac
 }
 
-SCRIPT=`realpath $0`
+SCRIPT="`realpath $0`"
 export ARCH="tx2"
-export PLATFORM_DIR=`realpath $(dirname $SCRIPT)`
+export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
 export COMPILERS="gcc-8.2 arm-19.0"
 export DEFAULT_COMPILER=gcc-8.2
 export -f setup_env
 
-$PLATFORM_DIR/../common.sh $*
+"$PLATFORM_DIR/../common.sh" "$@"
