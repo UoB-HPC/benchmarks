@@ -33,12 +33,12 @@ function setup_env()
   esac
 }
 
-SCRIPT=`realpath $0`
+SCRIPT="`realpath $0`"
 export ARCH="skl"
-export PLATFORM_DIR=`realpath $(dirname $SCRIPT)`
+export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
 export COMPILERS="cce-8.7 gcc-8.2 intel-2019"
 export DEFAULT_COMPILER=intel-2019
 export PBS_RESOURCES=":ncpus=40:nodetype=SK40"
 export -f setup_env
 
-$PLATFORM_DIR/../common.sh $*
+"$PLATFORM_DIR/../common.sh" "$@"

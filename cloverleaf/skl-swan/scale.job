@@ -5,9 +5,9 @@
 
 set -u
 
-cd $PBS_O_WORKDIR
+cd "$PBS_O_WORKDIR"
 
-cp $SRC_DIR/InputDecks/clover_bm256.in clover.in
+cp "$SRC_DIR/InputDecks/clover_bm256.in" clover.in
 
 export OMP_NUM_THREADS=1
-aprun -n $[NODES * 56] -N 56 -d 1 -j 1 -cc depth $CFG_DIR/$BENCHMARK_EXE
+aprun -n $[NODES * 56] -N 56 -d 1 -j 1 -cc depth "$CFG_DIR/$BENCHMARK_EXE"

@@ -6,10 +6,10 @@
 
 set -u
 
-cd $PBS_O_WORKDIR
+cd "$PBS_O_WORKDIR"
 
-cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
+cp "$SRC_DIR/InputDecks/clover_bm16.in" clover.in
 
 export OMP_WAIT_POLICY=active
 export OMP_NUM_THREADS=4
-aprun -n 64 -d 4 -j 4 -cc depth $CFG_DIR/$BENCHMARK_EXE
+aprun -n 64 -d 4 -j 4 -cc depth "$CFG_DIR/$BENCHMARK_EXE"

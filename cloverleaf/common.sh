@@ -32,20 +32,20 @@ then
     exit 1
 fi
 
-ACTION=$1
+ACTION="$1"
 if [ "$ACTION" == "run" ]
 then
     shift
-    RUN_ARGS=$1
+    RUN_ARGS="$1"
 fi
-COMPILER=${2:-$DEFAULT_COMPILER}
-SCRIPT=`realpath $0`
-SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
+COMPILER="${2:-$DEFAULT_COMPILER}"
+SCRIPT="`realpath $0`"
+SCRIPT_DIR="`realpath $(dirname $SCRIPT)`"
 
-export CONFIG="$ARCH"_"$COMPILER"
+export CONFIG="${ARCH}_${COMPILER}"
 export BENCHMARK_EXE=clover_leaf
-export SRC_DIR=$PWD/CloverLeaf_ref
-export CFG_DIR=$PWD/cloverleaf/${ARCH}/${COMPILER}
+export SRC_DIR="$PWD/CloverLeaf_ref"
+export CFG_DIR="$PWD/cloverleaf/${ARCH}/${COMPILER}"
 
 # Set up the environment
 setup_env
@@ -63,8 +63,8 @@ then
     fi
 
     # Perform build
-    rm -f $SRC_DIR/$BENCHMARK_EXE $CFG_DIR/$BENCHMARK_EXE
-    if ! eval make -C $SRC_DIR -B $MAKE_OPTS
+    rm -f "$SRC_DIR/$BENCHMARK_EXE" "$CFG_DIR/$BENCHMARK_EXE"
+    if ! eval make -C "$SRC_DIR" -B $MAKE_OPTS
     then
         echo
         echo "Build failed."
@@ -72,8 +72,8 @@ then
         exit 1
     fi
 
-    mkdir -p $CFG_DIR
-    mv $SRC_DIR/$BENCHMARK_EXE $CFG_DIR
+    mkdir -p "$CFG_DIR"
+    mv "$SRC_DIR/$BENCHMARK_EXE" "$CFG_DIR"
 
 elif [ "$ACTION" == "run" ]
 then
@@ -84,7 +84,7 @@ then
         exit 1
     fi
 
-    cd $CFG_DIR
+    cd "$CFG_DIR"
 
     if [ "$RUN_ARGS" == node ]
     then
@@ -109,13 +109,13 @@ then
     fi
 
     # Submit job
-    mkdir -p $RUN_ARGS
-    cd $RUN_ARGS
+    mkdir -p "$RUN_ARGS"
+    cd "$RUN_ARGS"
     qsub -l select=$NODES$PBS_RESOURCES \
         -o job.out \
-        -N cloverleaf_"$RUN_ARGS"_"$CONFIG" \
+        -N "cloverleaf_${RUN_ARGS}_${CONFIG}" \
         -V \
-        $PLATFORM_DIR/$JOBSCRIPT
+        "$PLATFORM_DIR/$JOBSCRIPT"
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
