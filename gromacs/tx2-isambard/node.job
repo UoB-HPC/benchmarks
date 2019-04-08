@@ -6,12 +6,12 @@
 
 set -u
 
-cd $PBS_O_WORKDIR
+cd "$PBS_O_WORKDIR"
 
 export OMP_NUM_THREADS=4
 export GMX_MAXBACKUP=-1
 export GMX_NBNXN_EWALD_TABLE=1
-aprun -n 64 -d 4 -j 4 -cc none $BUILD_DIR/bin/gmx_mpi mdrun \
-    -s $BENCHMARK_NODE \
+aprun -n 64 -d 4 -j 4 -cc none "$BUILD_DIR/bin/gmx_mpi" mdrun \
+    -s "$BENCHMARK_NODE" \
     -noconfout -resethway -nsteps -1 -maxh 0.05 -quiet \
     -nb cpu -ntomp 4 -npme 0 -pin on -notunepme

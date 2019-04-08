@@ -49,4 +49,4 @@ export DEFAULT_FFTLIB=cray-fftw-3.3.8
 export PBS_RESOURCES=":ncpus=44"
 export -f setup_env
 
-"$PLATFORM_DIR/../common.sh" $*
+"$PLATFORM_DIR/../common.sh" "$@"
