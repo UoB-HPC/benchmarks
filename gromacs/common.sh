@@ -38,23 +38,23 @@ then
     exit 1
 fi
 
-ACTION=$1
+ACTION="$1"
 if [ "$ACTION" == "run" ]
 then
     shift
-    RUN_ARGS=$1
+    RUN_ARGS="$1"
 fi
-COMPILER=${2:-$DEFAULT_COMPILER}
-FFTLIB=${3:-$DEFAULT_FFTLIB}
-SCRIPT=`realpath $0`
-SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
+COMPILER="${2:-$DEFAULT_COMPILER}"
+FFTLIB="${3:-$DEFAULT_FFTLIB}"
+SCRIPT="`realpath $0`"
+SCRIPT_DIR="`realpath $(dirname $SCRIPT)`"
 
-export CONFIG="$ARCH"_"$COMPILER"_"$FFTLIB"
-export SRC_DIR=$PWD/gromacs-2018.5
-export CFG_DIR=$PWD/gromacs/"$ARCH"/"$COMPILER"_"$FFTLIB"
-export BUILD_DIR=$CFG_DIR/build
-export BENCHMARK_NODE=$PWD/gromacs-benchmarks/benchmarks/ion_channel_vsites.bench/pme-runs/topol.tpr
-export BENCHMARK_SCALE=$PWD/nsteps800.tpr
+export CONFIG="${ARCH}_${COMPILER}_${FFTLIB}"
+export SRC_DIR="$PWD/gromacs-2018.5"
+export CFG_DIR="$PWD/gromacs/${ARCH}/${COMPILER}_${FFTLIB}"
+export BUILD_DIR="$CFG_DIR/build"
+export BENCHMARK_NODE="$PWD/gromacs-benchmarks/benchmarks/ion_channel_vsites.bench/pme-runs/topol.tpr"
+export BENCHMARK_SCALE="$PWD/nsteps800.tpr"
 
 # Set up the environment
 setup_env
@@ -71,12 +71,12 @@ then
         exit 1
     fi
 
-    rm -rf $BUILD_DIR
-    mkdir -p $BUILD_DIR
-    cd $BUILD_DIR
+    rm -rf "$BUILD_DIR"
+    mkdir -p "$BUILD_DIR"
+    cd "$BUILD_DIR"
 
     # Configure with CMake
-    if ! eval cmake $SRC_DIR -DCMAKE_BUILD_TYPE=Release \
+    if ! eval cmake "$SRC_DIR" -DCMAKE_BUILD_TYPE=Release \
         -DGMX_CYCLE_SUBCOUNTERS=ON \
         -DGMX_MPI=ON -DGMX_GPU=OFF -DGMX_DOUBLE=OFF \
         $CMAKE_OPTS
@@ -105,7 +105,7 @@ then
         exit 1
     fi
 
-    cd $CFG_DIR
+    cd "$CFG_DIR"
 
     if [ "$RUN_ARGS" == node ]
     then
@@ -142,13 +142,13 @@ then
     fi
 
     # Submit job
-    mkdir -p $RUN_ARGS
-    cd $RUN_ARGS
+    mkdir -p "$RUN_ARGS"
+    cd "$RUN_ARGS"
     qsub -l select=$NODES$PBS_RESOURCES \
         -o job.out \
-        -N gromacs_"$CONFIG" \
+        -N "gromacs_${RUN_ARGS}_${CONFIG}" \
         -V \
-        $PLATFORM_DIR/$JOBSCRIPT
+        "$PLATFORM_DIR/$JOBSCRIPT"
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
