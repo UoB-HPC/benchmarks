@@ -121,12 +121,20 @@ if [ "$action" == "build" ]; then
     cflags="wmake/rules/$of_platform/c"
     cppflags="wmake/rules/$of_platform/c++"
     cppOptflags="wmake/rules/$of_platform/c++Opt"
+    mpiflags="etc/config.sh/mpi"
+    systemopenmpiflags="wmake/rules/General/mplibSYSTEMOPENMPI"
 
     # Set the installtion directory path and the MPI library
-    sed -i 's,^FOAM_INST_DIR=.*,FOAM_INST_DIR='"$PWD," "$bashrc"
+    # sed -i 's,^FOAM_INST_DIR=.*,FOAM_INST_DIR='"$PWD," "$bashrc"
+    sed -i '/^FOAM_INST_DIR=.*/a FOAM_INST_DIR='"$(dirname $PWD)" "$bashrc"
     case "$MPILIB" in
         cray-mpich-*)
             sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=CRAY-MPICH,' "$bashrc"
+            ;;
+        hmpt-*)
+            sed -i "s,PINC       =.*,PINC       = -I${MPI_ROOT}/include -pthread," "$systemopenmpiflags"
+            sed -i "s|PLIBS      =.*|PLIBS      = -pthread -Wl,-rpath -Wl,${MPI_ROOT}/lib -Wl,--enable-new-dtags -L${MPI_ROOT}/lib -lmpi|" "$systemopenmpiflags"
+            sed -i "s,libDir=.*,libDir=${MPI_ROOT}/lib," "$mpiflags"
             ;;
         openmpi-1.10.4)
             sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=OPENMPI,' "$bashrc"
