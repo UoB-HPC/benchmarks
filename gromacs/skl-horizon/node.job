@@ -1,7 +1,6 @@
 #!/bin/bash
-#PBS -q batch
-#PBS -l nodes=1
-#PBS -l hostlist=\"[196-283]+[288-343]^\"
+#PBS -q workq
+#PBS -l select=1:nodetype=SK40
 #PBS -l walltime=00:15:00
 #PBS -joe
 

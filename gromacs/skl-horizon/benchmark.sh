@@ -30,6 +30,7 @@ function setup_env()
   case "$FFTLIB" in
       cray-fftw-3.3.8)
           module load cray-fftw/3.3.8.2
+          PKG_CONFIG_PATH=/opt/cray/pe/fftw/3.3.8.2/x86_skylake/lib/pkgconfig:$PKG_CONFIG_PATH
           ;;
       *)
           echo
