@@ -32,17 +32,17 @@ then
     exit 1
 fi
 
-ACTION=$1
+ACTION="$1"
 if [ "$ACTION" == "run" ]
 then
     shift
-    RUN_ARGS=$1
+    RUN_ARGS="$1"
 fi
-COMPILER=${2:-$DEFAULT_COMPILER}
-SCRIPT=`realpath $0`
-SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
+COMPILER="${2:-$DEFAULT_COMPILER}"
+SCRIPT="`realpath $0`"
+SCRIPT_DIR="`realpath $(dirname $SCRIPT)`"
 
-export CONFIG="$ARCH"_"$COMPILER"
+export CONFIG="${ARCH}_${COMPILER}"
 export CFG_DIR="$PWD/opensbli/${ARCH}/${COMPILER}"
 export SRC_DIR="$CFG_DIR/OpenSBLI"
 export OPS_INSTALL_PATH="$SRC_DIR/OPS/ops"
@@ -129,7 +129,7 @@ then
     cd $RUN_ARGS
     qsub -l select=$NODES$PBS_RESOURCES \
         -o job.out \
-        -N opensbli_"$RUN_ARGS"_"$CONFIG" \
+        -N "opensbli_${RUN_ARGS}_${CONFIG}" \
         -V \
         "$PLATFORM_DIR/$JOBSCRIPT"
 else

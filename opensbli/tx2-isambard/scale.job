@@ -3,7 +3,9 @@
 #PBS -l walltime=01:00:00
 #PBS -joe
 
-cd $PBS_O_WORKDIR
+set -u
+
+cd "$PBS_O_WORKDIR"
 
 echo "ss 1024 100 0" >input
 
