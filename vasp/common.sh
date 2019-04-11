@@ -110,7 +110,11 @@ then
 
     if [ ! -d vasp-test-suite ]
     then
-        git clone "$BENCHMARK_REPO"
+        if ! git clone "$BENCHMARK_REPO"
+        then
+            echo "Failed to clone benchmarks repository."
+            exit 1
+        fi
     fi
 
     if [ "$RUN_ARGS" == node ]

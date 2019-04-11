@@ -2,6 +2,9 @@
 
 function setup_env()
 {
+    export INCS=""
+    export LLIBS=""
+
     module load craype-x86-skylake
     PRGENV=`module -t list 2>&1 | grep PrgEnv`
     case "$COMPILER" in
@@ -33,7 +36,7 @@ function setup_env()
             MKL_COMP="gf"
             LIBSCI_COMP="gnu_71"
             ;;
-        intel-2010)
+        intel-2019)
             module swap $PRGENV PrgEnv-intel
             module swap intel intel/19.0.0.117
             export FC=ftn
@@ -105,7 +108,9 @@ function setup_env()
             exit
         fi
 
+        set +u
         source /opt/intel/compilers_and_libraries_2019.0.117/linux/mkl/bin/mklvars.sh intel64
+        set -u
         export MKL_LIB=${MKLROOT}/lib/intel64
         export LLIBS="$LLIBS -L${MKL_LIB} -lmkl_scalapack_lp64 -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_blacs_intelmpi_lp64"
     fi
