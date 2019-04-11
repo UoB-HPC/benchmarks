@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -q workq
+#PBS -l walltime=03:00:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+cp "$BENCHMARK_DIR/$SCALE_BENCHMARK"/* .
+
+# Set NCORE (take from environment if specified)
+NCORE=${NCORE:-8}
+sed -i 's/^#NCORE = .*/NCORE = '$NCORE'/g' INCAR
+sed -i 's/^NPAR/#NPAR/g' INCAR
+
+# Run benchmark
+export OMP_NUM_THREADS=1
+aprun -n $[NODES * 40] -N 40 -d 1 -j 1 \
+    "$SRC_DIR/bin/vasp_gam"
+
+# Output energy and runtime
+echo
+export PATH="$BENCHMARK_DIR/utils:$PATH"
+./output.sh && cat output.yaml
+echo
+echo "Expected `head -n 1 test.yaml`"
+echo
