@@ -1,0 +1,215 @@
+ 
+   Tea Version    1.403
+       MPI Version
+    OpenMP Version
+   Task Count    896
+ Thread Count:     1
+ 
+ Tea will run from the following input:-
+ 
+*tea                                                                                                
+state 1 density=100.0 energy=0.0001                                                                 
+state 2 density=0.1 energy=25.0 geometry=rectangle xmin=0.0 xmax=1.0 ymin=1.0 ymax=2.0              
+state 3 density=0.1 energy=0.1 geometry=rectangle xmin=1.0 xmax=6.0 ymin=1.0 ymax=2.0               
+state 4 density=0.1 energy=0.1 geometry=rectangle xmin=5.0 xmax=6.0 ymin=1.0 ymax=8.0               
+state 5 density=0.1 energy=0.1 geometry=rectangle xmin=5.0 xmax=10.0 ymin=7.0 ymax=8.0              
+x_cells=4000                                                                                        
+y_cells=4000                                                                                        
+xmin=0.0                                                                                            
+ymin=0.0                                                                                            
+xmax=10.0                                                                                           
+ymax=10.0                                                                                           
+initial_timestep=0.004                                                                              
+end_step=10                                                                                         
+tl_max_iters=10000                                                                                  
+tl_use_cg                                                                                           
+tl_eps 1.0e-15                                                                                      
+test_problem 5                                                                                      
+profiler_on                                                                                         
+*endtea                                                                                             
+ 
+ Initialising and generating
+ 
+ Reading input file
+ 
+ Reading specification for state  1
+ 
+            state density   0.1000E+03
+             state energy   0.1000E-03
+ 
+ Reading specification for state  2
+ 
+            state density   0.1000E+00
+             state energy   0.2500E+02
+ state geometry rectangular
+               state xmin   0.0000E+00
+               state xmax   0.1000E+01
+               state ymin   0.1000E+01
+               state ymax   0.2000E+01
+ 
+ Reading specification for state  3
+ 
+            state density   0.1000E+00
+             state energy   0.1000E+00
+ state geometry rectangular
+               state xmin   0.1000E+01
+               state xmax   0.6000E+01
+               state ymin   0.1000E+01
+               state ymax   0.2000E+01
+ 
+ Reading specification for state  4
+ 
+            state density   0.1000E+00
+             state energy   0.1000E+00
+ state geometry rectangular
+               state xmin   0.5000E+01
+               state xmax   0.6000E+01
+               state ymin   0.1000E+01
+               state ymax   0.8000E+01
+ 
+ Reading specification for state  5
+ 
+            state density   0.1000E+00
+             state energy   0.1000E+00
+ state geometry rectangular
+               state xmin   0.5000E+01
+               state xmax   0.1000E+02
+               state ymin   0.7000E+01
+               state ymax   0.8000E+01
+ 
+                   x_cells        4000
+                   y_cells        4000
+                      xmin  0.0000E+00
+                      ymin  0.0000E+00
+                      xmax  0.1000E+02
+                      ymax  0.1000E+02
+         initial_timestep   0.4000E-02
+                  end_step          10
+              test_problem           5
+               Profiler on
+           tiles per task            1
+ 
+ Using Fortran Kernels
+ 
+ Input read finished.
+ 
+ Setting up initial geometry
+ 
+ 
+ Mesh ratio of  1.
+ Decomposing the mesh into  32  by  28  chunks
+ Decomposing each chunk into  1  by  1  tiles
+ 
+ Tile size  125  by  143  cells
+ Sub-tile size ranges from  125  by  143  cells to  125  by  143  cells
+ Generating chunk 
+ 
+ Problem initialised and generated
+ 
+ Time  0.
+                                 Volume                      Mass                   Density                    Energy                         U
+ step:      0   0.99999999999999659E+02   0.84015999999999603E+04   0.84015999999999892E+02   0.34899999999999931E+01   0.84264999999999745E+02
+ 
+ Starting the calculation
+ Step       1 time   0.0000000 timestep   4.00E-03
+Conduction error  0.9975393E-15
+Iteration count     3381
+      Solve Time    1.0911099911    Its   3382     Time Per It    0.0003226227
+ Wall clock  1.091670036315918
+ Average time per cell  1.21838173695972994E-3
+ Step time per cell     1.21837747948510297E-3
+ Step       2 time   0.0040000 timestep   4.00E-03
+Conduction error  0.9859487E-15
+Iteration count     4096
+      Solve Time    1.1266329288    Its   4097     Time Per It    0.0002749897
+ Wall clock  2.218501091003418
+ Average time per cell  1.23800284096172884E-3
+ Step time per cell     1.25758482941559389E-3
+ Step       3 time   0.0080000 timestep   4.00E-03
+Conduction error  0.9843662E-15
+Iteration count     4060
+      Solve Time    0.9111859798    Its   4061     Time Per It    0.0002243748
+ Wall clock  3.1297721862792969
+ Average time per cell  1.164349771681286E-3
+ Step time per cell     1.01702021700995318E-3
+ Step       4 time   0.0120000 timestep   4.00E-03
+Conduction error  0.9862485E-15
+Iteration count     3950
+      Solve Time    0.8857629299    Its   3951     Time Per It    0.0002241870
+ Wall clock  4.0156791210174561
+ Average time per cell  1.12044618331960276E-3
+ Step time per cell     9.88631642290524167E-4
+ Step       5 time   0.0160000 timestep   4.00E-03
+Conduction error  0.9959255E-15
+Iteration count     3832
+      Solve Time    0.8641149998    Its   3833     Time Per It    0.0002254409
+ Wall clock  4.8799831867218018
+ Average time per cell  1.08928196132183084E-3
+ Step time per cell     9.64542318667684236E-4
+ Step       6 time   0.0200000 timestep   4.00E-03
+Conduction error  0.9999281E-15
+Iteration count     3710
+      Solve Time    0.7988390923    Its   3711     Time Per It    0.0002152625
+ Wall clock  5.678922176361084
+ Average time per cell  1.05634713101954679E-3
+ Step time per cell     8.91631735222680197E-4
+ Step       7 time   0.0240000 timestep   4.00E-03
+Conduction error  0.9966288E-15
+Iteration count     3602
+      Solve Time    0.8096909523    Its   3603     Time Per It    0.0002247269
+ Wall clock  6.4887330532073975
+ Average time per cell  1.0345556526159753E-3
+ Step time per cell     9.03738662600517273E-4
+ Step       8 time   0.0280000 timestep   4.00E-03
+Conduction error  0.9997411E-15
+Iteration count     3502
+      Solve Time    0.7845230103    Its   3503     Time Per It    0.0002239575
+ Wall clock  7.2734560966491699
+ Average time per cell  1.01471206705485068E-3
+ Step time per cell     8.75672857676233611E-4
+ Step       9 time   0.0320000 timestep   4.00E-03
+Conduction error  0.9905823E-15
+Iteration count     3411
+      Solve Time    0.7729070187    Its   3412     Time Per It    0.0002265261
+ Wall clock  8.0465190410614014
+ Average time per cell  9.97832222353844467E-4
+ Step time per cell     8.62704323870795145E-4
+ Step      10 time   0.0360000 timestep   4.00E-03
+Conduction error  0.9951502E-15
+Iteration count     3337
+      Solve Time    0.7158160210    Its   3338     Time Per It    0.0002144446
+ 
+ Time  4.00000000000000078E-2
+                                 Volume                      Mass                   Density                    Energy                         U
+ step:     10   0.99999999999999659E+02   0.84015999999999603E+04   0.84015999999999892E+02   0.34899999999800717E+01   0.95462351582229473E+02
+ 
+ Wall clock  8.7634580135345459
+ Average time per cell  9.78064510439123321E-4
+ Step time per cell     8.00071550267083273E-4
+ 
+ Time  4.00000000000000078E-2
+                                 Volume                      Mass                   Density                    Energy                         U
+ step:     10   0.99999999999999659E+02   0.84015999999999603E+04   0.84015999999999892E+02   0.34899999999800717E+01   0.95462351582229473E+02
+ 
+Test problem   5 is within   0.1186628E-08% of the expected solution
+ This test is considered PASSED
+ 
+ Calculation complete
+ Tea is finishing
+ First step overhead -3.51300239562988281E-2
+ Wall clock  8.7636470794677734
+ 
+Profiler Output                 Time            Percentage
+Timestep              :          0.0016          0.0178
+MPI Halo Exchange     :          1.9525         22.2799
+Self Halo Update      :          0.2024          2.3092
+Internal Halo Update  :          0.0293          0.3347
+Summary               :          0.0009          0.0103
+Visit                 :          0.0000          0.0000
+Tea Init              :          0.0028          0.0319
+Dot Product           :          3.5476         40.4805
+Tea Solve             :          2.7900         31.8363
+Tea Reset             :          0.0004          0.0042
+Set Field             :          0.0000          0.0000
+Total                 :          8.5275         97.3048
+The Rest              :          0.2362          2.6952
