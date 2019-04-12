@@ -1,0 +1,110 @@
+Starting up with 36 OpenMP threads.
+Loading problem from problems/csp.params.
+
+Available OpenCL devices:
+ 0: Tesla P100-PCIE-16GB
+ 1: Tesla P100-PCIE-16GB
+
+Selected OpenCL device:
+-> Tesla P100-PCIE-16GB (index=0)
+
+Problem dimensions 4000x4000 for 10 iterations.
+Allocated 0.2421GB of data.
+File elastic_scatter.cs contains 29999 entries
+File capture.cs contains 29999 entries
+
+Iteration  1
+Particles  1000000
+Step time  0.4623s
+Wallclock  0.4623s
+Facets     704455206
+Collisions 0
+Facet Events / s 1.52e+09
+Collision Events / s 0.00e+00
+
+Iteration  2
+Particles  1000000
+Step time  0.5325s
+Wallclock  0.9948s
+Facets     704456585
+Collisions 0
+Facet Events / s 1.32e+09
+Collision Events / s 0.00e+00
+
+Iteration  3
+Particles  1000000
+Step time  0.3777s
+Wallclock  1.3725s
+Facets     689123603
+Collisions 18507141
+Facet Events / s 1.82e+09
+Collision Events / s 4.90e+07
+
+Iteration  4
+Particles  980066
+Step time  0.4054s
+Wallclock  1.7779s
+Facets     646961559
+Collisions 51188803
+Facet Events / s 1.60e+09
+Collision Events / s 1.26e+08
+
+Iteration  5
+Particles  924935
+Step time  0.3532s
+Wallclock  2.1311s
+Facets     641108714
+Collisions 7273325
+Facet Events / s 1.82e+09
+Collision Events / s 2.06e+07
+
+Iteration  6
+Particles  917100
+Step time  0.3927s
+Wallclock  2.5238s
+Facets     600204992
+Collisions 52383593
+Facet Events / s 1.53e+09
+Collision Events / s 1.33e+08
+
+Iteration  7
+Particles  860684
+Step time  0.3617s
+Wallclock  2.8855s
+Facets     573913477
+Collisions 33438341
+Facet Events / s 1.59e+09
+Collision Events / s 9.24e+07
+
+Iteration  8
+Particles  824671
+Step time  0.3374s
+Wallclock  3.2229s
+Facets     554567349
+Collisions 23047883
+Facet Events / s 1.64e+09
+Collision Events / s 6.83e+07
+
+Iteration  9
+Particles  799839
+Step time  0.3099s
+Wallclock  3.5327s
+Facets     551472589
+Collisions 3687043
+Facet Events / s 1.78e+09
+Collision Events / s 1.19e+07
+
+Iteration  10
+Particles  795872
+Step time  0.3375s
+Wallclock  3.8703s
+Facets     532571473
+Collisions 26377208
+Facet Events / s 1.58e+09
+Collision Events / s 7.81e+07
+
+Final global_energy_tally 1.121741847547577e+07
+Expected 1.121870290714e+07, result was 1.121741847548e+07.
+PASSED validation.
+Final Wallclock 3.870258242s
+Elapsed Simulation Time 0.000001s
