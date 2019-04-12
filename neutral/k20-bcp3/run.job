@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export OMP_PROC_BIND=true
+export OMP_PLACES=threads
+export OMP_NUM_THREADS=16
+cd $SRC_DIR
+$RUN_DIR/$BENCHMARK_EXE problems/csp.params | tee $RUN_DIR/$CONFIG.out
