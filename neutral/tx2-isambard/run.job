@@ -1,0 +1,29 @@
+#!/bin/bash
+
+export OMP_PROC_BIND=spread
+export OMP_PLACES=threads
+export OMP_NUM_THREADS=256
+cd $SRC_DIR
+$RUN_DIR/$BENCHMARK_EXE problems/csp.params | tee $RUN_DIR/$CONFIG.out
+
+
+#!/bin/bash
+
+#PBS -q arm
+#PBS -l select=1:ncpus=64
+#PBS -l walltime=00:01:00
+#PBS -joe
+
+
+#cd "$RUN_DIR"
+
+#cp "$SRC_DIR/problems/csp.params" csp.params
+
+#export OMP_NUM_THREADS=256
+
+#if [[ "$COMPILER" =~ arm ]]; then
+#    export OMP_PROC_BIND=true OMP_PLACES=threads
+#    aprun -n 1 -d 64 -cc none ./$BENCHMARK_EXE csp.params
+#else
+#    aprun -n 1 -d 64 -cc cpu ./$BENCHMARK_EXE csp.params
+#fi
