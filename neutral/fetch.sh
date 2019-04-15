@@ -8,5 +8,5 @@ then
 
     git clone https://github.com/UoB-HPC/neutral
     cd neutral
-    git checkout dc128704a6
+    git checkout d983598634
 fi
