@@ -1,27 +1,7 @@
-          keyword Iteration Monitor
-********************************************************************************
-
- ******************************
-  Time Cycle   1
-  Outer
-    1    Dfmxo= 2.5572E-02    No. Inners=   97
-    2    Dfmxo= 1.1190E-02    No. Inners=   65
-    3    Dfmxo= 6.4701E-05    No. Inners=   58
-    4    Dfmxo= 2.7790E-07    No. Inners=   32
-
-  Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  252
-
- ******************************
-  Total inners for all time steps, outers =    252
-
-********************************************************************************
-
- Success! Done in a SNAP!
-Application 1671513 resources: utime ~937s, stime ~44s, Rss ~1291772, inblocks ~0, outblocks ~40
  SNAP: SN (Discrete Ordinates) Application Proxy
- Version Number..  1.07 
- Version Date..  04-19-2016
- Ran on  6-12-2018 at time 13: 0: 2
+ Version Number..  1.09 
+ Version Date..  04-18-2019
+ Ran on  4-19-2019 at time 10:58: 0
 
 ********************************************************************************
 
@@ -54,7 +34,7 @@ Application 1671513 resources: utime ~937s, stime ~44s, Rss ~1291772, inblocks ~
      tf=  1.5000E-03
      nsteps=     1
      swp_typ=  0
-     cor_swp=  0
+     multiswp=  1
      angcpy=  1
      it_det=  0
      soloutp=  0
@@ -319,6 +299,8 @@ Application 1671513 resources: utime ~937s, stime ~44s, Rss ~1291772, inblocks ~
     oitm =    5
     timedep = 1
     swp_typ = 0
+    multiswp = 1
+    angcpy = 1
     it_det = 0
     soloutp = 0
     kplane =    0
@@ -342,7 +324,7 @@ Application 1671513 resources: utime ~937s, stime ~44s, Rss ~1291772, inblocks ~
     .FALSE. nested threading
       nnested =    1
 
-    Parallel Computational Efficiency = 0.9982
+    Parallel Computational Efficiency = 0.9993
 
 ********************************************************************************
 
@@ -391,7 +373,7 @@ Application 1671513 resources: utime ~937s, stime ~44s, Rss ~1291772, inblocks ~
           30 7.530791E-04
           31 7.548297E-04
           32 7.569262E-04
-
+ 
 
  ******************************
   Total inners for all time steps, outers =    252
@@ -403,20 +385,24 @@ Application 1671513 resources: utime ~937s, stime ~44s, Rss ~1291772, inblocks ~
 
   Code Section                          Time (seconds)
  **************                        ****************
-    Parallel Setup                       1.1070E-03
-    Input                                6.5943E-02
-    Setup                                2.2871E-03
-    Solve                                2.1818E+01
-       Parameter Setup                   8.8227E-01
-       Outer Source                      2.9699E-01
-       Inner Iterations                  2.0630E+01
-          Inner Source                   4.5760E-02
-          Transport Sweeps               2.0559E+01
-          Inner Misc Ops                 2.5695E-02
-       Solution Misc Ops                 8.4362E-03
-    Output                               1.9073E-06
-  Total Execution time                   2.2239E+01
+    Parallel Setup                       4.3867E-03
+    Input                                4.0578E-01
+    Setup                                7.6599E-03
+    Solve                                1.5343E+01
+       Parameter Setup                   1.1595E+00
+       Outer Source                      3.4572E-01
+       Inner Iterations                  1.3828E+01
+          Inner Source                   5.2084E-02
+          Transport Sweeps               1.3757E+01
+          Inner Misc Ops                 1.9423E-02
+       Solution Misc Ops                 9.5696E-03
+    Output                               3.8147E-06
+  Total Execution time                   1.6529E+01
 
-  Grind Time (nanoseconds)         4.4154E-01
+  Grind Time (nanoseconds)         3.1050E-01
+
+********************************************************************************
+
+Allocated words (double precision) per rank                       166035066
 
 ********************************************************************************

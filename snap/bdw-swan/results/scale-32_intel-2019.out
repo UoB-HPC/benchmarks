@@ -1,28 +1,7 @@
-ModuleCmd_Switch.c(179):ERROR:152: Module 'PrgEnv-cray' is currently not loaded
-          keyword Iteration Monitor
-********************************************************************************
-
- ******************************
-  Time Cycle   1
-  Outer
-    1    Dfmxo= 2.5572E-02    No. Inners=   97
-    2    Dfmxo= 1.1190E-02    No. Inners=   65
-    3    Dfmxo= 6.4701E-05    No. Inners=   58
-    4    Dfmxo= 2.7790E-07    No. Inners=   32
-
-  Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  252
-
- ******************************
-  Total inners for all time steps, outers =    252
-
-********************************************************************************
-
- Success! Done in a SNAP!
-Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~0, outblocks ~48
  SNAP: SN (Discrete Ordinates) Application Proxy
- Version Number..  1.07 
- Version Date..  04-19-2016
- Ran on  6-12-2018 at time 12: 9:15
+ Version Number..  1.09 
+ Version Date..  04-18-2019
+ Ran on  4-19-2019 at time 11: 5:32
 
 ********************************************************************************
 
@@ -30,15 +9,15 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
 ********************************************************************************
 
   NML=invar
-     npey=    11
-     npez=     4
+     npey=     8
+     npez=     8
      ichunk=    16
-     nthreads=     1
+     nthreads=    22
      nnested=   1
      ndimen=  3
      nx=  1024
-     ny=    22
-     nz=     8
+     ny=    88
+     nz=   128
      lx=  1.0000E+00
      ly=  1.0000E+00
      lz=  1.0000E+00
@@ -55,7 +34,7 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
      tf=  1.5000E-03
      nsteps=     1
      swp_typ=  0
-     cor_swp=  0
+     multiswp=  1
      angcpy=  1
      it_det=  0
      soloutp=  0
@@ -72,14 +51,14 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
   Geometry
     ndimen = 3
     nx =  1024
-    ny =    22
-    nz =     8
+    ny =    88
+    nz =   128
     lx =  1.0000E+00
     ly =  1.0000E+00
     lz =  1.0000E+00
     dx =  9.7656E-04
-    dy =  4.5455E-02
-    dz =  1.2500E-01
+    dy =  1.1364E-02
+    dz =  7.8125E-03
 
   Sn
     nmom = 2
@@ -235,7 +214,7 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
     Source strength per cell (where applied) = 1.0
     Source map:
         Starting cell: (     1,     1,     1 )
-        Ending cell:   (  1024,    22,     8 )
+        Ending cell:   (  1024,    88,   128 )
 
   Pseudo Cross Sections Data
     ng =  32
@@ -320,6 +299,8 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
     oitm =    5
     timedep = 1
     swp_typ = 0
+    multiswp = 1
+    angcpy = 1
     it_det = 0
     soloutp = 0
     kplane =    0
@@ -329,9 +310,9 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
 
 
   Parallelization Parameters
-    npey =    11
-    npez =     4
-    nthreads =    1
+    npey =     8
+    npez =     8
+    nthreads =   22
 
           Thread Support Level
            0 - MPI_THREAD_SINGLE
@@ -343,7 +324,7 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
     .FALSE. nested threading
       nnested =    1
 
-    Parallel Computational Efficiency = 0.9982
+    Parallel Computational Efficiency = 0.7188
 
 ********************************************************************************
 
@@ -353,49 +334,49 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
  ******************************
   Time Cycle   1
   Outer
-    1    Dfmxo= 2.5572E-02    No. Inners=   97
-    2    Dfmxo= 1.1190E-02    No. Inners=   65
-    3    Dfmxo= 6.4701E-05    No. Inners=   58
-    4    Dfmxo= 2.7790E-07    No. Inners=   32
+    1    Dfmxo= 2.3523E-02    No. Inners=   97
+    2    Dfmxo= 1.0626E-02    No. Inners=   65
+    3    Dfmxo= 5.9318E-05    No. Inners=   56
+    4    Dfmxo= 2.4928E-07    No. Inners=   32
 
-  Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  252
+  Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  250
   Particle spectrum, cycle (time)   2 (  7.5000E-04 )
-           1 7.117275E-04
-           2 7.114432E-04
-           3 7.123909E-04
-           4 7.134895E-04
-           5 7.146719E-04
-           6 7.159113E-04
-           7 7.171945E-04
-           8 7.185140E-04
-           9 7.198652E-04
-          10 7.212449E-04
-          11 7.226512E-04
-          12 7.240824E-04
-          13 7.255373E-04
-          14 7.270151E-04
-          15 7.285150E-04
-          16 7.300362E-04
-          17 7.315781E-04
-          18 7.331400E-04
-          19 7.347212E-04
-          20 7.363209E-04
-          21 7.379380E-04
-          22 7.395717E-04
-          23 7.412207E-04
-          24 7.428835E-04
-          25 7.445587E-04
-          26 7.462446E-04
-          27 7.479396E-04
-          28 7.496429E-04
-          29 7.513547E-04
-          30 7.530791E-04
-          31 7.548297E-04
-          32 7.569262E-04
+           1 7.113444E-04
+           2 7.110393E-04
+           3 7.119647E-04
+           4 7.130395E-04
+           5 7.141968E-04
+           6 7.154098E-04
+           7 7.166653E-04
+           8 7.179556E-04
+           9 7.192762E-04
+          10 7.206241E-04
+          11 7.219973E-04
+          12 7.233942E-04
+          13 7.248140E-04
+          14 7.262558E-04
+          15 7.277192E-04
+          16 7.292039E-04
+          17 7.307095E-04
+          18 7.322361E-04
+          19 7.337836E-04
+          20 7.353520E-04
+          21 7.369416E-04
+          22 7.385525E-04
+          23 7.401853E-04
+          24 7.418404E-04
+          25 7.435187E-04
+          26 7.452211E-04
+          27 7.469494E-04
+          28 7.487060E-04
+          29 7.504955E-04
+          30 7.523265E-04
+          31 7.542210E-04
+          32 7.565257E-04
  
 
  ******************************
-  Total inners for all time steps, outers =    252
+  Total inners for all time steps, outers =    250
 
 ********************************************************************************
 
@@ -404,20 +385,24 @@ Application 1671340 resources: utime ~665s, stime ~45s, Rss ~1293796, inblocks ~
 
   Code Section                          Time (seconds)
  **************                        ****************
-    Parallel Setup                       1.8148E-03
-    Input                                6.3227E-02
-    Setup                                2.6209E-03
-    Solve                                1.5653E+01
-       Parameter Setup                   8.1863E-01
-       Outer Source                      2.8002E-01
-       Inner Iterations                  1.4545E+01
-          Inner Source                   4.7950E-02
-          Transport Sweeps               1.4475E+01
-          Inner Misc Ops                 2.2792E-02
-       Solution Misc Ops                 8.6088E-03
-    Output                               1.9073E-06
-  Total Execution time                   1.6075E+01
+    Parallel Setup                       3.6139E-03
+    Input                                6.0840E-03
+    Setup                                3.7156E-02
+    Solve                                7.3585E+01
+       Parameter Setup                   3.2963E+01
+       Outer Source                      9.0337E-01
+       Inner Iterations                  3.9644E+01
+          Inner Source                   1.1295E-01
+          Transport Sweeps               3.9425E+01
+          Inner Misc Ops                 1.0651E-01
+       Solution Misc Ops                 7.4086E-02
+    Output                               4.3154E-05
+  Total Execution time                   7.8525E+01
 
-  Grind Time (nanoseconds)         3.1677E-01
+  Grind Time (nanoseconds)         2.3455E-02
+
+********************************************************************************
+
+Allocated words (double precision) per rank                     -1382980614
 
 ********************************************************************************
