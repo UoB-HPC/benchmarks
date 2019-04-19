@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+# Problem is (XDim * <cores per socket / 2> * 16) per socket
+NY=$[32 * YSCALE] \
+NZ=$[16 * ZSCALE] \
+NPEY=$[2 * YSCALE] \
+NPEZ=$[1 * ZSCALE] \
+NTHREADS=32 \
+ICHUNK=16 \
+envsubst <"$BENCHMARK_TEMPLATE" >snap.in
+
+export OMP_NUM_THREADS=32
+export OMP_WAIT_POLICY=active
+aprun -n $[2 * YSCALE * ZSCALE] -N 2 -S 1 -d 32 -j 1 -cc depth "$CFG_DIR/$BENCHMARK_EXE" snap.in snap.out

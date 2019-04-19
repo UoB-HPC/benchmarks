@@ -4,7 +4,6 @@ set -u
 
 function setup_env()
 {
-  module load craype-x86-skylake
   PRGENV=`module -t list 2>&1 | grep PrgEnv`
   case "$COMPILER" in
       cce-8.7)
@@ -17,13 +16,13 @@ function setup_env()
           module swap $PRGENV PrgEnv-gnu
           module swap gcc gcc/8.2.0
           export BENCHMARK_EXE=gsnap
-          MAKE_OPTS='TARGET=gsnap FORTRAN=ftn FFLAGS="-Ofast -march=skylake-avx512 -fopenmp"'
+          MAKE_OPTS='TARGET=gsnap FORTRAN=ftn FFLAGS="-Ofast -mcpu=native -fopenmp"'
           ;;
-      intel-2019)
-          module swap $PRGENV PrgEnv-intel
-          module swap intel intel/19.0.0.117
-          export BENCHMARK_EXE=isnap
-          MAKE_OPTS='TARGET=isnap FORTRAN=ftn FFLAGS="-O3 -qopenmp -ip -align array32byte -qno-opt-dynamic-align -fno-fnalias -fp-model fast -fp-speculation fast -xCORE-AVX512"'
+      arm-19.0)
+          module swap $PRGENV PrgEnv-allinea
+          module swap allinea allinea/19.0.0.1
+          export BENCHMARK_EXE=gsnap
+          MAKE_OPTS='TARGET=gsnap FORTRAN=ftn FFLAGS="-Ofast -mcpu=native -fopenmp"'
           ;;
       *)
           echo
@@ -35,11 +34,11 @@ function setup_env()
 }
 
 SCRIPT="`realpath $0`"
-export ARCH="skl"
+export ARCH="tx2"
 export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
-export COMPILERS="cce-8.7 gcc-8.2 intel-2019"
-export DEFAULT_COMPILER=intel-2019
-export PBS_RESOURCES=":ncpus=40:nodetype=SK40"
+export COMPILERS="cce-8.7 gcc-8.2 arm-19.0"
+export DEFAULT_COMPILER=cce-8.7
+export PBS_RESOURCES=":ncpus=64"
 export -f setup_env
 
 "$PLATFORM_DIR/../common.sh" "$@"

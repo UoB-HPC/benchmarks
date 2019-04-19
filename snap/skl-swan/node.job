@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -q sk56-lg
+#PBS -l select=1
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+NY=16 \
+NZ=14 \
+NPEY=8 \
+NPEZ=7 \
+NTHREADS=1 \
+ICHUNK=16 \
+envsubst <"$BENCHMARK_TEMPLATE" >snap.in
+
+export OMP_NUM_THREADS=1
+aprun -n 56 -d 1 -j 1 "$CFG_DIR/$BENCHMARK_EXE" snap.in snap.out

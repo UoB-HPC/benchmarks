@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l select=1
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+NY=16 \
+NZ=16 \
+NPEY=8 \
+NPEZ=8 \
+NTHREADS=4 \
+ICHUNK=16 \
+envsubst <"$BENCHMARK_TEMPLATE" >snap.in
+
+export OMP_NUM_THREADS=4
+export OMP_WAIT_POLICY=active
+aprun -n 64 -d 4 -j 4 -cc depth "$CFG_DIR/$BENCHMARK_EXE" snap.in snap.out
