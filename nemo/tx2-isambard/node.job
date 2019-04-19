@@ -18,7 +18,7 @@ export FORT_FMT_RECL=132
 export OMP_NUM_THREADS=1
 
 rm -f "$PBS_O_WORKDIR/timing.output"
-if aprun -n 128 -d 1 -j 2 ./nemo
+if aprun -n 64 -d 1 -j 1 ./nemo
 then
     cp timing.output "$PBS_O_WORKDIR/timing.output"
 fi
