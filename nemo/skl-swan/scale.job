@@ -16,8 +16,10 @@ rm -f mesh_mask_*.nc
 export FORT_FMT_RECL=132
 export OMP_NUM_THREADS=1
 
-aprun -n $[NODES * 56] -N 56 -d 1 -j 1 ./nemo
-
-cp timing.output "$PBS_O_WORKDIR/timing.output"
+rm -f "$PBS_O_WORKDIR/timing.output"
+if aprun -n $[NODES * 56] -N 56 -d 1 -j 1 ./nemo
+then
+    cp timing.output "$PBS_O_WORKDIR/timing.output"
+fi
 
 rm -f *.nc
