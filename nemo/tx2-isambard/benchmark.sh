@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: GCC + Arm
+
 function setup_env()
 {
   PRGENV=`module -t list 2>&1 | grep PrgEnv`
@@ -28,11 +30,11 @@ function setup_env()
 }
 
 SCRIPT="`realpath $0`"
-export ARCH="bdw"
+export ARCH="tx2"
 export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
 export COMPILERS="cce-8.7"
 export DEFAULT_COMPILER=cce-8.7
-export PBS_RESOURCES=":ncpus=44"
+export PBS_RESOURCES=":ncpus=64"
 export -f setup_env
 
 "$PLATFORM_DIR/../common.sh" "$@"
