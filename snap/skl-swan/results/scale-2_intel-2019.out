@@ -9,15 +9,15 @@
 ********************************************************************************
 
   NML=invar
-     npey=     4
-     npez=     4
+     npey=     2
+     npez=     2
      ichunk=    16
-     nthreads=    22
+     nthreads=    28
      nnested=   1
      ndimen=  3
      nx=  1024
-     ny=    48
-     nz=    48
+     ny=    24
+     nz=    24
      lx=  1.0000E+00
      ly=  1.0000E+00
      lz=  1.0000E+00
@@ -51,14 +51,14 @@
   Geometry
     ndimen = 3
     nx =  1024
-    ny =    48
-    nz =    48
+    ny =    24
+    nz =    24
     lx =  1.0000E+00
     ly =  1.0000E+00
     lz =  1.0000E+00
     dx =  9.7656E-04
-    dy =  2.0833E-02
-    dz =  2.0833E-02
+    dy =  4.1667E-02
+    dz =  4.1667E-02
 
   Sn
     nmom = 2
@@ -214,7 +214,7 @@
     Source strength per cell (where applied) = 1.0
     Source map:
         Starting cell: (     1,     1,     1 )
-        Ending cell:   (  1024,    48,    48 )
+        Ending cell:   (  1024,    24,    24 )
 
   Pseudo Cross Sections Data
     ng =  32
@@ -310,9 +310,9 @@
 
 
   Parallelization Parameters
-    npey =     4
-    npez =     4
-    nthreads =   22
+    npey =     2
+    npez =     2
+    nthreads =   28
 
           Thread Support Level
            0 - MPI_THREAD_SINGLE
@@ -324,7 +324,7 @@
     .FALSE. nested threading
       nnested =    1
 
-    Parallel Computational Efficiency = 0.7244
+    Parallel Computational Efficiency = 0.5714
 
 ********************************************************************************
 
@@ -334,49 +334,49 @@
  ******************************
   Time Cycle   1
   Outer
-    1    Dfmxo= 2.3559E-02    No. Inners=   97
-    2    Dfmxo= 1.1017E-02    No. Inners=   65
-    3    Dfmxo= 5.9593E-05    No. Inners=   56
-    4    Dfmxo= 2.5036E-07    No. Inners=   32
+    1    Dfmxo= 2.5409E-02    No. Inners=   97
+    2    Dfmxo= 1.1435E-02    No. Inners=   65
+    3    Dfmxo= 6.5669E-05    No. Inners=   57
+    4    Dfmxo= 2.7618E-07    No. Inners=   32
 
-  Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  250
+  Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  251
   Particle spectrum, cycle (time)   2 (  7.5000E-04 )
-           1 7.113448E-04
-           2 7.110397E-04
-           3 7.119650E-04
-           4 7.130399E-04
-           5 7.141973E-04
-           6 7.154103E-04
-           7 7.166657E-04
-           8 7.179560E-04
-           9 7.192767E-04
-          10 7.206246E-04
-          11 7.219978E-04
-          12 7.233948E-04
-          13 7.248145E-04
-          14 7.262564E-04
-          15 7.277199E-04
-          16 7.292045E-04
-          17 7.307102E-04
-          18 7.322368E-04
-          19 7.337843E-04
-          20 7.353528E-04
-          21 7.369425E-04
-          22 7.385535E-04
-          23 7.401864E-04
-          24 7.418417E-04
-          25 7.435201E-04
-          26 7.452227E-04
-          27 7.469513E-04
-          28 7.487084E-04
-          29 7.504986E-04
-          30 7.523309E-04
-          31 7.542283E-04
-          32 7.565448E-04
+           1 7.113506E-04
+           2 7.110457E-04
+           3 7.119713E-04
+           4 7.130464E-04
+           5 7.142040E-04
+           6 7.154173E-04
+           7 7.166730E-04
+           8 7.179637E-04
+           9 7.192847E-04
+          10 7.206330E-04
+          11 7.220066E-04
+          12 7.234041E-04
+          13 7.248244E-04
+          14 7.262669E-04
+          15 7.277310E-04
+          16 7.292164E-04
+          17 7.307230E-04
+          18 7.322506E-04
+          19 7.337993E-04
+          20 7.353691E-04
+          21 7.369604E-04
+          22 7.385734E-04
+          23 7.402088E-04
+          24 7.418672E-04
+          25 7.435497E-04
+          26 7.452581E-04
+          27 7.469949E-04
+          28 7.487647E-04
+          29 7.505756E-04
+          30 7.524419E-04
+          31 7.543896E-04
+          32 7.567363E-04
  
 
  ******************************
-  Total inners for all time steps, outers =    250
+  Total inners for all time steps, outers =    251
 
 ********************************************************************************
 
@@ -385,21 +385,21 @@
 
   Code Section                          Time (seconds)
  **************                        ****************
-    Parallel Setup                       3.1869E-03
-    Input                                2.9425E-02
-    Setup                                2.9260E-02
-    Solve                                5.9404E+01
-       Parameter Setup                   2.6879E+01
-       Outer Source                      7.3757E-01
-       Inner Iterations                  3.1730E+01
-          Inner Source                   9.3549E-02
-          Transport Sweeps               3.1546E+01
-          Inner Misc Ops                 9.0511E-02
-       Solution Misc Ops                 5.7572E-02
-    Output                               1.5974E-05
-  Total Execution time                   6.3431E+01
+    Parallel Setup                       3.6640E-03
+    Input                                3.2369E-02
+    Setup                                2.1449E-02
+    Solve                                4.4966E+01
+       Parameter Setup                   2.0745E+01
+       Outer Source                      7.6181E-01
+       Inner Iterations                  2.3414E+01
+          Inner Source                   7.2083E-02
+          Transport Sweeps               2.3263E+01
+          Inner Misc Ops                 7.9053E-02
+       Solution Misc Ops                 4.4807E-02
+    Output                               1.1921E-05
+  Total Execution time                   4.6409E+01
 
-  Grind Time (nanoseconds)         9.2569E-02
+  Grind Time (nanoseconds)         2.7917E-01
 
 ********************************************************************************
 

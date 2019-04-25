@@ -1,7 +1,7 @@
  SNAP: SN (Discrete Ordinates) Application Proxy
  Version Number..  1.09 
  Version Date..  04-18-2019
- Ran on  4-19-2019 at time 11: 2:41
+ Ran on  4-25-2019 at time  6:40:33
 
 ********************************************************************************
 
@@ -16,8 +16,8 @@
      nnested=   1
      ndimen=  3
      nx=  1024
-     ny=    22
-     nz=    32
+     ny=    24
+     nz=    24
      lx=  1.0000E+00
      ly=  1.0000E+00
      lz=  1.0000E+00
@@ -51,14 +51,14 @@
   Geometry
     ndimen = 3
     nx =  1024
-    ny =    22
-    nz =    32
+    ny =    24
+    nz =    24
     lx =  1.0000E+00
     ly =  1.0000E+00
     lz =  1.0000E+00
     dx =  9.7656E-04
-    dy =  4.5455E-02
-    dz =  3.1250E-02
+    dy =  4.1667E-02
+    dz =  4.1667E-02
 
   Sn
     nmom = 2
@@ -214,7 +214,7 @@
     Source strength per cell (where applied) = 1.0
     Source map:
         Starting cell: (     1,     1,     1 )
-        Ending cell:   (  1024,    22,    32 )
+        Ending cell:   (  1024,    24,    24 )
 
   Pseudo Cross Sections Data
     ng =  32
@@ -334,45 +334,45 @@
  ******************************
   Time Cycle   1
   Outer
-    1    Dfmxo= 2.4956E-02    No. Inners=   97
-    2    Dfmxo= 1.1378E-02    No. Inners=   65
-    3    Dfmxo= 6.4757E-05    No. Inners=   57
-    4    Dfmxo= 2.6952E-07    No. Inners=   32
+    1    Dfmxo= 2.5409E-02    No. Inners=   97
+    2    Dfmxo= 1.1435E-02    No. Inners=   65
+    3    Dfmxo= 6.5669E-05    No. Inners=   57
+    4    Dfmxo= 2.7618E-07    No. Inners=   32
 
   Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  251
   Particle spectrum, cycle (time)   2 (  7.5000E-04 )
-           1 7.113528E-04
-           2 7.110480E-04
-           3 7.119736E-04
-           4 7.130488E-04
-           5 7.142064E-04
-           6 7.154197E-04
-           7 7.166755E-04
-           8 7.179663E-04
-           9 7.192874E-04
-          10 7.206358E-04
-          11 7.220094E-04
-          12 7.234070E-04
-          13 7.248274E-04
-          14 7.262700E-04
-          15 7.277342E-04
-          16 7.292197E-04
-          17 7.307264E-04
-          18 7.322541E-04
-          19 7.338029E-04
-          20 7.353728E-04
-          21 7.369642E-04
-          22 7.385773E-04
-          23 7.402127E-04
-          24 7.418709E-04
-          25 7.435531E-04
-          26 7.452607E-04
-          27 7.469959E-04
-          28 7.487623E-04
-          29 7.505661E-04
-          30 7.524195E-04
-          31 7.543491E-04
-          32 7.566930E-04
+           1 7.113506E-04
+           2 7.110457E-04
+           3 7.119713E-04
+           4 7.130464E-04
+           5 7.142040E-04
+           6 7.154173E-04
+           7 7.166730E-04
+           8 7.179637E-04
+           9 7.192847E-04
+          10 7.206330E-04
+          11 7.220066E-04
+          12 7.234041E-04
+          13 7.248244E-04
+          14 7.262669E-04
+          15 7.277310E-04
+          16 7.292164E-04
+          17 7.307230E-04
+          18 7.322506E-04
+          19 7.337993E-04
+          20 7.353691E-04
+          21 7.369604E-04
+          22 7.385734E-04
+          23 7.402088E-04
+          24 7.418672E-04
+          25 7.435497E-04
+          26 7.452581E-04
+          27 7.469949E-04
+          28 7.487647E-04
+          29 7.505756E-04
+          30 7.524419E-04
+          31 7.543896E-04
+          32 7.567363E-04
  
 
  ******************************
@@ -385,24 +385,24 @@
 
   Code Section                          Time (seconds)
  **************                        ****************
-    Parallel Setup                       2.7339E-03
-    Input                                4.7757E-02
-    Setup                                3.8299E-02
-    Solve                                7.0200E+01
-       Parameter Setup                   3.2968E+01
-       Outer Source                      9.0262E-01
-       Inner Iterations                  3.6256E+01
-          Inner Source                   1.1344E-01
-          Transport Sweeps               3.6005E+01
-          Inner Misc Ops                 1.3741E-01
-       Solution Misc Ops                 7.3821E-02
-    Output                               2.1935E-05
-  Total Execution time                   7.5144E+01
+    Parallel Setup                       2.8358E-03
+    Input                                3.8357E-02
+    Setup                                2.8223E-02
+    Solve                                5.7168E+01
+       Parameter Setup                   2.6780E+01
+       Outer Source                      7.3954E-01
+       Inner Iterations                  2.9591E+01
+          Inner Source                   9.3181E-02
+          Transport Sweeps               2.9397E+01
+          Inner Misc Ops                 1.0039E-01
+       Solution Misc Ops                 5.7629E-02
+    Output                               1.3113E-05
+  Total Execution time                   6.1225E+01
 
-  Grind Time (nanoseconds)         3.5659E-01
+  Grind Time (nanoseconds)         3.5492E-01
 
 ********************************************************************************
 
-Allocated words (double precision) per rank                     -1382980614
+Allocated words (double precision) per rank                      1602891770
 
 ********************************************************************************
