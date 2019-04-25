@@ -7,9 +7,9 @@ set -u
 
 cd "$PBS_O_WORKDIR"
 
-# Problem is (XDim * <cores per socket / 2> * 16) per socket
-NY=$[28 * YSCALE] \
-NZ=$[16 * ZSCALE] \
+# Problem is (1024 * 12 * 12) per socket
+NY=$[24 * YSCALE] \
+NZ=$[12 * ZSCALE] \
 NPEY=$[2 * YSCALE] \
 NPEZ=$[1 * ZSCALE] \
 NTHREADS=28 \
