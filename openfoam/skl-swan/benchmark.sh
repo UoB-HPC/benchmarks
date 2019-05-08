@@ -28,6 +28,16 @@ function setup_env()
 
             of_platform=linux64Icc
             ;;
+        intel-2019)
+            current_env=$( module li 2>&1 | grep PrgEnv | sed -r 's/[^-]*-([a-z]+).*/\1/')
+            module swap "PrgEnv-$current_env" PrgEnv-intel
+            module swap intel intel/19.0.3.199
+            module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
+            module load cray-fftw/3.3.8.2
+            module load craype-hugepages8M
+
+            of_platform=linux64Icc
+            ;;
         *)
             echo "Invalid compiler."
             usage

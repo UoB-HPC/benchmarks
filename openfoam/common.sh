@@ -108,10 +108,23 @@ if [ "$action" == "build" ]; then
 
     # Copy modified build files
     if [[ "$MPILIB" =~ mpich ]]; then
+        if [ -d "${script_dir}/build-parts/${PLATFORM}/" ]; then
+            echo "Copy system-specific build parts: $script_dir/build-parts/$PLATFORM ->  $INSTALL_DIR"
+            cp -r "${script_dir}/build-parts/${PLATFORM}/"* "$INSTALL_DIR"
+        fi
+
         case "$COMPILER" in
             gcc-*)
-                echo "Copy system-specific build parts: $script_dir/build-parts/$PLATFORM ->  $INSTALL_DIR"
-                cp -r "${script_dir}/build-parts/${PLATFORM}/"* "$INSTALL_DIR"
+                if [ -d "${script_dir}/build-parts/gcc/${PLATFORM}/" ]; then
+                    echo "Copy gcc-specific build parts: $script_dir/build-parts/gcc/$PLATFORM ->  $INSTALL_DIR"
+                    cp -r "${script_dir}/build-parts/gcc/${PLATFORM}/"* "$INSTALL_DIR"
+                fi
+                ;;
+            intel-*)
+                if [ -d "${script_dir}/build-parts/intel/${PLATFORM}/" ]; then
+                    echo "Copy gcc-specific build parts: $script_dir/build-parts/intel/$PLATFORM ->  $INSTALL_DIR"
+                    cp -r "${script_dir}/build-parts/intel/${PLATFORM}/"* "$INSTALL_DIR"
+                fi
                 ;;
         esac
     fi
@@ -155,6 +168,7 @@ if [ "$action" == "build" ]; then
             ;;
         intel-*)
             sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=Icc,' "$bashrc"
+            sed -i '/export WM_COMPILER=Icc/a export CRAYPE_LINK_TYPE=dynamic' "$bashrc"
             ;;
         *)
             echo "Invalid compiler '$COMPILER'. This is most likely a bug in the script."
@@ -179,7 +193,6 @@ EOF
     time ./Allwmake |& tee "build_${ARCH}_${COMPILER}_${MPILIB}.log"
 
     # Create a test case directory if the files are available (and the directory doesn't exist already)
-    # TODO: set up the scaling test case
     popd
     cd "$RUN_DIR"
     testdir="block_DrivAer_small-$ARCH"

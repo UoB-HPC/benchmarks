@@ -1,8 +1,7 @@
 #!/bin/bash
 
-#PBS -N OpenFOAM-skl
-#PBS -q skl28
-#PBS -l nodes=1
+#PBS -N OpenFOAM-bdw
+#PBS -l select=1:ncpus=44
 #PBS -l walltime=00:15:00
 #PBS -joe
 
@@ -12,10 +11,10 @@ set -o pipefail
 cd "$PBS_O_WORKDIR"
 
 set +e +u
-source "$PWD/OpenFOAM-v1712-BDW-$COMPILER-$MPILIB/OpenFOAM-v1712/etc/bashrc"
+source "${INSTALL_DIR}/OpenFOAM-v1712/etc/bashrc"
 set -eu
 
-testdir="run/block_DrivAer_small-${BENCHMARK_PLATFORM}"
+testdir="block_DrivAer_small-${ARCH}"
 numprocs=88
 
 if [ ! -d "$testdir" ]; then
@@ -31,11 +30,11 @@ cd "$testdir"
 sed -i 's/^numberOfSubdomains.*/numberOfSubdomains '"$numprocs"';/' system/decomposeParDict
 
 ts="$(date "+%Y-%m-%d_%H-%M")"
-runlog="simpleFoam_${BENCHMARK_PLATFORM}_${COMPILER}_${MPILIB}_$ts.log"
+runlog="simpleFoam_${ARCH}_${COMPILER}_${MPILIB}_$ts.log"
 
 procdirs=$(set +o pipefail && ls -d processor* 2>/dev/null | wc -l)
 if [ "$procdirs" -ne "$numprocs" ]; then
-    decomposePar |& tee "decomposePar_$ts.log"
+    aprun decomposePar |& tee "decomposePar_$ts.log"
 fi
 
 aprun -n "$numprocs" -d 1 -j 2 simpleFoam -parallel |& tee "$runlog"
