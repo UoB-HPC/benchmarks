@@ -1,7 +1,7 @@
  SNAP: SN (Discrete Ordinates) Application Proxy
- Version Number..  1.07 
- Version Date..  04-19-2016
- Ran on  8-24-2018 at time 16:44: 2
+ Version Number..  1.09 
+ Version Date..  04-18-2019
+ Ran on  4-26-2019 at time 15:38:25
 
 ********************************************************************************
 
@@ -9,15 +9,15 @@
 ********************************************************************************
 
   NML=invar
-     npey=     8
-     npez=     5
+     npey=     2
+     npez=     2
      ichunk=    16
-     nthreads=     1
+     nthreads=    20
      nnested=   1
      ndimen=  3
      nx=  1024
-     ny=    16
-     nz=    10
+     ny=    24
+     nz=    24
      lx=  1.0000E+00
      ly=  1.0000E+00
      lz=  1.0000E+00
@@ -34,7 +34,7 @@
      tf=  1.5000E-03
      nsteps=     1
      swp_typ=  0
-     cor_swp=  0
+     multiswp=  1
      angcpy=  1
      it_det=  0
      soloutp=  0
@@ -51,14 +51,14 @@
   Geometry
     ndimen = 3
     nx =  1024
-    ny =    16
-    nz =    10
+    ny =    24
+    nz =    24
     lx =  1.0000E+00
     ly =  1.0000E+00
     lz =  1.0000E+00
     dx =  9.7656E-04
-    dy =  6.2500E-02
-    dz =  1.0000E-01
+    dy =  4.1667E-02
+    dz =  4.1667E-02
 
   Sn
     nmom = 2
@@ -214,7 +214,7 @@
     Source strength per cell (where applied) = 1.0
     Source map:
         Starting cell: (     1,     1,     1 )
-        Ending cell:   (  1024,    16,    10 )
+        Ending cell:   (  1024,    24,    24 )
 
   Pseudo Cross Sections Data
     ng =  32
@@ -299,6 +299,8 @@
     oitm =    5
     timedep = 1
     swp_typ = 0
+    multiswp = 1
+    angcpy = 1
     it_det = 0
     soloutp = 0
     kplane =    0
@@ -308,9 +310,9 @@
 
 
   Parallelization Parameters
-    npey =     8
-    npez =     5
-    nthreads =    1
+    npey =     2
+    npez =     2
+    nthreads =   20
 
           Thread Support Level
            0 - MPI_THREAD_SINGLE
@@ -322,7 +324,7 @@
     .FALSE. nested threading
       nnested =    1
 
-    Parallel Computational Efficiency = 0.9984
+    Parallel Computational Efficiency = 0.8000
 
 ********************************************************************************
 
@@ -332,45 +334,45 @@
  ******************************
   Time Cycle   1
   Outer
-    1    Dfmxo= 2.6028E-02    No. Inners=   97
-    2    Dfmxo= 1.1268E-02    No. Inners=   65
-    3    Dfmxo= 6.5730E-05    No. Inners=   57
-    4    Dfmxo= 2.8468E-07    No. Inners=   32
+    1    Dfmxo= 2.5409E-02    No. Inners=   97
+    2    Dfmxo= 1.1435E-02    No. Inners=   65
+    3    Dfmxo= 6.5669E-05    No. Inners=   57
+    4    Dfmxo= 2.7618E-07    No. Inners=   32
 
   Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  251
   Particle spectrum, cycle (time)   2 (  7.5000E-04 )
-           1 7.114721E-04
-           2 7.111749E-04
-           3 7.121089E-04
-           4 7.131934E-04
-           5 7.143612E-04
-           6 7.155858E-04
-           7 7.168540E-04
-           8 7.181584E-04
-           9 7.194945E-04
-          10 7.208595E-04
-          11 7.222514E-04
-          12 7.236690E-04
-          13 7.251115E-04
-          14 7.265781E-04
-          15 7.280687E-04
-          16 7.295829E-04
-          17 7.311207E-04
-          18 7.326819E-04
-          19 7.342666E-04
-          20 7.358745E-04
-          21 7.375057E-04
-          22 7.391599E-04
-          23 7.408366E-04
-          24 7.425352E-04
-          25 7.442548E-04
-          26 7.459940E-04
-          27 7.477508E-04
-          28 7.495223E-04
-          29 7.513043E-04
-          30 7.530912E-04
-          31 7.548786E-04
-          32 7.569636E-04
+           1 7.113506E-04
+           2 7.110457E-04
+           3 7.119713E-04
+           4 7.130464E-04
+           5 7.142040E-04
+           6 7.154173E-04
+           7 7.166730E-04
+           8 7.179637E-04
+           9 7.192847E-04
+          10 7.206330E-04
+          11 7.220066E-04
+          12 7.234041E-04
+          13 7.248244E-04
+          14 7.262669E-04
+          15 7.277310E-04
+          16 7.292164E-04
+          17 7.307230E-04
+          18 7.322506E-04
+          19 7.337993E-04
+          20 7.353691E-04
+          21 7.369604E-04
+          22 7.385734E-04
+          23 7.402088E-04
+          24 7.418672E-04
+          25 7.435497E-04
+          26 7.452581E-04
+          27 7.469949E-04
+          28 7.487647E-04
+          29 7.505756E-04
+          30 7.524419E-04
+          31 7.543896E-04
+          32 7.567363E-04
  
 
  ******************************
@@ -383,20 +385,24 @@
 
   Code Section                          Time (seconds)
  **************                        ****************
-    Parallel Setup                       1.9388E-03
-    Input                                5.0254E-02
-    Setup                                3.5582E-03
-    Solve                                1.2138E+01
-       Parameter Setup                   8.1848E-01
-       Outer Source                      2.5914E-01
-       Inner Iterations                  1.1054E+01
-          Inner Source                   3.0575E-02
-          Transport Sweeps               1.1009E+01
-          Inner Misc Ops                 1.4047E-02
-       Solution Misc Ops                 6.9001E-03
-    Output                               3.0994E-06
-  Total Execution time                   1.2455E+01
+    Parallel Setup                       3.1187E-02
+    Input                                2.2171E-03
+    Setup                                2.2866E-02
+    Solve                                4.5550E+01
+       Parameter Setup                   2.0885E+01
+       Outer Source                      7.1563E-01
+       Inner Iterations                  2.3904E+01
+          Inner Source                   6.5603E-02
+          Transport Sweeps               2.3753E+01
+          Inner Misc Ops                 8.5858E-02
+       Solution Misc Ops                 4.5768E-02
+    Output                               1.4067E-05
+  Total Execution time                   4.7079E+01
 
-  Grind Time (nanoseconds)         2.7129E-01
+  Grind Time (nanoseconds)         2.8279E-01
+
+********************************************************************************
+
+Allocated words (double precision) per rank                      1602891770
 
 ********************************************************************************
