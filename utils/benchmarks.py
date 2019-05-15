@@ -1,4 +1,5 @@
 import os
+from collections import namedtuple
 
 class stream:
     name = 'stream'
@@ -156,11 +157,11 @@ def get_last_line(lines, pattern):
 
 # Compares two benchmark results, returns -1 if a is better than b, otherwise 1.
 def compare_results(benchmark, a, b):
-    if not b or not b[1]:
+    if not b or not b.result:
         return -1
-    if not a or not a[1]:
+    if not a or not a.result:
         return 1
-    if a[1] > b[1] if benchmark.higher_better else a[1] < b[1]:
+    if a.result > b.result if benchmark.higher_better else a.result < b.result:
         return -1
     else:
         return 1
@@ -172,6 +173,7 @@ def get_best(benchmark, results):
 
 # Gather all available benchmark results for each platform in `platforms`.
 def gather_results(platforms):
+    Result = namedtuple('Result', ['jobsize', 'config', 'result'])
     results = dict()
     for benchmark in benchmarks:
         results[benchmark.name] = dict()
@@ -188,10 +190,22 @@ def gather_results(platforms):
             # Loop over result files and attempt to extract results.
             for file in files:
                 path = result_dir + '/' + file
-                config = file[:-4] if file[-4:] == '.out' else file
-                result = (config,None)
+
+                # Extract jobsize
+                underscore = file.find('_')
+                if underscore < 0:
+                    continue
+                jobsize = file[0:underscore]
+                if not (jobsize.startswith('scale-') or jobsize == 'node'):
+                    continue
+
+                # Extract config
+                config = file[underscore+1:-4]
+                config = config[:-4] if config[-4:] == '.out' else config
+
+                result = Result(jobsize,config,None)
                 try:
-                    result = (config,benchmark.get_runtime(path))
+                    result = Result(jobsize,config,benchmark.get_runtime(path))
                 except:
                     pass
                 results[benchmark.name][platform].append(result)

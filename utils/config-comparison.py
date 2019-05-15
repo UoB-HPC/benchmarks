@@ -1,6 +1,9 @@
 import sys
 from benchmarks import *
 
+print 'ERROR: script needs to be updated for new results format'
+exit(1)
+
 if len(sys.argv) != 3:
     print 'Usage: python config-comparison.py BENCHMARK PLATFORM'
     exit(1)
