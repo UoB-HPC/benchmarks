@@ -128,9 +128,10 @@ def gen_efficiencies(input):
     base = input[0] / nodecounts[0]
     for i in range(len(nodecounts)):
         if benchmark.higher_better:
-            output.append(100.0 * (input[i] / base / nodecounts[i]))
+            speedup = input[i] / input[0]
         else:
-            output.append(100.0 * (base / input[i] / nodecounts[i]))
+            speedup = input[0] / input[i]
+        output.append(100.0 * (speedup / (nodecounts[i] / nodecounts[0])))
     return output
 
 # Generate normalised results and scaling efficiencies
