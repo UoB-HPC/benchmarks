@@ -164,7 +164,7 @@ ax.yaxis.grid(zorder=0)
 ax.tick_params(labelright=True)
 ax.set_ylim([0, args.ymax])
 
-# Add axis a graph titles
+# Add axis and graph titles
 ax.set(xlabel='Nodes')
 if args.efficiency:
     ax.set(ylabel='Scaling efficiency (%)')
