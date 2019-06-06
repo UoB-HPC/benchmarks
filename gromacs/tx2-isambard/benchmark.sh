@@ -38,7 +38,7 @@ function setup_env()
               exit 1
           fi
           ARMPL_DIR=/opt/allinea/19.0.0/opt/arm/armpl-19.0.0_ThunderX2CN99_SUSE-12_${ARMPL_VARIANT}_aarch64-linux
-          CMAKE_OPTS="$CMAKE_OPTS -DFFTWF_LIBRARY=${ARMPL_DIR}/lib/libarmpl.so"
+          CMAKE_OPTS="$CMAKE_OPTS -DFFTWF_LIBRARY=${ARMPL_DIR}/lib/libarmpl.a"
           CMAKE_OPTS="$CMAKE_OPTS -DFFTWF_INCLUDE_DIR=${ARMPL_DIR}/include"
           ;;
       cray-fftw-3.3.8)
@@ -58,6 +58,7 @@ SCRIPT="`realpath $0`"
 export ARCH="tx2"
 export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
 export COMPILERS="gcc-8.2 arm-19.0"
+export FFTLIBS="cray-fftw-3.3.8 armpl-19.0"
 export DEFAULT_COMPILER=gcc-8.2
 export DEFAULT_FFTLIB=cray-fftw-3.3.8
 export PBS_RESOURCES=":ncpus=64"
