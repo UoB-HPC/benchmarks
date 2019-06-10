@@ -237,6 +237,13 @@ elif [ "$action" == "run" ]; then
         exit 1
     fi
 
+    # Some systems use `sh` for job scripts and don't like exported functions
+    case "$SYSTEM" in
+        catalyst)
+            unset -f setup_env
+            ;;
+    esac
+
     # Submit job
     cd "$RUN_DIR"
     qsub -l select="${NODES}${PBS_RESOURCES:-}" \
