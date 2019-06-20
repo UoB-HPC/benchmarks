@@ -152,6 +152,9 @@ if [ "$action" == "build" ]; then
         openmpi-1.10.4)
             sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=OPENMPI,' "$bashrc"
             ;;
+        openmpi-*)
+            # No change needed
+            ;;
         *)
             echo "Invalid MPI library '$MPILIB'. This is most likely a bug in the script."
             exit 1

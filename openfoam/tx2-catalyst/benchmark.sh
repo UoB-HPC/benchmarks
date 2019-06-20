@@ -37,6 +37,9 @@ function setup_env()
         openmpi-1.10.4)
             # No action required
             ;;
+        openmpi-3.1)
+            module load hpcx-ompi
+            ;;
         *)
             echo
             echo "Invalid MPI library."
@@ -53,7 +56,7 @@ export SYSTEM=catalyst
 export PLATFORM="${ARCH}-${SYSTEM}"
 export COMPILERS="gcc-7.1"
 export DEFAULT_COMPILER=gcc-7.1
-export MPILIBS="hmpt-2.20 openmpi-1.10.4"
+export MPILIBS="hmpt-2.20 openmpi-1.10.4 openmpi-3.1"
 export DEFAULT_MPILIB=hmpt-2.20
 export -f setup_env
 
