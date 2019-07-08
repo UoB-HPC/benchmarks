@@ -35,9 +35,9 @@ case "$MODEL" in
     fi
     ;;
   kokkos)
-    if [ ! -e CloverLeaf/src/kokkosdefs.h ]
+    if [ ! -e cloverleaf_kokkos/clover_leaf.cpp ]
     then
-      git clone https://github.com/UoB-HPC/CloverLeaf -b kokkos-update
+      git clone https://github.com/UoB-HPC/cloverleaf_kokkos
     fi
     ;;
   cuda)

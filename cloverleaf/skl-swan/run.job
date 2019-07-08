@@ -1,8 +1,10 @@
 #!/bin/bash
-#PBS -q skl28
-#PBS -l nodes=1
+#PBS -q sk56
+#PBS -l select=1
 #PBS -l walltime=00:15:00
 #PBS -joe
+
+cd $RUN_DIR
 
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 
@@ -17,6 +19,10 @@ case "$MODEL" in
         ;;
     acc)
         export ACC_NUM_CORES=56
+        aprun -n 1 -d 56 -j 1 -cc depth ./$BENCHMARK_EXE
+        ;;
+    kokkos)
+        export OMP_NUM_THREADS=56
         aprun -n 1 -d 56 -j 1 -cc depth ./$BENCHMARK_EXE
         ;;
     *)

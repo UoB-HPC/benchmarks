@@ -37,7 +37,7 @@ SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 export BENCHMARK_EXE=clover_leaf
-export CONFIG="skl"_"$COMPILER"
+export CONFIG="skl"_"$COMPILER"_"$MODEL"
 export SRC_DIR=$PWD/CloverLeaf_ref
 export RUN_DIR=$PWD/CloverLeaf-$CONFIG
 
@@ -90,10 +90,10 @@ case "$MODEL" in
         ;;
 
     kokkos)
-        module use /lus/scratch/p02555/modules/modulefiles
-        module load kokkos/skylake
-        MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=cpu MPI_CC_INTEL=CC KOKKOS_PATH=$KOKKOS_PATH'
-        export SRC_DIR=$PWD/CloverLeaf
+        module use /lus/snx11029/p02100/modules/modulefiles
+        module load kokkos/2.8.00/intel/skylake
+        MAKE_OPTS='CXX=CC'
+        export SRC_DIR=$PWD/cloverleaf_kokkos
         ;;
 
     acc)
@@ -144,11 +144,11 @@ then
         exit 1
     fi
 
-    qsub $SCRIPT_DIR/run.job \
-        -d $RUN_DIR \
+    qsub \
         -o CloverLeaf-$CONFIG.out \
         -N cloverleaf \
-        -V
+        -V \
+        $SCRIPT_DIR/run.job
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
