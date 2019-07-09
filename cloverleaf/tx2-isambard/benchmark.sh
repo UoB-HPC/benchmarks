@@ -80,6 +80,13 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
         ;;
+    arm-19.0)
+        module swap PrgEnv-cray PrgEnv-allinea
+        module swap allinea allinea/19.0.0.1
+        MAKE_OPTS='COMPILER=GNU MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -mcpu=thunderx2t99 -funroll-loops"'
+        ;;
     *)
         echo
         echo "Invalid compiler '$COMPILER'."
@@ -93,14 +100,9 @@ case "$MODEL" in
     export SRC_DIR=$PWD/CloverLeaf_ref
     ;;
   kokkos)
-    module load kokkos/2.8.0/gcc-8.2
-    export SRC_DIR=$PWD/CloverLeaf
-    mkdir -p $SRC_DIR/{obj,mpiobj}
-    case "$COMPILER" in
-      gcc-8.2)
-        MAKE_OPTS="COMPILER=GNU USE_KOKKOS=1 MPI_CC_GNU=CC"
-        ;;
-    esac
+    module load kokkos/2.8.0/$COMPILER
+    export SRC_DIR=$PWD/cloverleaf_kokkos
+    MAKE_OPTS="CXX=CC"
     ;;
 esac
 
