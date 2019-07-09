@@ -17,6 +17,7 @@ function usage
     echo "  mpi"
     echo "  omp"
     echo "  acc"
+    echo "  kokkos"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_MODEL'."
     echo
@@ -36,7 +37,7 @@ SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 export BENCHMARK_EXE=clover_leaf
-export CONFIG="power9"_"$COMPILER"
+export CONFIG="power9"_"$COMPILER"_"$MODEL"
 export SRC_DIR=$PWD/CloverLeaf_ref
 export RUN_DIR=$PWD/CloverLeaf-$CONFIG
 
@@ -71,6 +72,11 @@ case "$MODEL" in
   acc)
      export SRC_DIR="$PWD/CloverLeaf-OpenACC"
      MAKE_OPTS='COMPILER=PGI FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=multicore -tp=pwr9" CFLAGS_PGI="-O3 -ta=multicore -tp=pwr9" OMP_PGI=""'
+     ;;
+  kokkos)
+     export SRC_DIR="$PWD/cloverleaf_kokkos"
+     module load kokkos/power9/gcc-8.1
+     MAKE_OPTS=''
      ;;
 esac
 
