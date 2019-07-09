@@ -1,9 +1,10 @@
 #!/bin/bash
-#PBS -q knl64
-#PBS -l os=CLE_quad_flat
-#PBS -l nodes=1
+#PBS -q kl64
+#PBS -l select=1:aoe=quad_0
 #PBS -l walltime=00:15:00
 #PBS -joe
+
+cd $RUN_DIR
 
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 

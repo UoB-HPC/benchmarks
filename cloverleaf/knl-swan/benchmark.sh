@@ -78,12 +78,10 @@ case "$MODEL" in
         export BENCHMARK_EXE=clover_leaf
         ;;
     kokkos)
-        module use /lus/scratch/p02555/modules/modulefiles
-        module load kokkos/knl
-        export SRC_DIR=$PWD/CloverLeaf
-        export BENCHMARK_EXE=cloverleaf
-        mkdir -p $SRC_DIR/{obj,mpiobj}
-        MAKE_OPTS="COMPILER=INTEL USE_KOKKOS=1 MPI_CC_INTEL=CC EXTRA_PATH=-qopenmp"
+        module use /lus/snx11029/p02100/modules/modulefiles
+        module load kokkos/2.8.00/intel/knl
+        MAKE_OPTS='CXX=CC'
+        export SRC_DIR=$PWD/cloverleaf_kokkos
         ;;
     acc)
         MAKE_OPTS=$MAKE_OPTS' FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=multicore -tp=knl" CFLAGS_PGI="-O3 -ta=multicore -tp=knl" OMP_PGI=""'
@@ -136,11 +134,11 @@ then
         :
     fi
 
-    qsub $SCRIPT_DIR/run.job \
-        -d $RUN_DIR \
+    qsub \
         -o CloverLeaf-$CONFIG.out \
         -N "cloverleaf-$MODEL" \
-        -V
+        -V \
+        $SCRIPT_DIR/run.job
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
