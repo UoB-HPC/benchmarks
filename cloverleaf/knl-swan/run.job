@@ -1,13 +1,33 @@
 #!/bin/bash
 #PBS -q kl64
-#PBS -l select=1:aoe=quad_0
-#PBS -l walltime=00:15:00
+#PBS -l place=scatter,select=1:aoe=quad_0
+#PBS -l walltime=00:30:00
 #PBS -joe
 
 cd $RUN_DIR
 
 cp $SRC_DIR/InputDecks/clover_bm16.in clover.in
 
-export OMP_NUM_THREADS=64
-export ACC_NUM_CORES=64
-aprun -n 1 -d 64 -j 1 -cc depth numactl -m 1 "./$BENCHMARK_EXE"
+case "$MODEL" in
+    mpi)
+        export OMP_NUM_THREADS=1
+        aprun -n 64 -d 1 -j 1 numactl -m 1 ./$BENCHMARK_EXE
+        ;;
+    omp)
+        export OMP_NUM_THREADS=64
+        aprun -n 1 -d 64 -j 1 -cc depth numactl -m 1 ./$BENCHMARK_EXE
+        ;;
+    acc)
+        export ACC_NUM_CORES=64
+        aprun -n 1 -d 64 -j 1 -cc depth numactl -m 1 ./$BENCHMARK_EXE
+        ;;
+    kokkos)
+        export OMP_NUM_THREADS=64
+        aprun -n 1 -d 64 -j 1 -cc depth numactl -m 1 ./$BENCHMARK_EXE
+        ;;
+    *)
+        echo "Unknown run configuration for model '$MODEL'"
+        exit 1
+        ;;
+esac
+

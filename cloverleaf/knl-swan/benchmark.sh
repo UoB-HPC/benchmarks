@@ -31,7 +31,7 @@ fi
 
 ACTION=$1
 COMPILER=${2:-$DEFAULT_COMPILER}
-MODEL=${3:-$DEFAULT_MODEL}
+export MODEL=${3:-$DEFAULT_MODEL}
 SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath "$(dirname $SCRIPT)"`
 
