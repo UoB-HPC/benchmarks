@@ -79,8 +79,8 @@ case "$MODEL" in
         ;;
     kokkos)
         module use /lus/snx11029/p02100/modules/modulefiles
-        module load kokkos/2.8.00/intel/knl
-        MAKE_OPTS='CXX=CC'
+        module load kokkos/2.8.00/intel/knl_ivdep
+        MAKE_OPTS='CXX=CC OPTIONS="-qopt-report=5"'
         export SRC_DIR=$PWD/cloverleaf_kokkos
         ;;
     acc)
