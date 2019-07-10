@@ -47,13 +47,12 @@ case "$MODEL" in
       FLAGS="-O3 -DOFFLOAD -lgfortran -lmpi_usempi -lmpi_mpifh"'
     ;;
   kokkos)
-    COMPILER=gcc-4.8.5
-    module load kokkos/turing
-    module load openmpi/3.0.3-gcc-4.8.5
-    module load
-    export SRC_DIR=$PWD/CloverLeaf
+    COMPILER=gcc-8.3.0
+    module load kokkos/2.8.00/volta72
+    module load openmpi/4.0.1/gcc-8.3
+    export SRC_DIR=$PWD/cloverleaf_kokkos
     export MAKEFLAGS='-j16'
-    MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
+    MAKE_OPTS='-f Makefile.gpu'
     ;;
   cuda)
     COMPILER=nvcc
