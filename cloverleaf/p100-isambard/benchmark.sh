@@ -52,8 +52,8 @@ case "$MODEL" in
         module load kokkos/pascal
         module load gcc/6.1.0
         module load openmpi/gcc-6.1.0/1.10.7
-        export SRC_DIR="$PWD/CloverLeaf"
-        MAKE_OPTS="COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH"
+        export SRC_DIR="$PWD/cloverleaf_kokkos"
+        MAKE_OPTS="-f Makefile.gpu"
         ;;
     acc)
         module swap "craype-$CRAY_CPU_TARGET" craype-broadwell
