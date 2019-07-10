@@ -67,13 +67,11 @@ case "$MODEL" in
         case "$COMPILER" in
             gcc-7.1.0)
                 COMPILER=gcc-7.1.0
-                MAKE_OPTS='COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
                 module use /newhome/pa13269/modules/modulefiles
                 module load languages/gcc-7.1.0
                 module load openmpi3-gcc4.8
             ;;
             intel-16)
-                MAKE_OPTS='COMPILER=INTEL USE_KOKKOS=gpu KOKKOS_PATH=$KOKKOS_PATH'
                 COMPILER=intel-16
                 module load languages/intel-compiler-16-u2
             ;;
@@ -88,9 +86,8 @@ case "$MODEL" in
         module use /newhome/pa13269/modules/modulefiles
         module load kokkos
         module load cuda/toolkit/7.5.18
-        export MAKEFLAGS='-j16'
-        export SRC_DIR=$PWD/CloverLeaf
-        mkdir -p $SRC_DIR/obj $SRC_DIR/mpiobj
+        export MAKE_OPTS="-j -f Makefile.gpu KOKKOS_PATH=$KOKKOS_PATH"
+        export SRC_DIR="$PWD/cloverleaf_kokkos"
         ;;
     cuda)
         COMPILER=nvcc-7.5.18
@@ -159,13 +156,12 @@ export RUN_DIR=$PWD/$CONFIG
 if [ "$ACTION" == "build" ]
 then
     # Fetch source code
-    if [ ! -e CloverLeaf/src/cudadefs.h ]; then
-        if ! git clone https://github.com/UoB-HPC/CloverLeaf; then
-            echo
-            echo "Failed to fetch source code."
-            echo
-            exit 1
-        fi
+    if ! eval "$SCRIPT_DIR/../fetch.sh $MODEL"
+    then
+        echo
+        echo "Failed to fetch source code."
+        echo
+        exit 1
     fi
 
     # Perform build
