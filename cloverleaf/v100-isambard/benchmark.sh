@@ -54,8 +54,8 @@ case "$MODEL" in
     kokkos)
        module load kokkos/volta
        module load openmpi/3.0.2/gcc8
-       export SRC_DIR="$PWD/CloverLeaf"
-       MAKE_OPTS='-j20 COMPILER=GNU USE_KOKKOS=gpu KOKKOS_PATH="$KOKKOS_PATH" FLAGS_GNU="-std=c++11 -Wall -Wpedantic -g -Wno-unknown-pragmas -O3 -lm"'
+       export SRC_DIR="$PWD/cloverleaf_kokkos"
+       MAKE_OPTS='-j -f Makefile.gpu'
        ;;
     acc)
        module load pgi/18.10
