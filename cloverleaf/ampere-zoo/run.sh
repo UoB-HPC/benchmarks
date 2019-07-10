@@ -13,6 +13,10 @@ case "$MODEL" in
         export OMP_NUM_THREADS=32 OMP_PROC_BIND=true OMP_PLACES=cores
         mpirun -np 1 --bind-to none ./$BENCHMARK_EXE
         ;;
+    kokkos)
+        export OMP_NUM_THREADS=32 OMP_PROC_BIND=true OMP_PLACES=cores
+        mpirun -np 1 --bind-to none ./$BENCHMARK_EXE
+        ;;
     *)
         echo "Unknown run configuration for model '$MODEL'"
         exit 1

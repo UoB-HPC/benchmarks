@@ -15,6 +15,7 @@ function usage
     echo "Valid models:"
     echo "  mpi"
     echo "  omp"
+    echo "  kokkos"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_MODEL'."
     echo
@@ -43,7 +44,7 @@ export RUN_DIR=$PWD/CloverLeaf-$CONFIG
 module purge
 case "$COMPILER" in
     gcc-8.1)
-        module load gcc/8.1 
+        module load gcc/8.1.0
         module load openmpi/3.0.3/gcc-8.1
         MAKE_OPTS='COMPILER=GNU'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -march=armv8-a -funroll-loops"'
@@ -57,12 +58,20 @@ case "$COMPILER" in
         ;;
 esac
 
+case "$MODEL" in
+    kokkos)
+        module load kokkos/2.8.00/gcc-8.1
+        export SRC_DIR=$PWD/cloverleaf_kokkos
+        MAKE_OPTS='-j'
+        ;;
+esac
+
 
 # Handle actions
 if [ "$ACTION" == "build" ]
 then
     # Fetch source code
-    if ! "$SCRIPT_DIR/../fetch.sh"
+    if ! eval "$SCRIPT_DIR/../fetch.sh $MODEL"
     then
         echo
         echo "Failed to fetch source code."
