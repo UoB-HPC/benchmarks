@@ -12,6 +12,7 @@ function usage
     echo "Valid compilers:"
     echo "  gcc-7.3"
     echo "  gcc-8.1"
+    echo "  gcc-9.1"
     echo "  intel-2019"
     echo "  pgi-18"
     echo
@@ -19,6 +20,7 @@ function usage
     echo "  mpi"
     echo "  omp"
     echo "  acc"
+    echo "  kokkos"
     echo
     echo "The default configuration is '$DEFAULT_COMPILER $DEFAULT_MODEL'."
     echo
@@ -38,13 +40,16 @@ SCRIPT=`realpath $0`
 SCRIPT_DIR=`realpath $(dirname $SCRIPT)`
 
 export BENCHMARK_EXE=clover_leaf
-export CONFIG="naples"_"$COMPILER"
+export CONFIG="naples"_"$COMPILER"_"$MODEL"
 export SRC_DIR=$PWD/CloverLeaf_ref
 export RUN_DIR=$PWD/CloverLeaf-$CONFIG
 
 
 # Set up the environment
 module purge
+
+module use /mnt/shared/software/modulefiles
+
 case "$COMPILER" in
     gcc-7.3)
         module load openmpi/3.0.3/gcc-7.3
@@ -53,8 +58,15 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -march=znver1 -funroll-loops"'
         ;;
     gcc-8.1)
-        module load gcc/8.1 
-        module load openmpi/3.0.3/gcc-7.3
+        module load gcc/8.1.0
+        module load openmpi/3.0.3/gcc81
+        MAKE_OPTS='COMPILER=GNU'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -march=znver1 -funroll-loops"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -march=znver1 -funroll-loops"'
+        ;;
+    gcc-9.1)
+        module load gcc/9.1.0
+        module load openmpi/3.0.3/gcc91
         MAKE_OPTS='COMPILER=GNU'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -march=znver1 -funroll-loops"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -ffast-math -ffp-contract=fast -march=znver1 -funroll-loops"'
@@ -85,6 +97,18 @@ case "$MODEL" in
     acc)
         export SRC_DIR=$PWD/CloverLeaf-OpenACC
         MAKE_OPTS=$MAKE_OPTS' FLAGS_PGI="-O3 -Mpreprocess -fast -acc -ta=multicore -tp=zen" CFLAGS_PGI="-O3 -ta=multicore -tp=zen" OMP_PGI=""'
+        ;;
+    kokkos)
+        case "$COMPILER" in
+          gcc-8.1)
+            module load kokkos/2.8.00/gcc81
+            ;;
+          gcc-9.1)
+            module load kokkos/2.8.00/gcc91
+            ;;
+        esac
+        export SRC_DIR=$PWD/cloverleaf_kokkos
+        MAKE_OPTS="-j"
         ;;
 esac
 
@@ -124,7 +148,8 @@ then
     fi
 
     cd "$RUN_DIR"
-    bash "$SCRIPT_DIR"/run.sh
+    sbatch "$SCRIPT_DIR"/run.sh
+    #bash "$SCRIPT_DIR"/run.sh
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
