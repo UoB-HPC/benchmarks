@@ -27,7 +27,8 @@ function setup_env()
       cce-9.0)
           module swap $PRGENV PrgEnv-cray
           module swap cce cce/9.0.0
-          MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+          module load cdt/19.06
+          MAKE_OPTS='-j COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
           MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -O3 -Wl,--whole-archive,-ldmapp,--no-whole-archive"'
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_CRAY="-em -h list=a -O3 -Wl,--whole-archive,-ldmapp,--no-whole-archive"'
           MAKE_OPTS=$MAKE_OPTS' OMP_CRAY="-h omp"'
