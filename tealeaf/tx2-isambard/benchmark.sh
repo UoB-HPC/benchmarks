@@ -24,6 +24,14 @@ function setup_env()
           MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -mcpu=native -funroll-loops -cpp -ffree-line-length-none"'
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -mcpu=native -funroll-loops"'
           ;;
+      cce-9.0)
+          module swap $PRGENV PrgEnv-cray
+          module swap cce cce/9.0.0
+          MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -O3 -Wl,--whole-archive,-ldmapp,--no-whole-archive"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_CRAY="-em -h list=a -O3 -Wl,--whole-archive,-ldmapp,--no-whole-archive"'
+          MAKE_OPTS=$MAKE_OPTS' OMP_CRAY="-h omp"'
+          ;;
       *)
           echo
           echo "Invalid compiler '$COMPILER'."
@@ -36,7 +44,7 @@ function setup_env()
 SCRIPT="`realpath $0`"
 export ARCH="tx2"
 export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
-export COMPILERS="cce-8.7 gcc-8.2 arm-19.0"
+export COMPILERS="cce-8.7 gcc-8.2 arm-19.0 cce-9.0"
 export DEFAULT_COMPILER=cce-8.7
 export PBS_RESOURCES=":ncpus=64"
 export -f setup_env
