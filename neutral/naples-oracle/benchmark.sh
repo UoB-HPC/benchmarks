@@ -9,6 +9,7 @@ function usage
     echo
     echo "Valid compilers:"
     echo "  gcc-8.1"
+    echo "  gcc-9.1"
     echo "  intel-2019"
     echo "  pgi-18"
     echo
@@ -38,12 +39,18 @@ export BENCHMARK_EXE=neutral."$MODEL"
 export CONFIG="naples"_"$COMPILER"_"$MODEL"
 export RUN_DIR=$PWD/neutral-$CONFIG
 
-
+module use /mnt/shared/software/modulefiles
 # Set up the environment
 case "$COMPILER" in
     gcc-8.1)
         module purge
-        module load gcc/8.1
+        module load gcc/8.1.0
+        MAKE_OPTS='COMPILER=GCC ARCH_COMPILER_CC=gcc ARCH_COMPILER_CPP=g++'
+        MAKE_OPTS="$MAKE_OPTS"' CFLAGS_GCC="-std=gnu99 -Wall -fopenmp -Ofast -march=znver1 -ffast-math -ffp-contract=fast"'
+        ;;
+    gcc-9.1)
+        module purge
+        module load gcc/9.1.0
         MAKE_OPTS='COMPILER=GCC ARCH_COMPILER_CC=gcc ARCH_COMPILER_CPP=g++'
         MAKE_OPTS="$MAKE_OPTS"' CFLAGS_GCC="-std=gnu99 -Wall -fopenmp -Ofast -march=znver1 -ffast-math -ffp-contract=fast"'
         ;;
@@ -82,7 +89,10 @@ case "$MODEL" in
 
 	case "$COMPILER" in 
 	    gcc-8.1)
-		    module load kokkos/gcc-8.1
+		    module load kokkos/2.8.00/gcc81
+		    ;;
+	    gcc-9.1)
+		    module load kokkos/2.8.00/gcc91
 		    ;;
             intel-2019)
 		    module load kokkos/intel-2019
@@ -144,7 +154,8 @@ then
     fi
 
     cd $RUN_DIR
-    bash $SCRIPT_DIR/run.job
+    #bash $SCRIPT_DIR/run.job
+    sbatch $SCRIPT_DIR/run.job
 else
     echo
     echo "Invalid action (use 'build' or 'run')."
