@@ -42,11 +42,12 @@ export RUN_DIR=$SCRIPT_DIR
 
 
 # Set up the environment
-module use /opt/modules/modulefiles
+#module use /opt/modules/modulefiles
+module use /mnt/shared/software/modulefiles
 case "$COMPILER" in
     gcc-8.1)
         module purge
-        module load gcc/8.1
+        module load gcc/8.1.0
         MAKE_OPTS="COMPILER=GNU TARGET=CPU"
         ;;
     intel-2019)
@@ -103,7 +104,7 @@ then
             BINARY="kokkos-stream"
             case "$COMPILER" in
                 gcc-8.1)
-                    module load kokkos/gcc-8.1
+                    module load kokkos/2.8.00/gcc81
                     ;;
                 intel-2019)
                     module load kokkos/intel-2019
@@ -136,7 +137,8 @@ then
     fi
 
     cd $RUN_DIR
-    bash "$SCRIPT_DIR/run.sh"
+    #bash "$SCRIPT_DIR/run.sh"
+    sbatch "$SCRIPT_DIR/run.sh"
 
 else
     echo
