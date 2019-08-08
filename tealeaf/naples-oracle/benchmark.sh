@@ -12,6 +12,7 @@ function usage
     echo "Valid compilers:"
     echo "  gcc-7.3"
     echo "  gcc-8.1"
+    echo "  gcc-9.1"
     echo "  intel-2019"
     echo "  pgi-18.10"
     echo
@@ -46,6 +47,8 @@ export RUN_DIR=$PWD/TeaLeaf-$CONFIG
 
 # Set up the environment
 module purge
+module use /mnt/shared/software/modulefiles
+
 case "$COMPILER" in
     gcc-7.3)
         MAKE_OPTS='COMPILER=GNU'
@@ -53,7 +56,15 @@ case "$COMPILER" in
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -march=znver1 -funroll-loops -ffast-math -ffp-contract=fast"'
         ;;
     gcc-8.1)
-        module load gcc/8.1
+        module load gcc/8.1.0
+        module load openmpi/3.0.3/gcc81
+        MAKE_OPTS='COMPILER=GNU'
+        MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -march=znver1 -funroll-loops -cpp -ffree-line-length-none -ffast-math -ffp-contract=fast"'
+        MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -march=znver1 -funroll-loops -ffast-math -ffp-contract=fast"'
+        ;;
+    gcc-9.1)
+        module load gcc/9.1.0
+        module load openmpi/3.0.3/gcc91
         MAKE_OPTS='COMPILER=GNU'
         MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -march=znver1 -funroll-loops -cpp -ffree-line-length-none -ffast-math -ffp-contract=fast"'
         MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -march=znver1 -funroll-loops -ffast-math -ffp-contract=fast"'
@@ -91,7 +102,6 @@ case "$MODEL" in
     omp)
         case "$COMPILER" in
             gcc-*)
-                module load openmpi/3.0.3/gcc-7.3
                 export SRC_DIR=$PWD/TeaLeaf_ref
                 export BENCHMARK_EXE=tea_leaf
                 ;;
@@ -111,7 +121,14 @@ case "$MODEL" in
             exit 1
         fi
 
-        module load kokkos/gcc-8.1
+        case "$COMPILER" in
+          gcc-8.1)
+            module load kokkos/2.8.00/gcc81
+            ;;
+          gcc-9.1)
+            module load kokkos/2.8.00/gcc91
+            ;;
+        esac
         export SRC_DIR=$PWD/TeaLeaf/2d
         export BENCHMARK_EXE=tealeaf
         MAKE_OPTS='KERNELS=kokkos COMPILER=GNU OPTIONS=-DNO_MPI'
@@ -167,7 +184,8 @@ then
     fi
 
     cd "$RUN_DIR"
-    bash "$SCRIPT_DIR/run.sh"
+    #bash "$SCRIPT_DIR/run.sh"
+    sbatch "$SCRIPT_DIR/run.sh"
 else
     echo
     echo "Invalid action (use 'build' or 'run')."

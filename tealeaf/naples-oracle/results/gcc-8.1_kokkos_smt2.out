@@ -1,68 +1,130 @@
-Opening tea.out as log file.
-Performing this solve with the Kokkos | solver
+Solution Parameters:
+	dt_init = 0.004000
+	end_time = 10.000000
+	end_step = 10
+	grid_x_min = 0.000000
+	grid_y_min = 0.000000
+	grid_x_max = 10.000000
+	grid_y_max = 10.000000
+	grid_x_cells = 4000
+	grid_y_cells = 4000
+	presteps = 30
+	ppcg_inner_steps = 10
+	eps_lim = 0.000010
+	max_iters = 10000
+	eps = 0.000000
+	halo_depth = 2
+	check_result = 1
+	coefficient = 1
+	num_chunks_per_rank = 1
+	summary_frequency = 10
+	
+state 0
+	density = 1.000000000000E+02
+	energy= 1.000000000000E-04
+	
+state 1
+	density = 1.000000000000E-01
+	energy= 2.500000000000E+01
+	x_min = 2.500000000000E-05
+	y_min = 1.000025000000E+00
+	x_max = 9.999750000000E-01
+	y_max = 1.999975000000E+00
+	radius = 0.000000000000E+00
+	geometry = 0
+	
+state 2
+	density = 1.000000000000E-01
+	energy= 1.000000000000E-01
+	x_min = 1.000025000000E+00
+	y_min = 1.000025000000E+00
+	x_max = 5.999975000000E+00
+	y_max = 1.999975000000E+00
+	radius = 0.000000000000E+00
+	geometry = 0
+	
+state 3
+	density = 1.000000000000E-01
+	energy= 1.000000000000E-01
+	x_min = 5.000025000000E+00
+	y_min = 1.000025000000E+00
+	x_max = 5.999975000000E+00
+	y_max = 7.999975000000E+00
+	radius = 0.000000000000E+00
+	geometry = 0
+	
+state 4
+	density = 1.000000000000E-01
+	energy= 1.000000000000E-01
+	x_min = 5.000025000000E+00
+	y_min = 7.000025000000E+00
+	x_max = 9.999975000000E+00
+	y_max = 7.999975000000E+00
+	radius = 0.000000000000E+00
+	geometry = 0
+Performing this solve with the Kokkos  solver
 
 Timestep 1
-CG:                     4873 iterations
-Wallclock:              43.701s
-Avg. time per cell:     2.731334e-06
-Error:                  9.746356e-31
+CG: 			4873 iterations
+Wallclock: 		46.152s
+Avg. time per cell: 	2.884505e-06
+Error: 			9.746356e-31
 
 Timestep 2
-CG:                     4717 iterations
-Wallclock:              85.420s
-Avg. time per cell:     5.338729e-06
-Error:                  9.982692e-31
+CG: 			4717 iterations
+Wallclock: 		90.760s
+Avg. time per cell: 	5.672480e-06
+Error: 			9.982692e-31
 
 Timestep 3
-CG:                     4560 iterations
-Wallclock:              125.839s
-Avg. time per cell:     7.864924e-06
-Error:                  9.645313e-31
+CG: 			4560 iterations
+Wallclock: 		133.779s
+Avg. time per cell: 	8.361206e-06
+Error: 			9.645313e-31
 
 Timestep 4
-CG:                     4406 iterations
-Wallclock:              164.972s
-Avg. time per cell:     1.031078e-05
-Error:                  9.856446e-31
+CG: 			4406 iterations
+Wallclock: 		175.335s
+Avg. time per cell: 	1.095843e-05
+Error: 			9.856446e-31
 
 Timestep 5
-CG:                     4261 iterations
-Wallclock:              202.892s
-Avg. time per cell:     1.268074e-05
-Error:                  9.894400e-31
+CG: 			4261 iterations
+Wallclock: 		215.581s
+Avg. time per cell: 	1.347381e-05
+Error: 			9.894400e-31
 
 Timestep 6
-CG:                     4122 iterations
-Wallclock:              239.544s
-Avg. time per cell:     1.497151e-05
-Error:                  9.912557e-31
+CG: 			4122 iterations
+Wallclock: 		254.584s
+Avg. time per cell: 	1.591153e-05
+Error: 			9.912557e-31
 
 Timestep 7
-CG:                     4001 iterations
-Wallclock:              275.126s
-Avg. time per cell:     1.719539e-05
-Error:                  9.818797e-31
+CG: 			4001 iterations
+Wallclock: 		292.417s
+Avg. time per cell: 	1.827605e-05
+Error: 			9.818797e-31
 
 Timestep 8
-CG:                     3884 iterations
-Wallclock:              309.719s
-Avg. time per cell:     1.935746e-05
-Error:                  9.971513e-31
+CG: 			3884 iterations
+Wallclock: 		329.014s
+Avg. time per cell: 	2.056339e-05
+Error: 			9.971513e-31
 
 Timestep 9
-CG:                     3780 iterations
-Wallclock:              343.379s
-Avg. time per cell:     2.146119e-05
-Error:                  9.778390e-31
+CG: 			3780 iterations
+Wallclock: 		364.701s
+Avg. time per cell: 	2.279380e-05
+Error: 			9.778390e-31
 
 Timestep 10
-CG:                     3679 iterations
-Wallclock:              376.141s
-Avg. time per cell:     2.350884e-05
-Error:                  9.973382e-31
+CG: 			3679 iterations
+Wallclock: 		399.354s
+Avg. time per cell: 	2.495965e-05
+Error: 			9.973382e-31
 
 Checking results...
 Expected 9.546235158221428e+01
 Actual   9.546235158223848e+01
-This run PASSED (Difference is within 0.00000000%)
-
+This run [32mPASSED[0m (Difference is within 0.00000000%)
