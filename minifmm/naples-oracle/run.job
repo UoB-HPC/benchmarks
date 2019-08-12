@@ -1,4 +1,7 @@
 #!/bin/bash
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 1
+
 cd $RUN_DIR
 
 export OMP_NUM_THREADS=64

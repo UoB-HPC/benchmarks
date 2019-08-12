@@ -9,10 +9,12 @@ function usage
   echo 
   echo "Valid compilers:"
   echo "  gcc-8.1"
+  echo "  gcc-9.1"
   echo "  intel-19.0"
   echo
   echo "Valid models:"
   echo "  omp"
+  echo "  kokkos"
   echo
   echo "The default configuration is '$DEFAULT_COMPILER'."
   echo
@@ -38,8 +40,12 @@ case "$COMPILER" in
     module load intel/compiler/2019.2
     MAKE_OPTS="$MAKE_OPTS COMPILER=INTEL ARCH=host"
     ;;
-  gcc-8.2)
-    module load gcc/8.1
+  gcc-8.1)
+    module load gcc/8.1.0
+    MAKE_OPTS="$MAKE_OPTS COMPILER=GNU ARCH=native"
+    ;;
+  gcc-9.1)
+    module load gcc/9.1.0
     MAKE_OPTS="$MAKE_OPTS COMPILER=GNU ARCH=native"
     ;;
   *)
@@ -50,6 +56,24 @@ case "$MODEL" in
   omp)
     export BENCHMARK_EXE="fmm.omp"
     MAKE_OPTS="$MAKE_OPTS MODEL=omp"
+    ;;
+  kokkos)
+    case "$COMPILER" in 
+        gcc-8.1)
+            module load kokkos/2.8.00/gcc81
+            ;;
+        gcc-9.1)
+            module load kokkos/2.8.00/gcc91
+            ;;
+        *)
+            echo
+            echo "Must use gcc-8.1 or gcc-9.1 with Kokkos"
+            echo
+            exit
+            ;;
+    esac
+    export BENCHMARK_EXE="fmm.kokkos"
+    MAKE_OPTS="$MAKE_OPTS MODEL=kokkos KOKKOS_TARGET=CPU"
     ;;
   *)
     echo
@@ -101,7 +125,8 @@ then
 
   export RUN_ARGS="-i $SRC_DIR/inputs/large.in"
 
-  bash $SCRIPT_DIR/run.job &> minifmm-$CONFIG.out
+  #bash $SCRIPT_DIR/run.job &> minifmm-$CONFIG.out
+  sbatch --output $RUN_DIR/minifmm-$CONFIG.out  $SCRIPT_DIR/run.job
 else
   echo
   echo "Invalid action (use 'build' or 'run')."
