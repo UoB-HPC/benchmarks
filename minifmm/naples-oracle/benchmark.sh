@@ -37,7 +37,7 @@ export SRC_DIR="$PWD/minifmm/"
 
 case "$COMPILER" in
   intel-19.0)
-    module load intel/compiler/2019.2
+    module load intel/2019u4
     MAKE_OPTS="$MAKE_OPTS COMPILER=INTEL ARCH=host"
     ;;
   gcc-8.1)
@@ -64,6 +64,9 @@ case "$MODEL" in
             ;;
         gcc-9.1)
             module load kokkos/2.8.00/gcc91
+            ;;
+        intel-19.0)
+            module load kokkos/2.8.00/intel194
             ;;
         *)
             echo
