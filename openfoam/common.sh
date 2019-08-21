@@ -55,6 +55,7 @@ export CONFIG="${ARCH}_${COMPILER}"
 export RUN_DIR="$PWD/run"
 export INSTALL_DIR="$PWD/OpenFOAM-v1712-${ARCH}-${COMPILER}-${MPILIB}"
 
+continue_build=no
 restart_build=no
 
 # Set up the environment
@@ -69,7 +70,7 @@ if [ "$action" == "build" ]; then
         read -r -p "Proceed? (A)bort, (c)ontinue build, (r)estart build: [A] "
         case "$REPLY" in
             c*|C*)
-                # Do nothing
+                continue_build=yes
                 ;;
             r*|R*)
                 restart_build=yes
@@ -132,6 +133,7 @@ if [ "$action" == "build" ]; then
     pushd "$INSTALL_DIR/OpenFOAM-v1712"
     bashrc="etc/bashrc"
     cflags="wmake/rules/$of_platform/c"
+    cOptflags="wmake/rules/$of_platform/cOpt"
     cppflags="wmake/rules/$of_platform/c++"
     cppOptflags="wmake/rules/$of_platform/c++Opt"
     mpiflags="etc/config.sh/mpi"
@@ -163,6 +165,37 @@ if [ "$action" == "build" ]; then
 
     # Set the compiler and flags
     case "$COMPILER" in
+        arm-*)
+            wmake_gcc="wmake/rules/linuxARM64Gcc"
+            wmake_arm="wmake/rules/linuxARM64Arm"
+            cp -r "$wmake_gcc" "$wmake_arm"
+
+            sed -i 's/^cc          =.*/cc          = armclang/' "$cflags"
+            sed -i 's/^CC          =.*/CC          = armclang++ -std=c++11/' "$cppflags"
+            sed -i 's/^export WM_COMPILER=.*/export WM_COMPILER=Arm/' "$bashrc"
+            sed -i 's/^cOPT        =.*/cOPT        = -mcpu=thunderx2t99 -O3 -ffast-math/' "$cOptflags"
+            sed -i 's/^c++OPT      =.*/c++OPT      = -mcpu=thunderx2t99 -O3 -ffast-math/' "$cppOptflags"
+
+            # Apply required source changes: https://gitlab.com/arm-hpc/packages/wikis/packages/openfoamplus
+            if [ "$continue_build" != yes ] && [ "$restart_build" != yes ]; then
+                ( cd src/finiteVolume/finiteVolume/ddtSchemes/CrankNicolsonDdtScheme/;
+cat <<EOPATCH | patch -p1
+--- a/CrankNicolsonDdtScheme.C
++++ b/CrankNicolsonDdtScheme.C
+@@ -101,7 +101,7 @@ operator=(const GeoField& gf)
+
+ template<class Type>
+ template<class GeoField>
+-CrankNicolsonDdtScheme<Type>::DDt0Field<GeoField>&
++typename CrankNicolsonDdtScheme<Type>::template DDt0Field<GeoField>&
+ CrankNicolsonDdtScheme<Type>::ddt0_
+ (
+     const word& name,
+
+EOPATCH
+                )
+            fi
+            ;;
         gcc-*)
             sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=Gcc,' "$bashrc"
             sed -i '/export WM_COMPILER=Gcc/a export CRAYPE_LINK_TYPE=dynamic' "$bashrc"
