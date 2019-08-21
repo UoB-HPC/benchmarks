@@ -8,7 +8,7 @@ set -u
 
 cd "$PBS_O_WORKDIR"
 
-cp "$SRC_DIR/Benchmarks/tea_bm_5.in" tea.in
+cp "$SRC_DIR/Benchmarks/tea_bm_5x2.in" tea.in
 
 export OMP_WAIT_POLICY=active
 export OMP_NUM_THREADS=2

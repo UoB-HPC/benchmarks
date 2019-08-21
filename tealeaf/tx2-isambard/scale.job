@@ -7,13 +7,24 @@ set -u
 
 cd "$PBS_O_WORKDIR"
 
-cp "$SRC_DIR/Benchmarks/tea_bm_5x2.in" tea.in
+# CG
+#cp "$SRC_DIR/Benchmarks/tea_bm_5x2.in" tea.in
+
+# PPCG, halo_depth 1
+#cp "$SRC_DIR/Benchmarks/tea_bm_5x2_ppcg.in" tea.in
+
+# PPCG, halo_depth 2
+#cp "$SRC_DIR/Benchmarks/tea_bm_5x2_ppcg_halo_2.in" tea.in
+
+# PPCG, halo_depth 4
+cp "$SRC_DIR/Benchmarks/tea_bm_5x2_ppcg_halo_4.in" tea.in
 
 export OMP_WAIT_POLICY=active
 
 # Set Cray recommended flags
-export MPICH_RANK_REORDER_METHOD=4
-export MPICH_RANK_REORDER_OPTS="--ndims=2 --dims=8000,8000"
+# Cannot specify ny and nx becuase has to be specified in MPI ranks
+#export MPICH_RANK_REORDER_METHOD=4
+#export MPICH_RANK_REORDER_OPTS="--ndims=2"
 export MPICH_USE_DMAPP_COLL=1
 export MPICH_GNI_MAX_VSHORT_MSG_SIZE=8192
 
@@ -24,14 +35,14 @@ export MPICH_GNI_MAX_VSHORT_MSG_SIZE=8192
 export OMP_NUM_THREADS=1
 for SMT in {1..4}; do
   aprun -n $[NODES * 64 * SMT] -N $[64 * SMT] -d 1 -j $SMT -cc depth "$CFG_DIR/$BENCHMARK_EXE"
-  mv $CFG_DIR/tea.out $CFG_DIR/tea.$NODES.$[NODES * 64 * SMT].$OMP_NUM_THREADS.$SMT.out
+  mv tea.out tea.$NODES.$[NODES * 64 * SMT].$OMP_NUM_THREADS.$SMT.out
 done
 
 # 1 MPI per node
 for SMT in {1..4}; do
   export OMP_NUM_THREADS=$[64 * SMT]
   aprun -n $[NODES] -N 1 -d $OMP_NUM_THREADS -j $SMT -c depth "$CFG_DIR/$BENCHMARK_EXE"
-  mv $CFG_DIR/tea.out $CFG_DIR/tea.$NODES.1.$OMP_NUM_THREADS.$SMT.out
+  mv tea.out tea.$NODES.1.$OMP_NUM_THREADS.$SMT.out
 done
 
 # Hybrid runs
@@ -40,7 +51,7 @@ for MPIS in 2 4 8 16 32; do
   for SMT in {1..4}; do
     export OMP_NUM_THREADS=$[OMPS * SMT]
     aprun -n $[NODES * MPIS] -N $MPIS -S $[MPIS / 2] -d $OMP_NUM_THREADS -j $SMT -cc depth "$CFG_DIR/$BENCHMARK_EXE"
-    mv $CFG_DIR/tea.out $CFG_DIR/tea.$NODES.$[NODES * MPIS].$OMP_NUM_THREADS.$SMT.out
+    mv tea.out tea.$NODES.$[NODES * MPIS].$OMP_NUM_THREADS.$SMT.out
   done
 done
 
