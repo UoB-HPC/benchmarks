@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -q bw44-lg
+#PBS -l walltime=01:00:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+cp "$SRC_DIR/Benchmarks/tea_bm_5.in" tea.in
+
+export OMP_NUM_THREADS=2
+aprun -n $[NODES * 22] -N 22 -S 11 -d 2 -j 1 -cc depth "$CFG_DIR/$BENCHMARK_EXE"
