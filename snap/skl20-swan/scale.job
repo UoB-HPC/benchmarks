@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -q sk40-lg
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+# Problem is (1024 * 12 * 12) per socket
+NY=$[24 * YSCALE] \
+NZ=$[12 * ZSCALE] \
+NPEY=$[2 * YSCALE] \
+NPEZ=$[1 * ZSCALE] \
+NTHREADS=20 \
+ICHUNK=16 \
+envsubst <"$BENCHMARK_TEMPLATE" >snap.in
+
+export OMP_NUM_THREADS=20
+export OMP_WAIT_POLICY=active
+aprun -n $[2 * YSCALE * ZSCALE] -N 2 -S 1 -d 20 -j 1 -cc depth "$CFG_DIR/$BENCHMARK_EXE" snap.in snap.out
