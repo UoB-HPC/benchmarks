@@ -44,7 +44,7 @@ if [ "$procdirs" -ne "$numprocs" ]; then
     decomposePar |& tee "decomposePar_$ts.log"
 fi
 
-mpirun -np "$numprocs" simpleFoam -parallel |& tee "$runlog"
+mpirun simpleFoam -parallel |& tee "$runlog"
 
 time_first=$(grep ExecutionTime "$runlog" | head -1 | awk '{print $3}')
 time_last=$(grep ExecutionTime "$runlog" | tail -1 | awk '{print $3}')
