@@ -37,11 +37,12 @@ cd "$testdir"
 sed -i 's/^numberOfSubdomains.*/numberOfSubdomains '"$numprocs"';/' system/decomposeParDict
 
 ts="$(date "+%Y-%m-%d_%H-%M")"
-runlog="simpleFoam_${ARCH}_${COMPILER}_${MPILIB}_${ts}.log"
+runlog="simpleFoam_${ARCH}_${COMPILER}_${MPILIB}_$(basename "$originaldir")_${ts}.log"
 
 procdirs=$(set +o pipefail && ls -d processor* 2>/dev/null | wc -l)
 if [ "$procdirs" -ne "$numprocs" ]; then
     aprun decomposePar |& tee "decomposePar_$ts.log"
+    aprun -n "$numprocs" -N "$pernode" -d 1 renumberMesh -parallel -overwrite |& tee "renumberMesh_$ts.log"
 fi
 
 aprun -n "$numprocs" -N "$pernode" -d 1 simpleFoam -parallel |& tee "$runlog"
