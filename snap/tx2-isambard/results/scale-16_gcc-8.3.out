@@ -1,7 +1,7 @@
  SNAP: SN (Discrete Ordinates) Application Proxy
  Version Number..  1.09 
  Version Date..  04-18-2019
- Ran on  4-25-2019 at time 15:25:17
+ Ran on  8-29-2019 at time 15:14:51
 
 ********************************************************************************
 
@@ -10,14 +10,14 @@
 
   NML=invar
      npey=     8
-     npez=     8
+     npez=     4
      ichunk=    16
      nthreads=    32
      nnested=   1
      ndimen=  3
      nx=  1024
      ny=    96
-     nz=    96
+     nz=    48
      lx=  1.0000E+00
      ly=  1.0000E+00
      lz=  1.0000E+00
@@ -52,13 +52,13 @@
     ndimen = 3
     nx =  1024
     ny =    96
-    nz =    96
+    nz =    48
     lx =  1.0000E+00
     ly =  1.0000E+00
     lz =  1.0000E+00
     dx =  9.7656E-04
     dy =  1.0417E-02
-    dz =  1.0417E-02
+    dz =  2.0833E-02
 
   Sn
     nmom = 2
@@ -214,7 +214,7 @@
     Source strength per cell (where applied) = 1.0
     Source map:
         Starting cell: (     1,     1,     1 )
-        Ending cell:   (  1024,    96,    96 )
+        Ending cell:   (  1024,    96,    48 )
 
   Pseudo Cross Sections Data
     ng =  32
@@ -311,7 +311,7 @@
 
   Parallelization Parameters
     npey =     8
-    npez =     8
+    npez =     4
     nthreads =   32
 
           Thread Support Level
@@ -324,7 +324,7 @@
     .FALSE. nested threading
       nnested =    1
 
-    Parallel Computational Efficiency = 0.9771
+    Parallel Computational Efficiency = 0.9846
 
 ********************************************************************************
 
@@ -334,10 +334,10 @@
  ******************************
   Time Cycle   1
   Outer
-    1    Dfmxo= 2.3522E-02    No. Inners=   97
-    2    Dfmxo= 1.0642E-02    No. Inners=   65
-    3    Dfmxo= 5.9499E-05    No. Inners=   56
-    4    Dfmxo= 2.5005E-07    No. Inners=   32
+    1    Dfmxo= 2.3527E-02    No. Inners=   97
+    2    Dfmxo= 1.0796E-02    No. Inners=   65
+    3    Dfmxo= 5.9400E-05    No. Inners=   56
+    4    Dfmxo= 2.5021E-07    No. Inners=   32
 
   Cycle=   1    Time= 7.5000E-04    No. Outers=   4    No. Inners=  250
   Particle spectrum, cycle (time)   2 (  7.5000E-04 )
@@ -365,15 +365,15 @@
           22 7.385525E-04
           23 7.401853E-04
           24 7.418404E-04
-          25 7.435186E-04
+          25 7.435187E-04
           26 7.452211E-04
-          27 7.469493E-04
-          28 7.487059E-04
-          29 7.504954E-04
-          30 7.523264E-04
-          31 7.542209E-04
-          32 7.565255E-04
- 
+          27 7.469495E-04
+          28 7.487062E-04
+          29 7.504958E-04
+          30 7.523272E-04
+          31 7.542227E-04
+          32 7.565338E-04
+
 
  ******************************
   Total inners for all time steps, outers =    250
@@ -385,21 +385,21 @@
 
   Code Section                          Time (seconds)
  **************                        ****************
-    Parallel Setup                       1.3449E-03
-    Input                                3.9533E-02
-    Setup                                1.5964E-02
-    Solve                                6.3023E+01
-       Parameter Setup                   1.5426E+01
-       Outer Source                      3.7144E-01
-       Inner Iterations                  4.7153E+01
-          Inner Source                   7.3317E-02
-          Transport Sweeps               4.6996E+01
-          Inner Misc Ops                 8.3213E-02
-       Solution Misc Ops                 7.2770E-02
-    Output                               8.5831E-05
-  Total Execution time                   6.3087E+01
+    Parallel Setup                       8.3137E-03
+    Input                                3.8784E-03
+    Setup                                5.1643E-02
+    Solve                                8.9631E+01
+       Parameter Setup                   1.6933E+01
+       Outer Source                      3.5202E-01
+       Inner Iterations                  7.2301E+01
+          Inner Source                   6.0104E-02
+          Transport Sweeps               7.2155E+01
+          Inner Misc Ops                 8.5909E-02
+       Solution Misc Ops                 4.5388E-02
+    Output                               3.8624E-05
+  Total Execution time                   9.2520E+01
 
-  Grind Time (nanoseconds)         2.4552E-02
+  Grind Time (nanoseconds)         6.9836E-02
 
 ********************************************************************************
 
