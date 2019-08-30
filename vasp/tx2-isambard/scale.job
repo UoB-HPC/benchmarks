@@ -9,7 +9,7 @@ cd "$PBS_O_WORKDIR"
 cp "$BENCHMARK_DIR/$SCALE_BENCHMARK"/* .
 
 # Set NCORE (take from environment if specified)
-NCORE=${NCORE:-4}
+NCORE=${NCORE:-16}
 sed -i 's/^#NCORE = .*/NCORE = '$NCORE'/g' INCAR
 sed -i 's/^NPAR/#NPAR/g' INCAR
 

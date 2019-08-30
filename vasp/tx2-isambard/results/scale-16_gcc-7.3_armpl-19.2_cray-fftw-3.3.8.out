@@ -1,8 +1,8 @@
- vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Apr 10 2019 15:38:03) gamma-only        
- executed on tx2_gcc-7.3_cray-lib date 2019.04.10  19:38:51
- running on  512 total cores
- distrk:  each k-point on  512 cores,    1 groups
- distr:  one band on NCORES_PER_BAND=   8 cores,   64 groups
+ vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Aug 28 2019 17:11:03) gamma-only        
+ executed on tx2_gcc-7.3_armpl-19 date 2019.08.30  13:20:46
+ running on 1024 total cores
+ distrk:  each k-point on 1024 cores,    1 groups
+ distr:  one band on NCORES_PER_BAND=  16 cores,   64 groups
 
 
 --------------------------------------------------------------------------------------------------------
@@ -11,28 +11,6 @@
  INCAR:
  POTCAR:    PAW Pd                                
  POTCAR:  PAW O_s                                 
-
- ----------------------------------------------------------------------------- 
-|                                                                             |
-|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
-|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
-|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
-|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
-|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
-|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
-|                                                                             |
-|      For optimal performance we recommend to set                            |
-|        NCORE= 4 - approx SQRT( number of cores)                             |
-|      NCORE specifies how many cores store one orbital (NPAR=cpu/NCORE).     |
-|      This setting can  greatly improve the performance of VASP for DFT.     |
-|      The default,   NCORE=1            might be grossly inefficient         |
-|      on modern multi-core architectures or massively parallel machines.     |
-|      Do your own testing !!!!                                               |
-|      Unfortunately you need to use the default for GW and RPA calculations. |
-|      (for HF NCORE is supported but not extensively tested yet)             |
-|                                                                             |
- ----------------------------------------------------------------------------- 
-
  POTCAR:    PAW Pd                                
    VRHFIN =Pd : s1 d9                                                           
    LEXCH  = 91                                                                  
@@ -5875,7 +5853,7 @@ Space group operators:
  use parallel FFT for orbitals z direction half grid
  k-point  1 :   0.0000 0.0000 0.0000  plane waves:  136102
 
- maximum and minimum number of plane-waves per node :     17021    17006
+ maximum and minimum number of plane-waves per node :      8514     8500
 
  maximum number of plane-waves:    136102
  maximum index in each direction: 
@@ -5885,7 +5863,7 @@ Space group operators:
 
  real space projection operators:
   total allocation   :     228717.75 KBytes
-  max/ min on nodes  :      29009.56      27376.88
+  max/ min on nodes  :      15238.38      13679.81
 
 
  parallel 3D FFT for wavefunctions:
@@ -5894,17 +5872,17 @@ Space group operators:
     minimum data exchange during FFTs selected (reduces bandwidth)
 
 
- total amount of memory used by VASP MPI-rank0   123518. kBytes
+ total amount of memory used by VASP MPI-rank0    80439. kBytes
 =======================================================================
 
    base      :      30000. kBytes
-   nonlr-proj:      35588. kBytes
-   fftplans  :       7073. kBytes
-   grid      :      12808. kBytes
-   one-center:       1353. kBytes
-   wavefun   :      36696. kBytes
+   nonlr-proj:      18724. kBytes
+   fftplans  :       4566. kBytes
+   grid      :       8125. kBytes
+   one-center:        676. kBytes
+   wavefun   :      18348. kBytes
 
-     INWAV:  cpu time    0.0003: real time    0.0008
+     INWAV:  cpu time    0.0002: real time    0.0006
  Broyden mixing: mesh for mixing (old mesh)
    NGX = 99   NGY = 77   NGZ = 73
   (NGX  =300   NGY  =240   NGZ  =216)
@@ -5930,20 +5908,20 @@ Space group operators:
  Maximum number of real-space cells 2x 3x 3
  Maximum number of reciprocal cells 3x 3x 3
 
-    FEWALD:  cpu time    0.4051: real time    0.4051
+    FEWALD:  cpu time    0.4362: real time    0.4362
 
 
 --------------------------------------- Iteration      1(   1)  ---------------------------------------
 
 
-    POTLOK:  cpu time    0.3498: real time    0.3730
-    SETDIJ:  cpu time    0.0499: real time    0.0499
-    EDDIAG:  cpu time   23.5097: real time   23.6434
-  RMM-DIIS:  cpu time    7.4280: real time    7.4288
-    ORTHCH:  cpu time   13.8040: real time   13.8045
-       DOS:  cpu time    0.0072: real time    0.0072
+    POTLOK:  cpu time    0.3264: real time    0.3754
+    SETDIJ:  cpu time    0.0556: real time    0.0556
+    EDDIAG:  cpu time   20.9787: real time   21.2426
+  RMM-DIIS:  cpu time    4.0833: real time    4.0836
+    ORTHCH:  cpu time   11.3173: real time   11.3176
+       DOS:  cpu time    0.0034: real time    0.0034
     --------------------------------------------
-      LOOP:  cpu time   45.1486: real time   45.3068
+      LOOP:  cpu time   36.7648: real time   37.0782
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) : 0.1405227E+06  (-0.3933595E+06)
@@ -5953,7 +5931,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -5963,9 +5941,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =    140522.74684688 eV
+  free energy    TOTEN  =    140522.74684707 eV
 
-  energy without entropy =   140523.61667203  energy(sigma->0) =   140523.18175945
+  energy without entropy =   140523.61667221  energy(sigma->0) =   140523.18175964
 
 
 --------------------------------------------------------------------------------------------------------
@@ -5976,12 +5954,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   2)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   22.8453: real time   22.8596
-  RMM-DIIS:  cpu time    7.2601: real time    7.2605
-    ORTHCH:  cpu time   13.8619: real time   13.8626
-       DOS:  cpu time    0.0083: real time    0.0083
+    EDDIAG:  cpu time   18.5975: real time   18.6224
+  RMM-DIIS:  cpu time    4.0261: real time    4.0264
+    ORTHCH:  cpu time   11.3702: real time   11.3707
+       DOS:  cpu time    0.0030: real time    0.0030
     --------------------------------------------
-      LOOP:  cpu time   43.9756: real time   43.9909
+      LOOP:  cpu time   33.9969: real time   34.0225
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.1020715E+06  (-0.1212993E+06)
@@ -5991,7 +5969,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6001,9 +5979,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =     38451.27778842 eV
+  free energy    TOTEN  =     38451.27778861 eV
 
-  energy without entropy =    38452.12948393  energy(sigma->0) =    38451.70363618
+  energy without entropy =    38452.12948411  energy(sigma->0) =    38451.70363636
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6014,12 +5992,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   3)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   22.8430: real time   22.8533
-  RMM-DIIS:  cpu time    7.3287: real time    7.3290
-    ORTHCH:  cpu time   13.8498: real time   13.8505
-       DOS:  cpu time    0.0077: real time    0.0077
+    EDDIAG:  cpu time   19.9022: real time   19.9130
+  RMM-DIIS:  cpu time    4.0267: real time    4.0270
+    ORTHCH:  cpu time   11.7255: real time   11.7261
+       DOS:  cpu time    0.0033: real time    0.0033
     --------------------------------------------
-      LOOP:  cpu time   44.0292: real time   44.0406
+      LOOP:  cpu time   35.6577: real time   35.6693
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.2822945E+05  (-0.3267512E+05)
@@ -6029,7 +6007,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6039,9 +6017,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =     10221.82658685 eV
+  free energy    TOTEN  =     10221.82658703 eV
 
-  energy without entropy =    10223.21782979  energy(sigma->0) =    10222.52220832
+  energy without entropy =    10223.21782997  energy(sigma->0) =    10222.52220850
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6052,12 +6030,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   4)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   22.8827: real time   22.8927
-  RMM-DIIS:  cpu time    7.3338: real time    7.3351
-    ORTHCH:  cpu time   13.8189: real time   13.8195
-       DOS:  cpu time    0.0102: real time    0.0102
+    EDDIAG:  cpu time   18.3668: real time   18.3792
+  RMM-DIIS:  cpu time    4.0285: real time    4.0288
+    ORTHCH:  cpu time   11.3625: real time   11.3631
+       DOS:  cpu time    0.0031: real time    0.0031
     --------------------------------------------
-      LOOP:  cpu time   44.0457: real time   44.0576
+      LOOP:  cpu time   33.7608: real time   33.7742
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.1076308E+05  (-0.8798569E+04)
@@ -6067,7 +6045,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6077,9 +6055,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =      -541.25140770 eV
+  free energy    TOTEN  =      -541.25140752 eV
 
-  energy without entropy =     -540.21143441  energy(sigma->0) =     -540.73142106
+  energy without entropy =     -540.21143422  energy(sigma->0) =     -540.73142087
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6090,12 +6068,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   5)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   22.8768: real time   22.8872
-  RMM-DIIS:  cpu time    7.3461: real time    7.3464
-    ORTHCH:  cpu time   13.8630: real time   13.8636
-       DOS:  cpu time    0.0095: real time    0.0095
+    EDDIAG:  cpu time   18.4116: real time   18.4235
+  RMM-DIIS:  cpu time    4.0312: real time    4.0315
+    ORTHCH:  cpu time   11.5076: real time   11.5087
+       DOS:  cpu time    0.0027: real time    0.0027
     --------------------------------------------
-      LOOP:  cpu time   44.0954: real time   44.1067
+      LOOP:  cpu time   33.9530: real time   33.9664
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.3918552E+04  (-0.2878927E+04)
@@ -6105,7 +6083,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6115,9 +6093,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =     -4459.80360961 eV
+  free energy    TOTEN  =     -4459.80360943 eV
 
-  energy without entropy =    -4458.67741937  energy(sigma->0) =    -4459.24051449
+  energy without entropy =    -4458.67741918  energy(sigma->0) =    -4459.24051431
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6128,12 +6106,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   6)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   22.8484: real time   22.8581
-  RMM-DIIS:  cpu time    7.2921: real time    7.2925
-    ORTHCH:  cpu time   13.8334: real time   13.8343
-       DOS:  cpu time    0.0096: real time    0.0096
+    EDDIAG:  cpu time   18.3938: real time   18.4066
+  RMM-DIIS:  cpu time    4.0186: real time    4.0189
+    ORTHCH:  cpu time   11.3641: real time   11.3647
+       DOS:  cpu time    0.0030: real time    0.0030
     --------------------------------------------
-      LOOP:  cpu time   43.9835: real time   43.9945
+      LOOP:  cpu time   33.7794: real time   33.7931
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.1679888E+04  (-0.1186422E+04)
@@ -6143,7 +6121,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6153,9 +6131,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =     -6139.69176061 eV
+  free energy    TOTEN  =     -6139.69176042 eV
 
-  energy without entropy =    -6138.65604185  energy(sigma->0) =    -6139.17390123
+  energy without entropy =    -6138.65604166  energy(sigma->0) =    -6139.17390104
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6166,12 +6144,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   7)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   22.8181: real time   22.8276
-  RMM-DIIS:  cpu time    7.3905: real time    7.3910
-    ORTHCH:  cpu time   13.8652: real time   13.8662
-       DOS:  cpu time    0.0092: real time    0.0092
+    EDDIAG:  cpu time   18.4702: real time   18.4821
+  RMM-DIIS:  cpu time    4.0271: real time    4.0275
+    ORTHCH:  cpu time   11.4623: real time   11.4626
+       DOS:  cpu time    0.0034: real time    0.0035
     --------------------------------------------
-      LOOP:  cpu time   44.0831: real time   44.0940
+      LOOP:  cpu time   33.9630: real time   33.9757
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.7250267E+03  (-0.5545457E+03)
@@ -6181,7 +6159,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6191,9 +6169,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =     -6864.71844305 eV
+  free energy    TOTEN  =     -6864.71844286 eV
 
-  energy without entropy =    -6863.29703715  energy(sigma->0) =    -6864.00774010
+  energy without entropy =    -6863.29703697  energy(sigma->0) =    -6864.00773991
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6204,12 +6182,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   8)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   23.1827: real time   23.1915
-  RMM-DIIS:  cpu time    7.4142: real time    7.4148
-    ORTHCH:  cpu time   13.8373: real time   13.8383
-       DOS:  cpu time    0.0092: real time    0.0092
+    EDDIAG:  cpu time   18.5390: real time   18.5492
+  RMM-DIIS:  cpu time    4.0485: real time    4.0488
+    ORTHCH:  cpu time   11.3723: real time   11.3726
+       DOS:  cpu time    0.0033: real time    0.0033
     --------------------------------------------
-      LOOP:  cpu time   44.4434: real time   44.4537
+      LOOP:  cpu time   33.9632: real time   33.9740
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.3747875E+03  (-0.2813516E+03)
@@ -6219,7 +6197,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6229,9 +6207,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =     -7239.50590144 eV
+  free energy    TOTEN  =     -7239.50590125 eV
 
-  energy without entropy =    -7237.34636462  energy(sigma->0) =    -7238.42613303
+  energy without entropy =    -7237.34636444  energy(sigma->0) =    -7238.42613284
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6242,12 +6220,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   9)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   22.8500: real time   22.8584
-  RMM-DIIS:  cpu time   17.2494: real time   17.2504
-    ORTHCH:  cpu time   13.8576: real time   13.8584
-       DOS:  cpu time    0.0104: real time    0.0104
+    EDDIAG:  cpu time   19.6295: real time   19.6397
+  RMM-DIIS:  cpu time    9.5189: real time    9.5196
+    ORTHCH:  cpu time   12.8899: real time   12.8905
+       DOS:  cpu time    0.0037: real time    0.0037
     --------------------------------------------
-      LOOP:  cpu time   53.9677: real time   53.9779
+      LOOP:  cpu time   42.0422: real time   42.0537
 
  eigenvalue-minimisations  : 21188
  total energy-change (2. order) :-0.3146444E+03  (-0.2777227E+03)
@@ -6257,7 +6235,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6267,9 +6245,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =     -7554.15031733 eV
+  free energy    TOTEN  =     -7554.15031714 eV
 
-  energy without entropy =    -7550.63803052  energy(sigma->0) =    -7552.39417392
+  energy without entropy =    -7550.63803033  energy(sigma->0) =    -7552.39417374
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6280,12 +6258,12 @@ Space group operators:
 --------------------------------------- Iteration      1(  10)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   23.0487: real time   23.0535
-  RMM-DIIS:  cpu time   19.2431: real time   19.2446
-    ORTHCH:  cpu time   13.8395: real time   13.8404
-       DOS:  cpu time    0.0090: real time    0.0090
+    EDDIAG:  cpu time   21.9147: real time   21.9273
+  RMM-DIIS:  cpu time   10.5399: real time   10.5406
+    ORTHCH:  cpu time   13.6111: real time   13.6117
+       DOS:  cpu time    0.0027: real time    0.0027
     --------------------------------------------
-      LOOP:  cpu time   56.1400: real time   56.1473
+      LOOP:  cpu time   46.0683: real time   46.0821
 
  eigenvalue-minimisations  : 24300
  total energy-change (2. order) :-0.6526143E+02  (-0.2769100E+02)
@@ -6295,7 +6273,7 @@ Space group operators:
  Free energy of the ion-electron system (eV)
   ---------------------------------------------------
   alpha Z        PSCENC =     72971.77159969
-  Ewald energy   TEWEN  =    -43617.70966581
+  Ewald energy   TEWEN  =    -43617.70966563
   -Hartree energ DENC   =  -1110988.56764635
   -exchange      EXHF   =         0.00000000
   -V(xc)+E(xc)   XCENC  =    -30738.64353457
@@ -6305,9 +6283,9 @@ Space group operators:
   atomic energy  EATOM  =   1055954.98436305
   Solvation  Ediel_sol  =         0.00000000
   ---------------------------------------------------
-  free energy    TOTEN  =     -7619.41174906 eV
+  free energy    TOTEN  =     -7619.41174887 eV
 
-  energy without entropy =    -7615.99399537  energy(sigma->0) =    -7617.70287221
+  energy without entropy =    -7615.99399518  energy(sigma->0) =    -7617.70287203
 
 
 --------------------------------------------------------------------------------------------------------
@@ -14593,14 +14571,14 @@ Space group operators:
 ------------------------ aborting loop because EDIFF is reached ----------------------------------------
 
 
-    CHARGE:  cpu time    1.2733: real time    1.2734
-    FORLOC:  cpu time    0.2088: real time    0.2088
-    FORNL :  cpu time    5.9743: real time    5.9754
-    STRESS:  cpu time   17.9665: real time   17.9680
-    FORCOR:  cpu time    0.4449: real time    0.4449
-    FORHAR:  cpu time    0.2749: real time    0.2749
-    MIXING:  cpu time    0.0011: real time    0.0011
-    OFIELD:  cpu time    0.0002: real time    0.0002
+    CHARGE:  cpu time    0.7727: real time    0.7727
+    FORLOC:  cpu time    0.0974: real time    0.0975
+    FORNL :  cpu time    3.6206: real time    3.6209
+    STRESS:  cpu time   11.1073: real time   11.1079
+    FORCOR:  cpu time    0.3519: real time    0.3519
+    FORHAR:  cpu time    0.1683: real time    0.1683
+    MIXING:  cpu time    0.0016: real time    0.0016
+    OFIELD:  cpu time    0.0002: real time    0.0001
 
   FORCE on cell =-STRESS in cart. coord.  units (eV):
   Direction    XX          YY          ZZ          XY          YZ          ZX
@@ -14611,11 +14589,11 @@ Space group operators:
   E(xc)  -69580.87935-69572.36824-70055.63235    -3.33723    -0.79106    14.89549
   Local  ************************************   -55.66611   -12.29684  -738.73131
   n-local-59894.57857-59628.84511-61038.51410     7.81017    -4.80561    47.65566
-  augment 53085.26146 52957.34504 54522.27323     3.57561     2.97641   -50.64087
+  augment 53085.26145 52957.34499 54522.27326     3.57561     2.97650   -50.64085
   Kinetic179836.99596179667.24641184643.82661    18.77298     4.84597  -136.04078
   Fock        0.00000     0.00000     0.00000     0.00000     0.00000     0.00000
   -------------------------------------------------------------------------------------
-  Total   -7999.49743 -7742.36213 -7405.55972    -8.33297    -4.98888    73.21368
+  Total   -7999.49745 -7742.36218 -7405.55969    -8.33298    -4.98879    73.21370
   in kB    -422.56187  -408.97907  -391.18797    -0.44018    -0.26353     3.86741
   external pressure =     -407.58 kB  Pullay stress =        0.00 kB
 
@@ -17436,47 +17414,47 @@ Space group operators:
 
   FREE ENERGIE OF THE ION-ELECTRON SYSTEM (eV)
   ---------------------------------------------------
-  free  energy   TOTEN  =     -7619.41174906 eV
+  free  energy   TOTEN  =     -7619.41174887 eV
 
-  energy  without entropy=    -7615.99399537  energy(sigma->0) =    -7617.70287221
+  energy  without entropy=    -7615.99399518  energy(sigma->0) =    -7617.70287203
 
-
-
---------------------------------------------------------------------------------------------------------
-
-
-    POTLOK:  cpu time    0.3957: real time    0.3957
 
 
 --------------------------------------------------------------------------------------------------------
 
 
-     LOOP+:  cpu time  491.2686: real time  491.5367
+    POTLOK:  cpu time    0.4372: real time    0.4372
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+     LOOP+:  cpu time  381.3013: real time  381.8150
     4ORBIT:  cpu time    0.0000: real time    0.0000
 
- total amount of memory used by VASP MPI-rank0   123518. kBytes
+ total amount of memory used by VASP MPI-rank0    80439. kBytes
 =======================================================================
 
    base      :      30000. kBytes
-   nonlr-proj:      35588. kBytes
-   fftplans  :       7073. kBytes
-   grid      :      12808. kBytes
-   one-center:       1353. kBytes
-   wavefun   :      36696. kBytes
+   nonlr-proj:      18724. kBytes
+   fftplans  :       4566. kBytes
+   grid      :       8125. kBytes
+   one-center:        676. kBytes
+   wavefun   :      18348. kBytes
 
   
   
  General timing and accounting informations for this job:
  ========================================================
   
-                  Total CPU time used (sec):      574.700
-                            User time (sec):      555.542
-                          System time (sec):       19.158
-                         Elapsed time (sec):      575.165
+                  Total CPU time used (sec):      468.232
+                            User time (sec):      460.861
+                          System time (sec):        7.371
+                         Elapsed time (sec):      469.156
   
-                   Maximum memory used (kb):      412804.
+                   Maximum memory used (kb):      254828.
                    Average memory used (kb):           0.
   
-                          Minor page faults:      2490213
-                          Major page faults:            1
-                 Voluntary context switches:          286
+                          Minor page faults:       323323
+                          Major page faults:           97
+                 Voluntary context switches:         1184

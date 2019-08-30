@@ -1,8 +1,8 @@
- vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Apr 10 2019 15:38:03) gamma-only        
- executed on tx2_gcc-7.3_cray-lib date 2019.04.10  19:03:38
+ vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Aug 28 2019 16:38:54) gamma-only        
+ executed on tx2_gcc-7.3_cray-lib date 2019.08.30  10:25:56
  running on 1024 total cores
  distrk:  each k-point on 1024 cores,    1 groups
- distr:  one band on NCORES_PER_BAND=   8 cores,  128 groups
+ distr:  one band on NCORES_PER_BAND=  16 cores,   64 groups
 
 
 --------------------------------------------------------------------------------------------------------
@@ -11,28 +11,6 @@
  INCAR:
  POTCAR:    PAW Pd                                
  POTCAR:  PAW O_s                                 
-
- ----------------------------------------------------------------------------- 
-|                                                                             |
-|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
-|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
-|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
-|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
-|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
-|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
-|                                                                             |
-|      For optimal performance we recommend to set                            |
-|        NCORE= 4 - approx SQRT( number of cores)                             |
-|      NCORE specifies how many cores store one orbital (NPAR=cpu/NCORE).     |
-|      This setting can  greatly improve the performance of VASP for DFT.     |
-|      The default,   NCORE=1            might be grossly inefficient         |
-|      on modern multi-core architectures or massively parallel machines.     |
-|      Do your own testing !!!!                                               |
-|      Unfortunately you need to use the default for GW and RPA calculations. |
-|      (for HF NCORE is supported but not extensively tested yet)             |
-|                                                                             |
- ----------------------------------------------------------------------------- 
-
  POTCAR:    PAW Pd                                
    VRHFIN =Pd : s1 d9                                                           
    LEXCH  = 91                                                                  
@@ -5875,7 +5853,7 @@ Space group operators:
  use parallel FFT for orbitals z direction half grid
  k-point  1 :   0.0000 0.0000 0.0000  plane waves:  136102
 
- maximum and minimum number of plane-waves per node :     17021    17006
+ maximum and minimum number of plane-waves per node :      8514     8500
 
  maximum number of plane-waves:    136102
  maximum index in each direction: 
@@ -5885,7 +5863,7 @@ Space group operators:
 
  real space projection operators:
   total allocation   :     228717.75 KBytes
-  max/ min on nodes  :      29009.56      27376.88
+  max/ min on nodes  :      15238.38      13679.81
 
 
  parallel 3D FFT for wavefunctions:
@@ -5894,17 +5872,17 @@ Space group operators:
     minimum data exchange during FFTs selected (reduces bandwidth)
 
 
- total amount of memory used by VASP MPI-rank0   105184. kBytes
+ total amount of memory used by VASP MPI-rank0    80439. kBytes
 =======================================================================
 
    base      :      30000. kBytes
-   nonlr-proj:      35588. kBytes
-   fftplans  :       7087. kBytes
-   grid      :      12808. kBytes
-   one-center:       1353. kBytes
+   nonlr-proj:      18724. kBytes
+   fftplans  :       4566. kBytes
+   grid      :       8125. kBytes
+   one-center:        676. kBytes
    wavefun   :      18348. kBytes
 
-     INWAV:  cpu time    0.0002: real time    0.0005
+     INWAV:  cpu time    0.0000: real time    0.0000
  Broyden mixing: mesh for mixing (old mesh)
    NGX = 99   NGY = 77   NGZ = 73
   (NGX  =300   NGY  =240   NGZ  =216)
@@ -5930,20 +5908,20 @@ Space group operators:
  Maximum number of real-space cells 2x 3x 3
  Maximum number of reciprocal cells 3x 3x 3
 
-    FEWALD:  cpu time    0.3867: real time    0.3871
+    FEWALD:  cpu time    0.4979: real time    0.4979
 
 
 --------------------------------------- Iteration      1(   1)  ---------------------------------------
 
 
-    POTLOK:  cpu time    0.3780: real time    0.4097
-    SETDIJ:  cpu time    0.0510: real time    0.0510
-    EDDIAG:  cpu time   22.4385: real time   22.6648
-  RMM-DIIS:  cpu time    3.9282: real time    3.9284
-    ORTHCH:  cpu time   10.5264: real time   10.5268
-       DOS:  cpu time    0.0054: real time    0.0054
+    POTLOK:  cpu time    0.3796: real time    0.4111
+    SETDIJ:  cpu time    0.0645: real time    0.0645
+    EDDIAG:  cpu time   22.5756: real time   22.8396
+  RMM-DIIS:  cpu time    4.0450: real time    4.0487
+    ORTHCH:  cpu time   13.0917: real time   13.0921
+       DOS:  cpu time    0.0030: real time    0.0030
     --------------------------------------------
-      LOOP:  cpu time   37.3275: real time   37.5861
+      LOOP:  cpu time   40.1595: real time   40.4589
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) : 0.1405227E+06  (-0.3933595E+06)
@@ -5976,12 +5954,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   2)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.1022: real time   17.1172
-  RMM-DIIS:  cpu time    3.9019: real time    3.9021
-    ORTHCH:  cpu time   10.5264: real time   10.5269
+    EDDIAG:  cpu time   19.7569: real time   19.7766
+  RMM-DIIS:  cpu time    4.0222: real time    4.0226
+    ORTHCH:  cpu time   12.9746: real time   12.9752
        DOS:  cpu time    0.0032: real time    0.0032
     --------------------------------------------
-      LOOP:  cpu time   31.5338: real time   31.5493
+      LOOP:  cpu time   36.7569: real time   36.7776
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.1020715E+06  (-0.1212993E+06)
@@ -6014,12 +5992,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   3)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.0924: real time   17.1039
-  RMM-DIIS:  cpu time    3.9092: real time    3.9095
-    ORTHCH:  cpu time   10.4953: real time   10.4957
-       DOS:  cpu time    0.0024: real time    0.0023
+    EDDIAG:  cpu time   20.8009: real time   20.8098
+  RMM-DIIS:  cpu time    4.0214: real time    4.0216
+    ORTHCH:  cpu time   12.2476: real time   12.2482
+       DOS:  cpu time    0.0032: real time    0.0032
     --------------------------------------------
-      LOOP:  cpu time   31.4992: real time   31.5115
+      LOOP:  cpu time   37.0731: real time   37.0828
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.2822945E+05  (-0.3267512E+05)
@@ -6052,12 +6030,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   4)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.1243: real time   17.1384
-  RMM-DIIS:  cpu time    3.9253: real time    3.9256
-    ORTHCH:  cpu time   10.5186: real time   10.5191
-       DOS:  cpu time    0.0029: real time    0.0029
+    EDDIAG:  cpu time   19.3450: real time   19.3604
+  RMM-DIIS:  cpu time    4.0271: real time    4.0273
+    ORTHCH:  cpu time   12.3356: real time   12.3361
+       DOS:  cpu time    0.0028: real time    0.0028
     --------------------------------------------
-      LOOP:  cpu time   31.5711: real time   31.5858
+      LOOP:  cpu time   35.7105: real time   35.7266
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.1076308E+05  (-0.8798569E+04)
@@ -6090,12 +6068,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   5)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.1239: real time   17.1360
-  RMM-DIIS:  cpu time    3.9116: real time    3.9154
-    ORTHCH:  cpu time   10.5053: real time   10.5058
-       DOS:  cpu time    0.0049: real time    0.0049
+    EDDIAG:  cpu time   19.4529: real time   19.4694
+  RMM-DIIS:  cpu time    4.0239: real time    4.0241
+    ORTHCH:  cpu time   12.2537: real time   12.2542
+       DOS:  cpu time    0.0026: real time    0.0026
     --------------------------------------------
-      LOOP:  cpu time   31.5457: real time   31.5621
+      LOOP:  cpu time   35.7330: real time   35.7504
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.3918552E+04  (-0.2878927E+04)
@@ -6128,12 +6106,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   6)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.1544: real time   17.1667
-  RMM-DIIS:  cpu time    3.9466: real time    3.9500
-    ORTHCH:  cpu time   10.5229: real time   10.5237
-       DOS:  cpu time    0.0028: real time    0.0028
+    EDDIAG:  cpu time   19.5117: real time   19.5248
+  RMM-DIIS:  cpu time    4.0013: real time    4.0016
+    ORTHCH:  cpu time   12.2730: real time   12.2738
+       DOS:  cpu time    0.0050: real time    0.0050
     --------------------------------------------
-      LOOP:  cpu time   31.6266: real time   31.6431
+      LOOP:  cpu time   35.7910: real time   35.8051
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.1679888E+04  (-0.1186422E+04)
@@ -6166,12 +6144,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   7)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.1158: real time   17.1297
-  RMM-DIIS:  cpu time    3.9250: real time    3.9257
-    ORTHCH:  cpu time   10.5091: real time   10.5095
-       DOS:  cpu time    0.0027: real time    0.0027
+    EDDIAG:  cpu time   19.7357: real time   19.7484
+  RMM-DIIS:  cpu time    4.0248: real time    4.0252
+    ORTHCH:  cpu time   12.2352: real time   12.2360
+       DOS:  cpu time    0.0030: real time    0.0030
     --------------------------------------------
-      LOOP:  cpu time   31.5526: real time   31.5677
+      LOOP:  cpu time   35.9987: real time   36.0126
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.7250267E+03  (-0.5545457E+03)
@@ -6204,12 +6182,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   8)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.1251: real time   17.1386
-  RMM-DIIS:  cpu time    3.9160: real time    3.9170
-    ORTHCH:  cpu time   10.5005: real time   10.5010
-       DOS:  cpu time    0.0044: real time    0.0044
+    EDDIAG:  cpu time   19.4712: real time   19.4867
+  RMM-DIIS:  cpu time    4.0172: real time    4.0175
+    ORTHCH:  cpu time   12.2689: real time   12.2693
+       DOS:  cpu time    0.0051: real time    0.0051
     --------------------------------------------
-      LOOP:  cpu time   31.5460: real time   31.5610
+      LOOP:  cpu time   35.7625: real time   35.7785
 
  eigenvalue-minimisations  :  7936
  total energy-change (2. order) :-0.3747875E+03  (-0.2813516E+03)
@@ -6231,7 +6209,7 @@ Space group operators:
   ---------------------------------------------------
   free energy    TOTEN  =     -7239.50590125 eV
 
-  energy without entropy =    -7237.34636444  energy(sigma->0) =    -7238.42613285
+  energy without entropy =    -7237.34636444  energy(sigma->0) =    -7238.42613284
 
 
 --------------------------------------------------------------------------------------------------------
@@ -6242,12 +6220,12 @@ Space group operators:
 --------------------------------------- Iteration      1(   9)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.1190: real time   17.1287
-  RMM-DIIS:  cpu time    9.0528: real time    9.0546
-    ORTHCH:  cpu time   10.5304: real time   10.5307
-       DOS:  cpu time    0.0037: real time    0.0037
+    EDDIAG:  cpu time   19.4635: real time   19.4767
+  RMM-DIIS:  cpu time    9.3776: real time    9.3782
+    ORTHCH:  cpu time   12.1951: real time   12.1955
+       DOS:  cpu time    0.0035: real time    0.0035
     --------------------------------------------
-      LOOP:  cpu time   36.7060: real time   36.7178
+      LOOP:  cpu time   41.0398: real time   41.0540
 
  eigenvalue-minimisations  : 21188
  total energy-change (2. order) :-0.3146444E+03  (-0.2777227E+03)
@@ -6280,12 +6258,12 @@ Space group operators:
 --------------------------------------- Iteration      1(  10)  ---------------------------------------
 
 
-    EDDIAG:  cpu time   17.1481: real time   17.1598
-  RMM-DIIS:  cpu time   10.0691: real time   10.0702
-    ORTHCH:  cpu time   10.5494: real time   10.5498
-       DOS:  cpu time    0.0024: real time    0.0024
+    EDDIAG:  cpu time   19.5142: real time   19.5299
+  RMM-DIIS:  cpu time   10.3612: real time   10.3617
+    ORTHCH:  cpu time   12.6260: real time   12.6264
+       DOS:  cpu time    0.0028: real time    0.0028
     --------------------------------------------
-      LOOP:  cpu time   37.7689: real time   37.7820
+      LOOP:  cpu time   42.5041: real time   42.5207
 
  eigenvalue-minimisations  : 24300
  total energy-change (2. order) :-0.6526143E+02  (-0.2769100E+02)
@@ -14593,13 +14571,13 @@ Space group operators:
 ------------------------ aborting loop because EDIFF is reached ----------------------------------------
 
 
-    CHARGE:  cpu time    0.6882: real time    0.6882
-    FORLOC:  cpu time    0.0996: real time    0.0996
-    FORNL :  cpu time    3.2848: real time    3.2850
-    STRESS:  cpu time    9.8889: real time    9.8896
-    FORCOR:  cpu time    0.3625: real time    0.3625
-    FORHAR:  cpu time    0.1743: real time    0.1743
-    MIXING:  cpu time    0.0008: real time    0.0008
+    CHARGE:  cpu time    0.7692: real time    0.7692
+    FORLOC:  cpu time    0.0987: real time    0.0987
+    FORNL :  cpu time    3.6124: real time    3.6128
+    STRESS:  cpu time   10.8924: real time   10.8929
+    FORCOR:  cpu time    0.3498: real time    0.3498
+    FORHAR:  cpu time    0.1724: real time    0.1724
+    MIXING:  cpu time    0.0007: real time    0.0007
     OFIELD:  cpu time    0.0001: real time    0.0001
 
   FORCE on cell =-STRESS in cart. coord.  units (eV):
@@ -14611,11 +14589,11 @@ Space group operators:
   E(xc)  -69580.87935-69572.36824-70055.63235    -3.33723    -0.79106    14.89549
   Local  ************************************   -55.66611   -12.29684  -738.73131
   n-local-59894.57857-59628.84511-61038.51410     7.81017    -4.80561    47.65566
-  augment 53085.26146 52957.34503 54522.27322     3.57560     2.97640   -50.64087
+  augment 53085.26145 52957.34499 54522.27326     3.57561     2.97650   -50.64085
   Kinetic179836.99596179667.24641184643.82661    18.77298     4.84597  -136.04078
   Fock        0.00000     0.00000     0.00000     0.00000     0.00000     0.00000
   -------------------------------------------------------------------------------------
-  Total   -7999.49744 -7742.36214 -7405.55973    -8.33298    -4.98889    73.21368
+  Total   -7999.49745 -7742.36218 -7405.55969    -8.33297    -4.98880    73.21370
   in kB    -422.56187  -408.97907  -391.18797    -0.44018    -0.26353     3.86741
   external pressure =     -407.58 kB  Pullay stress =        0.00 kB
 
@@ -17427,7 +17405,7 @@ Space group operators:
      32.24825     20.57994     19.09198        -0.008121     -0.477261      0.202442
      41.93407     20.57994     19.09198        -0.008121     -0.477261      0.202442
  -----------------------------------------------------------------------------------
-    total drift:                               -3.566420     -0.067565     14.480486
+    total drift:                               -3.566421     -0.067565     14.480486
 
 
 --------------------------------------------------------------------------------------------------------
@@ -17445,23 +17423,23 @@ Space group operators:
 --------------------------------------------------------------------------------------------------------
 
 
-    POTLOK:  cpu time    0.4221: real time    0.4221
+    POTLOK:  cpu time    0.4130: real time    0.4130
 
 
 --------------------------------------------------------------------------------------------------------
 
 
-     LOOP+:  cpu time  348.3922: real time  348.7892
+     LOOP+:  cpu time  393.6324: real time  394.1508
     4ORBIT:  cpu time    0.0000: real time    0.0000
 
- total amount of memory used by VASP MPI-rank0   105184. kBytes
+ total amount of memory used by VASP MPI-rank0    80439. kBytes
 =======================================================================
 
    base      :      30000. kBytes
-   nonlr-proj:      35588. kBytes
-   fftplans  :       7087. kBytes
-   grid      :      12808. kBytes
-   one-center:       1353. kBytes
+   nonlr-proj:      18724. kBytes
+   fftplans  :       4566. kBytes
+   grid      :       8125. kBytes
+   one-center:        676. kBytes
    wavefun   :      18348. kBytes
 
   
@@ -17469,14 +17447,14 @@ Space group operators:
  General timing and accounting informations for this job:
  ========================================================
   
-                  Total CPU time used (sec):      432.992
-                            User time (sec):      419.720
-                          System time (sec):       13.273
-                         Elapsed time (sec):      433.723
+                  Total CPU time used (sec):      481.473
+                            User time (sec):      473.710
+                          System time (sec):        7.762
+                         Elapsed time (sec):      482.435
   
-                   Maximum memory used (kb):      384936.
+                   Maximum memory used (kb):      251332.
                    Average memory used (kb):           0.
   
-                          Minor page faults:      1460274
-                          Major page faults:            0
-                 Voluntary context switches:          262
+                          Minor page faults:       324325
+                          Major page faults:           86
+                 Voluntary context switches:          957
