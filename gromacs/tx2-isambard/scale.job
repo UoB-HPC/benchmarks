@@ -13,6 +13,9 @@ then
   export GMX_NBNXN_EWALD_TABLE=1
 fi
 
+# The Arm OpenMP runtime conflicts with Cray's aprun for thread affinity
+export KMP_AFFINITY=disabled
+
 export OMP_NUM_THREADS=4
 export GMX_MAXBACKUP=-1
 aprun -n $[NODES * 64] -N 64 -d 4 -j 4 "$BUILD_DIR/bin/gmx_mpi" mdrun \
