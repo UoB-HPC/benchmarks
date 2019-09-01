@@ -21,6 +21,22 @@ function setup_env()
 
             of_platform=linuxARM64Arm
             ;;
+        arm-19.2)
+            module load cdt/19.08 &>/dev/null
+
+            current_env=$( module li 2>&1 | grep PrgEnv | sed -r 's/[^-]*-([a-z]+).*/\1/')
+            module swap "PrgEnv-$current_env" PrgEnv-allinea
+            if [ -n "${CRAY_CPU_TARGET:-}" ]; then
+                module swap "craype-$CRAY_CPU_TARGET" craype-arm-thunderx2
+            else
+                module load craype-arm-thunderx2
+            fi
+            module swap allinea allinea/19.2.0.0
+            module load cray-fftw/3.3.8.3
+            module load craype-hugepages8M
+
+            of_platform=linuxARM64Arm
+            ;;
         gcc-7.3)
             current_env=$( module li 2>&1 | grep PrgEnv | sed -r 's/[^-]*-([a-z]+).*/\1/')
             module swap "PrgEnv-$current_env" PrgEnv-gnu
@@ -65,7 +81,7 @@ export PLATFORM_DIR="$(realpath "$(dirname "$script")")"
 export ARCH=tx2
 export SYSTEM=isambard
 export PLATFORM="${ARCH}-${SYSTEM}"
-export COMPILERS="arm-19.0 gcc-7.3"
+export COMPILERS="arm-19.0 arm-19.2 gcc-7.3"
 export DEFAULT_COMPILER=gcc-7.3
 export MPILIBS="cray-mpich-7.7.6 openmpi-1.10.4"
 export DEFAULT_MPILIB=cray-mpich-7.7.6
