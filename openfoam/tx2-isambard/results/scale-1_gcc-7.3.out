@@ -1,1060 +1,3 @@
-Copying DrivAer/64M into 64M-64...
-/*---------------------------------------------------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1712                                 |
-|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
-Build  : v1712
-Arch   : "LSB;label=32;scalar=64"
-Exec   : decomposePar
-Date   : Apr 03 2019
-Time   : 20:04:33
-Host   : "nid00000"
-PID    : 230004
-I/O    : uncollated
-Case   : /lustre/home/br-apoenaru/applications-arm/OpenFOAM/run/64M-64
-nProcs : 1
-trapFpe: Floating point exception trapping - not supported on this platform
-fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
-allowSystemOperations : Allowing user-supplied system call operations
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-Create time
-
-
-
-Decomposing mesh region0
-
-Create mesh
-
-Calculating distribution of cells
-Selecting decompositionMethod scotch [64]
-
-Finished decomposition in 229.35 s
-
-Calculating original mesh data
-
-Distributing cells to processors
-
-Distributing faces to processors
-
-Distributing points to processors
-
-Constructing processor meshes
-
-Processor 0
-    Number of cells = 965345
-    Number of faces shared with processor 1 = 11011
-    Number of faces shared with processor 2 = 18066
-    Number of faces shared with processor 3 = 1330
-    Number of faces shared with processor 5 = 2911
-    Number of faces shared with processor 7 = 1452
-    Number of faces shared with processor 20 = 2851
-    Number of faces shared with processor 21 = 2754
-    Number of faces shared with processor 24 = 2296
-    Number of processor patches = 8
-    Number of processor faces = 42671
-    Number of boundary faces = 19750
-
-Processor 1
-    Number of cells = 958621
-    Number of faces shared with processor 0 = 11011
-    Number of faces shared with processor 2 = 1252
-    Number of processor patches = 2
-    Number of processor faces = 12263
-    Number of boundary faces = 60953
-
-Processor 2
-    Number of cells = 971646
-    Number of faces shared with processor 0 = 18066
-    Number of faces shared with processor 1 = 1252
-    Number of faces shared with processor 3 = 14136
-    Number of faces shared with processor 5 = 662
-    Number of faces shared with processor 6 = 6973
-    Number of faces shared with processor 7 = 3025
-    Number of faces shared with processor 20 = 2805
-    Number of processor patches = 7
-    Number of processor faces = 46919
-    Number of boundary faces = 17177
-
-Processor 3
-    Number of cells = 971646
-    Number of faces shared with processor 0 = 1330
-    Number of faces shared with processor 2 = 14136
-    Number of faces shared with processor 5 = 8611
-    Number of faces shared with processor 6 = 18858
-    Number of faces shared with processor 7 = 3411
-    Number of processor patches = 5
-    Number of processor faces = 46346
-    Number of boundary faces = 7011
-
-Processor 4
-    Number of cells = 971293
-    Number of faces shared with processor 5 = 8354
-    Number of faces shared with processor 8 = 12070
-    Number of faces shared with processor 9 = 5422
-    Number of faces shared with processor 11 = 637
-    Number of faces shared with processor 21 = 474
-    Number of faces shared with processor 26 = 744
-    Number of faces shared with processor 28 = 8524
-    Number of faces shared with processor 56 = 7009
-    Number of faces shared with processor 57 = 1748
-    Number of processor patches = 9
-    Number of processor faces = 44982
-    Number of boundary faces = 11740
-
-Processor 5
-    Number of cells = 971646
-    Number of faces shared with processor 0 = 2911
-    Number of faces shared with processor 2 = 662
-    Number of faces shared with processor 3 = 8611
-    Number of faces shared with processor 4 = 8354
-    Number of faces shared with processor 6 = 7686
-    Number of faces shared with processor 7 = 13177
-    Number of faces shared with processor 8 = 2773
-    Number of faces shared with processor 9 = 2477
-    Number of faces shared with processor 21 = 418
-    Number of faces shared with processor 24 = 5594
-    Number of faces shared with processor 28 = 838
-    Number of processor patches = 11
-    Number of processor faces = 53501
-    Number of boundary faces = 7296
-
-Processor 6
-    Number of cells = 971646
-    Number of faces shared with processor 2 = 6973
-    Number of faces shared with processor 3 = 18858
-    Number of faces shared with processor 5 = 7686
-    Number of faces shared with processor 7 = 16799
-    Number of faces shared with processor 9 = 5587
-    Number of faces shared with processor 10 = 401
-    Number of faces shared with processor 20 = 865
-    Number of faces shared with processor 22 = 644
-    Number of faces shared with processor 24 = 25
-    Number of faces shared with processor 25 = 31
-    Number of processor patches = 10
-    Number of processor faces = 57869
-    Number of boundary faces = 11629
-
-Processor 7
-    Number of cells = 971755
-    Number of faces shared with processor 0 = 1452
-    Number of faces shared with processor 2 = 3025
-    Number of faces shared with processor 3 = 3411
-    Number of faces shared with processor 5 = 13177
-    Number of faces shared with processor 6 = 16799
-    Number of faces shared with processor 8 = 6467
-    Number of faces shared with processor 9 = 4802
-    Number of faces shared with processor 10 = 1889
-    Number of faces shared with processor 20 = 1273
-    Number of faces shared with processor 22 = 86
-    Number of faces shared with processor 24 = 9972
-    Number of faces shared with processor 25 = 212
-    Number of faces shared with processor 26 = 34
-    Number of faces shared with processor 27 = 303
-    Number of processor patches = 14
-    Number of processor faces = 62902
-    Number of boundary faces = 0
-
-Processor 8
-    Number of cells = 971032
-    Number of faces shared with processor 4 = 12070
-    Number of faces shared with processor 5 = 2773
-    Number of faces shared with processor 7 = 6467
-    Number of faces shared with processor 9 = 17654
-    Number of faces shared with processor 10 = 5543
-    Number of faces shared with processor 11 = 4754
-    Number of faces shared with processor 24 = 1656
-    Number of faces shared with processor 26 = 9258
-    Number of faces shared with processor 27 = 2754
-    Number of faces shared with processor 28 = 3184
-    Number of faces shared with processor 56 = 160
-    Number of processor patches = 11
-    Number of processor faces = 66273
-    Number of boundary faces = 0
-
-Processor 9
-    Number of cells = 971646
-    Number of faces shared with processor 4 = 5422
-    Number of faces shared with processor 5 = 2477
-    Number of faces shared with processor 6 = 5587
-    Number of faces shared with processor 7 = 4802
-    Number of faces shared with processor 8 = 17654
-    Number of faces shared with processor 10 = 7526
-    Number of faces shared with processor 11 = 3807
-    Number of faces shared with processor 56 = 28
-    Number of processor patches = 8
-    Number of processor faces = 47303
-    Number of boundary faces = 15927
-
-Processor 10
-    Number of cells = 966856
-    Number of faces shared with processor 6 = 401
-    Number of faces shared with processor 7 = 1889
-    Number of faces shared with processor 8 = 5543
-    Number of faces shared with processor 9 = 7526
-    Number of faces shared with processor 11 = 9024
-    Number of faces shared with processor 12 = 13039
-    Number of faces shared with processor 14 = 1507
-    Number of faces shared with processor 17 = 471
-    Number of faces shared with processor 22 = 200
-    Number of faces shared with processor 24 = 350
-    Number of faces shared with processor 25 = 1464
-    Number of faces shared with processor 27 = 9022
-    Number of processor patches = 12
-    Number of processor faces = 50436
-    Number of boundary faces = 35397
-
-Processor 11
-    Number of cells = 966794
-    Number of faces shared with processor 4 = 637
-    Number of faces shared with processor 8 = 4754
-    Number of faces shared with processor 9 = 3807
-    Number of faces shared with processor 10 = 9024
-    Number of faces shared with processor 12 = 1866
-    Number of faces shared with processor 13 = 6853
-    Number of faces shared with processor 26 = 4164
-    Number of faces shared with processor 27 = 788
-    Number of faces shared with processor 56 = 5937
-    Number of faces shared with processor 58 = 1441
-    Number of processor patches = 10
-    Number of processor faces = 39271
-    Number of boundary faces = 81418
-
-Processor 12
-    Number of cells = 953834
-    Number of faces shared with processor 10 = 13039
-    Number of faces shared with processor 11 = 1866
-    Number of faces shared with processor 13 = 8356
-    Number of faces shared with processor 14 = 8487
-    Number of faces shared with processor 15 = 6372
-    Number of faces shared with processor 27 = 2251
-    Number of processor patches = 6
-    Number of processor faces = 40371
-    Number of boundary faces = 96887
-
-Processor 13
-    Number of cells = 958005
-    Number of faces shared with processor 11 = 6853
-    Number of faces shared with processor 12 = 8356
-    Number of faces shared with processor 14 = 289
-    Number of faces shared with processor 15 = 8192
-    Number of faces shared with processor 58 = 4753
-    Number of faces shared with processor 59 = 4686
-    Number of processor patches = 6
-    Number of processor faces = 33129
-    Number of boundary faces = 86994
-
-Processor 14
-    Number of cells = 957977
-    Number of faces shared with processor 10 = 1507
-    Number of faces shared with processor 12 = 8487
-    Number of faces shared with processor 13 = 289
-    Number of faces shared with processor 15 = 10178
-    Number of faces shared with processor 16 = 9172
-    Number of faces shared with processor 17 = 609
-    Number of faces shared with processor 25 = 715
-    Number of faces shared with processor 27 = 3409
-    Number of faces shared with processor 51 = 2362
-    Number of processor patches = 9
-    Number of processor faces = 36728
-    Number of boundary faces = 43526
-
-Processor 15
-    Number of cells = 952520
-    Number of faces shared with processor 12 = 6372
-    Number of faces shared with processor 13 = 8192
-    Number of faces shared with processor 14 = 10178
-    Number of faces shared with processor 27 = 311
-    Number of faces shared with processor 51 = 5343
-    Number of faces shared with processor 59 = 2924
-    Number of processor patches = 6
-    Number of processor faces = 33320
-    Number of boundary faces = 110202
-
-Processor 16
-    Number of cells = 954801
-    Number of faces shared with processor 14 = 9172
-    Number of faces shared with processor 17 = 10846
-    Number of faces shared with processor 19 = 3880
-    Number of faces shared with processor 23 = 3786
-    Number of faces shared with processor 25 = 4682
-    Number of faces shared with processor 27 = 4209
-    Number of faces shared with processor 51 = 3648
-    Number of processor patches = 7
-    Number of processor faces = 40223
-    Number of boundary faces = 76257
-
-Processor 17
-    Number of cells = 958926
-    Number of faces shared with processor 10 = 471
-    Number of faces shared with processor 14 = 609
-    Number of faces shared with processor 16 = 10846
-    Number of faces shared with processor 19 = 4812
-    Number of faces shared with processor 22 = 359
-    Number of faces shared with processor 23 = 2364
-    Number of faces shared with processor 25 = 580
-    Number of faces shared with processor 44 = 7555
-    Number of faces shared with processor 48 = 6401
-    Number of faces shared with processor 51 = 3238
-    Number of processor patches = 10
-    Number of processor faces = 37235
-    Number of boundary faces = 42615
-
-Processor 18
-    Number of cells = 953074
-    Number of faces shared with processor 19 = 13407
-    Number of faces shared with processor 23 = 3818
-    Number of processor patches = 2
-    Number of processor faces = 17225
-    Number of boundary faces = 53561
-
-Processor 19
-    Number of cells = 953211
-    Number of faces shared with processor 16 = 3880
-    Number of faces shared with processor 17 = 4812
-    Number of faces shared with processor 18 = 13407
-    Number of faces shared with processor 23 = 6236
-    Number of faces shared with processor 39 = 1256
-    Number of faces shared with processor 44 = 2048
-    Number of faces shared with processor 45 = 701
-    Number of processor patches = 7
-    Number of processor faces = 32340
-    Number of boundary faces = 49914
-
-Processor 20
-    Number of cells = 969360
-    Number of faces shared with processor 0 = 2851
-    Number of faces shared with processor 2 = 2805
-    Number of faces shared with processor 6 = 865
-    Number of faces shared with processor 7 = 1273
-    Number of faces shared with processor 21 = 9264
-    Number of faces shared with processor 22 = 7218
-    Number of faces shared with processor 24 = 500
-    Number of faces shared with processor 32 = 63
-    Number of faces shared with processor 42 = 1104
-    Number of processor patches = 9
-    Number of processor faces = 25943
-    Number of boundary faces = 57045
-
-Processor 21
-    Number of cells = 971646
-    Number of faces shared with processor 0 = 2754
-    Number of faces shared with processor 4 = 474
-    Number of faces shared with processor 5 = 418
-    Number of faces shared with processor 20 = 9264
-    Number of faces shared with processor 22 = 12015
-    Number of faces shared with processor 24 = 6848
-    Number of faces shared with processor 28 = 424
-    Number of faces shared with processor 29 = 198
-    Number of faces shared with processor 30 = 4480
-    Number of faces shared with processor 32 = 4456
-    Number of faces shared with processor 33 = 2170
-    Number of faces shared with processor 34 = 1062
-    Number of faces shared with processor 36 = 2379
-    Number of faces shared with processor 38 = 2761
-    Number of faces shared with processor 39 = 784
-    Number of faces shared with processor 42 = 3205
-    Number of faces shared with processor 52 = 236
-    Number of faces shared with processor 53 = 634
-    Number of faces shared with processor 57 = 129
-    Number of faces shared with processor 60 = 932
-    Number of processor patches = 20
-    Number of processor faces = 55623
-    Number of boundary faces = 2709
-
-Processor 22
-    Number of cells = 969407
-    Number of faces shared with processor 6 = 644
-    Number of faces shared with processor 7 = 86
-    Number of faces shared with processor 10 = 200
-    Number of faces shared with processor 17 = 359
-    Number of faces shared with processor 20 = 7218
-    Number of faces shared with processor 21 = 12015
-    Number of faces shared with processor 23 = 10022
-    Number of faces shared with processor 24 = 6315
-    Number of faces shared with processor 25 = 612
-    Number of faces shared with processor 30 = 562
-    Number of faces shared with processor 38 = 759
-    Number of faces shared with processor 39 = 1928
-    Number of faces shared with processor 40 = 3071
-    Number of faces shared with processor 41 = 141
-    Number of faces shared with processor 42 = 9040
-    Number of processor patches = 15
-    Number of processor faces = 52972
-    Number of boundary faces = 1449
-
-Processor 23
-    Number of cells = 956237
-    Number of faces shared with processor 16 = 3786
-    Number of faces shared with processor 17 = 2364
-    Number of faces shared with processor 18 = 3818
-    Number of faces shared with processor 19 = 6236
-    Number of faces shared with processor 22 = 10022
-    Number of faces shared with processor 24 = 2698
-    Number of faces shared with processor 25 = 6983
-    Number of faces shared with processor 30 = 991
-    Number of faces shared with processor 31 = 7565
-    Number of faces shared with processor 39 = 9097
-    Number of faces shared with processor 40 = 2381
-    Number of faces shared with processor 41 = 289
-    Number of faces shared with processor 42 = 12
-    Number of faces shared with processor 44 = 2505
-    Number of faces shared with processor 45 = 544
-    Number of processor patches = 15
-    Number of processor faces = 59291
-    Number of boundary faces = 68714
-
-Processor 24
-    Number of cells = 970934
-    Number of faces shared with processor 0 = 2296
-    Number of faces shared with processor 5 = 5594
-    Number of faces shared with processor 6 = 25
-    Number of faces shared with processor 7 = 9972
-    Number of faces shared with processor 8 = 1656
-    Number of faces shared with processor 10 = 350
-    Number of faces shared with processor 20 = 500
-    Number of faces shared with processor 21 = 6848
-    Number of faces shared with processor 22 = 6315
-    Number of faces shared with processor 23 = 2698
-    Number of faces shared with processor 25 = 6445
-    Number of faces shared with processor 26 = 1962
-    Number of faces shared with processor 27 = 1204
-    Number of faces shared with processor 28 = 3977
-    Number of faces shared with processor 29 = 5043
-    Number of faces shared with processor 30 = 6394
-    Number of faces shared with processor 31 = 2143
-    Number of processor patches = 17
-    Number of processor faces = 63422
-    Number of boundary faces = 0
-
-Processor 25
-    Number of cells = 955741
-    Number of faces shared with processor 6 = 31
-    Number of faces shared with processor 7 = 212
-    Number of faces shared with processor 10 = 1464
-    Number of faces shared with processor 14 = 715
-    Number of faces shared with processor 16 = 4682
-    Number of faces shared with processor 17 = 580
-    Number of faces shared with processor 22 = 612
-    Number of faces shared with processor 23 = 6983
-    Number of faces shared with processor 24 = 6445
-    Number of faces shared with processor 26 = 4220
-    Number of faces shared with processor 27 = 12069
-    Number of faces shared with processor 29 = 3085
-    Number of faces shared with processor 31 = 9961
-    Number of processor patches = 13
-    Number of processor faces = 51059
-    Number of boundary faces = 69797
-
-Processor 26
-    Number of cells = 958650
-    Number of faces shared with processor 4 = 744
-    Number of faces shared with processor 7 = 34
-    Number of faces shared with processor 8 = 9258
-    Number of faces shared with processor 11 = 4164
-    Number of faces shared with processor 24 = 1962
-    Number of faces shared with processor 25 = 4220
-    Number of faces shared with processor 27 = 7146
-    Number of faces shared with processor 28 = 10716
-    Number of faces shared with processor 29 = 5169
-    Number of faces shared with processor 56 = 1809
-    Number of processor patches = 10
-    Number of processor faces = 45222
-    Number of boundary faces = 98925
-
-Processor 27
-    Number of cells = 954752
-    Number of faces shared with processor 7 = 303
-    Number of faces shared with processor 8 = 2754
-    Number of faces shared with processor 10 = 9022
-    Number of faces shared with processor 11 = 788
-    Number of faces shared with processor 12 = 2251
-    Number of faces shared with processor 14 = 3409
-    Number of faces shared with processor 15 = 311
-    Number of faces shared with processor 16 = 4209
-    Number of faces shared with processor 24 = 1204
-    Number of faces shared with processor 25 = 12069
-    Number of faces shared with processor 26 = 7146
-    Number of processor patches = 11
-    Number of processor faces = 43466
-    Number of boundary faces = 91615
-
-Processor 28
-    Number of cells = 970162
-    Number of faces shared with processor 4 = 8524
-    Number of faces shared with processor 5 = 838
-    Number of faces shared with processor 8 = 3184
-    Number of faces shared with processor 21 = 424
-    Number of faces shared with processor 24 = 3977
-    Number of faces shared with processor 26 = 10716
-    Number of faces shared with processor 29 = 10237
-    Number of faces shared with processor 56 = 625
-    Number of faces shared with processor 57 = 5715
-    Number of faces shared with processor 60 = 1151
-    Number of faces shared with processor 63 = 853
-    Number of processor patches = 11
-    Number of processor faces = 46244
-    Number of boundary faces = 70090
-
-Processor 29
-    Number of cells = 967238
-    Number of faces shared with processor 21 = 198
-    Number of faces shared with processor 24 = 5043
-    Number of faces shared with processor 25 = 3085
-    Number of faces shared with processor 26 = 5169
-    Number of faces shared with processor 28 = 10237
-    Number of faces shared with processor 30 = 6096
-    Number of faces shared with processor 31 = 5133
-    Number of faces shared with processor 60 = 3047
-    Number of faces shared with processor 61 = 4175
-    Number of faces shared with processor 63 = 1254
-    Number of processor patches = 10
-    Number of processor faces = 43437
-    Number of boundary faces = 88067
-
-Processor 30
-    Number of cells = 957321
-    Number of faces shared with processor 21 = 4480
-    Number of faces shared with processor 22 = 562
-    Number of faces shared with processor 23 = 991
-    Number of faces shared with processor 24 = 6394
-    Number of faces shared with processor 29 = 6096
-    Number of faces shared with processor 31 = 11318
-    Number of faces shared with processor 36 = 5422
-    Number of faces shared with processor 37 = 3685
-    Number of faces shared with processor 39 = 4258
-    Number of faces shared with processor 53 = 957
-    Number of faces shared with processor 60 = 131
-    Number of faces shared with processor 61 = 5298
-    Number of processor patches = 12
-    Number of processor faces = 49592
-    Number of boundary faces = 74407
-
-Processor 31
-    Number of cells = 954220
-    Number of faces shared with processor 23 = 7565
-    Number of faces shared with processor 24 = 2143
-    Number of faces shared with processor 25 = 9961
-    Number of faces shared with processor 29 = 5133
-    Number of faces shared with processor 30 = 11318
-    Number of processor patches = 5
-    Number of processor faces = 36120
-    Number of boundary faces = 110423
-
-Processor 32
-    Number of cells = 971482
-    Number of faces shared with processor 20 = 63
-    Number of faces shared with processor 21 = 4456
-    Number of faces shared with processor 33 = 17127
-    Number of faces shared with processor 34 = 1077
-    Number of faces shared with processor 35 = 1867
-    Number of faces shared with processor 38 = 5262
-    Number of faces shared with processor 42 = 9296
-    Number of faces shared with processor 43 = 3007
-    Number of faces shared with processor 47 = 5523
-    Number of processor patches = 9
-    Number of processor faces = 47678
-    Number of boundary faces = 44830
-
-Processor 33
-    Number of cells = 971165
-    Number of faces shared with processor 21 = 2170
-    Number of faces shared with processor 32 = 17127
-    Number of faces shared with processor 34 = 13287
-    Number of faces shared with processor 38 = 8481
-    Number of processor patches = 4
-    Number of processor faces = 41065
-    Number of boundary faces = 15560
-
-Processor 34
-    Number of cells = 969137
-    Number of faces shared with processor 21 = 1062
-    Number of faces shared with processor 32 = 1077
-    Number of faces shared with processor 33 = 13287
-    Number of faces shared with processor 35 = 10991
-    Number of faces shared with processor 36 = 2371
-    Number of faces shared with processor 38 = 7345
-    Number of faces shared with processor 52 = 7722
-    Number of faces shared with processor 54 = 7
-    Number of processor patches = 8
-    Number of processor faces = 43862
-    Number of boundary faces = 42451
-
-Processor 35
-    Number of cells = 962381
-    Number of faces shared with processor 32 = 1867
-    Number of faces shared with processor 34 = 10991
-    Number of faces shared with processor 38 = 267
-    Number of faces shared with processor 47 = 3686
-    Number of faces shared with processor 52 = 5360
-    Number of faces shared with processor 54 = 5941
-    Number of processor patches = 6
-    Number of processor faces = 28112
-    Number of boundary faces = 114732
-
-Processor 36
-    Number of cells = 957936
-    Number of faces shared with processor 21 = 2379
-    Number of faces shared with processor 30 = 5422
-    Number of faces shared with processor 34 = 2371
-    Number of faces shared with processor 37 = 10953
-    Number of faces shared with processor 38 = 3757
-    Number of faces shared with processor 39 = 3201
-    Number of faces shared with processor 52 = 2041
-    Number of faces shared with processor 53 = 5979
-    Number of processor patches = 8
-    Number of processor faces = 36103
-    Number of boundary faces = 49485
-
-Processor 37
-    Number of cells = 953349
-    Number of faces shared with processor 30 = 3685
-    Number of faces shared with processor 36 = 10953
-    Number of faces shared with processor 53 = 1887
-    Number of faces shared with processor 61 = 1148
-    Number of processor patches = 4
-    Number of processor faces = 17673
-    Number of boundary faces = 36279
-
-Processor 38
-    Number of cells = 967539
-    Number of faces shared with processor 21 = 2761
-    Number of faces shared with processor 22 = 759
-    Number of faces shared with processor 32 = 5262
-    Number of faces shared with processor 33 = 8481
-    Number of faces shared with processor 34 = 7345
-    Number of faces shared with processor 35 = 267
-    Number of faces shared with processor 36 = 3757
-    Number of faces shared with processor 39 = 8155
-    Number of faces shared with processor 40 = 770
-    Number of faces shared with processor 42 = 1804
-    Number of faces shared with processor 43 = 7155
-    Number of faces shared with processor 52 = 667
-    Number of processor patches = 12
-    Number of processor faces = 47183
-    Number of boundary faces = 85157
-
-Processor 39
-    Number of cells = 956060
-    Number of faces shared with processor 19 = 1256
-    Number of faces shared with processor 21 = 784
-    Number of faces shared with processor 22 = 1928
-    Number of faces shared with processor 23 = 9097
-    Number of faces shared with processor 30 = 4258
-    Number of faces shared with processor 36 = 3201
-    Number of faces shared with processor 38 = 8155
-    Number of faces shared with processor 40 = 6248
-    Number of faces shared with processor 45 = 1577
-    Number of processor patches = 9
-    Number of processor faces = 36504
-    Number of boundary faces = 116184
-
-Processor 40
-    Number of cells = 969793
-    Number of faces shared with processor 22 = 3071
-    Number of faces shared with processor 23 = 2381
-    Number of faces shared with processor 38 = 770
-    Number of faces shared with processor 39 = 6248
-    Number of faces shared with processor 41 = 11416
-    Number of faces shared with processor 42 = 4430
-    Number of faces shared with processor 43 = 7897
-    Number of faces shared with processor 44 = 2497
-    Number of faces shared with processor 45 = 1126
-    Number of faces shared with processor 46 = 3257
-    Number of processor patches = 10
-    Number of processor faces = 43093
-    Number of boundary faces = 41045
-
-Processor 41
-    Number of cells = 970310
-    Number of faces shared with processor 22 = 141
-    Number of faces shared with processor 23 = 289
-    Number of faces shared with processor 40 = 11416
-    Number of faces shared with processor 42 = 4662
-    Number of faces shared with processor 43 = 7264
-    Number of faces shared with processor 44 = 6532
-    Number of faces shared with processor 46 = 7141
-    Number of faces shared with processor 47 = 1408
-    Number of processor patches = 8
-    Number of processor faces = 38853
-    Number of boundary faces = 28152
-
-Processor 42
-    Number of cells = 963794
-    Number of faces shared with processor 20 = 1104
-    Number of faces shared with processor 21 = 3205
-    Number of faces shared with processor 22 = 9040
-    Number of faces shared with processor 23 = 12
-    Number of faces shared with processor 32 = 9296
-    Number of faces shared with processor 38 = 1804
-    Number of faces shared with processor 40 = 4430
-    Number of faces shared with processor 41 = 4662
-    Number of faces shared with processor 43 = 9091
-    Number of faces shared with processor 47 = 746
-    Number of processor patches = 10
-    Number of processor faces = 43390
-    Number of boundary faces = 13408
-
-Processor 43
-    Number of cells = 962104
-    Number of faces shared with processor 32 = 3007
-    Number of faces shared with processor 38 = 7155
-    Number of faces shared with processor 40 = 7897
-    Number of faces shared with processor 41 = 7264
-    Number of faces shared with processor 42 = 9091
-    Number of faces shared with processor 47 = 6482
-    Number of processor patches = 6
-    Number of processor faces = 40896
-    Number of boundary faces = 75717
-
-Processor 44
-    Number of cells = 965027
-    Number of faces shared with processor 17 = 7555
-    Number of faces shared with processor 19 = 2048
-    Number of faces shared with processor 23 = 2505
-    Number of faces shared with processor 40 = 2497
-    Number of faces shared with processor 41 = 6532
-    Number of faces shared with processor 45 = 12694
-    Number of faces shared with processor 46 = 3992
-    Number of faces shared with processor 48 = 3167
-    Number of processor patches = 8
-    Number of processor faces = 40990
-    Number of boundary faces = 39608
-
-Processor 45
-    Number of cells = 953242
-    Number of faces shared with processor 19 = 701
-    Number of faces shared with processor 23 = 544
-    Number of faces shared with processor 39 = 1577
-    Number of faces shared with processor 40 = 1126
-    Number of faces shared with processor 44 = 12694
-    Number of faces shared with processor 46 = 13711
-    Number of faces shared with processor 48 = 5393
-    Number of processor patches = 7
-    Number of processor faces = 35746
-    Number of boundary faces = 118482
-
-Processor 46
-    Number of cells = 955596
-    Number of faces shared with processor 40 = 3257
-    Number of faces shared with processor 41 = 7141
-    Number of faces shared with processor 44 = 3992
-    Number of faces shared with processor 45 = 13711
-    Number of faces shared with processor 47 = 5073
-    Number of faces shared with processor 48 = 1095
-    Number of processor patches = 6
-    Number of processor faces = 34269
-    Number of boundary faces = 112539
-
-Processor 47
-    Number of cells = 968049
-    Number of faces shared with processor 32 = 5523
-    Number of faces shared with processor 35 = 3686
-    Number of faces shared with processor 41 = 1408
-    Number of faces shared with processor 42 = 746
-    Number of faces shared with processor 43 = 6482
-    Number of faces shared with processor 46 = 5073
-    Number of faces shared with processor 48 = 1511
-    Number of faces shared with processor 54 = 4370
-    Number of processor patches = 8
-    Number of processor faces = 28799
-    Number of boundary faces = 90400
-
-Processor 48
-    Number of cells = 958627
-    Number of faces shared with processor 17 = 6401
-    Number of faces shared with processor 44 = 3167
-    Number of faces shared with processor 45 = 5393
-    Number of faces shared with processor 46 = 1095
-    Number of faces shared with processor 47 = 1511
-    Number of faces shared with processor 49 = 10556
-    Number of faces shared with processor 51 = 1651
-    Number of faces shared with processor 54 = 5297
-    Number of processor patches = 8
-    Number of processor faces = 35071
-    Number of boundary faces = 97764
-
-Processor 49
-    Number of cells = 955596
-    Number of faces shared with processor 48 = 10556
-    Number of faces shared with processor 50 = 5727
-    Number of faces shared with processor 51 = 3023
-    Number of faces shared with processor 54 = 3269
-    Number of faces shared with processor 55 = 5680
-    Number of processor patches = 5
-    Number of processor faces = 28255
-    Number of boundary faces = 93021
-
-Processor 50
-    Number of cells = 955477
-    Number of faces shared with processor 49 = 5727
-    Number of faces shared with processor 51 = 7832
-    Number of faces shared with processor 55 = 6051
-    Number of faces shared with processor 59 = 2703
-    Number of faces shared with processor 62 = 6020
-    Number of processor patches = 5
-    Number of processor faces = 28333
-    Number of boundary faces = 99833
-
-Processor 51
-    Number of cells = 956764
-    Number of faces shared with processor 14 = 2362
-    Number of faces shared with processor 15 = 5343
-    Number of faces shared with processor 16 = 3648
-    Number of faces shared with processor 17 = 3238
-    Number of faces shared with processor 48 = 1651
-    Number of faces shared with processor 49 = 3023
-    Number of faces shared with processor 50 = 7832
-    Number of faces shared with processor 59 = 3606
-    Number of processor patches = 8
-    Number of processor faces = 30703
-    Number of boundary faces = 89077
-
-Processor 52
-    Number of cells = 954229
-    Number of faces shared with processor 21 = 236
-    Number of faces shared with processor 34 = 7722
-    Number of faces shared with processor 35 = 5360
-    Number of faces shared with processor 36 = 2041
-    Number of faces shared with processor 38 = 667
-    Number of faces shared with processor 53 = 13974
-    Number of faces shared with processor 54 = 7905
-    Number of faces shared with processor 55 = 128
-    Number of processor patches = 8
-    Number of processor faces = 38033
-    Number of boundary faces = 72023
-
-Processor 53
-    Number of cells = 953313
-    Number of faces shared with processor 21 = 634
-    Number of faces shared with processor 30 = 957
-    Number of faces shared with processor 36 = 5979
-    Number of faces shared with processor 37 = 1887
-    Number of faces shared with processor 52 = 13974
-    Number of faces shared with processor 54 = 594
-    Number of faces shared with processor 55 = 7914
-    Number of faces shared with processor 60 = 541
-    Number of faces shared with processor 61 = 10105
-    Number of processor patches = 9
-    Number of processor faces = 42585
-    Number of boundary faces = 66503
-
-Processor 54
-    Number of cells = 956169
-    Number of faces shared with processor 34 = 7
-    Number of faces shared with processor 35 = 5941
-    Number of faces shared with processor 47 = 4370
-    Number of faces shared with processor 48 = 5297
-    Number of faces shared with processor 49 = 3269
-    Number of faces shared with processor 52 = 7905
-    Number of faces shared with processor 53 = 594
-    Number of faces shared with processor 55 = 3819
-    Number of processor patches = 8
-    Number of processor faces = 31202
-    Number of boundary faces = 96698
-
-Processor 55
-    Number of cells = 953668
-    Number of faces shared with processor 49 = 5680
-    Number of faces shared with processor 50 = 6051
-    Number of faces shared with processor 52 = 128
-    Number of faces shared with processor 53 = 7914
-    Number of faces shared with processor 54 = 3819
-    Number of faces shared with processor 61 = 5019
-    Number of faces shared with processor 62 = 3775
-    Number of processor patches = 7
-    Number of processor faces = 32386
-    Number of boundary faces = 87667
-
-Processor 56
-    Number of cells = 970144
-    Number of faces shared with processor 4 = 7009
-    Number of faces shared with processor 8 = 160
-    Number of faces shared with processor 9 = 28
-    Number of faces shared with processor 11 = 5937
-    Number of faces shared with processor 26 = 1809
-    Number of faces shared with processor 28 = 625
-    Number of faces shared with processor 57 = 14235
-    Number of faces shared with processor 58 = 7871
-    Number of processor patches = 8
-    Number of processor faces = 37674
-    Number of boundary faces = 66500
-
-Processor 57
-    Number of cells = 968169
-    Number of faces shared with processor 4 = 1748
-    Number of faces shared with processor 21 = 129
-    Number of faces shared with processor 28 = 5715
-    Number of faces shared with processor 56 = 14235
-    Number of faces shared with processor 58 = 6769
-    Number of faces shared with processor 60 = 7062
-    Number of faces shared with processor 62 = 386
-    Number of faces shared with processor 63 = 3761
-    Number of processor patches = 8
-    Number of processor faces = 39805
-    Number of boundary faces = 52019
-
-Processor 58
-    Number of cells = 966845
-    Number of faces shared with processor 11 = 1441
-    Number of faces shared with processor 13 = 4753
-    Number of faces shared with processor 56 = 7871
-    Number of faces shared with processor 57 = 6769
-    Number of faces shared with processor 59 = 8193
-    Number of faces shared with processor 62 = 4
-    Number of faces shared with processor 63 = 7659
-    Number of processor patches = 7
-    Number of processor faces = 36690
-    Number of boundary faces = 94506
-
-Processor 59
-    Number of cells = 959505
-    Number of faces shared with processor 13 = 4686
-    Number of faces shared with processor 15 = 2924
-    Number of faces shared with processor 50 = 2703
-    Number of faces shared with processor 51 = 3606
-    Number of faces shared with processor 58 = 8193
-    Number of faces shared with processor 62 = 8743
-    Number of faces shared with processor 63 = 2364
-    Number of processor patches = 7
-    Number of processor faces = 33219
-    Number of boundary faces = 101464
-
-Processor 60
-    Number of cells = 956061
-    Number of faces shared with processor 21 = 932
-    Number of faces shared with processor 28 = 1151
-    Number of faces shared with processor 29 = 3047
-    Number of faces shared with processor 30 = 131
-    Number of faces shared with processor 53 = 541
-    Number of faces shared with processor 57 = 7062
-    Number of faces shared with processor 61 = 11934
-    Number of faces shared with processor 62 = 8869
-    Number of faces shared with processor 63 = 4737
-    Number of processor patches = 9
-    Number of processor faces = 38404
-    Number of boundary faces = 31267
-
-Processor 61
-    Number of cells = 953033
-    Number of faces shared with processor 29 = 4175
-    Number of faces shared with processor 30 = 5298
-    Number of faces shared with processor 37 = 1148
-    Number of faces shared with processor 53 = 10105
-    Number of faces shared with processor 55 = 5019
-    Number of faces shared with processor 60 = 11934
-    Number of faces shared with processor 62 = 2103
-    Number of faces shared with processor 63 = 154
-    Number of processor patches = 8
-    Number of processor faces = 39936
-    Number of boundary faces = 79219
-
-Processor 62
-    Number of cells = 952406
-    Number of faces shared with processor 50 = 6020
-    Number of faces shared with processor 55 = 3775
-    Number of faces shared with processor 57 = 386
-    Number of faces shared with processor 58 = 4
-    Number of faces shared with processor 59 = 8743
-    Number of faces shared with processor 60 = 8869
-    Number of faces shared with processor 61 = 2103
-    Number of faces shared with processor 63 = 8016
-    Number of processor patches = 8
-    Number of processor faces = 37916
-    Number of boundary faces = 101527
-
-Processor 63
-    Number of cells = 954784
-    Number of faces shared with processor 28 = 853
-    Number of faces shared with processor 29 = 1254
-    Number of faces shared with processor 57 = 3761
-    Number of faces shared with processor 58 = 7659
-    Number of faces shared with processor 59 = 2364
-    Number of faces shared with processor 60 = 4737
-    Number of faces shared with processor 61 = 154
-    Number of faces shared with processor 62 = 8016
-    Number of processor patches = 8
-    Number of processor faces = 28798
-    Number of boundary faces = 130648
-
-Number of processor faces = 1288462
-Max number of cells = 971755 (1.01125% above average 962026)
-Max number of processor patches = 20 (131.884% above average 8.625)
-Max number of faces between processors = 66273 (64.5944% above average 40264.4)
-
-Time = 0
-
-Processor 0: field transfer
-Processor 1: field transfer
-Processor 2: field transfer
-Processor 3: field transfer
-Processor 4: field transfer
-Processor 5: field transfer
-Processor 6: field transfer
-Processor 7: field transfer
-Processor 8: field transfer
-Processor 9: field transfer
-Processor 10: field transfer
-Processor 11: field transfer
-Processor 12: field transfer
-Processor 13: field transfer
-Processor 14: field transfer
-Processor 15: field transfer
-Processor 16: field transfer
-Processor 17: field transfer
-Processor 18: field transfer
-Processor 19: field transfer
-Processor 20: field transfer
-Processor 21: field transfer
-Processor 22: field transfer
-Processor 23: field transfer
-Processor 24: field transfer
-Processor 25: field transfer
-Processor 26: field transfer
-Processor 27: field transfer
-Processor 28: field transfer
-Processor 29: field transfer
-Processor 30: field transfer
-Processor 31: field transfer
-Processor 32: field transfer
-Processor 33: field transfer
-Processor 34: field transfer
-Processor 35: field transfer
-Processor 36: field transfer
-Processor 37: field transfer
-Processor 38: field transfer
-Processor 39: field transfer
-Processor 40: field transfer
-Processor 41: field transfer
-Processor 42: field transfer
-Processor 43: field transfer
-Processor 44: field transfer
-Processor 45: field transfer
-Processor 46: field transfer
-Processor 47: field transfer
-Processor 48: field transfer
-Processor 49: field transfer
-Processor 50: field transfer
-Processor 51: field transfer
-Processor 52: field transfer
-Processor 53: field transfer
-Processor 54: field transfer
-Processor 55: field transfer
-Processor 56: field transfer
-Processor 57: field transfer
-Processor 58: field transfer
-Processor 59: field transfer
-Processor 60: field transfer
-Processor 61: field transfer
-Processor 62: field transfer
-Processor 63: field transfer
-
-End
-
-Application 1086063 resources: utime ~1664s, stime ~68s, Rss ~33913160, inblocks ~5256880, outblocks ~26949912
 /*---------------------------------------------------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
@@ -1065,16 +8,16 @@ Application 1086063 resources: utime ~1664s, stime ~68s, Rss ~33913160, inblocks
 Build  : v1712
 Arch   : "LSB;label=32;scalar=64"
 Exec   : simpleFoam -parallel
-Date   : Apr 03 2019
-Time   : 20:34:04
-Host   : "nid00000"
-PID    : 231062
+Date   : Sep 01 2019
+Time   : 10:38:25
+Host   : "nid00030"
+PID    : 179168
 I/O    : uncollated
 Case   : /lustre/home/br-apoenaru/applications-arm/OpenFOAM/run/64M-64
 nProcs : 64
 Hosts  :
 (
-    (nid00000 64)
+    (nid00030 64)
 )
 Pstream initialized with:
     floatTransfer      : 0
@@ -1133,7 +76,7 @@ smoothSolver:  Solving for Uz, Initial residual = 1, Final residual = 0.0597462,
 GAMG:  Solving for p, Initial residual = 1, Final residual = 0.0837819, No Iterations 12
 time step continuity errors : sum local = 0.003705, global = 0.00103255, cumulative = 0.00103255
 smoothSolver:  Solving for nuTilda, Initial residual = 1, Final residual = 0.0602827, No Iterations 1
-ExecutionTime = 30.9 s  ClockTime = 35 s
+ExecutionTime = 35.11 s  ClockTime = 49 s
 
 Time = 2
 
@@ -1143,7 +86,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.334078, Final residual = 0.0
 GAMG:  Solving for p, Initial residual = 0.0243731, Final residual = 0.00190533, No Iterations 6
 time step continuity errors : sum local = 0.00460964, global = 0.00148477, cumulative = 0.00251732
 smoothSolver:  Solving for nuTilda, Initial residual = 0.0982193, Final residual = 0.00226255, No Iterations 2
-ExecutionTime = 39.76 s  ClockTime = 44 s
+ExecutionTime = 43.99 s  ClockTime = 58 s
 
 Time = 3
 
@@ -1153,7 +96,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.150282, Final residual = 0.0
 GAMG:  Solving for p, Initial residual = 0.0331543, Final residual = 0.00277495, No Iterations 7
 time step continuity errors : sum local = 0.00796442, global = -0.00250767, cumulative = 9.65185e-06
 smoothSolver:  Solving for nuTilda, Initial residual = 0.0269408, Final residual = 0.0011134, No Iterations 2
-ExecutionTime = 49.02 s  ClockTime = 53 s
+ExecutionTime = 53.24 s  ClockTime = 67 s
 
 Time = 4
 
@@ -1163,7 +106,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0584174, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.0475537, Final residual = 0.00459093, No Iterations 7
 time step continuity errors : sum local = 0.00895157, global = -0.00276296, cumulative = -0.00275331
 smoothSolver:  Solving for nuTilda, Initial residual = 0.0118122, Final residual = 0.000726876, No Iterations 2
-ExecutionTime = 58.25 s  ClockTime = 62 s
+ExecutionTime = 62.48 s  ClockTime = 76 s
 
 Time = 5
 
@@ -1173,7 +116,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0145667, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.27441, Final residual = 0.0211812, No Iterations 6
 time step continuity errors : sum local = 0.00733917, global = -0.00142262, cumulative = -0.00417593
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00683405, Final residual = 0.000540992, No Iterations 2
-ExecutionTime = 66.96 s  ClockTime = 71 s
+ExecutionTime = 71.17 s  ClockTime = 85 s
 
 Time = 6
 
@@ -1183,7 +126,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0680708, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.0828112, Final residual = 0.0056755, No Iterations 3
 time step continuity errors : sum local = 0.00595439, global = -0.000418076, cumulative = -0.00459401
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00473856, Final residual = 0.000434492, No Iterations 2
-ExecutionTime = 74.78 s  ClockTime = 79 s
+ExecutionTime = 78.95 s  ClockTime = 93 s
 
 Time = 7
 
@@ -1193,7 +136,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.10694, Final residual = 0.00
 GAMG:  Solving for p, Initial residual = 0.073085, Final residual = 0.00508651, No Iterations 5
 time step continuity errors : sum local = 0.0059942, global = 0.000901478, cumulative = -0.00369253
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00366839, Final residual = 0.000366324, No Iterations 2
-ExecutionTime = 83.34 s  ClockTime = 87 s
+ExecutionTime = 87.45 s  ClockTime = 101 s
 
 Time = 8
 
@@ -1203,7 +146,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0828926, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.06812, Final residual = 0.00640945, No Iterations 6
 time step continuity errors : sum local = 0.00612541, global = 0.00157463, cumulative = -0.0021179
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00300533, Final residual = 0.000127497, No Iterations 3
-ExecutionTime = 92.29 s  ClockTime = 96 s
+ExecutionTime = 96.42 s  ClockTime = 110 s
 
 Time = 9
 
@@ -1213,7 +156,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0351868, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.182499, Final residual = 0.0177914, No Iterations 6
 time step continuity errors : sum local = 0.00609464, global = 0.00173019, cumulative = -0.000387708
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00254542, Final residual = 0.000113137, No Iterations 3
-ExecutionTime = 101.22 s  ClockTime = 105 s
+ExecutionTime = 105.39 s  ClockTime = 119 s
 
 Time = 10
 
@@ -1223,7 +166,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0455964, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.161233, Final residual = 0.0136473, No Iterations 4
 time step continuity errors : sum local = 0.00500337, global = -3.80779e-05, cumulative = -0.000425785
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00223883, Final residual = 0.000102934, No Iterations 3
-ExecutionTime = 109.47 s  ClockTime = 113 s
+ExecutionTime = 113.64 s  ClockTime = 127 s
 
 Time = 11
 
@@ -1233,7 +176,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0353751, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.0799721, Final residual = 0.00732643, No Iterations 5
 time step continuity errors : sum local = 0.00468845, global = -0.00118021, cumulative = -0.001606
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00200582, Final residual = 9.46265e-05, No Iterations 3
-ExecutionTime = 118.07 s  ClockTime = 122 s
+ExecutionTime = 122.25 s  ClockTime = 136 s
 
 Time = 12
 
@@ -1243,7 +186,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0207515, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.0573807, Final residual = 0.00418559, No Iterations 7
 time step continuity errors : sum local = 0.00277546, global = 0.000708953, cumulative = -0.000897044
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00182484, Final residual = 8.78424e-05, No Iterations 3
-ExecutionTime = 127.37 s  ClockTime = 131 s
+ExecutionTime = 131.55 s  ClockTime = 145 s
 
 Time = 13
 
@@ -1253,7 +196,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0151545, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.0877268, Final residual = 0.0080016, No Iterations 6
 time step continuity errors : sum local = 0.00323563, global = -0.000962619, cumulative = -0.00185966
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00168051, Final residual = 8.21974e-05, No Iterations 3
-ExecutionTime = 136.35 s  ClockTime = 140 s
+ExecutionTime = 140.52 s  ClockTime = 154 s
 
 Time = 14
 
@@ -1263,7 +206,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0251334, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.316887, Final residual = 0.0305237, No Iterations 4
 time step continuity errors : sum local = 0.00336492, global = -0.000753766, cumulative = -0.00261343
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00154819, Final residual = 7.71771e-05, No Iterations 3
-ExecutionTime = 144.49 s  ClockTime = 148 s
+ExecutionTime = 148.69 s  ClockTime = 162 s
 
 Time = 15
 
@@ -1273,7 +216,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0274436, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.208635, Final residual = 0.0207163, No Iterations 5
 time step continuity errors : sum local = 0.00290265, global = 0.000661289, cumulative = -0.00195214
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00143393, Final residual = 7.20692e-05, No Iterations 3
-ExecutionTime = 153.07 s  ClockTime = 157 s
+ExecutionTime = 157.3 s  ClockTime = 171 s
 
 Time = 16
 
@@ -1283,7 +226,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0192778, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.0884034, Final residual = 0.00782417, No Iterations 6
 time step continuity errors : sum local = 0.00182292, global = 0.000477665, cumulative = -0.00147448
 smoothSolver:  Solving for nuTilda, Initial residual = 0.0013507, Final residual = 6.80995e-05, No Iterations 3
-ExecutionTime = 162.05 s  ClockTime = 166 s
+ExecutionTime = 166.24 s  ClockTime = 180 s
 
 Time = 17
 
@@ -1293,7 +236,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0136828, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.101188, Final residual = 0.00942618, No Iterations 6
 time step continuity errors : sum local = 0.00187405, global = 0.000553866, cumulative = -0.00092061
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00128147, Final residual = 6.51022e-05, No Iterations 3
-ExecutionTime = 171.04 s  ClockTime = 175 s
+ExecutionTime = 175.21 s  ClockTime = 189 s
 
 Time = 18
 
@@ -1303,7 +246,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0142418, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.311332, Final residual = 0.0284894, No Iterations 5
 time step continuity errors : sum local = 0.00185525, global = -0.000494681, cumulative = -0.00141529
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00121867, Final residual = 6.23524e-05, No Iterations 3
-ExecutionTime = 179.67 s  ClockTime = 184 s
+ExecutionTime = 183.79 s  ClockTime = 198 s
 
 Time = 19
 
@@ -1313,7 +256,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.011717, Final residual = 0.0
 GAMG:  Solving for p, Initial residual = 0.120121, Final residual = 0.0114797, No Iterations 5
 time step continuity errors : sum local = 0.00140617, global = -0.000324697, cumulative = -0.00173999
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00116208, Final residual = 5.98376e-05, No Iterations 3
-ExecutionTime = 188.28 s  ClockTime = 192 s
+ExecutionTime = 192.37 s  ClockTime = 206 s
 
 Time = 20
 
@@ -1323,7 +266,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00874122, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0543386, Final residual = 0.00390681, No Iterations 7
 time step continuity errors : sum local = 0.000866512, global = 0.000223408, cumulative = -0.00151658
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00111136, Final residual = 5.75288e-05, No Iterations 3
-ExecutionTime = 197.62 s  ClockTime = 202 s
+ExecutionTime = 201.66 s  ClockTime = 215 s
 
 Time = 21
 
@@ -1333,7 +276,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00797217, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0454559, Final residual = 0.00384268, No Iterations 6
 time step continuity errors : sum local = 0.000954836, global = -0.000291161, cumulative = -0.00180774
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00106494, Final residual = 5.5387e-05, No Iterations 3
-ExecutionTime = 206.57 s  ClockTime = 211 s
+ExecutionTime = 210.58 s  ClockTime = 224 s
 
 Time = 22
 
@@ -1343,7 +286,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00859673, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0543893, Final residual = 0.00403458, No Iterations 6
 time step continuity errors : sum local = 0.000786854, global = -0.000216553, cumulative = -0.00202429
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00102054, Final residual = 5.34037e-05, No Iterations 3
-ExecutionTime = 215.53 s  ClockTime = 220 s
+ExecutionTime = 219.5 s  ClockTime = 233 s
 
 Time = 23
 
@@ -1353,7 +296,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00749959, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0779495, Final residual = 0.00618061, No Iterations 6
 time step continuity errors : sum local = 0.000652215, global = -0.000141853, cumulative = -0.00216615
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000976255, Final residual = 5.14482e-05, No Iterations 3
-ExecutionTime = 224.47 s  ClockTime = 228 s
+ExecutionTime = 228.4 s  ClockTime = 242 s
 
 Time = 24
 
@@ -1363,7 +306,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00610442, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.309226, Final residual = 0.0264663, No Iterations 6
 time step continuity errors : sum local = 0.000579056, global = 7.54409e-05, cumulative = -0.00209071
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000935108, Final residual = 4.93439e-05, No Iterations 3
-ExecutionTime = 233.43 s  ClockTime = 237 s
+ExecutionTime = 237.37 s  ClockTime = 251 s
 
 Time = 25
 
@@ -1373,7 +316,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00559657, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.146281, Final residual = 0.0121777, No Iterations 6
 time step continuity errors : sum local = 0.000532555, global = 0.000157206, cumulative = -0.0019335
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000902335, Final residual = 4.74911e-05, No Iterations 3
-ExecutionTime = 242.39 s  ClockTime = 246 s
+ExecutionTime = 246.3 s  ClockTime = 260 s
 
 Time = 26
 
@@ -1383,7 +326,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00530673, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.238051, Final residual = 0.0194068, No Iterations 6
 time step continuity errors : sum local = 0.000477889, global = 0.000155759, cumulative = -0.00177774
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000876511, Final residual = 4.61022e-05, No Iterations 3
-ExecutionTime = 251.34 s  ClockTime = 255 s
+ExecutionTime = 255.22 s  ClockTime = 269 s
 
 Time = 27
 
@@ -1393,7 +336,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00439485, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0958205, Final residual = 0.00871347, No Iterations 6
 time step continuity errors : sum local = 0.000433465, global = 0.000112007, cumulative = -0.00166573
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000853786, Final residual = 4.49989e-05, No Iterations 3
-ExecutionTime = 260.27 s  ClockTime = 264 s
+ExecutionTime = 264.16 s  ClockTime = 278 s
 
 Time = 28
 
@@ -1403,7 +346,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00375376, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0392844, Final residual = 0.00332148, No Iterations 6
 time step continuity errors : sum local = 0.000348839, global = 7.60752e-05, cumulative = -0.00158966
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000831878, Final residual = 4.39258e-05, No Iterations 3
-ExecutionTime = 269.19 s  ClockTime = 273 s
+ExecutionTime = 273.09 s  ClockTime = 287 s
 
 Time = 29
 
@@ -1413,7 +356,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00365509, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0273542, Final residual = 0.00234447, No Iterations 6
 time step continuity errors : sum local = 0.000328124, global = -6.37815e-05, cumulative = -0.00165344
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000810927, Final residual = 4.28904e-05, No Iterations 3
-ExecutionTime = 278.12 s  ClockTime = 282 s
+ExecutionTime = 282.02 s  ClockTime = 296 s
 
 Time = 30
 
@@ -1423,7 +366,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00348901, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0241156, Final residual = 0.00231408, No Iterations 6
 time step continuity errors : sum local = 0.000324143, global = -9.1943e-05, cumulative = -0.00174538
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000791002, Final residual = 4.18975e-05, No Iterations 3
-ExecutionTime = 287.07 s  ClockTime = 291 s
+ExecutionTime = 290.94 s  ClockTime = 305 s
 
 Time = 31
 
@@ -1433,7 +376,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0029258, Final residual = 0.
 GAMG:  Solving for p, Initial residual = 0.0253384, Final residual = 0.00247077, No Iterations 6
 time step continuity errors : sum local = 0.000281654, global = -7.69298e-05, cumulative = -0.00182231
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000771586, Final residual = 4.09403e-05, No Iterations 3
-ExecutionTime = 296.03 s  ClockTime = 300 s
+ExecutionTime = 299.91 s  ClockTime = 314 s
 
 Time = 32
 
@@ -1443,7 +386,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00266654, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0325752, Final residual = 0.00273498, No Iterations 6
 time step continuity errors : sum local = 0.000216141, global = -5.85475e-05, cumulative = -0.00188086
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000752126, Final residual = 3.99904e-05, No Iterations 3
-ExecutionTime = 304.95 s  ClockTime = 309 s
+ExecutionTime = 308.83 s  ClockTime = 323 s
 
 Time = 33
 
@@ -1453,7 +396,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00268787, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0445324, Final residual = 0.0028566, No Iterations 6
 time step continuity errors : sum local = 0.000148912, global = -2.43799e-05, cumulative = -0.00190524
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00073257, Final residual = 3.90238e-05, No Iterations 3
-ExecutionTime = 313.89 s  ClockTime = 318 s
+ExecutionTime = 317.79 s  ClockTime = 332 s
 
 Time = 34
 
@@ -1463,7 +406,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00266121, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0448072, Final residual = 0.00412596, No Iterations 6
 time step continuity errors : sum local = 0.000184648, global = 4.1559e-05, cumulative = -0.00186368
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000713041, Final residual = 3.80693e-05, No Iterations 3
-ExecutionTime = 322.84 s  ClockTime = 327 s
+ExecutionTime = 326.73 s  ClockTime = 341 s
 
 Time = 35
 
@@ -1473,7 +416,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00246464, Final residual = 0
 GAMG:  Solving for p, Initial residual = 0.0313781, Final residual = 0.00246368, No Iterations 7
 time step continuity errors : sum local = 0.000138029, global = -3.49006e-05, cumulative = -0.00189858
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000693768, Final residual = 3.71158e-05, No Iterations 3
-ExecutionTime = 332.13 s  ClockTime = 336 s
+ExecutionTime = 336.01 s  ClockTime = 350 s
 
 Time = 36
 
@@ -1483,7 +426,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0022539, Final residual = 9.
 GAMG:  Solving for p, Initial residual = 0.0191251, Final residual = 0.00160164, No Iterations 6
 time step continuity errors : sum local = 0.000125, global = 3.37508e-05, cumulative = -0.00186483
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000675059, Final residual = 3.60958e-05, No Iterations 3
-ExecutionTime = 341.1 s  ClockTime = 345 s
+ExecutionTime = 344.96 s  ClockTime = 359 s
 
 Time = 37
 
@@ -1493,7 +436,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00220487, Final residual = 9
 GAMG:  Solving for p, Initial residual = 0.0142982, Final residual = 0.00128311, No Iterations 5
 time step continuity errors : sum local = 0.000122829, global = -3.22862e-05, cumulative = -0.00189712
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000658654, Final residual = 3.50988e-05, No Iterations 3
-ExecutionTime = 349.75 s  ClockTime = 354 s
+ExecutionTime = 353.54 s  ClockTime = 367 s
 
 Time = 38
 
@@ -1503,7 +446,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00215412, Final residual = 8
 GAMG:  Solving for p, Initial residual = 0.0116113, Final residual = 0.00100674, No Iterations 5
 time step continuity errors : sum local = 0.000104057, global = 2.96405e-05, cumulative = -0.00186748
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000644557, Final residual = 3.4251e-05, No Iterations 3
-ExecutionTime = 358.34 s  ClockTime = 362 s
+ExecutionTime = 362.13 s  ClockTime = 376 s
 
 Time = 39
 
@@ -1513,7 +456,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00204283, Final residual = 8
 GAMG:  Solving for p, Initial residual = 0.0106223, Final residual = 0.000864511, No Iterations 6
 time step continuity errors : sum local = 8.61795e-05, global = -2.61308e-05, cumulative = -0.00189361
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00063348, Final residual = 3.36818e-05, No Iterations 3
-ExecutionTime = 367.25 s  ClockTime = 371 s
+ExecutionTime = 371.06 s  ClockTime = 385 s
 
 Time = 40
 
@@ -1523,7 +466,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00194659, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.0107317, Final residual = 0.000805999, No Iterations 6
 time step continuity errors : sum local = 7.17891e-05, global = -1.81528e-05, cumulative = -0.00191176
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000623018, Final residual = 3.3141e-05, No Iterations 3
-ExecutionTime = 376.18 s  ClockTime = 380 s
+ExecutionTime = 380.01 s  ClockTime = 394 s
 
 Time = 41
 
@@ -1533,7 +476,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00196563, Final residual = 8
 GAMG:  Solving for p, Initial residual = 0.011143, Final residual = 0.000958758, No Iterations 5
 time step continuity errors : sum local = 7.46971e-05, global = 1.76784e-05, cumulative = -0.00189408
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000612488, Final residual = 3.25822e-05, No Iterations 3
-ExecutionTime = 384.75 s  ClockTime = 389 s
+ExecutionTime = 388.59 s  ClockTime = 402 s
 
 Time = 42
 
@@ -1543,7 +486,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00197196, Final residual = 8
 GAMG:  Solving for p, Initial residual = 0.0106168, Final residual = 0.000930017, No Iterations 4
 time step continuity errors : sum local = 6.6373e-05, global = 1.09546e-05, cumulative = -0.00188313
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000602127, Final residual = 3.20277e-05, No Iterations 3
-ExecutionTime = 393.03 s  ClockTime = 397 s
+ExecutionTime = 396.83 s  ClockTime = 411 s
 
 Time = 43
 
@@ -1553,7 +496,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00195226, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00993347, Final residual = 0.000973573, No Iterations 4
 time step continuity errors : sum local = 6.97682e-05, global = 2.09635e-05, cumulative = -0.00186216
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000591961, Final residual = 3.14842e-05, No Iterations 3
-ExecutionTime = 401.26 s  ClockTime = 405 s
+ExecutionTime = 405.08 s  ClockTime = 419 s
 
 Time = 44
 
@@ -1563,7 +506,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00192959, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00893861, Final residual = 0.000735657, No Iterations 5
 time step continuity errors : sum local = 5.63116e-05, global = -1.71318e-05, cumulative = -0.0018793
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00058187, Final residual = 3.09497e-05, No Iterations 3
-ExecutionTime = 409.82 s  ClockTime = 414 s
+ExecutionTime = 413.67 s  ClockTime = 427 s
 
 Time = 45
 
@@ -1573,7 +516,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00191321, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.0070414, Final residual = 0.00064067, No Iterations 4
 time step continuity errors : sum local = 5.39269e-05, global = 5.90937e-06, cumulative = -0.00187339
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000571893, Final residual = 3.04238e-05, No Iterations 3
-ExecutionTime = 418.11 s  ClockTime = 422 s
+ExecutionTime = 421.91 s  ClockTime = 436 s
 
 Time = 46
 
@@ -1583,7 +526,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00190507, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00609645, Final residual = 0.000513066, No Iterations 4
 time step continuity errors : sum local = 4.59003e-05, global = -4.10056e-06, cumulative = -0.00187749
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000562027, Final residual = 2.99074e-05, No Iterations 3
-ExecutionTime = 426.35 s  ClockTime = 430 s
+ExecutionTime = 430.14 s  ClockTime = 444 s
 
 Time = 47
 
@@ -1593,7 +536,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00188599, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00577543, Final residual = 0.00057104, No Iterations 4
 time step continuity errors : sum local = 5.20202e-05, global = -6.15235e-07, cumulative = -0.0018781
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000552124, Final residual = 2.93964e-05, No Iterations 3
-ExecutionTime = 434.57 s  ClockTime = 439 s
+ExecutionTime = 438.41 s  ClockTime = 452 s
 
 Time = 48
 
@@ -1603,7 +546,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00186426, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00560875, Final residual = 0.00040896, No Iterations 5
 time step continuity errors : sum local = 3.65027e-05, global = 2.97421e-06, cumulative = -0.00187513
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000542344, Final residual = 2.88799e-05, No Iterations 3
-ExecutionTime = 443.19 s  ClockTime = 447 s
+ExecutionTime = 447.02 s  ClockTime = 461 s
 
 Time = 49
 
@@ -1613,7 +556,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00185925, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00534294, Final residual = 0.000372325, No Iterations 4
 time step continuity errors : sum local = 3.16554e-05, global = -1.78766e-06, cumulative = -0.00187692
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000533121, Final residual = 2.83327e-05, No Iterations 3
-ExecutionTime = 451.44 s  ClockTime = 455 s
+ExecutionTime = 455.26 s  ClockTime = 469 s
 
 Time = 50
 
@@ -1623,7 +566,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00186577, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00535899, Final residual = 0.000522734, No Iterations 3
 time step continuity errors : sum local = 4.27423e-05, global = -5.22716e-07, cumulative = -0.00187744
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000524681, Final residual = 2.7777e-05, No Iterations 3
-ExecutionTime = 459.34 s  ClockTime = 463 s
+ExecutionTime = 463.14 s  ClockTime = 477 s
 
 Time = 51
 
@@ -1633,7 +576,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00186594, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00524405, Final residual = 0.000397854, No Iterations 4
 time step continuity errors : sum local = 3.21556e-05, global = 5.65054e-08, cumulative = -0.00187738
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00051721, Final residual = 2.72835e-05, No Iterations 3
-ExecutionTime = 467.6 s  ClockTime = 472 s
+ExecutionTime = 471.36 s  ClockTime = 485 s
 
 Time = 52
 
@@ -1643,7 +586,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00186647, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00497585, Final residual = 0.000386548, No Iterations 4
 time step continuity errors : sum local = 3.14115e-05, global = 2.01822e-06, cumulative = -0.00187536
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000511152, Final residual = 2.69425e-05, No Iterations 3
-ExecutionTime = 475.85 s  ClockTime = 480 s
+ExecutionTime = 479.58 s  ClockTime = 493 s
 
 Time = 53
 
@@ -1653,7 +596,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0018674, Final residual = 7.
 GAMG:  Solving for p, Initial residual = 0.00465757, Final residual = 0.000329978, No Iterations 4
 time step continuity errors : sum local = 2.73522e-05, global = 3.0106e-06, cumulative = -0.00187235
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000506157, Final residual = 2.66771e-05, No Iterations 3
-ExecutionTime = 484.1 s  ClockTime = 488 s
+ExecutionTime = 487.81 s  ClockTime = 502 s
 
 Time = 54
 
@@ -1663,7 +606,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00186383, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.0043921, Final residual = 0.000357556, No Iterations 3
 time step continuity errors : sum local = 3.03502e-05, global = 5.91926e-08, cumulative = -0.00187229
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000501003, Final residual = 2.63989e-05, No Iterations 3
-ExecutionTime = 491.99 s  ClockTime = 496 s
+ExecutionTime = 495.66 s  ClockTime = 509 s
 
 Time = 55
 
@@ -1673,7 +616,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00185811, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00423754, Final residual = 0.000410199, No Iterations 3
 time step continuity errors : sum local = 3.51857e-05, global = 2.70994e-07, cumulative = -0.00187202
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000495731, Final residual = 2.6113e-05, No Iterations 3
-ExecutionTime = 499.89 s  ClockTime = 504 s
+ExecutionTime = 503.51 s  ClockTime = 517 s
 
 Time = 56
 
@@ -1683,7 +626,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00185168, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00413841, Final residual = 0.000255665, No Iterations 4
 time step continuity errors : sum local = 2.21203e-05, global = 9.76046e-07, cumulative = -0.00187105
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000490398, Final residual = 2.58217e-05, No Iterations 3
-ExecutionTime = 508.13 s  ClockTime = 512 s
+ExecutionTime = 511.75 s  ClockTime = 526 s
 
 Time = 57
 
@@ -1693,7 +636,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0018466, Final residual = 7.
 GAMG:  Solving for p, Initial residual = 0.00397582, Final residual = 0.000299194, No Iterations 3
 time step continuity errors : sum local = 2.6015e-05, global = 8.05008e-07, cumulative = -0.00187024
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00048497, Final residual = 2.55179e-05, No Iterations 3
-ExecutionTime = 516.01 s  ClockTime = 520 s
+ExecutionTime = 519.65 s  ClockTime = 533 s
 
 Time = 58
 
@@ -1703,7 +646,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00184541, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00388674, Final residual = 0.000273063, No Iterations 3
 time step continuity errors : sum local = 2.36758e-05, global = 5.19119e-09, cumulative = -0.00187024
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000479553, Final residual = 2.52105e-05, No Iterations 3
-ExecutionTime = 523.91 s  ClockTime = 528 s
+ExecutionTime = 527.51 s  ClockTime = 541 s
 
 Time = 59
 
@@ -1713,7 +656,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00184373, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00384391, Final residual = 0.000274726, No Iterations 3
 time step continuity errors : sum local = 2.37229e-05, global = -5.20047e-07, cumulative = -0.00187076
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000474196, Final residual = 2.49033e-05, No Iterations 3
-ExecutionTime = 531.8 s  ClockTime = 536 s
+ExecutionTime = 535.41 s  ClockTime = 549 s
 
 Time = 60
 
@@ -1723,7 +666,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00184206, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00380952, Final residual = 0.000280047, No Iterations 3
 time step continuity errors : sum local = 2.40465e-05, global = -9.12294e-07, cumulative = -0.00187167
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000468934, Final residual = 2.46004e-05, No Iterations 3
-ExecutionTime = 539.71 s  ClockTime = 544 s
+ExecutionTime = 543.26 s  ClockTime = 557 s
 
 Time = 61
 
@@ -1733,7 +676,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00184125, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00375191, Final residual = 0.000278711, No Iterations 3
 time step continuity errors : sum local = 2.37789e-05, global = -1.04465e-06, cumulative = -0.00187271
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000463768, Final residual = 2.43019e-05, No Iterations 3
-ExecutionTime = 547.61 s  ClockTime = 552 s
+ExecutionTime = 551.15 s  ClockTime = 565 s
 
 Time = 62
 
@@ -1743,7 +686,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00184118, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00369937, Final residual = 0.000265609, No Iterations 3
 time step continuity errors : sum local = 2.25353e-05, global = -9.11902e-07, cumulative = -0.00187363
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000458706, Final residual = 2.40084e-05, No Iterations 3
-ExecutionTime = 555.49 s  ClockTime = 560 s
+ExecutionTime = 559.03 s  ClockTime = 573 s
 
 Time = 63
 
@@ -1753,7 +696,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00184025, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00365975, Final residual = 0.000362463, No Iterations 2
 time step continuity errors : sum local = 3.0676e-05, global = -1.00617e-06, cumulative = -0.00187463
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000453742, Final residual = 2.37205e-05, No Iterations 3
-ExecutionTime = 563.04 s  ClockTime = 567 s
+ExecutionTime = 566.55 s  ClockTime = 580 s
 
 Time = 64
 
@@ -1763,7 +706,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00183595, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00364687, Final residual = 0.000306317, No Iterations 3
 time step continuity errors : sum local = 2.59239e-05, global = -6.30663e-07, cumulative = -0.00187526
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000448873, Final residual = 2.34383e-05, No Iterations 3
-ExecutionTime = 570.95 s  ClockTime = 575 s
+ExecutionTime = 574.44 s  ClockTime = 588 s
 
 Time = 65
 
@@ -1773,7 +716,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00183209, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.0035772, Final residual = 0.000287618, No Iterations 3
 time step continuity errors : sum local = 2.44555e-05, global = -3.27668e-08, cumulative = -0.0018753
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000444093, Final residual = 2.31621e-05, No Iterations 3
-ExecutionTime = 578.83 s  ClockTime = 583 s
+ExecutionTime = 582.33 s  ClockTime = 596 s
 
 Time = 66
 
@@ -1783,7 +726,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00182758, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.0034859, Final residual = 0.000337983, No Iterations 2
 time step continuity errors : sum local = 2.89266e-05, global = 4.89821e-07, cumulative = -0.00187481
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000439396, Final residual = 2.28916e-05, No Iterations 3
-ExecutionTime = 586.36 s  ClockTime = 590 s
+ExecutionTime = 589.86 s  ClockTime = 604 s
 
 Time = 67
 
@@ -1793,7 +736,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00182206, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00344291, Final residual = 0.000245781, No Iterations 3
 time step continuity errors : sum local = 2.10612e-05, global = 4.84023e-07, cumulative = -0.00187432
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00043476, Final residual = 2.26266e-05, No Iterations 3
-ExecutionTime = 594.26 s  ClockTime = 598 s
+ExecutionTime = 597.76 s  ClockTime = 612 s
 
 Time = 68
 
@@ -1803,7 +746,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00181631, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00335444, Final residual = 0.000317452, No Iterations 2
 time step continuity errors : sum local = 2.74739e-05, global = 1.24082e-06, cumulative = -0.00187308
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000430183, Final residual = 2.23664e-05, No Iterations 3
-ExecutionTime = 601.78 s  ClockTime = 606 s
+ExecutionTime = 605.26 s  ClockTime = 619 s
 
 Time = 69
 
@@ -1813,7 +756,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00181085, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00333425, Final residual = 0.000239588, No Iterations 3
 time step continuity errors : sum local = 2.07681e-05, global = 7.63725e-07, cumulative = -0.00187232
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000425696, Final residual = 2.21104e-05, No Iterations 3
-ExecutionTime = 609.69 s  ClockTime = 614 s
+ExecutionTime = 613.15 s  ClockTime = 627 s
 
 Time = 70
 
@@ -1823,7 +766,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00180551, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00327602, Final residual = 0.000221709, No Iterations 3
 time step continuity errors : sum local = 1.9366e-05, global = 8.00339e-07, cumulative = -0.00187152
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000421283, Final residual = 2.1857e-05, No Iterations 3
-ExecutionTime = 617.58 s  ClockTime = 622 s
+ExecutionTime = 621.05 s  ClockTime = 635 s
 
 Time = 71
 
@@ -1833,7 +776,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00180084, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00321989, Final residual = 0.000300962, No Iterations 2
 time step continuity errors : sum local = 2.63952e-05, global = 1.03791e-06, cumulative = -0.00187048
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000416951, Final residual = 2.16081e-05, No Iterations 3
-ExecutionTime = 625.12 s  ClockTime = 629 s
+ExecutionTime = 628.57 s  ClockTime = 642 s
 
 Time = 72
 
@@ -1843,7 +786,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0017957, Final residual = 7.
 GAMG:  Solving for p, Initial residual = 0.00319988, Final residual = 0.000317335, No Iterations 2
 time step continuity errors : sum local = 2.78225e-05, global = 7.72298e-07, cumulative = -0.00186971
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000412705, Final residual = 2.13651e-05, No Iterations 3
-ExecutionTime = 632.66 s  ClockTime = 637 s
+ExecutionTime = 636.1 s  ClockTime = 650 s
 
 Time = 73
 
@@ -1853,7 +796,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00179071, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00320246, Final residual = 0.000215836, No Iterations 3
 time step continuity errors : sum local = 1.89081e-05, global = 3.55416e-07, cumulative = -0.00186935
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00040854, Final residual = 2.11278e-05, No Iterations 3
-ExecutionTime = 640.59 s  ClockTime = 645 s
+ExecutionTime = 644.03 s  ClockTime = 658 s
 
 Time = 74
 
@@ -1863,7 +806,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00178749, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00316648, Final residual = 0.000313575, No Iterations 2
 time step continuity errors : sum local = 2.73943e-05, global = 1.58556e-07, cumulative = -0.00186919
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00040446, Final residual = 2.08971e-05, No Iterations 3
-ExecutionTime = 648.1 s  ClockTime = 652 s
+ExecutionTime = 651.56 s  ClockTime = 665 s
 
 Time = 75
 
@@ -1873,7 +816,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00178218, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00315544, Final residual = 0.000195097, No Iterations 3
 time step continuity errors : sum local = 1.70205e-05, global = -2.74985e-07, cumulative = -0.00186947
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000400444, Final residual = 2.06703e-05, No Iterations 3
-ExecutionTime = 656 s  ClockTime = 660 s
+ExecutionTime = 659.44 s  ClockTime = 673 s
 
 Time = 76
 
@@ -1883,7 +826,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00177765, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00311947, Final residual = 0.000287531, No Iterations 2
 time step continuity errors : sum local = 2.50005e-05, global = -5.13978e-07, cumulative = -0.00186998
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000396477, Final residual = 2.04464e-05, No Iterations 3
-ExecutionTime = 663.56 s  ClockTime = 668 s
+ExecutionTime = 666.98 s  ClockTime = 681 s
 
 Time = 77
 
@@ -1893,7 +836,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00177087, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00311098, Final residual = 0.000302895, No Iterations 2
 time step continuity errors : sum local = 2.63092e-05, global = -8.14023e-07, cumulative = -0.0018708
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000392558, Final residual = 2.02253e-05, No Iterations 3
-ExecutionTime = 671.12 s  ClockTime = 675 s
+ExecutionTime = 674.49 s  ClockTime = 688 s
 
 Time = 78
 
@@ -1903,7 +846,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00176362, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00311779, Final residual = 0.000224928, No Iterations 3
 time step continuity errors : sum local = 1.95184e-05, global = -4.81221e-07, cumulative = -0.00187128
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000388687, Final residual = 2.00069e-05, No Iterations 3
-ExecutionTime = 679.01 s  ClockTime = 683 s
+ExecutionTime = 682.37 s  ClockTime = 696 s
 
 Time = 79
 
@@ -1913,7 +856,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00175683, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00309302, Final residual = 0.000301361, No Iterations 2
 time step continuity errors : sum local = 2.60927e-05, global = -9.53533e-07, cumulative = -0.00187223
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000384864, Final residual = 1.97911e-05, No Iterations 3
-ExecutionTime = 686.56 s  ClockTime = 691 s
+ExecutionTime = 689.91 s  ClockTime = 704 s
 
 Time = 80
 
@@ -1923,7 +866,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00174907, Final residual = 7
 GAMG:  Solving for p, Initial residual = 0.00308199, Final residual = 0.00030777, No Iterations 2
 time step continuity errors : sum local = 2.66444e-05, global = -9.00459e-07, cumulative = -0.00187313
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000381089, Final residual = 1.95783e-05, No Iterations 3
-ExecutionTime = 694.09 s  ClockTime = 698 s
+ExecutionTime = 697.47 s  ClockTime = 711 s
 
 Time = 81
 
@@ -1933,7 +876,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00174127, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00307468, Final residual = 0.000214521, No Iterations 3
 time step continuity errors : sum local = 1.85784e-05, global = -5.45597e-07, cumulative = -0.00187368
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00037736, Final residual = 1.93688e-05, No Iterations 3
-ExecutionTime = 701.96 s  ClockTime = 706 s
+ExecutionTime = 705.36 s  ClockTime = 719 s
 
 Time = 82
 
@@ -1943,7 +886,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00173399, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00302258, Final residual = 0.000279397, No Iterations 2
 time step continuity errors : sum local = 2.42927e-05, global = -5.0342e-07, cumulative = -0.00187418
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000373666, Final residual = 1.91622e-05, No Iterations 3
-ExecutionTime = 709.51 s  ClockTime = 714 s
+ExecutionTime = 712.86 s  ClockTime = 727 s
 
 Time = 83
 
@@ -1953,7 +896,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00172621, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00300676, Final residual = 0.000282012, No Iterations 2
 time step continuity errors : sum local = 2.45399e-05, global = -2.20178e-07, cumulative = -0.0018744
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00037, Final residual = 1.89585e-05, No Iterations 3
-ExecutionTime = 717.06 s  ClockTime = 721 s
+ExecutionTime = 720.4 s  ClockTime = 734 s
 
 Time = 84
 
@@ -1963,7 +906,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00171843, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00300648, Final residual = 0.000298104, No Iterations 2
 time step continuity errors : sum local = 2.59648e-05, global = 9.44757e-08, cumulative = -0.00187431
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00036635, Final residual = 1.87572e-05, No Iterations 3
-ExecutionTime = 724.62 s  ClockTime = 729 s
+ExecutionTime = 727.91 s  ClockTime = 742 s
 
 Time = 85
 
@@ -1973,7 +916,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00171081, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00301202, Final residual = 0.000186222, No Iterations 3
 time step continuity errors : sum local = 1.62375e-05, global = 3.76218e-07, cumulative = -0.00187393
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000362717, Final residual = 1.8558e-05, No Iterations 3
-ExecutionTime = 732.56 s  ClockTime = 737 s
+ExecutionTime = 735.79 s  ClockTime = 750 s
 
 Time = 86
 
@@ -1983,7 +926,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0017041, Final residual = 6.
 GAMG:  Solving for p, Initial residual = 0.00295679, Final residual = 0.000283006, No Iterations 2
 time step continuity errors : sum local = 2.4801e-05, global = 7.42013e-07, cumulative = -0.00187319
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000359112, Final residual = 1.83614e-05, No Iterations 3
-ExecutionTime = 740.09 s  ClockTime = 744 s
+ExecutionTime = 743.32 s  ClockTime = 757 s
 
 Time = 87
 
@@ -1993,7 +936,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00169647, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00294515, Final residual = 0.000284338, No Iterations 2
 time step continuity errors : sum local = 2.49413e-05, global = 1.01452e-06, cumulative = -0.00187217
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000355548, Final residual = 1.81674e-05, No Iterations 3
-ExecutionTime = 747.62 s  ClockTime = 752 s
+ExecutionTime = 750.85 s  ClockTime = 765 s
 
 Time = 88
 
@@ -2003,7 +946,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00168862, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00294381, Final residual = 0.000192459, No Iterations 3
 time step continuity errors : sum local = 1.69007e-05, global = 6.98835e-07, cumulative = -0.00187147
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000352024, Final residual = 1.7976e-05, No Iterations 3
-ExecutionTime = 755.51 s  ClockTime = 760 s
+ExecutionTime = 758.73 s  ClockTime = 773 s
 
 Time = 89
 
@@ -2013,7 +956,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00168107, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00290876, Final residual = 0.000267548, No Iterations 2
 time step continuity errors : sum local = 2.35986e-05, global = 1.14126e-06, cumulative = -0.00187033
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00034855, Final residual = 1.77876e-05, No Iterations 3
-ExecutionTime = 763.06 s  ClockTime = 767 s
+ExecutionTime = 766.27 s  ClockTime = 780 s
 
 Time = 90
 
@@ -2023,7 +966,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00167268, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00290697, Final residual = 0.000277192, No Iterations 2
 time step continuity errors : sum local = 2.44606e-05, global = 1.13449e-06, cumulative = -0.0018692
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000345141, Final residual = 1.76027e-05, No Iterations 3
-ExecutionTime = 770.61 s  ClockTime = 775 s
+ExecutionTime = 773.82 s  ClockTime = 788 s
 
 Time = 91
 
@@ -2033,7 +976,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00166411, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00291579, Final residual = 0.000183506, No Iterations 3
 time step continuity errors : sum local = 1.61944e-05, global = 7.30596e-07, cumulative = -0.00186847
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000341801, Final residual = 1.74217e-05, No Iterations 3
-ExecutionTime = 778.5 s  ClockTime = 783 s
+ExecutionTime = 781.7 s  ClockTime = 796 s
 
 Time = 92
 
@@ -2043,7 +986,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00165586, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00288766, Final residual = 0.000271806, No Iterations 2
 time step continuity errors : sum local = 2.39908e-05, global = 8.94878e-07, cumulative = -0.00186757
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000338531, Final residual = 1.72445e-05, No Iterations 3
-ExecutionTime = 786.02 s  ClockTime = 790 s
+ExecutionTime = 789.23 s  ClockTime = 803 s
 
 Time = 93
 
@@ -2053,7 +996,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00164709, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00288373, Final residual = 0.000278417, No Iterations 2
 time step continuity errors : sum local = 2.45631e-05, global = 7.21497e-07, cumulative = -0.00186685
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000335335, Final residual = 1.70714e-05, No Iterations 3
-ExecutionTime = 793.57 s  ClockTime = 798 s
+ExecutionTime = 796.76 s  ClockTime = 811 s
 
 Time = 94
 
@@ -2063,7 +1006,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0016383, Final residual = 6.
 GAMG:  Solving for p, Initial residual = 0.00289074, Final residual = 0.000173653, No Iterations 3
 time step continuity errors : sum local = 1.53121e-05, global = 4.80258e-07, cumulative = -0.00186637
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000332138, Final residual = 1.69022e-05, No Iterations 3
-ExecutionTime = 801.44 s  ClockTime = 805 s
+ExecutionTime = 804.65 s  ClockTime = 818 s
 
 Time = 95
 
@@ -2073,7 +1016,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00163013, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00286251, Final residual = 0.000263605, No Iterations 2
 time step continuity errors : sum local = 2.32146e-05, global = 3.7707e-07, cumulative = -0.00186599
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000328829, Final residual = 1.67313e-05, No Iterations 3
-ExecutionTime = 808.96 s  ClockTime = 813 s
+ExecutionTime = 812.18 s  ClockTime = 826 s
 
 Time = 96
 
@@ -2083,7 +1026,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00162127, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00286017, Final residual = 0.000270728, No Iterations 2
 time step continuity errors : sum local = 2.38337e-05, global = 2.08655e-07, cumulative = -0.00186578
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000325338, Final residual = 1.65532e-05, No Iterations 3
-ExecutionTime = 816.48 s  ClockTime = 821 s
+ExecutionTime = 819.72 s  ClockTime = 834 s
 
 Time = 97
 
@@ -2093,7 +1036,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00161241, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00286815, Final residual = 0.000286357, No Iterations 2
 time step continuity errors : sum local = 2.52045e-05, global = 4.87748e-08, cumulative = -0.00186574
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000321712, Final residual = 1.63649e-05, No Iterations 3
-ExecutionTime = 824.01 s  ClockTime = 828 s
+ExecutionTime = 827.24 s  ClockTime = 841 s
 
 Time = 98
 
@@ -2103,7 +1046,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00160365, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00287756, Final residual = 0.000187988, No Iterations 3
 time step continuity errors : sum local = 1.65459e-05, global = -1.03053e-07, cumulative = -0.00186584
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000318176, Final residual = 1.61669e-05, No Iterations 3
-ExecutionTime = 831.92 s  ClockTime = 836 s
+ExecutionTime = 835.12 s  ClockTime = 849 s
 
 Time = 99
 
@@ -2113,7 +1056,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00159575, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.0028377, Final residual = 0.000263106, No Iterations 2
 time step continuity errors : sum local = 2.31845e-05, global = -2.21596e-07, cumulative = -0.00186606
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000314827, Final residual = 1.59661e-05, No Iterations 3
-ExecutionTime = 839.46 s  ClockTime = 843 s
+ExecutionTime = 842.67 s  ClockTime = 856 s
 
 Time = 100
 
@@ -2123,7 +1066,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00158694, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.0028244, Final residual = 0.000261101, No Iterations 2
 time step continuity errors : sum local = 2.30151e-05, global = -3.23838e-07, cumulative = -0.00186638
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000311871, Final residual = 1.57808e-05, No Iterations 3
-ExecutionTime = 846.99 s  ClockTime = 851 s
+ExecutionTime = 850.19 s  ClockTime = 864 s
 
 Time = 101
 
@@ -2133,7 +1076,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00157804, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00282159, Final residual = 0.000271212, No Iterations 2
 time step continuity errors : sum local = 2.39167e-05, global = -3.93711e-07, cumulative = -0.00186678
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000309089, Final residual = 1.55997e-05, No Iterations 3
-ExecutionTime = 854.51 s  ClockTime = 859 s
+ExecutionTime = 857.75 s  ClockTime = 872 s
 
 Time = 102
 
@@ -2143,7 +1086,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00156909, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00282702, Final residual = 0.00016649, No Iterations 3
 time step continuity errors : sum local = 1.469e-05, global = -3.19668e-07, cumulative = -0.0018671
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000306404, Final residual = 1.54205e-05, No Iterations 3
-ExecutionTime = 862.4 s  ClockTime = 866 s
+ExecutionTime = 865.63 s  ClockTime = 879 s
 
 Time = 103
 
@@ -2153,7 +1096,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00156059, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00278556, Final residual = 0.000257708, No Iterations 2
 time step continuity errors : sum local = 2.27961e-05, global = -3.67882e-07, cumulative = -0.00186747
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000303969, Final residual = 1.52631e-05, No Iterations 3
-ExecutionTime = 869.94 s  ClockTime = 874 s
+ExecutionTime = 873.15 s  ClockTime = 887 s
 
 Time = 104
 
@@ -2163,7 +1106,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00155164, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00277882, Final residual = 0.000262218, No Iterations 2
 time step continuity errors : sum local = 2.32074e-05, global = -3.0114e-07, cumulative = -0.00186777
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000301877, Final residual = 1.51353e-05, No Iterations 3
-ExecutionTime = 877.49 s  ClockTime = 882 s
+ExecutionTime = 880.68 s  ClockTime = 895 s
 
 Time = 105
 
@@ -2173,7 +1116,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00154269, Final residual = 6
 GAMG:  Solving for p, Initial residual = 0.00278244, Final residual = 0.000275911, No Iterations 2
 time step continuity errors : sum local = 2.44312e-05, global = -2.1177e-07, cumulative = -0.00186798
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000300068, Final residual = 1.50344e-05, No Iterations 3
-ExecutionTime = 885.07 s  ClockTime = 889 s
+ExecutionTime = 888.19 s  ClockTime = 902 s
 
 Time = 106
 
@@ -2183,7 +1126,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00153377, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00279046, Final residual = 0.000168115, No Iterations 3
 time step continuity errors : sum local = 1.48928e-05, global = -6.96345e-08, cumulative = -0.00186805
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000298521, Final residual = 1.49644e-05, No Iterations 3
-ExecutionTime = 892.97 s  ClockTime = 897 s
+ExecutionTime = 896.07 s  ClockTime = 910 s
 
 Time = 107
 
@@ -2193,7 +1136,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00152542, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00274747, Final residual = 0.000257182, No Iterations 2
 time step continuity errors : sum local = 2.28303e-05, global = 4.90765e-08, cumulative = -0.001868
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000297285, Final residual = 1.4922e-05, No Iterations 3
-ExecutionTime = 900.5 s  ClockTime = 905 s
+ExecutionTime = 903.62 s  ClockTime = 917 s
 
 Time = 108
 
@@ -2203,7 +1146,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00151661, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00273793, Final residual = 0.000257341, No Iterations 2
 time step continuity errors : sum local = 2.28518e-05, global = 2.06584e-07, cumulative = -0.00186779
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000295991, Final residual = 1.48723e-05, No Iterations 3
-ExecutionTime = 908.03 s  ClockTime = 912 s
+ExecutionTime = 911.17 s  ClockTime = 925 s
 
 Time = 109
 
@@ -2213,7 +1156,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0015078, Final residual = 5.
 GAMG:  Solving for p, Initial residual = 0.00273913, Final residual = 0.000268133, No Iterations 2
 time step continuity errors : sum local = 2.38164e-05, global = 3.7446e-07, cumulative = -0.00186742
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000294631, Final residual = 1.48172e-05, No Iterations 3
-ExecutionTime = 915.59 s  ClockTime = 920 s
+ExecutionTime = 918.72 s  ClockTime = 933 s
 
 Time = 110
 
@@ -2223,7 +1166,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00149906, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00274574, Final residual = 0.000165845, No Iterations 3
 time step continuity errors : sum local = 1.47345e-05, global = 4.82649e-07, cumulative = -0.00186694
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000293224, Final residual = 1.47581e-05, No Iterations 3
-ExecutionTime = 923.49 s  ClockTime = 928 s
+ExecutionTime = 926.6 s  ClockTime = 940 s
 
 Time = 111
 
@@ -2233,7 +1176,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00149094, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00270565, Final residual = 0.000250519, No Iterations 2
 time step continuity errors : sum local = 2.22928e-05, global = 6.85286e-07, cumulative = -0.00186625
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00029178, Final residual = 1.46958e-05, No Iterations 3
-ExecutionTime = 931.04 s  ClockTime = 935 s
+ExecutionTime = 934.11 s  ClockTime = 948 s
 
 Time = 112
 
@@ -2243,7 +1186,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00148226, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.0026971, Final residual = 0.000251987, No Iterations 2
 time step continuity errors : sum local = 2.24291e-05, global = 8.37878e-07, cumulative = -0.00186541
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000290309, Final residual = 1.46311e-05, No Iterations 3
-ExecutionTime = 938.6 s  ClockTime = 943 s
+ExecutionTime = 941.62 s  ClockTime = 955 s
 
 Time = 113
 
@@ -2253,7 +1196,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00147357, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00269955, Final residual = 0.000264637, No Iterations 2
 time step continuity errors : sum local = 2.3561e-05, global = 8.92974e-07, cumulative = -0.00186452
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000288817, Final residual = 1.45644e-05, No Iterations 3
-ExecutionTime = 946.13 s  ClockTime = 950 s
+ExecutionTime = 949.15 s  ClockTime = 963 s
 
 Time = 114
 
@@ -2263,7 +1206,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00146494, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00270684, Final residual = 0.000172284, No Iterations 3
 time step continuity errors : sum local = 1.53462e-05, global = 5.05213e-07, cumulative = -0.00186401
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000287315, Final residual = 1.44964e-05, No Iterations 3
-ExecutionTime = 954.05 s  ClockTime = 958 s
+ExecutionTime = 957.03 s  ClockTime = 971 s
 
 Time = 115
 
@@ -2273,7 +1216,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0014568, Final residual = 5.
 GAMG:  Solving for p, Initial residual = 0.0026701, Final residual = 0.000247253, No Iterations 2
 time step continuity errors : sum local = 2.20812e-05, global = 8.27549e-07, cumulative = -0.00186319
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000285807, Final residual = 1.44273e-05, No Iterations 3
-ExecutionTime = 961.58 s  ClockTime = 966 s
+ExecutionTime = 964.56 s  ClockTime = 978 s
 
 Time = 116
 
@@ -2283,7 +1226,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00144829, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00266165, Final residual = 0.000249497, No Iterations 2
 time step continuity errors : sum local = 2.22863e-05, global = 7.15115e-07, cumulative = -0.00186247
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000284296, Final residual = 1.43575e-05, No Iterations 3
-ExecutionTime = 969.13 s  ClockTime = 973 s
+ExecutionTime = 972.07 s  ClockTime = 986 s
 
 Time = 117
 
@@ -2293,7 +1236,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00143977, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.0026629, Final residual = 0.000261051, No Iterations 2
 time step continuity errors : sum local = 2.33224e-05, global = 6.19417e-07, cumulative = -0.00186185
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000282787, Final residual = 1.4287e-05, No Iterations 3
-ExecutionTime = 976.67 s  ClockTime = 981 s
+ExecutionTime = 979.61 s  ClockTime = 993 s
 
 Time = 118
 
@@ -2303,7 +1246,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00143129, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00267125, Final residual = 0.000164369, No Iterations 3
 time step continuity errors : sum local = 1.46867e-05, global = 3.54954e-07, cumulative = -0.0018615
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000281282, Final residual = 1.4216e-05, No Iterations 3
-ExecutionTime = 984.57 s  ClockTime = 989 s
+ExecutionTime = 987.5 s  ClockTime = 1001 s
 
 Time = 119
 
@@ -2313,7 +1256,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00142324, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00263383, Final residual = 0.00024407, No Iterations 2
 time step continuity errors : sum local = 2.18307e-05, global = 3.49481e-07, cumulative = -0.00186115
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000279784, Final residual = 1.41448e-05, No Iterations 3
-ExecutionTime = 992.1 s  ClockTime = 996 s
+ExecutionTime = 995.03 s  ClockTime = 1009 s
 
 Time = 120
 
@@ -2323,7 +1266,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00141493, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00262642, Final residual = 0.000245186, No Iterations 2
 time step continuity errors : sum local = 2.19319e-05, global = 2.10632e-07, cumulative = -0.00186094
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000278297, Final residual = 1.40736e-05, No Iterations 3
-ExecutionTime = 999.64 s  ClockTime = 1004 s
+ExecutionTime = 1002.6 s  ClockTime = 1016 s
 
 Time = 121
 
@@ -2333,7 +1276,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00140664, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00263098, Final residual = 0.0002566, No Iterations 2
 time step continuity errors : sum local = 2.29536e-05, global = 7.56993e-08, cumulative = -0.00186086
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00027682, Final residual = 1.40024e-05, No Iterations 3
-ExecutionTime = 1007.16 s  ClockTime = 1011 s
+ExecutionTime = 1010.12 s  ClockTime = 1024 s
 
 Time = 122
 
@@ -2343,7 +1286,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00139842, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00264121, Final residual = 0.000155055, No Iterations 3
 time step continuity errors : sum local = 1.38697e-05, global = -7.35164e-08, cumulative = -0.00186094
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000275355, Final residual = 1.39313e-05, No Iterations 3
-ExecutionTime = 1015.04 s  ClockTime = 1019 s
+ExecutionTime = 1018.03 s  ClockTime = 1032 s
 
 Time = 123
 
@@ -2353,7 +1296,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00139059, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00260631, Final residual = 0.000241986, No Iterations 2
 time step continuity errors : sum local = 2.16571e-05, global = -1.85919e-07, cumulative = -0.00186112
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000273901, Final residual = 1.38603e-05, No Iterations 3
-ExecutionTime = 1022.55 s  ClockTime = 1027 s
+ExecutionTime = 1025.55 s  ClockTime = 1039 s
 
 Time = 124
 
@@ -2363,7 +1306,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00138249, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00260261, Final residual = 0.000244218, No Iterations 2
 time step continuity errors : sum local = 2.18569e-05, global = -3.04599e-07, cumulative = -0.00186143
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000272458, Final residual = 1.37895e-05, No Iterations 3
-ExecutionTime = 1030.13 s  ClockTime = 1034 s
+ExecutionTime = 1033.05 s  ClockTime = 1047 s
 
 Time = 125
 
@@ -2373,7 +1316,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00137439, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00260981, Final residual = 0.000255703, No Iterations 2
 time step continuity errors : sum local = 2.28852e-05, global = -4.07498e-07, cumulative = -0.00186183
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000271026, Final residual = 1.37189e-05, No Iterations 3
-ExecutionTime = 1037.68 s  ClockTime = 1042 s
+ExecutionTime = 1040.58 s  ClockTime = 1054 s
 
 Time = 126
 
@@ -2383,7 +1326,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00136633, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00262084, Final residual = 0.00015766, No Iterations 3
 time step continuity errors : sum local = 1.41112e-05, global = -3.84926e-07, cumulative = -0.00186222
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000269605, Final residual = 1.36489e-05, No Iterations 3
-ExecutionTime = 1045.54 s  ClockTime = 1050 s
+ExecutionTime = 1048.45 s  ClockTime = 1062 s
 
 Time = 127
 
@@ -2393,7 +1336,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00135859, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00258508, Final residual = 0.000240066, No Iterations 2
 time step continuity errors : sum local = 2.15141e-05, global = -4.95367e-07, cumulative = -0.00186271
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000268197, Final residual = 1.35795e-05, No Iterations 3
-ExecutionTime = 1053.1 s  ClockTime = 1057 s
+ExecutionTime = 1055.96 s  ClockTime = 1070 s
 
 Time = 128
 
@@ -2403,7 +1346,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00135062, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00258107, Final residual = 0.000241932, No Iterations 2
 time step continuity errors : sum local = 2.16837e-05, global = -5.05859e-07, cumulative = -0.00186322
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000266804, Final residual = 1.35107e-05, No Iterations 3
-ExecutionTime = 1060.66 s  ClockTime = 1065 s
+ExecutionTime = 1063.49 s  ClockTime = 1077 s
 
 Time = 129
 
@@ -2413,7 +1356,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00134266, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00258793, Final residual = 0.000253165, No Iterations 2
 time step continuity errors : sum local = 2.2693e-05, global = -5.04178e-07, cumulative = -0.00186372
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000265423, Final residual = 1.34428e-05, No Iterations 3
-ExecutionTime = 1068.22 s  ClockTime = 1072 s
+ExecutionTime = 1071.05 s  ClockTime = 1085 s
 
 Time = 130
 
@@ -2423,7 +1366,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00133473, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00260003, Final residual = 0.000155252, No Iterations 3
 time step continuity errors : sum local = 1.39182e-05, global = -3.68563e-07, cumulative = -0.00186409
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000264056, Final residual = 1.33756e-05, No Iterations 3
-ExecutionTime = 1076.08 s  ClockTime = 1080 s
+ExecutionTime = 1078.92 s  ClockTime = 1093 s
 
 Time = 131
 
@@ -2433,7 +1376,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0013271, Final residual = 5.
 GAMG:  Solving for p, Initial residual = 0.00256475, Final residual = 0.000238735, No Iterations 2
 time step continuity errors : sum local = 2.14329e-05, global = -3.94438e-07, cumulative = -0.00186449
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000262701, Final residual = 1.33092e-05, No Iterations 3
-ExecutionTime = 1083.6 s  ClockTime = 1088 s
+ExecutionTime = 1086.47 s  ClockTime = 1100 s
 
 Time = 132
 
@@ -2443,7 +1386,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00131932, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00256169, Final residual = 0.000240862, No Iterations 2
 time step continuity errors : sum local = 2.16261e-05, global = -3.22816e-07, cumulative = -0.00186481
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000261358, Final residual = 1.32438e-05, No Iterations 3
-ExecutionTime = 1091.14 s  ClockTime = 1095 s
+ExecutionTime = 1093.99 s  ClockTime = 1108 s
 
 Time = 133
 
@@ -2453,7 +1396,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00131155, Final residual = 5
 GAMG:  Solving for p, Initial residual = 0.00256911, Final residual = 0.000251757, No Iterations 2
 time step continuity errors : sum local = 2.26061e-05, global = -2.50104e-07, cumulative = -0.00186506
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000260026, Final residual = 1.31793e-05, No Iterations 3
-ExecutionTime = 1098.67 s  ClockTime = 1103 s
+ExecutionTime = 1101.49 s  ClockTime = 1115 s
 
 Time = 134
 
@@ -2463,7 +1406,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00130383, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00258123, Final residual = 0.000153237, No Iterations 3
 time step continuity errors : sum local = 1.37603e-05, global = -2.03527e-07, cumulative = -0.00186526
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000258705, Final residual = 1.31157e-05, No Iterations 3
-ExecutionTime = 1106.55 s  ClockTime = 1111 s
+ExecutionTime = 1109.37 s  ClockTime = 1123 s
 
 Time = 135
 
@@ -2473,7 +1416,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00129642, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00254687, Final residual = 0.000235707, No Iterations 2
 time step continuity errors : sum local = 2.1186e-05, global = -1.12062e-07, cumulative = -0.00186537
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000257395, Final residual = 1.30531e-05, No Iterations 3
-ExecutionTime = 1114.12 s  ClockTime = 1118 s
+ExecutionTime = 1116.92 s  ClockTime = 1131 s
 
 Time = 136
 
@@ -2483,7 +1426,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0012889, Final residual = 4.
 GAMG:  Solving for p, Initial residual = 0.00254389, Final residual = 0.000236874, No Iterations 2
 time step continuity errors : sum local = 2.12909e-05, global = -4.28131e-08, cumulative = -0.00186542
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000256101, Final residual = 1.29915e-05, No Iterations 3
-ExecutionTime = 1121.68 s  ClockTime = 1126 s
+ExecutionTime = 1124.42 s  ClockTime = 1138 s
 
 Time = 137
 
@@ -2493,7 +1436,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00128139, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00255204, Final residual = 0.000247205, No Iterations 2
 time step continuity errors : sum local = 2.22185e-05, global = 2.72168e-08, cumulative = -0.00186539
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000254823, Final residual = 1.29309e-05, No Iterations 3
-ExecutionTime = 1129.26 s  ClockTime = 1133 s
+ExecutionTime = 1131.94 s  ClockTime = 1146 s
 
 Time = 138
 
@@ -2503,7 +1446,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00127394, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00256492, Final residual = 0.000151206, No Iterations 3
 time step continuity errors : sum local = 1.3589e-05, global = 5.74178e-08, cumulative = -0.00186533
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000253572, Final residual = 1.28714e-05, No Iterations 3
-ExecutionTime = 1137.13 s  ClockTime = 1141 s
+ExecutionTime = 1139.83 s  ClockTime = 1154 s
 
 Time = 139
 
@@ -2513,7 +1456,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00126681, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00253307, Final residual = 0.000232217, No Iterations 2
 time step continuity errors : sum local = 2.08795e-05, global = 1.45677e-07, cumulative = -0.00186519
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000252356, Final residual = 1.28133e-05, No Iterations 3
-ExecutionTime = 1144.65 s  ClockTime = 1149 s
+ExecutionTime = 1147.36 s  ClockTime = 1161 s
 
 Time = 140
 
@@ -2523,7 +1466,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00125954, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00253115, Final residual = 0.00023421, No Iterations 2
 time step continuity errors : sum local = 2.10562e-05, global = 1.96386e-07, cumulative = -0.00186499
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00025118, Final residual = 1.27567e-05, No Iterations 3
-ExecutionTime = 1152.17 s  ClockTime = 1156 s
+ExecutionTime = 1154.9 s  ClockTime = 1169 s
 
 Time = 141
 
@@ -2533,7 +1476,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00125227, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.0025408, Final residual = 0.000245413, No Iterations 2
 time step continuity errors : sum local = 2.20604e-05, global = 2.37557e-07, cumulative = -0.00186475
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000250038, Final residual = 1.27017e-05, No Iterations 3
-ExecutionTime = 1159.69 s  ClockTime = 1164 s
+ExecutionTime = 1162.47 s  ClockTime = 1176 s
 
 Time = 142
 
@@ -2543,7 +1486,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00124506, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00255416, Final residual = 0.000149788, No Iterations 3
 time step continuity errors : sum local = 1.34623e-05, global = 1.67012e-07, cumulative = -0.00186459
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000248913, Final residual = 1.26476e-05, No Iterations 3
-ExecutionTime = 1167.61 s  ClockTime = 1172 s
+ExecutionTime = 1170.34 s  ClockTime = 1184 s
 
 Time = 143
 
@@ -2553,7 +1496,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0012382, Final residual = 4.
 GAMG:  Solving for p, Initial residual = 0.00252192, Final residual = 0.000231851, No Iterations 2
 time step continuity errors : sum local = 2.08439e-05, global = 2.29705e-07, cumulative = -0.00186436
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000247791, Final residual = 1.25941e-05, No Iterations 3
-ExecutionTime = 1175.17 s  ClockTime = 1179 s
+ExecutionTime = 1177.9 s  ClockTime = 1192 s
 
 Time = 144
 
@@ -2563,7 +1506,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00123115, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00251939, Final residual = 0.000234006, No Iterations 2
 time step continuity errors : sum local = 2.1035e-05, global = 1.98626e-07, cumulative = -0.00186416
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000246655, Final residual = 1.25403e-05, No Iterations 3
-ExecutionTime = 1182.72 s  ClockTime = 1187 s
+ExecutionTime = 1185.43 s  ClockTime = 1199 s
 
 Time = 145
 
@@ -2573,7 +1516,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00122412, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00252752, Final residual = 0.000244896, No Iterations 2
 time step continuity errors : sum local = 2.20117e-05, global = 1.52123e-07, cumulative = -0.00186401
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000245488, Final residual = 1.24852e-05, No Iterations 3
-ExecutionTime = 1190.28 s  ClockTime = 1194 s
+ExecutionTime = 1192.97 s  ClockTime = 1207 s
 
 Time = 146
 
@@ -2583,7 +1526,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00121714, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00254034, Final residual = 0.000149622, No Iterations 3
 time step continuity errors : sum local = 1.34472e-05, global = -7.99355e-09, cumulative = -0.00186401
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000244281, Final residual = 1.24278e-05, No Iterations 3
-ExecutionTime = 1198.19 s  ClockTime = 1202 s
+ExecutionTime = 1200.87 s  ClockTime = 1215 s
 
 Time = 147
 
@@ -2593,7 +1536,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00121062, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00250704, Final residual = 0.00023053, No Iterations 2
 time step continuity errors : sum local = 2.07348e-05, global = -3.44284e-08, cumulative = -0.00186405
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000243034, Final residual = 1.23673e-05, No Iterations 3
-ExecutionTime = 1205.76 s  ClockTime = 1210 s
+ExecutionTime = 1208.39 s  ClockTime = 1222 s
 
 Time = 148
 
@@ -2603,7 +1546,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00120385, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00250424, Final residual = 0.000232382, No Iterations 2
 time step continuity errors : sum local = 2.09015e-05, global = -1.51818e-07, cumulative = -0.0018642
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000241751, Final residual = 1.2303e-05, No Iterations 3
-ExecutionTime = 1213.33 s  ClockTime = 1217 s
+ExecutionTime = 1215.92 s  ClockTime = 1230 s
 
 Time = 149
 
@@ -2613,7 +1556,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00119713, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00251162, Final residual = 0.000243006, No Iterations 2
 time step continuity errors : sum local = 2.18577e-05, global = -2.77314e-07, cumulative = -0.00186448
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000240443, Final residual = 1.22354e-05, No Iterations 3
-ExecutionTime = 1220.87 s  ClockTime = 1225 s
+ExecutionTime = 1223.48 s  ClockTime = 1237 s
 
 Time = 150
 
@@ -2623,7 +1566,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0011905, Final residual = 4.
 GAMG:  Solving for p, Initial residual = 0.00252331, Final residual = 0.000148438, No Iterations 3
 time step continuity errors : sum local = 1.33524e-05, global = -3.41228e-07, cumulative = -0.00186482
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000239131, Final residual = 1.21658e-05, No Iterations 3
-ExecutionTime = 1228.74 s  ClockTime = 1233 s
+ExecutionTime = 1231.41 s  ClockTime = 1245 s
 
 Time = 151
 
@@ -2633,7 +1576,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00118439, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00248885, Final residual = 0.000229489, No Iterations 2
 time step continuity errors : sum local = 2.06655e-05, global = -4.97114e-07, cumulative = -0.00186532
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000237849, Final residual = 1.20957e-05, No Iterations 3
-ExecutionTime = 1236.28 s  ClockTime = 1240 s
+ExecutionTime = 1238.93 s  ClockTime = 1253 s
 
 Time = 152
 
@@ -2643,7 +1586,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00117797, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00248533, Final residual = 0.000231854, No Iterations 2
 time step continuity errors : sum local = 2.08796e-05, global = -6.01018e-07, cumulative = -0.00186592
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000236569, Final residual = 1.20264e-05, No Iterations 3
-ExecutionTime = 1243.84 s  ClockTime = 1248 s
+ExecutionTime = 1246.47 s  ClockTime = 1260 s
 
 Time = 153
 
@@ -2653,7 +1596,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00117158, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00249254, Final residual = 0.000242925, No Iterations 2
 time step continuity errors : sum local = 2.18771e-05, global = -6.91845e-07, cumulative = -0.00186661
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000235329, Final residual = 1.19607e-05, No Iterations 3
-ExecutionTime = 1251.4 s  ClockTime = 1255 s
+ExecutionTime = 1253.98 s  ClockTime = 1268 s
 
 Time = 154
 
@@ -2663,7 +1606,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00116528, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00250408, Final residual = 0.000155991, No Iterations 3
 time step continuity errors : sum local = 1.40475e-05, global = -4.07529e-07, cumulative = -0.00186702
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000234156, Final residual = 1.19008e-05, No Iterations 3
-ExecutionTime = 1259.31 s  ClockTime = 1263 s
+ExecutionTime = 1261.9 s  ClockTime = 1276 s
 
 Time = 155
 
@@ -2673,7 +1616,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00115948, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.0024744, Final residual = 0.000230708, No Iterations 2
 time step continuity errors : sum local = 2.07753e-05, global = -6.2112e-07, cumulative = -0.00186764
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000233061, Final residual = 1.18473e-05, No Iterations 3
-ExecutionTime = 1266.84 s  ClockTime = 1271 s
+ExecutionTime = 1269.47 s  ClockTime = 1283 s
 
 Time = 156
 
@@ -2683,7 +1626,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00115336, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.0024709, Final residual = 0.000232567, No Iterations 2
 time step continuity errors : sum local = 2.09389e-05, global = -6.01526e-07, cumulative = -0.00186824
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000232049, Final residual = 1.18007e-05, No Iterations 3
-ExecutionTime = 1274.37 s  ClockTime = 1278 s
+ExecutionTime = 1277 s  ClockTime = 1291 s
 
 Time = 157
 
@@ -2693,7 +1636,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00114725, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00247749, Final residual = 0.000243109, No Iterations 2
 time step continuity errors : sum local = 2.18847e-05, global = -5.70292e-07, cumulative = -0.00186881
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000231135, Final residual = 1.1763e-05, No Iterations 3
-ExecutionTime = 1281.91 s  ClockTime = 1286 s
+ExecutionTime = 1284.54 s  ClockTime = 1298 s
 
 Time = 158
 
@@ -2703,7 +1646,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00114124, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00248994, Final residual = 0.000151969, No Iterations 3
 time step continuity errors : sum local = 1.36775e-05, global = -3.31912e-07, cumulative = -0.00186914
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000230318, Final residual = 1.17324e-05, No Iterations 3
-ExecutionTime = 1289.82 s  ClockTime = 1294 s
+ExecutionTime = 1292.44 s  ClockTime = 1306 s
 
 Time = 159
 
@@ -2713,7 +1656,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00113573, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00245981, Final residual = 0.000230021, No Iterations 2
 time step continuity errors : sum local = 2.06862e-05, global = -4.19809e-07, cumulative = -0.00186956
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000229589, Final residual = 1.1708e-05, No Iterations 3
-ExecutionTime = 1297.36 s  ClockTime = 1301 s
+ExecutionTime = 1300.01 s  ClockTime = 1314 s
 
 Time = 160
 
@@ -2723,7 +1666,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00112986, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00245705, Final residual = 0.000231768, No Iterations 2
 time step continuity errors : sum local = 2.08388e-05, global = -3.49556e-07, cumulative = -0.00186991
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000228979, Final residual = 1.169e-05, No Iterations 3
-ExecutionTime = 1304.89 s  ClockTime = 1309 s
+ExecutionTime = 1307.56 s  ClockTime = 1321 s
 
 Time = 161
 
@@ -2733,7 +1676,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00112404, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00246538, Final residual = 0.000242122, No Iterations 2
 time step continuity errors : sum local = 2.1765e-05, global = -2.93515e-07, cumulative = -0.0018702
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000228474, Final residual = 1.16746e-05, No Iterations 3
-ExecutionTime = 1312.38 s  ClockTime = 1316 s
+ExecutionTime = 1315.1 s  ClockTime = 1329 s
 
 Time = 162
 
@@ -2743,7 +1686,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00111833, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00247849, Final residual = 0.000145336, No Iterations 3
 time step continuity errors : sum local = 1.30615e-05, global = -2.8401e-07, cumulative = -0.00187049
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000227987, Final residual = 1.16601e-05, No Iterations 3
-ExecutionTime = 1320.29 s  ClockTime = 1324 s
+ExecutionTime = 1322.99 s  ClockTime = 1337 s
 
 Time = 163
 
@@ -2753,7 +1696,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00111319, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.0024465, Final residual = 0.000229096, No Iterations 2
 time step continuity errors : sum local = 2.05849e-05, global = -2.25799e-07, cumulative = -0.00187071
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000227502, Final residual = 1.16451e-05, No Iterations 3
-ExecutionTime = 1327.86 s  ClockTime = 1332 s
+ExecutionTime = 1330.5 s  ClockTime = 1344 s
 
 Time = 164
 
@@ -2763,7 +1706,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00110764, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00244449, Final residual = 0.000231164, No Iterations 2
 time step continuity errors : sum local = 2.07671e-05, global = -2.04782e-07, cumulative = -0.00187092
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000227009, Final residual = 1.16296e-05, No Iterations 3
-ExecutionTime = 1335.38 s  ClockTime = 1339 s
+ExecutionTime = 1338.04 s  ClockTime = 1352 s
 
 Time = 165
 
@@ -2773,7 +1716,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00110213, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00245332, Final residual = 0.000241722, No Iterations 2
 time step continuity errors : sum local = 2.17126e-05, global = -1.90229e-07, cumulative = -0.00187111
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000226513, Final residual = 1.16138e-05, No Iterations 3
-ExecutionTime = 1342.88 s  ClockTime = 1347 s
+ExecutionTime = 1345.61 s  ClockTime = 1359 s
 
 Time = 166
 
@@ -2783,7 +1726,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00109674, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00246651, Final residual = 0.00014473, No Iterations 3
 time step continuity errors : sum local = 1.29987e-05, global = -2.13659e-07, cumulative = -0.00187132
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000226014, Final residual = 1.15978e-05, No Iterations 3
-ExecutionTime = 1350.78 s  ClockTime = 1355 s
+ExecutionTime = 1353.5 s  ClockTime = 1367 s
 
 Time = 167
 
@@ -2793,7 +1736,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00109198, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00243278, Final residual = 0.000229068, No Iterations 2
 time step continuity errors : sum local = 2.05781e-05, global = -2.0235e-07, cumulative = -0.00187152
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000225514, Final residual = 1.1582e-05, No Iterations 3
-ExecutionTime = 1358.31 s  ClockTime = 1362 s
+ExecutionTime = 1361.04 s  ClockTime = 1375 s
 
 Time = 168
 
@@ -2803,7 +1746,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00108673, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00243048, Final residual = 0.000231551, No Iterations 2
 time step continuity errors : sum local = 2.08003e-05, global = -2.24804e-07, cumulative = -0.00187175
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000225015, Final residual = 1.15665e-05, No Iterations 3
-ExecutionTime = 1365.86 s  ClockTime = 1370 s
+ExecutionTime = 1368.57 s  ClockTime = 1382 s
 
 Time = 169
 
@@ -2813,7 +1756,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00108152, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.0024396, Final residual = 0.000242309, No Iterations 2
 time step continuity errors : sum local = 2.17663e-05, global = -2.57771e-07, cumulative = -0.00187201
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000224519, Final residual = 1.15516e-05, No Iterations 3
-ExecutionTime = 1373.4 s  ClockTime = 1377 s
+ExecutionTime = 1376.08 s  ClockTime = 1390 s
 
 Time = 170
 
@@ -2823,7 +1766,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00107642, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00245277, Final residual = 0.000143591, No Iterations 3
 time step continuity errors : sum local = 1.28985e-05, global = -3.21581e-07, cumulative = -0.00187233
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000224024, Final residual = 1.15372e-05, No Iterations 3
-ExecutionTime = 1381.3 s  ClockTime = 1385 s
+ExecutionTime = 1383.96 s  ClockTime = 1398 s
 
 Time = 171
 
@@ -2833,7 +1776,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00107194, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00241772, Final residual = 0.000229927, No Iterations 2
 time step continuity errors : sum local = 2.06647e-05, global = -3.61695e-07, cumulative = -0.00187269
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000223533, Final residual = 1.15233e-05, No Iterations 3
-ExecutionTime = 1388.86 s  ClockTime = 1393 s
+ExecutionTime = 1391.51 s  ClockTime = 1405 s
 
 Time = 172
 
@@ -2843,7 +1786,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00106699, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.0024156, Final residual = 0.000231972, No Iterations 2
 time step continuity errors : sum local = 2.08488e-05, global = -4.21284e-07, cumulative = -0.00187311
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000223045, Final residual = 1.15101e-05, No Iterations 3
-ExecutionTime = 1396.4 s  ClockTime = 1400 s
+ExecutionTime = 1399.03 s  ClockTime = 1413 s
 
 Time = 173
 
@@ -2853,7 +1796,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00106209, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00242478, Final residual = 0.000242174, No Iterations 2
 time step continuity errors : sum local = 2.17657e-05, global = -4.8395e-07, cumulative = -0.0018736
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00022256, Final residual = 1.14977e-05, No Iterations 3
-ExecutionTime = 1403.93 s  ClockTime = 1408 s
+ExecutionTime = 1406.58 s  ClockTime = 1420 s
 
 Time = 174
 
@@ -2863,7 +1806,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.0010573, Final residual = 4.
 GAMG:  Solving for p, Initial residual = 0.00243869, Final residual = 0.000145963, No Iterations 3
 time step continuity errors : sum local = 1.31183e-05, global = -3.83322e-07, cumulative = -0.00187398
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00022208, Final residual = 1.14861e-05, No Iterations 3
-ExecutionTime = 1411.82 s  ClockTime = 1416 s
+ExecutionTime = 1414.48 s  ClockTime = 1428 s
 
 Time = 175
 
@@ -2873,7 +1816,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00105313, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00240611, Final residual = 0.000230361, No Iterations 2
 time step continuity errors : sum local = 2.07069e-05, global = -5.17839e-07, cumulative = -0.0018745
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000221608, Final residual = 1.14753e-05, No Iterations 3
-ExecutionTime = 1419.37 s  ClockTime = 1423 s
+ExecutionTime = 1421.99 s  ClockTime = 1436 s
 
 Time = 176
 
@@ -2883,7 +1826,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00104851, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00240498, Final residual = 0.000232682, No Iterations 2
 time step continuity errors : sum local = 2.0914e-05, global = -5.25763e-07, cumulative = -0.00187502
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000221142, Final residual = 1.14653e-05, No Iterations 3
-ExecutionTime = 1426.92 s  ClockTime = 1431 s
+ExecutionTime = 1429.54 s  ClockTime = 1443 s
 
 Time = 177
 
@@ -2893,7 +1836,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00104393, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00241499, Final residual = 0.000138518, No Iterations 3
 time step continuity errors : sum local = 1.2449e-05, global = -3.89354e-07, cumulative = -0.00187541
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000220683, Final residual = 1.1456e-05, No Iterations 3
-ExecutionTime = 1434.85 s  ClockTime = 1439 s
+ExecutionTime = 1437.44 s  ClockTime = 1451 s
 
 Time = 178
 
@@ -2903,7 +1846,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00103989, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00239031, Final residual = 0.000223839, No Iterations 2
 time step continuity errors : sum local = 2.01107e-05, global = -4.68773e-07, cumulative = -0.00187588
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000220231, Final residual = 1.14475e-05, No Iterations 3
-ExecutionTime = 1442.39 s  ClockTime = 1446 s
+ExecutionTime = 1444.98 s  ClockTime = 1459 s
 
 Time = 179
 
@@ -2913,7 +1856,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00103543, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00239592, Final residual = 0.000231353, No Iterations 2
 time step continuity errors : sum local = 2.07822e-05, global = -4.38618e-07, cumulative = -0.00187632
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000219785, Final residual = 1.14397e-05, No Iterations 3
-ExecutionTime = 1449.94 s  ClockTime = 1454 s
+ExecutionTime = 1452.53 s  ClockTime = 1466 s
 
 Time = 180
 
@@ -2923,7 +1866,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00103105, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00241212, Final residual = 0.000135948, No Iterations 3
 time step continuity errors : sum local = 1.22093e-05, global = -3.52575e-07, cumulative = -0.00187667
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000219344, Final residual = 1.14325e-05, No Iterations 3
-ExecutionTime = 1457.86 s  ClockTime = 1462 s
+ExecutionTime = 1460.42 s  ClockTime = 1474 s
 
 Time = 181
 
@@ -2933,7 +1876,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00102725, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00238759, Final residual = 0.000227821, No Iterations 2
 time step continuity errors : sum local = 2.04483e-05, global = -3.51466e-07, cumulative = -0.00187702
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000218908, Final residual = 1.14259e-05, No Iterations 3
-ExecutionTime = 1465.4 s  ClockTime = 1469 s
+ExecutionTime = 1468.02 s  ClockTime = 1482 s
 
 Time = 182
 
@@ -2943,7 +1886,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00102306, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00239338, Final residual = 0.000234375, No Iterations 2
 time step continuity errors : sum local = 2.10307e-05, global = -3.03975e-07, cumulative = -0.00187733
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000218477, Final residual = 1.14199e-05, No Iterations 3
-ExecutionTime = 1472.94 s  ClockTime = 1477 s
+ExecutionTime = 1475.55 s  ClockTime = 1489 s
 
 Time = 183
 
@@ -2953,7 +1896,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00101894, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00240782, Final residual = 0.000135784, No Iterations 3
 time step continuity errors : sum local = 1.21802e-05, global = -2.4655e-07, cumulative = -0.00187757
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000218053, Final residual = 1.14146e-05, No Iterations 3
-ExecutionTime = 1480.85 s  ClockTime = 1485 s
+ExecutionTime = 1483.46 s  ClockTime = 1497 s
 
 Time = 184
 
@@ -2963,7 +1906,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00101542, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00238098, Final residual = 0.000225873, No Iterations 2
 time step continuity errors : sum local = 2.02501e-05, global = -1.9859e-07, cumulative = -0.00187777
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000217634, Final residual = 1.14101e-05, No Iterations 3
-ExecutionTime = 1488.42 s  ClockTime = 1492 s
+ExecutionTime = 1491 s  ClockTime = 1505 s
 
 Time = 185
 
@@ -2973,7 +1916,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00101145, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.0023859, Final residual = 0.000230989, No Iterations 2
 time step continuity errors : sum local = 2.07027e-05, global = -1.39469e-07, cumulative = -0.00187791
 smoothSolver:  Solving for nuTilda, Initial residual = 0.00021722, Final residual = 1.14065e-05, No Iterations 3
-ExecutionTime = 1495.98 s  ClockTime = 1500 s
+ExecutionTime = 1498.54 s  ClockTime = 1512 s
 
 Time = 186
 
@@ -2983,7 +1926,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00100755, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00240021, Final residual = 0.000133932, No Iterations 3
 time step continuity errors : sum local = 1.20003e-05, global = -7.54079e-08, cumulative = -0.00187799
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000216811, Final residual = 1.14037e-05, No Iterations 3
-ExecutionTime = 1503.84 s  ClockTime = 1508 s
+ExecutionTime = 1506.4 s  ClockTime = 1520 s
 
 Time = 187
 
@@ -2993,7 +1936,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00100427, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00237435, Final residual = 0.000223631, No Iterations 2
 time step continuity errors : sum local = 2.00274e-05, global = -1.18914e-08, cumulative = -0.001878
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000216408, Final residual = 1.14017e-05, No Iterations 3
-ExecutionTime = 1511.35 s  ClockTime = 1515 s
+ExecutionTime = 1513.93 s  ClockTime = 1528 s
 
 Time = 188
 
@@ -3003,7 +1946,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00100052, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.00237945, Final residual = 0.000230024, No Iterations 2
 time step continuity errors : sum local = 2.05948e-05, global = 5.48742e-08, cumulative = -0.00187794
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000216011, Final residual = 1.14007e-05, No Iterations 3
-ExecutionTime = 1518.91 s  ClockTime = 1523 s
+ExecutionTime = 1521.46 s  ClockTime = 1535 s
 
 Time = 189
 
@@ -3013,7 +1956,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.00099685, Final residual = 4
 GAMG:  Solving for p, Initial residual = 0.0023944, Final residual = 0.000133394, No Iterations 3
 time step continuity errors : sum local = 1.19404e-05, global = 1.09824e-07, cumulative = -0.00187783
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000215619, Final residual = 1.14005e-05, No Iterations 3
-ExecutionTime = 1526.8 s  ClockTime = 1531 s
+ExecutionTime = 1529.34 s  ClockTime = 1543 s
 
 Time = 190
 
@@ -3023,7 +1966,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000993803, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00236761, Final residual = 0.000224183, No Iterations 2
 time step continuity errors : sum local = 2.0061e-05, global = 1.81179e-07, cumulative = -0.00187765
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000215231, Final residual = 1.14013e-05, No Iterations 3
-ExecutionTime = 1534.35 s  ClockTime = 1538 s
+ExecutionTime = 1536.86 s  ClockTime = 1551 s
 
 Time = 191
 
@@ -3033,7 +1976,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000990289, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00237217, Final residual = 0.000230592, No Iterations 2
 time step continuity errors : sum local = 2.06309e-05, global = 2.43433e-07, cumulative = -0.00187741
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000214846, Final residual = 1.14029e-05, No Iterations 3
-ExecutionTime = 1541.91 s  ClockTime = 1546 s
+ExecutionTime = 1544.37 s  ClockTime = 1558 s
 
 Time = 192
 
@@ -3043,7 +1986,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000986846, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00238614, Final residual = 0.000133865, No Iterations 3
 time step continuity errors : sum local = 1.19749e-05, global = 2.85887e-07, cumulative = -0.00187712
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000214465, Final residual = 1.14055e-05, No Iterations 3
-ExecutionTime = 1549.8 s  ClockTime = 1554 s
+ExecutionTime = 1552.26 s  ClockTime = 1566 s
 
 Time = 193
 
@@ -3053,7 +1996,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000984023, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00235779, Final residual = 0.000224337, No Iterations 2
 time step continuity errors : sum local = 2.0066e-05, global = 3.52704e-07, cumulative = -0.00187677
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000214089, Final residual = 1.14091e-05, No Iterations 3
-ExecutionTime = 1557.32 s  ClockTime = 1561 s
+ExecutionTime = 1559.75 s  ClockTime = 1574 s
 
 Time = 194
 
@@ -3063,7 +2006,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000980728, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00236249, Final residual = 0.000230679, No Iterations 2
 time step continuity errors : sum local = 2.06312e-05, global = 4.07361e-07, cumulative = -0.00187636
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000213723, Final residual = 1.14138e-05, No Iterations 3
-ExecutionTime = 1564.87 s  ClockTime = 1569 s
+ExecutionTime = 1567.24 s  ClockTime = 1581 s
 
 Time = 195
 
@@ -3073,7 +2016,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000977489, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.0023769, Final residual = 0.000134688, No Iterations 3
 time step continuity errors : sum local = 1.20451e-05, global = 3.95844e-07, cumulative = -0.00187597
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000213369, Final residual = 1.14197e-05, No Iterations 3
-ExecutionTime = 1572.75 s  ClockTime = 1577 s
+ExecutionTime = 1575.14 s  ClockTime = 1589 s
 
 Time = 196
 
@@ -3083,7 +2026,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000974865, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00234864, Final residual = 0.000224723, No Iterations 2
 time step continuity errors : sum local = 2.00986e-05, global = 4.77795e-07, cumulative = -0.00187549
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000213028, Final residual = 1.14268e-05, No Iterations 3
-ExecutionTime = 1580.31 s  ClockTime = 1584 s
+ExecutionTime = 1582.66 s  ClockTime = 1597 s
 
 Time = 197
 
@@ -3093,7 +2036,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000971768, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00235304, Final residual = 0.000231114, No Iterations 2
 time step continuity errors : sum local = 2.06691e-05, global = 5.11109e-07, cumulative = -0.00187498
 smoothSolver:  Solving for nuTilda, Initial residual = 0.0002127, Final residual = 1.1435e-05, No Iterations 3
-ExecutionTime = 1587.88 s  ClockTime = 1592 s
+ExecutionTime = 1590.2 s  ClockTime = 1604 s
 
 Time = 198
 
@@ -3103,7 +2046,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000968738, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00236722, Final residual = 0.000135336, No Iterations 3
 time step continuity errors : sum local = 1.21028e-05, global = 4.53123e-07, cumulative = -0.00187453
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000212383, Final residual = 1.14442e-05, No Iterations 3
-ExecutionTime = 1595.74 s  ClockTime = 1600 s
+ExecutionTime = 1598.06 s  ClockTime = 1612 s
 
 Time = 199
 
@@ -3113,7 +2056,7 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000966318, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00233927, Final residual = 0.000225168, No Iterations 2
 time step continuity errors : sum local = 2.01392e-05, global = 5.2996e-07, cumulative = -0.001874
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000212076, Final residual = 1.14546e-05, No Iterations 3
-ExecutionTime = 1603.26 s  ClockTime = 1607 s
+ExecutionTime = 1605.59 s  ClockTime = 1619 s
 
 Time = 200
 
@@ -3123,27 +2066,27 @@ smoothSolver:  Solving for Uz, Initial residual = 0.000963435, Final residual = 
 GAMG:  Solving for p, Initial residual = 0.00234499, Final residual = 0.00023177, No Iterations 2
 time step continuity errors : sum local = 2.07285e-05, global = 5.37688e-07, cumulative = -0.00187346
 smoothSolver:  Solving for nuTilda, Initial residual = 0.000211778, Final residual = 1.14658e-05, No Iterations 3
-ExecutionTime = 1610.8 s  ClockTime = 1615 s
+ExecutionTime = 1613.13 s  ClockTime = 1627 s
 
 End
 
 Finalising parallel run
-Application 1086066 resources: utime ~103091s, stime ~392s, Rss ~1487004, inblocks ~21454750, outblocks ~0
+Application 1168604 resources: utime ~103187s, stime ~367s, Rss ~1514260, inblocks ~21470874, outblocks ~0
 grep: write error: Broken pipe
 ============================= PBS epilogue =============================
 
 End of Job Report
-Run at 2019-04-03 21:01:13 for job 7316.xci00
-Submitted              : 2019-04-03 20:04:03
-Queued                 : 2019-04-03 20:04:03
-Started                : 2019-04-03 20:04:03
-Completed              : 2019-04-03 21:01:13
+Run at 2019-09-01 11:05:48 for job 23866.xci00
+Submitted              : 2019-09-01 10:38:00
+Queued                 : 2019-09-01 10:38:00
+Started                : 2019-09-01 10:38:00
+Completed              : 2019-09-01 11:05:48
 Queued Time            : 0:00:00 (0 seconds)
-Elapsed Time           : 0:57:05 (3425 seconds, 8% of limit)
-Parallel Time          : 0:56:40 (3400 seconds, 99% of elapsed time)
+Elapsed Time           : 0:27:43 (1663 seconds, 4% of limit)
+Parallel Time          : 0:27:37 (1657 seconds, 100% of elapsed time)
 Walltime Limit         : 12:00:00 (43200 seconds)
 Node Time Limit        : 12:00:00 (43200 seconds)
-Node Time              : 0:57:05 (3425 seconds, 8% of limit)
+Node Time              : 0:27:43 (1663 seconds, 4% of limit)
 Job Name               : OpenFOAM_scale-1_tx2_gcc-7.3
 Queue                  : arm
 Owner                  : br-apoenaru
@@ -3153,8 +2096,8 @@ Subproject             :
 Funding                : 
 Trustzone              : 
 STDOUT                 : /home/br-apoenaru/applications-arm/OpenFOAM/run/../OpenFOAM-v1712_tx2-isambard_tx2_gcc-7.3_scale-1.out
-STDERR                 : /home/br-apoenaru/applications-arm/OpenFOAM/run/OpenFOAM_scale-1_tx2_gcc-7.3.e7316
-Job Directory          : /home/br-apoenaru/pbs.7316.xci00.x8z
+STDERR                 : /home/br-apoenaru/applications-arm/OpenFOAM/run/OpenFOAM_scale-1_tx2_gcc-7.3.e23866
+Job Directory          : /home/br-apoenaru/pbs.23866.xci00.x8z
 Job Arch               : XT
 CPU Core Type          : arm
 Total Nodes            : 1
@@ -3162,22 +2105,21 @@ Total Tasks            : 64
 Parent Node            : xcimom
 Parent Node Memory     : 
 Parent Node CPU Time   : 
-Compute Nodes          : 0
+Compute Nodes          : 30
 Electrical Groups      : 1
 Run Version            : 1
 
                                         Wallclock  Wallclock     Memory     Memory
 Executable             APID      Nodes       Used  Requested       Used  Requested   CPU Time    Read IO   Write IO     Energy
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
-decomposePar        1086063          1     3491.2         8%       1.8G         1%       1.7k      14.7G      12.8G     398.9k
-simpleFoam          1086066          1   105957.5       245%       1.3G         1%     101.0k      10.2G       8.5M     729.2k
+simpleFoam          1168604          1   107166.9       248%       1.3G         1%     101.1k      10.2G       8.5M     713.1k
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
-total                   all          1   109448.8       253%       1.8G         1%     102.7k      24.9G      12.9G       1.1M
+total                   all          1   107166.9       248%       1.3G         1%     101.1k      10.2G       8.5M     713.1k
 ================ ========== ========== ========== ========== ========== ========== ========== ========== ========== ==========
 
 Lustre
 device         read  written     open    close   create  getattr  setattr    perms    mkdir    rmdir  readdir     link   unlink   rename
 ========== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ======== ========
-/lustre       26.7G    13.8G     5.8k     5.8k        0    10.8k        0   750.7k      256        0     1.0k        0        0        0
+/lustre       10.9G        0     3.3k     3.3k        0     7.6k        0   621.8k        0        0     1.0k        0        0        0
 
 For more information see https://gw4-isambard.github.io/docs/
