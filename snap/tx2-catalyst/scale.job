@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+# Problem is (1024 * 12 * 12) per socket
+NY=$[24 * YSCALE] \
+NZ=$[12 * ZSCALE] \
+NPEY=$[2 * YSCALE] \
+NPEZ=$[1 * ZSCALE] \
+NTHREADS=32 \
+ICHUNK=16 \
+envsubst <"$BENCHMARK_TEMPLATE" >snap.in
+
+export OMP_NUM_THREADS=32
+mpiexec omplace -bs "$CFG_DIR/$BENCHMARK_EXE" snap.in snap.out
