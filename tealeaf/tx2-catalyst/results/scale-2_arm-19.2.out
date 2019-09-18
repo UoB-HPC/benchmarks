@@ -2,7 +2,7 @@
    Tea Version    1.403
        MPI Version
     OpenMP Version
-   Task Count    256
+   Task Count    128
  Thread Count:     1
  
  Tea will run from the following input:-
@@ -97,120 +97,120 @@ profiler_on
  
  
  Mesh ratio of     1.000000    
- Decomposing the mesh into            16  by            16  chunks
+ Decomposing the mesh into            16  by             8  chunks
  Decomposing each chunk into             1  by             1  tiles
  
- Tile size           250  by           250  cells
- Sub-tile size ranges from           250  by           250  cells to  
-          250  by           250  cells
+ Tile size           250  by           500  cells
+ Sub-tile size ranges from           250  by           500  cells to  
+          250  by           500  cells
  Generating chunk 
  
  Problem initialised and generated
  
  Time     0.000000000000000     
                                  Volume                      Mass                   Density                    Energy                         U
- step:      0   0.99999999999995396E+02   0.84015999999985688E+04   0.84015999999989560E+02   0.34900000000000038E+01   0.84264999999997002E+02
+ step:      0   0.99999999999966931E+02   0.84015999999980322E+04   0.84016000000008106E+02   0.34900000000002906E+01   0.84264999999975174E+02
  
  Starting the calculation
  Step       1 time   0.0000000 timestep   4.00E-03
 Conduction error  0.9975393E-15
 Iteration count     3381
-      Solve Time    8.0697889328    Its   3382     Time Per It    0.0023860996
- Wall clock     8.071120023727417     
- Average time per cell    3.1527812592685223E-002
- Step time per cell       3.1527812592685223E-002
+      Solve Time   15.9227499962    Its   3382     Time Per It    0.0047080869
+ Wall clock     15.92370891571045     
+ Average time per cell    0.1244039759039879     
+ Step time per cell       0.1244039759039879     
  Step       2 time   0.0040000 timestep   4.00E-03
-Conduction error  0.9859472E-15
+Conduction error  0.9859487E-15
 Iteration count     4096
-      Solve Time    9.6760280132    Its   4097     Time Per It    0.0023617349
- Wall clock     17.74913406372070     
- Average time per cell    3.4666277468204498E-002
- Step time per cell       3.7800023332238197E-002
+      Solve Time   19.2937750816    Its   4097     Time Per It    0.0047092446
+ Wall clock     35.21770191192627     
+ Average time per cell    0.1375691480934620     
+ Step time per cell       0.1507337410002947     
  Step       3 time   0.0080000 timestep   4.00E-03
-Conduction error  0.9843615E-15
+Conduction error  0.9843488E-15
 Iteration count     4060
-      Solve Time    9.7757771015    Its   4061     Time Per It    0.0024072340
- Wall clock     27.52681398391724     
- Average time per cell    3.5842205708225570E-002
- Step time per cell       3.8189355283975601E-002
+      Solve Time   19.1377410889    Its   4061     Time Per It    0.0047125686
+ Wall clock     54.35560107231140     
+ Average time per cell    0.1415510444591443     
+ Step time per cell       0.1495142821222544     
  Step       4 time   0.0120000 timestep   4.00E-03
-Conduction error  0.9855663E-15
+Conduction error  0.9863335E-15
 Iteration count     3950
-      Solve Time    9.3302540779    Its   3951     Time Per It    0.0023614918
- Wall clock     36.85897994041443     
- Average time per cell    3.5995097598060966E-002
- Step time per cell       3.6449050530791283E-002
+      Solve Time   18.6229090691    Its   3951     Time Per It    0.0047134672
+ Wall clock     72.97867512702942     
+ Average time per cell    0.1425364748574793     
+ Step time per cell       0.1454922351986170     
  Step       5 time   0.0160000 timestep   4.00E-03
-Conduction error  0.9976838E-15
+Conduction error  0.9970686E-15
 Iteration count     3832
-      Solve Time    9.1886730194    Its   3833     Time Per It    0.0023972536
- Wall clock     46.04956603050232     
- Average time per cell    3.5976223461329934E-002
- Step time per cell       3.5896011628210545E-002
+      Solve Time   18.0463778973    Its   3833     Time Per It    0.0047081602
+ Wall clock     91.02538990974426     
+ Average time per cell    0.1422271717339754     
+ Step time per cell       0.1409893743693829     
  Step       6 time   0.0200000 timestep   4.00E-03
-Conduction error  0.9973256E-15
+Conduction error  0.9972604E-15
 Iteration count     3710
-      Solve Time    8.6333389282    Its   3711     Time Per It    0.0023264185
- Wall clock     54.68481016159058     
- Average time per cell    3.5602089948952198E-002
- Step time per cell       3.3726695924997330E-002
+      Solve Time   17.5012679100    Its   3711     Time Per It    0.0047160517
+ Wall clock     108.5268769264221     
+ Average time per cell    0.1413110376646121     
+ Step time per cell       0.1367298606783152     
  Step       7 time   0.0240000 timestep   4.00E-03
-Conduction error  0.9921545E-15
+Conduction error  0.9904190E-15
 Iteration count     3603
-      Solve Time    8.6055459976    Its   3604     Time Per It    0.0023877764
- Wall clock     63.29232096672058     
- Average time per cell    3.5319375539464612E-002
- Step time per cell       3.3618358895182610E-002
+      Solve Time   16.9667170048    Its   3604     Time Per It    0.0047077461
+ Wall clock     125.4938609600067     
+ Average time per cell    0.1400601126785789     
+ Step time per cell       0.1325540225952864     
  Step       8 time   0.0280000 timestep   4.00E-03
-Conduction error  0.9976655E-15
+Conduction error  0.9990483E-15
 Iteration count     3502
-      Solve Time    8.3601369858    Its   3503     Time Per It    0.0023865649
- Wall clock     71.65442204475403     
- Average time per cell    3.4987510764040053E-002
- Step time per cell       3.2659554854035378E-002
+      Solve Time   16.5106861591    Its   3503     Time Per It    0.0047132989
+ Wall clock     142.0047090053558     
+ Average time per cell    0.1386764736380428     
+ Step time per cell       0.1289904695004225     
  Step       9 time   0.0320000 timestep   4.00E-03
-Conduction error  0.9951625E-15
-Iteration count     3410
-      Solve Time    7.9561030865    Its   3411     Time Per It    0.0023324840
- Wall clock     79.61245799064636     
- Average time per cell    3.4554018225106925E-002
- Step time per cell       3.1081331893801689E-002
+Conduction error  0.9903965E-15
+Iteration count     3411
+      Solve Time   16.0617280006    Its   3412     Time Per It    0.0047074232
+ Wall clock     158.0666899681091     
+ Average time per cell    0.1372106683750947     
+ Step time per cell       0.1254836563020945     
  Step      10 time   0.0360000 timestep   4.00E-03
-Conduction error  0.9974036E-15
-Iteration count     3334
-      Solve Time    7.9167070389    Its   3335     Time Per It    0.0023738252
+Conduction error  0.9984646E-15
+Iteration count     3337
+      Solve Time   15.7262680531    Its   3338     Time Per It    0.0047112846
  
  Time    4.0000000000000008E-002
                                  Volume                      Mass                   Density                    Energy                         U
- step:     10   0.99999999999995396E+02   0.84015999999985688E+04   0.84015999999989560E+02   0.34899999999803484E+01   0.95462351582229417E+02
+ step:     10   0.99999999999966931E+02   0.84015999999980322E+04   0.84016000000008106E+02   0.34899999999798723E+01   0.95462351582210303E+02
  
- Wall clock     87.53151607513428     
- Average time per cell    3.4191998466849324E-002
- Step time per cell       3.0928968451917171E-002
+ Wall clock     173.7950890064240     
+ Average time per cell    0.1357774132862687     
+ Step time per cell       0.1228775940835476     
  
  Time    4.0000000000000008E-002
                                  Volume                      Mass                   Density                    Energy                         U
- step:     10   0.99999999999995396E+02   0.84015999999985688E+04   0.84015999999989560E+02   0.34899999999803484E+01   0.95462351582229417E+02
+ step:     10   0.99999999999966931E+02   0.84015999999980322E+04   0.84016000000008106E+02   0.34899999999798723E+01   0.95462351582210303E+02
  
-Test problem   5 is within   0.1186688E-08% of the expected solution
+Test problem   5 is within   0.1206710E-08% of the expected solution
  This test is considered PASSED
  
  Calculation complete
  Tea is finishing
- First step overhead   -1.605685949325562     
- Wall clock     87.53348207473755     
+ First step overhead   -3.370208978652954     
+ Wall clock     173.7955970764160     
  
 Profiler Output                 Time            Percentage
-Timestep              :          0.0188          0.0215
-MPI Halo Exchange     :          1.9697          2.2503
-Self Halo Update      :          0.0042          0.0047
-Internal Halo Update  :          0.0039          0.0044
-Summary               :          0.0007          0.0008
+Timestep              :          0.0016          0.0009
+MPI Halo Exchange     :          6.3752          3.6682
+Self Halo Update      :          0.0710          0.0408
+Internal Halo Update  :          0.0037          0.0021
+Summary               :          0.0021          0.0012
 Visit                 :          0.0000          0.0000
-Tea Init              :          0.0439          0.0501
-Dot Product           :         30.0262         34.3026
-Tea Solve             :         55.4240         63.3175
-Tea Reset             :          0.0050          0.0057
+Tea Init              :          0.1019          0.0586
+Dot Product           :         33.3545         19.1918
+Tea Solve             :        133.8310         77.0048
+Tea Reset             :          0.0097          0.0056
 Set Field             :          0.0000          0.0000
-Total                 :         87.4964         99.9576
-The Rest              :          0.0371          0.0424
+Total                 :        173.7506         99.9741
+The Rest              :          0.0450          0.0259
