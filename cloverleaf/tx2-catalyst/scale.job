@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -l walltime=02:00:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+cp "$SRC_DIR/InputDecks/clover_bm256.in" clover.in
+
+export OMP_NUM_THREADS=1
+mpiexec "$CFG_DIR/$BENCHMARK_EXE"
