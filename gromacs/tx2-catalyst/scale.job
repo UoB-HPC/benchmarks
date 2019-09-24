@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -q workq
+#PBS -l walltime=01:00:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+export OMP_NUM_THREADS=1
+export GMX_MAXBACKUP=-1
+export GMX_NBNXN_EWALD_TABLE=1
+mpiexec "$BUILD_DIR/bin/gmx_mpi" mdrun \
+      -s "$BENCHMARK_SCALE" \
+      -ntomp 1 -noconfout
