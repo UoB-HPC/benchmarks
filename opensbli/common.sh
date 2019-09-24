@@ -124,6 +124,9 @@ then
         exit 1
     fi
 
+    # Some systems use a different shell for jobs, breaking exported functions
+    unset -f setup_env
+
     # Submit job
     mkdir -p $RUN_ARGS
     cd $RUN_ARGS
