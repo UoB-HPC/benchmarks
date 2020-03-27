@@ -95,7 +95,9 @@ case "$BLASLIB" in
     armpl-19.2)
         export LD_LIBRARY_PATH=/opt/allinea/19.2.0.0/opt/arm/armpl-19.2.0_ThunderX2CN99_SUSE-12_gcc_8.2.0_aarch64-linux/lib:$LD_LIBRARY_PATH
         export LIBS="$LIBS -L/opt/allinea/19.2.0.0/opt/arm/armpl-19.2.0_ThunderX2CN99_SUSE-12_gcc_8.2.0_aarch64-linux/lib"
+        export LIBS="$LIBS -Wl,-rpath,/opt/allinea/19.2.0.0/opt/arm/armpl-19.2.0_ThunderX2CN99_SUSE-12_gcc_8.2.0_aarch64-linux/lib"
         export LIBS="$LIBS -larmpl_lp64_mp -lamath"
+        export INCS="$INCS -I/opt/allinea/19.2.0.0/opt/arm/armpl-19.2.0_ThunderX2CN99_SUSE-12_gcc_8.2.0_aarch64-linux/include"
         ARMPL_VERSION=19.2
         ;;
     *)
@@ -120,7 +122,6 @@ esac
 #    export FCFLAGS="$FCFLAGS -I$ARMPL_DIR/include"
 #    export LIBS="$LIBS -larmpl"
 #fi
-
 
 
 # Handle actions
@@ -160,7 +161,7 @@ then
 
     mkdir -p $RUN_DIR
     cd $RUN_DIR
-    qsub -v SRC_DIR,CONFIG $SCRIPT_DIR/run.job
+    qsub -v SRC_DIR,CONFIG,LD_LIBRARY_PATH $SCRIPT_DIR/run.job
 else
     echo
     echo "Invalid action (use 'build' or 'run')."

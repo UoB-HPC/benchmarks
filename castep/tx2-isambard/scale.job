@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l walltime=02:00:00
+#PBS -joe
+
+cd $CFG_DIR/$RUN_ARGS
+echo "Working directory: $PWD"
+
+#####################################################################
+# Set configuration 
+#####################################################################
+export OMP_NUM_THREADS=1
+PPN=64
+CASTEP_EXE=$BUILD_DIR/castep.mpi
+BENCHMARK="al3x3"
+
+#####################################################################
+# Set the parallel launch command
+#####################################################################
+echo "Parallel launch command:"
+echo "aprun -n $[NODES * PPN] -N ${PPN} ${CASTEP_EXE} ${BENCHMARK}"
+
+#####################################################################
+# Run the benchmark
+#####################################################################
+aprun -n $[NODES * PPN] -N ${PPN} ${CASTEP_EXE} ${BENCHMARK}
