@@ -53,7 +53,7 @@ script_dir="$(realpath "$(dirname "$script")")"
 
 export CONFIG="${ARCH}_${COMPILER}"
 export RUN_DIR="$PWD/run"
-export INSTALL_DIR="$PWD/OpenFOAM-v1712-${ARCH}-${COMPILER}-${MPILIB}"
+export INSTALL_DIR="$PWD/OpenFOAM-v2006-${ARCH}-${COMPILER}-${MPILIB}"
 
 continue_build=no
 restart_build=no
@@ -83,8 +83,8 @@ if [ "$action" == "build" ]; then
     fi
 
     echo "Installing into: $INSTALL_DIR"
-    tgz_of="OpenFOAM-v1712.tgz"
-    tgz_tp="ThirdParty-v1712.tgz"
+    tgz_of="OpenFOAM-v2006.tgz"
+    tgz_tp="ThirdParty-v2006.tgz"
 
     # Fetch the code if necessary
     if [ ! -f "$tgz_of" ] || [ ! -f "$tgz_tp" ]; then
@@ -109,11 +109,6 @@ if [ "$action" == "build" ]; then
 
     # Copy modified build files
     if [[ "$MPILIB" =~ mpich ]]; then
-        if [ -d "${script_dir}/build-parts/${PLATFORM}/" ]; then
-            echo "Copy system-specific build parts: $script_dir/build-parts/$PLATFORM ->  $INSTALL_DIR"
-            cp -r "${script_dir}/build-parts/${PLATFORM}/"* "$INSTALL_DIR"
-        fi
-
         case "$COMPILER" in
             gcc-*)
                 if [ -d "${script_dir}/build-parts/gcc/${PLATFORM}/" ]; then
@@ -130,7 +125,7 @@ if [ "$action" == "build" ]; then
         esac
     fi
 
-    pushd "$INSTALL_DIR/OpenFOAM-v1712"
+    pushd "$INSTALL_DIR/OpenFOAM-v2006"
     bashrc="etc/bashrc"
     cflags="wmake/rules/$of_platform/c"
     cOptflags="wmake/rules/$of_platform/cOpt"
@@ -138,13 +133,15 @@ if [ "$action" == "build" ]; then
     cppOptflags="wmake/rules/$of_platform/c++Opt"
     mpiflags="etc/config.sh/mpi"
     systemopenmpiflags="wmake/rules/General/mplibSYSTEMOPENMPI"
+    craympichflags="wmake/rules/General/mplibCRAY-MPICH"
 
     # Set the installtion directory path and the MPI library
     # sed -i 's,^FOAM_INST_DIR=.*,FOAM_INST_DIR='"$PWD," "$bashrc"
-    sed -i '/^FOAM_INST_DIR=.*/a FOAM_INST_DIR='"$(dirname $PWD)" "$bashrc"
+    sed -i '/^FOAM_INST_DIR=.*/a FOAM_INST_DIR='"$(dirname "$PWD")" "$bashrc"
     case "$MPILIB" in
         cray-mpich-*)
             sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=CRAY-MPICH,' "$bashrc"
+            echo 'PLIBS = -L$(MPI_ARCH_PATH)/lib$(WM_COMPILER_LIB_ARCH) -L$(MPI_ARCH_PATH)/lib -lmpich -lrt' >> "$craympichflags"
             ;;
         hmpt-*)
             sed -i "s,PINC       =.*,PINC       = -I${MPI_ROOT}/include -pthread," "$systemopenmpiflags"
@@ -166,63 +163,45 @@ if [ "$action" == "build" ]; then
     # Set the compiler and flags
     case "$COMPILER" in
         arm-*)
-            wmake_gcc="wmake/rules/linuxARM64Gcc"
-            wmake_arm="wmake/rules/linuxARM64Arm"
-            cp -r "$wmake_gcc" "$wmake_arm"
-
-            sed -i 's/^cc          =.*/cc          = armclang/' "$cflags"
-            sed -i 's/^CC          =.*/CC          = armclang++ -std=c++11/' "$cppflags"
             sed -i 's/^export WM_COMPILER=.*/export WM_COMPILER=Arm/' "$bashrc"
-            sed -i 's/^cOPT        =.*/cOPT        = -mcpu=thunderx2t99 -O3 -ffast-math/' "$cOptflags"
-            sed -i 's/^c++OPT      =.*/c++OPT      = -mcpu=thunderx2t99 -O3 -ffast-math/' "$cppOptflags"
 
-            # Apply required source changes: https://gitlab.com/arm-hpc/packages/wikis/packages/openfoamplus
-            if [ "$continue_build" != yes ] && [ "$restart_build" != yes ]; then
-                ( cd src/finiteVolume/finiteVolume/ddtSchemes/CrankNicolsonDdtScheme/;
-cat <<EOPATCH | patch -p1
---- a/CrankNicolsonDdtScheme.C
-+++ b/CrankNicolsonDdtScheme.C
-@@ -101,7 +101,7 @@ operator=(const GeoField& gf)
+            echo "CC = ${OPT_CC}" >> "$cppflags"
+            sed -i '/c++ARCH/ s/$/'" ${OPT_CPPARCH}/" "$cppflags"
+            ;;
+        cce-*)
+            sed -i 's/^export WM_COMPILER=.*/export WM_COMPILER=Clang/' "$bashrc"
 
- template<class Type>
- template<class GeoField>
--CrankNicolsonDdtScheme<Type>::DDt0Field<GeoField>&
-+typename CrankNicolsonDdtScheme<Type>::template DDt0Field<GeoField>&
- CrankNicolsonDdtScheme<Type>::ddt0_
- (
-     const word& name,
+            echo "cc = cc" >> "$cflags"
+            echo "CC = ${OPT_CC}" >> "$cppflags"
+            sed -i '/c++ARCH/ s/$/'" ${OPT_CPPARCH}/" "$cppflags"
+            sed -i 's/c++OPT.*/c++OPT      = -O3 -ffast-math -ffp-contract=fast/' "$cppOptflags"
 
-EOPATCH
-                )
-            fi
+            linkflags="wmake/rules/General/Clang/link-c++"
+            sed -i 's/(CC)/(CC) -fuse-ld=bfd/' "$linkflags"
             ;;
         gcc-*)
             sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=Gcc,' "$bashrc"
-            sed -i '/export WM_COMPILER=Gcc/a export CRAYPE_LINK_TYPE=dynamic' "$bashrc"
-            [ -n "${OPT_CC:-}" ] && sed -i "s/^CC          =.*/CC          = ${OPT_CC}/" "$cppflags"
+
+            [ -n "${OPT_CC:-}" ] && echo "CC = ${OPT_CC}" >> "$cppflags"
+            [ -n "${OPT_CPPARCH:-}" ] && sed -i '/c++ARCH/ s/$/'" ${OPT_CPPARCH}/" "$cppflags"
             [ -n "${OPT_CPPOPT:-}" ] && sed -i "s/^c++OPT      =.*/c++OPT      = ${OPT_CPPOPT}/" "$cppOptflags"
             ;;
         intel-*)
             sed -i 's,^export WM_COMPILER=.*,export WM_COMPILER=Icc,' "$bashrc"
-            sed -i '/export WM_COMPILER=Icc/a export CRAYPE_LINK_TYPE=dynamic' "$bashrc"
             ;;
         *)
             echo "Invalid compiler '$COMPILER'. This is most likely a bug in the script."
             exit 1
             ;;
     esac
-
-    cat >>"$cppOptflags" <<EOF
-# Suppress some warnings for flex++ and CGAL
-c++LESSWARN = -Wno-old-style-cast -Wno-unused-local-typedefs -Wno-array-bounds -fpermissive
-EOF
+    sed -i '/export WM_COMPILER=.*/a export CRAYPE_LINK_TYPE=dynamic' "$bashrc"
+    sed -i '/export export WM_MPLIB=.*/a export WM_NCOMPPROCS='"$OPT_NCOMPPROCS" "$bashrc"
 
     # Disable -eu because otherwise sourcing bashrc will trigger it
     set +e +u
     source "$bashrc"
 
-    # Additional flag changes: enable parallel compilation
-    export WM_NCOMPPROCS="$OPT_NCOMPPROCS"
+    # Additional platform-specific flag changes
     [ "$(type -t override_env)" = "function" ] && override_env
 
     [ "$restart_build" = yes ] && wclean all
@@ -283,7 +262,7 @@ elif [ "$action" == "run" ]; then
     # Submit job
     cd "$RUN_DIR"
     qsub -l select="${NODES}${PBS_RESOURCES:-}" \
-        -o "${PWD}/../OpenFOAM-v1712_${PLATFORM}_${CONFIG}_${run_args}".out \
+        -o "${PWD}/../OpenFOAM-v2006_${PLATFORM}_${CONFIG}_${run_args}".out \
         -N OpenFOAM_"${run_args}_${CONFIG}" \
         -V \
         "$PLATFORM_DIR/$jobscript"

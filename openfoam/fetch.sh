@@ -3,48 +3,36 @@
 set -eu
 set -o pipefail
 
-# basedir="OpenFOAM-v1712"
-tgz_of="OpenFOAM-v1712.tgz"
-tgz_tp="ThirdParty-v1712.tgz"
-
-# Installation
-# if [ -d "$basedir" ]; then
-#     echo "$0: OpenFOAM installation directory already exists: $basedir" >&2
-# else
+tgz_of="OpenFOAM-v2006.tgz"
+tgz_tp="ThirdParty-v2006.tgz"
 
 echo "Downloading OpenFOAM..."
-# mkdir "$basedir"
 
 # OpenFOAM
 if [ ! -f "$tgz_of" ]; then
-    wget https://sourceforge.net/projects/openfoamplus/files/v1712/OpenFOAM-v1712.tgz
+    wget "https://sourceforge.net/projects/openfoam/files/v2006/OpenFOAM-v2006.tgz"
 else
     echo "$0: File already exists: $tgz_of" >&2
     echo "$0: Skipping download." >&2
 fi
 
 h=$(md5sum "$tgz_of" | awk '{print $1}')
-if [[ "$h" != "6ad92df051f4d52c7d0ec34f4b8eb3bc" ]]; then
+if [[ "$h" != "1226d48e74a4c78f12396cb586c331d8" ]]; then
     echo "$0: Checksum does NOT match for: $tgz_of" >&2
 fi
 
-# tar -xf "$tgz_of" -C "$basedir"
-
 # ThirdParty
 if [ ! -f "$tgz_tp" ]; then
-    wget https://sourceforge.net/projects/openfoamplus/files/v1712/ThirdParty-v1712.tgz
+    wget "https://sourceforge.net/projects/openfoam/files/v2006/ThirdParty-v2006.tgz"
 else
     echo "$0: File already exists: $tgz_tp" >&2
     echo "$0: Skipping download." >&2
 fi
 
 h=$(md5sum "$tgz_tp" | awk '{print $1}')
-if [[ "$h" != "c5662a79d4e997472a78b7cc6da98edd" ]]; then
+if [[ "$h" != "6b598b6faa6ddeb25235c5dded0ca275" ]]; then
     echo "$0: Checksum does NOT match for: $tgz_tp" >&2
 fi
-
-    # tar -xf "$tgz_tp" -C "$basedir"
-# fi
 
 echo
 
