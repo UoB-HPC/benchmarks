@@ -1,0 +1,63 @@
+#!/bin/bash
+
+#PBS -N OpenFOAM-a64fx
+#PBS -q a64fx
+#PBS -l walltime=12:00:00
+#PBS -joe
+
+setup_env # Isambard 2 A64FX resets modules in PBS jobs, even when run with -V
+source "${INSTALL_DIR}/OpenFOAM-v2006/etc/bashrc"
+
+set -eu
+set -o pipefail
+
+cd "$PBS_O_WORKDIR"
+
+testcase=32M
+# testcase=64M
+
+pernode=48
+numprocs=$(( $NODES * $pernode ))
+testdir="${testcase}-${numprocs}"
+originaldir="DrivAer/$testcase"
+
+export FOAM_SIGFPE=false
+
+if [ ! -d "$testdir" ]; then
+    if [ -d "$originaldir" ]; then
+        echo "Copying $originaldir into $testdir..."
+        cp -r "$originaldir" "$testdir"
+    else
+        echo "Run directory does not exist: $PWD/$testdir"
+        echo "Have you copied over your test case?"
+        echo "Stop."
+        exit 1
+    fi
+fi
+
+cd "$testdir"
+
+# Set the number of processors
+sed -i 's/^numberOfSubdomains.*/numberOfSubdomains '"$numprocs"';/' system/decomposeParDict
+
+# Remove a warning on v1812+
+sed -i 's/writeCompression compressed;/writeCompression on;/' system/controlDict
+
+ts="$(date "+%Y-%m-%d_%H-%M")"
+runlog="simpleFoam_${ARCH}_${COMPILER}_${MPILIB}_$(basename "$originaldir")_${ts}.log"
+
+procdirs=$(set +o pipefail && ls -d processor* 2>/dev/null | wc -l)
+if [ "$procdirs" -ne "$numprocs" ]; then
+    decomposePar |& tee "decomposePar_$ts.log"
+    mpirun -np "$numprocs" renumberMesh -parallel -overwrite |& tee "renumberMesh_$ts.log"
+fi
+
+mpirun -np "$numprocs" simpleFoam -parallel |& tee "$runlog"
+
+time_first=$(grep ExecutionTime "$runlog" | head -1 | awk '{print $3}')
+time_last=$(grep ExecutionTime "$runlog" | tail -1 | awk '{print $3}')
+time_diff=$(echo "$time_last - $time_first" | bc -l)
+echo "Benchmark time (total time - first step): $time_diff"
+
+echo "Full run log: $runlog"
+echo "Done."

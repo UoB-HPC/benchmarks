@@ -63,7 +63,7 @@ setup_env
 
 # Handle actions
 if [ "$action" == "build" ]; then
-    if [ ! -d "$INSTALL_DIR" ]; then 
+    if [ ! -d "$INSTALL_DIR" ]; then
         mkdir "$INSTALL_DIR"
     else
         echo "Directory already exists: $INSTALL_DIR"
@@ -134,14 +134,21 @@ if [ "$action" == "build" ]; then
     mpiflags="etc/config.sh/mpi"
     systemopenmpiflags="wmake/rules/General/mplibSYSTEMOPENMPI"
     craympichflags="wmake/rules/General/mplibCRAY-MPICH"
+    mvapich2flags="wmake/rules/General/mplibMVAPICH2"
 
     # Set the installtion directory path and the MPI library
     # sed -i 's,^FOAM_INST_DIR=.*,FOAM_INST_DIR='"$PWD," "$bashrc"
     sed -i '/^FOAM_INST_DIR=.*/a FOAM_INST_DIR='"$(dirname "$PWD")" "$bashrc"
+    sed -i '/^# projectDir="\/usr\/local/a projectDir='"$PWD" "$bashrc"
     case "$MPILIB" in
         cray-mpich-*)
             sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=CRAY-MPICH,' "$bashrc"
             echo 'PLIBS = -L$(MPI_ARCH_PATH)/lib$(WM_COMPILER_LIB_ARCH) -L$(MPI_ARCH_PATH)/lib -lmpich -lrt' >> "$craympichflags"
+            ;;
+        cray-mvapich2-*)
+            sed -i 's,^export WM_MPLIB=.*,export WM_MPLIB=MVAPICH2,' "$bashrc"
+            echo "PINC  = -I/opt/cray/pe/cray-mvapich2_noslurm_nogpu/2.3.4/infiniband/cray/10.0/include" > "$mvapich2flags"
+            echo "PLIBS = -L/opt/cray/pe/cray-mvapich2_noslurm_nogpu/2.3.4/infiniband/cray/10.0/lib -lmpi" >> "$mvapich2flags"
             ;;
         hmpt-*)
             sed -i "s,PINC       =.*,PINC       = -I${MPI_ROOT}/include -pthread," "$systemopenmpiflags"
@@ -216,9 +223,11 @@ if [ "$action" == "build" ]; then
     elif [ -f OpenFOAM-v1712-block_DrivAer_small.tar.gz ]; then
         mkdir -p "$testdir"
         tar -xf OpenFOAM-v1712-block_DrivAer_small.tar.gz -C "$testdir" --strip-components 1
+        sed -i 's/writeCompression compressed;/writeCompression on;/' system/controlDict
     elif [ -d OpenFOAM-v1712-block_DrivAer_small ]; then
         mkdir -p "$testdir"
         cp -r OpenFOAM-v1712-block_DrivAer_small "$testdir"
+        sed -i 's/writeCompression compressed;/writeCompression on;/' system/controlDict
     else
         echo "Test case direcotry not available. You will have to obtain and unpack the test case manually before running the benchmark."
     fi
