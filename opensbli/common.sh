@@ -38,7 +38,7 @@ then
     shift
     RUN_ARGS="$1"
 fi
-COMPILER="${2:-$DEFAULT_COMPILER}"
+export COMPILER="${2:-$DEFAULT_COMPILER}"
 SCRIPT="`realpath $0`"
 SCRIPT_DIR="`realpath $(dirname $SCRIPT)`"
 
@@ -74,6 +74,13 @@ then
         "$CFG_DIR/OpenSBLI/Benchmark/OpenSBLI_ops.cpp"
 
     # Build OPS
+    if ! eval make -C "$OPS_INSTALL_PATH/c" -B core $OPS_MAKE_OPTS
+    then
+        echo
+        echo "OPS build failed."
+        echo
+        exit 1
+    fi
     if ! eval make -C "$OPS_INSTALL_PATH/c" -B mpi $OPS_MAKE_OPTS
     then
         echo
@@ -125,7 +132,7 @@ then
     fi
 
     # Some systems use a different shell for jobs, breaking exported functions
-    unset -f setup_env
+    [ "${SYSTEM:-}" = catalyst ] && unset -f setup_env
 
     # Submit job
     mkdir -p $RUN_ARGS
