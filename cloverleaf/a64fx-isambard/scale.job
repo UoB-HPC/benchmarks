@@ -1,0 +1,31 @@
+#!/bin/bash
+#PBS -q a64fx
+#PBS -l walltime=04:00:00
+#PBS -joe
+
+# Isambard 2 A64FX resets the environment in PBS jobs, even when run with -V
+module use /lustre/projects/bristol/modules-a64fx/modulefiles
+setup_env
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+cp "$SRC_DIR/InputDecks/clover_bm256.in" clover.in
+
+export OMP_NUM_THREADS=1
+
+case "$COMPILER" in
+  cce-*)
+    # export MV2_ENABLE_AFFINITY=0
+    mpirun -np $(( NODES * 48 )) -ppn 48 "$CFG_DIR/$BENCHMARK_EXE"
+    ;;
+  gcc-*)
+    mpirun -np 4 "$CFG_DIR/$BENCHMARK_EXE"
+    ;;
+  *)
+    echo
+    echo "Invalid compiler '$COMPILER'."
+    exit 1
+    ;;
+esac

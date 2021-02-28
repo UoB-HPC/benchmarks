@@ -6,7 +6,7 @@ function setup_env()
       cce-10.0)
           module unload cce-sve
           module swap cce cce/10.0.3
-          module load craype-arm-nsp1
+          module swap craype-arm-nsp1 craype-arm-thunderx2
           module load cray-mvapich2_noslurm_nogpu/2.3.4
           MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
           MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -homp"'
