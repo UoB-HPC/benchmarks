@@ -33,7 +33,7 @@ function setup_env()
             OPT_CPPARCH="-march=armv8.3-a+sve"
             ;;
         gcc-11.0)
-            module load gcc/11-20201025
+            module load gcc/11-20201213
             module load flex
 
             of_platform=linuxARM64Gcc
