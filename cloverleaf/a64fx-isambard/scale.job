@@ -9,7 +9,7 @@ setup_env
 
 set -u
 
-cd "$PBS_O_WORKDIR"
+cd "$PBS_O_WORKDIR" || exit
 
 cp "$SRC_DIR/InputDecks/clover_bm256.in" clover.in
 
@@ -20,8 +20,8 @@ case "$COMPILER" in
     # export MV2_ENABLE_AFFINITY=0
     mpirun -np $(( NODES * 48 )) -ppn 48 "$CFG_DIR/$BENCHMARK_EXE"
     ;;
-  gcc-*)
-    mpirun -np 4 "$CFG_DIR/$BENCHMARK_EXE"
+  fcc-*|gcc-*)
+    mpirun -np $(( NODES * 48 )) -map-by ppr:48:node "$CFG_DIR/$BENCHMARK_EXE"
     ;;
   *)
     echo

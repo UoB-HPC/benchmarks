@@ -21,6 +21,14 @@ function setup_env()
           MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -homp"'
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_CRAY="-em -hlist=a -homp"'
           ;;
+      fcc-4.3)
+          module load fujitsu-compiler/4.3.1
+          module load openmpi/4.1.0/fcc-4.3-clang
+          MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpif90 C_MPI_COMPILER=mpicc'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Kfast,A64FX,simd=2,assume=memory_bandwidth"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Kfast,A64FX,simd=2,assume=memory_bandwidth"'
+          MAKE_OPTS=$MAKE_OPTS' OMP_GNU=-Kopenmp'
+          ;;
       gcc-8.1)
           module load gcc/8.1.0
           module load openmpi/4.0.4/gcc-8.1
@@ -29,8 +37,8 @@ function setup_env()
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -march=armv8.3-a+sve -funroll-loops"'
           ;;
       gcc-11.0)
-          module load gcc/11-20201025
-          module load openmpi/4.0.4/gcc-11.0
+          module load gcc/11-20210321
+          module load openmpi/4.1.0/gcc-11.0
           MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpif90 C_MPI_COMPILER=mpicc'
           MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -mcpu=a64fx -funroll-loops"'
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -mcpu=a64fx -funroll-loops"'
@@ -48,7 +56,7 @@ SCRIPT="`realpath $0`"
 export ARCH="a64fx"
 export SYSTEM="isambard"
 export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
-export COMPILERS="cce-10.0 gcc-8.1 gcc-11.0"
+export COMPILERS="cce-10.0 cce-sve-10.0 fcc-4.3 gcc-8.1 gcc-11.0"
 export DEFAULT_COMPILER="gcc-11.0"
 export PBS_RESOURCES=":ncpus=48"
 export -f setup_env

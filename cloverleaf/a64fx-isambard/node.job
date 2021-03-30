@@ -21,7 +21,7 @@ case "$COMPILER" in
     export MV2_ENABLE_AFFINITY=0
     mpirun -np 4 -bind-to numa "$CFG_DIR/$BENCHMARK_EXE"
     ;;
-  gcc-*)
+  fcc-*|gcc-*)
     mpirun -np 4 "$CFG_DIR/$BENCHMARK_EXE"
     ;;
   *)
