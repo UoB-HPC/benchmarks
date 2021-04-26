@@ -38,7 +38,7 @@ then
     shift
     RUN_ARGS="$1"
 fi
-COMPILER="${2:-$DEFAULT_COMPILER}"
+export COMPILER="${2:-$DEFAULT_COMPILER}"
 SCRIPT="`realpath $0`"
 SCRIPT_DIR="`realpath $(dirname $SCRIPT)`"
 
@@ -109,7 +109,11 @@ then
     fi
 
     # Some systems use a different shell for jobs, breaking exported functions
-    unset -f setup_env
+    case "$SYSTEM" in
+        catalyst)
+            unset -f setup_env
+            ;;
+    esac
 
     # Submit job
     mkdir -p "$RUN_ARGS"
