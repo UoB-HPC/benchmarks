@@ -12,7 +12,7 @@ Depending on the application and platform, there may be additional files require
 
 ## Usage
 
-The following section assumes that the root of this repository is available at `$REPO`.
+The following section assumes that the root of this repository is available at `$BENCH`.
 
 To run a benchmark with the default settings:
 
@@ -24,13 +24,13 @@ mkdir benchmarks && cd benchmarks
 2. Run the `build` action of your chosen benchmark and platform to compile the application. If the application sources are not already available locally, they will be downloaded automatically; you do not need to run `fetch.sh` manually.
 ```bash
 # Example for CloverLeaf on TX2
-$REPO/cloverleaf/tx2-isambard/benchmark.sh build
+$BENCH/cloverleaf/tx2-isambard/benchmark.sh build
 ```
 
 3. Use the `run` action to start the benchmark, specifying the scale (number of nodes), which will submit a job to the queue.
 ```bash
 # Example for CloverLeaf on TX2, running on 64 nodes (assuming you have previously run 'build')
-$REPO/cloverleaf/tx2-isambard/benchmark.sh run scale-64
+$BENCH/cloverleaf/tx2-isambard/benchmark.sh run scale-64
 ```
 
 ### Using custom settings
@@ -39,30 +39,38 @@ Some applications support various build-time or run-time options. In particular,
 
 ```bash
 # Example for GROMACS on TX2
-$REPO/gromacs/tx2-isambard/benchmark.sh
+$BENCH/gromacs/tx2-isambard/benchmark.sh
 ```
 
 Once you have chosen your settings, build and run the benchmark _using the same parameters_. For example, GROMACS on Isambard uses GCC 8.2.0 and FFTW 3.3.8 by default. To use the Arm compiler and the Arm performance libraries instead:
 
 ```bash
-$REPO/gromacs/tx2-isambard/benchmark.sh build arm-19.0 armpl-19.0
-$REPO/gromacs/tx2-isambard/benchmark.sh run scale-64 arm-19.0 armpl-19.0
+$BENCH/gromacs/tx2-isambard/benchmark.sh build arm-19.0 armpl-19.0
+$BENCH/gromacs/tx2-isambard/benchmark.sh run scale-64 arm-19.0 armpl-19.0
 ```
 
 ## Platforms
 
-**tx2-isambard:**
+**a64fx-isambard**:
+Isambard 2 HPE Apollo 80 system.
+Fujitsu A64FX 48-core @ 1.8 GHz, with 32 GB of HBM2 memory.
+
+**tx2-isambard**:
 Isambard Cray XC50 system.
 Dual-socket Marvell ThunderX2 32-core @ 2.1 GHz (2.5 GHz boost), with 256 GB of DDR4-2666 memory.
 
-**bdw-swan:**
+**tx2-catalyst**:
+HPE Apollo 70 system.
+Dual-socket Marvell ThunderX2 32-core @ 2.1 GHz (2.5 GHz boost), with 256 GB of DDR4-2666 memory.
+
+**bdw-swan**:
 Cray Marketing Partner Network system.
 Dual-socket Intel Xeon E5-2699 v4 (Broadwell) 22-core @ 2.2 GHz, with 128 GB of DDR4-2400 memory.
 
-**skl-swan:**
+**skl-swan**:
 Cray Marketing Partner Network system.
 Dual-socket Intel Xeon Platinum 8176 (Skylake) 28-core @ 2.1 GHz, with 192 GB of DDR4-2666 memory.
 
-**skl-horizon:**
+**skl-horizon**:
 Internal system provided by Cray.
 Dual-socket Intel Xeon Gold 6148 (Skylake) 20-core @ 2.4 GHz, with 192 GB of DDR4-2666 memory.
