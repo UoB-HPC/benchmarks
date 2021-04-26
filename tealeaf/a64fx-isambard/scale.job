@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#PBS -N TeaLeaf-a64fx
+#PBS -q a64fx
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+setup_env # Isambard 2 A64FX resets modules in PBS jobs, even when run with -V
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+cp "$SRC_DIR/Benchmarks/tea_bm_5.in" tea.in
+
+echo "Not implemented"
+exit 1

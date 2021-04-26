@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#PBS -N TeaLeaf-a64fx
+#PBS -q a64fx
+#PBS -l select=1:ncpus=48
+#PBS -l walltime=00:30:00
+#PBS -joe
+
+setup_env # Isambard 2 A64FX resets modules in PBS jobs, even when run with -V
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+cp "$SRC_DIR/Benchmarks/tea_bm_5.in" tea.in
+
+
+case "$COMPILER" in
+  cce-*)
+    # With Cray, hybrid OpenMP + MPI is fastest
+    export MV2_ENABLE_AFFINITY=0 OMP_NUM_THREADS=12
+    mpirun -np 4 -bind-to numa "$CFG_DIR/$BENCHMARK_EXE"
+    ;;
+  arm-*|gcc-*)
+    # With Open MPI, flat OpenMP is fastest
+    export OMP_NUM_THREADS=48 OMP_PROC_BIND=spread OMP_PLACES=cores
+    mpirun -np 1 -bind-to none "$CFG_DIR/$BENCHMARK_EXE"
+    ;;
+  *)
+    echo
+    echo "Invalid compiler '$COMPILER'."
+    exit 1
+    ;;
+esac
