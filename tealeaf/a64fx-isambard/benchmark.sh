@@ -37,8 +37,9 @@ function setup_env()
       fcc-4.3)
           module load fujitsu-compiler/4.3.1
           MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpifrt C_MPI_COMPILER=mpifcc'
-          MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Kfast,assume=memory_bandwidth,simd=3"'
-          MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Kfast,assume=memory_bandwidth,simd=3"'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Kfast,assume=memory_bandwidth,simd=2 -Cpp"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Kfast,assume=memory_bandwidth,simd=2"'
+          MAKE_OPTS=$MAKE_OPTS' OMP_GNU=-Kopenmp'
           ;;
       gcc-10.3)
           module unload cce cce-sve

@@ -26,6 +26,11 @@ case "$COMPILER" in
     export OMP_NUM_THREADS=48 OMP_PROC_BIND=spread OMP_PLACES=cores
     mpirun -np 1 -bind-to none "$CFG_DIR/$BENCHMARK_EXE"
     ;;
+  fcc-*)
+    # With Fujitsu, flat MPI is fastest
+    export OMP_NUM_THREADS=12 OMP_PROC_BIND=spread OMP_PLACES=cores
+    mpirun -np 4 -bind-to numa "$CFG_DIR/$BENCHMARK_EXE"
+    ;;
   *)
     echo
     echo "Invalid compiler '$COMPILER'."
