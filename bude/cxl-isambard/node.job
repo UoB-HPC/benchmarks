@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -q clxq
+#PBS -l select=1:ncpus=40
+#PBS -l walltime=00:10:00
+#PBS -l place=excl
+#PBS -joe
+
+set -eu
+
+cd "$PBS_O_WORKDIR" || exit 2
+
+date
+
+export OMP_NUM_THREADS=40 OMP_PLACES=cores OMP_PROC_BIND=spread
+"./$BENCHMARK_EXE" --deck "$SRC_DIR/../data/bm1"

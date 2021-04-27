@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l select=1:ncpus=64
+#PBS -l walltime=01:00:00
+#PBS -joe
+
+cd "$PBS_O_WORKDIR" || exit 2
+
+date
+
+export OMP_NUM_THREADS=64
+
+if [[ "$COMPILER" =~ (arm|llvm)- ]]; then
+    OMP_PROC_BIND=true aprun -n 1 -d 64 -cc none "./$BENCHMARK_EXE" --deck "$SRC_DIR/../data/bm1"
+else
+    aprun -n 1 -d 64 "./$BENCHMARK_EXE" --deck "$SRC_DIR/../data/bm1"
+fi

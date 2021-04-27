@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -q sk56
+#PBS -l select=1:ncpus=56
+#PBS -l walltime=00:10:00
+#PBS -joe
+set -eu
+
+cd "$PBS_O_WORKDIR" || exit 2
+
+date
+
+export OMP_NUM_THREADS=56 OMP_PLACES=cores OMP_PROC_BIND=true
+aprun -n 1 -d 56 -j 1 -cc depth "./$BENCHMARK_EXE" --deck "$SRC_DIR/../data/bm1"
