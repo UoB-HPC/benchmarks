@@ -1,0 +1,59 @@
+FMM args
+Num Points   = 10000000
+NCrit        = 256
+Num Terms    = 3
+Theta        = 0.66
+Num Samples  = 1000
+Distribution = Plummer
+
+num_nodes = 155638
+root 0 has 8 children
+max tree depth = 18
+Running on 64 threads
+
+Upwards Time (s)       0.25217792
+DTT Time (s)           7.72981711
+Downwards Time (s)     0.27916890
+--------------------
+Total Time (s)         8.26124689
+--------------------
+
+pot err = 7.464433461428e-02
+acc err = 1.529432088137e-01
+Application 1603727 resources: utime ~537s, stime ~15s, Rss ~2244396, inblocks ~8, outblocks ~0
+============================= PBS epilogue =============================
+
+End of Job Report
+Run at 2021-04-26 07:49:53 for job 111484.xci00
+Submitted              : 2021-04-26 07:49:15
+Queued                 : 
+Started                : 2021-04-26 07:49:16
+Completed              : 2021-04-26 07:49:53
+Queued Time            : 
+Elapsed Time           : 0:00:32 (32 seconds, 4% of limit)
+Walltime Limit         : 0:15:00 (900 seconds)
+Node Time Limit        : 0:15:00 (900 seconds)
+Node Time              : 0:00:32 (32 seconds, 4% of limit)
+Job Name               : minifmm_node_tx2_gcc-10.1
+Queue                  : arm
+Owner                  : 
+Group                  : 
+Project                : 
+Subproject             : 
+Funding                : 
+Trustzone              : 
+STDOUT                 : /home/br-apoenaru/applications-arm/MiniFMM/tx2/gcc-10.1/node/job.out
+STDERR                 : /home/br-apoenaru/applications-arm/MiniFMM/tx2/gcc-10.1/node/minifmm_node_tx2_gcc-10.1.e111484
+Job Directory          : /home/br-apoenaru/pbs.111484.xci00.x8z
+Job Arch               : XT
+CPU Core Type          : arm
+Total Nodes            : 1
+Total Tasks            : 64
+Parent Node            : xcimom2
+Parent Node Memory     : 
+Parent Node CPU Time   : 
+Compute Nodes          : 1
+Electrical Groups      : 1
+Run Version            :
+
+For more information see https://gw4-isambard.github.io/docs/

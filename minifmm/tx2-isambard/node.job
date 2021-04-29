@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -q arm
+#PBS -l select=1:ncpus=64
+#PBS -l walltime=00:15:00
+#PBS -joe
+
+set -u
+
+cd "$PBS_O_WORKDIR"
+
+export OMP_NUM_THREADS=64
+
+if [[ "$COMPILER" =~ arm- ]]; then
+  export OMP_NUM_THREADS=64 OMP_PROC_BIND=spread OMP_PLACES=cores
+  aprun -n1 -d64 -j1 -cc depth "$CFG_DIR/$BENCHMARK_EXE" -i "$SRC_DIR/inputs/plummer.in"
+else
+  aprun -n1 -d64 -j1 "$CFG_DIR/$BENCHMARK_EXE" -i "$SRC_DIR/inputs/plummer.in"
+fi
+
