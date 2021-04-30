@@ -3,6 +3,13 @@
 function setup_env()
 {
   case "$COMPILER" in
+      arm-21.0)
+          module load tools/arm-compiler-a64fx/21.0
+          module load openmpi/4.1.0/arm-21.0
+          MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpif90 C_MPI_COMPILER=mpicc'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -mcpu=a64fx -funroll-loops -ffp-contract=fast -fsimdmath"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -mcpu=a64fx -funroll-loops -ffp-contract=fast -fsimdmath"'
+          ;;
       cce-10.0)
           module unload cce-sve
           module swap cce cce/10.0.3
@@ -37,7 +44,7 @@ function setup_env()
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -march=armv8.3-a+sve -funroll-loops"'
           ;;
       gcc-11.0)
-          module load gcc/11-20210321
+          module load gcc/11.1.0
           module load openmpi/4.1.0/gcc-11.0
           MAKE_OPTS='COMPILER=GNU MPI_COMPILER=mpif90 C_MPI_COMPILER=mpicc'
           MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -mcpu=a64fx -funroll-loops"'

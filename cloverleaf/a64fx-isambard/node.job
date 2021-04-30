@@ -14,14 +14,16 @@ cd "$PBS_O_WORKDIR"
 
 cp "$SRC_DIR/InputDecks/clover_bm16.in" clover.in
 
-export OMP_NUM_THREADS=12
-
 case "$COMPILER" in
+  arm-*)
+    export OMP_NUM_THREADS=12
+    mpirun -np 1 -bind-to none "$CFG_DIR/$BENCHMARK_EXE"
   cce-*)
-    export MV2_ENABLE_AFFINITY=0
+    export MV2_ENABLE_AFFINITY=0 OMP_NUM_THREADS=12
     mpirun -np 4 -bind-to numa "$CFG_DIR/$BENCHMARK_EXE"
     ;;
   fcc-*|gcc-*)
+    export OMP_NUM_THREADS=12
     mpirun -np 4 "$CFG_DIR/$BENCHMARK_EXE"
     ;;
   *)
