@@ -6,10 +6,10 @@
 
 set -u
 
-cd "$PBS_O_WORKDIR"
+cd "$PBS_O_WORKDIR" || exit
 
 cp "$SRC_DIR/Benchmarks/tea_bm_5.in" tea.in
 
 export OMP_WAIT_POLICY=active
-export OMP_NUM_THREADS=2
-aprun -n 64 -d 2 -j 2 -cc depth "$CFG_DIR/$BENCHMARK_EXE"
+export OMP_NUM_THREADS=4
+aprun -n 64 -d 4 -j 4 -cc depth "$CFG_DIR/$BENCHMARK_EXE"

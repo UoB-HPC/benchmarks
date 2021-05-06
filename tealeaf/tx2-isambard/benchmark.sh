@@ -12,6 +12,13 @@ function setup_env()
           MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -homp"'
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_CRAY="-Ofast -fopenmp -funroll-loops"'
           ;;
+      cce-10.0)
+          module swap $PRGENV PrgEnv-cray
+          module swap cce cce/10.0.1
+          MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -homp"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_CRAY="-Ofast -fopenmp -funroll-loops"'
+          ;;
       cce-11.0)
           module load cdt/20.12
           module swap $PRGENV PrgEnv-cray
@@ -64,8 +71,8 @@ SCRIPT="`realpath $0`"
 export ARCH="tx2"
 export SYSTEM="isambard"
 export PLATFORM_DIR="`realpath $(dirname $SCRIPT)`"
-export COMPILERS="cce-9.0 gcc-8.3 arm-19.2"
-export DEFAULT_COMPILER=cce-9.0
+export COMPILERS="cce-9.0 cce-10.0 cce-11.0 gcc-8.3 gcc-10.1 arm-19.2 arm-20.0"
+export DEFAULT_COMPILER=cce-10.0
 export PBS_RESOURCES=":ncpus=64"
 export -f setup_env
 
