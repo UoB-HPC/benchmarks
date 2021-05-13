@@ -18,12 +18,18 @@ setup_env() {
       ;;
     cce-11.0)
       [ -z "$CRAY_CPU_TARGET" ] && module load craype-arm-thunderx2
-      module swap cce cce/11.0.0.7500
+      module swap cce cce/11.0.1
       MAKE_OPTS='COMPILER=CLANG CC=cc WGSIZE=256'
       ;;
     gcc-9.3)
       module swap PrgEnv-{cray,gnu}
       module swap gcc gcc/9.3.0
+      MAKE_OPTS='COMPILER=GNU WGSIZE=256'
+      ;;
+    gcc-10.1)
+      module load cdt/20.12
+      module swap PrgEnv-{cray,gnu}
+      module swap gcc gcc/10.1.0
       MAKE_OPTS='COMPILER=GNU WGSIZE=256'
       ;;
     llvm-11.0)

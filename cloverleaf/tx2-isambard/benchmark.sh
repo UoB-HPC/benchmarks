@@ -12,6 +12,22 @@ function setup_env()
           MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -homp"'
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_CRAY="-Ofast -funroll-loops -fopenmp"'
           ;;
+      cce-10.0)
+          module load cdt/20.12
+          module swap $PRGENV PrgEnv-cray
+          module swap cce cce/10.0.1
+          MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -homp"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_CRAY="-Ofast -funroll-loops -fopenmp"'
+          ;;
+      cce-11.0)
+          module load cdt/20.12
+          module swap $PRGENV PrgEnv-cray
+          module swap cce cce/11.0.1
+          MAKE_OPTS='COMPILER=CRAY MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_CRAY="-em -ra -h acc_model=fast_addr:no_deep_copy:auto_async_all -homp"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_CRAY="-Ofast -funroll-loops -fopenmp"'
+          ;;
       gcc-8.3)
           module load cdt/19.08
           module swap $PRGENV PrgEnv-gnu
@@ -20,10 +36,25 @@ function setup_env()
           MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -mcpu=native -funroll-loops"'
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -mcpu=native -funroll-loops"'
           ;;
+      gcc-10.1)
+          module load cdt/20.12
+          module swap $PRGENV PrgEnv-gnu
+          module swap gcc gcc/10.1.0
+          MAKE_OPTS='COMPILER=GNU MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -mcpu=native -funroll-loops -fallow-argument-mismatch"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -mcpu=native -funroll-loops"'
+          ;;
       arm-19.2)
           module load cdt/19.08
           module swap $PRGENV PrgEnv-allinea
           module swap allinea allinea/19.2.0.0
+          MAKE_OPTS='COMPILER=GNU MPI_COMPILER=ftn C_MPI_COMPILER=cc'
+          MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -mcpu=native -funroll-loops"'
+          MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -mcpu=native -funroll-loops"'
+          ;;
+      arm-20.0)
+          module swap $PRGENV PrgEnv-allinea
+          module swap allinea allinea/20.0.0.0
           MAKE_OPTS='COMPILER=GNU MPI_COMPILER=ftn C_MPI_COMPILER=cc'
           MAKE_OPTS=$MAKE_OPTS' FLAGS_GNU="-Ofast -mcpu=native -funroll-loops"'
           MAKE_OPTS=$MAKE_OPTS' CFLAGS_GNU="-Ofast -mcpu=native -funroll-loops"'
