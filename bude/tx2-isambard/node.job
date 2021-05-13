@@ -4,14 +4,10 @@
 #PBS -l walltime=01:00:00
 #PBS -joe
 
-cd "$PBS_O_WORKDIR" || exit 2
+cd "$CFG_DIR" || exit 2
 
 date
 
-export OMP_NUM_THREADS=64
+export OMP_NUM_THREADS=256 OMP_PROC_BIND=true
 
-if [[ "$COMPILER" =~ (arm|llvm)- ]]; then
-    OMP_PROC_BIND=true aprun -n 1 -d 64 -cc none "./$BENCHMARK_EXE" --deck "$SRC_DIR/../data/bm1"
-else
-    aprun -n 1 -d 64 "./$BENCHMARK_EXE" --deck "$SRC_DIR/../data/bm1"
-fi
+aprun -n 1 -d 256 -j 4 -cc none "./$BENCHMARK_EXE" --deck "$SRC_DIR/../data/bm1"
